@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -40,7 +41,7 @@ export default function DownloadPage() {
           <Eyebrow>Safe download directory</Eyebrow>
           <h1>Download from the <span>official source.</span></h1>
           <p className="lede">We do not mirror installers. Every download button below opens the current ArtCraft product page, where you can choose the Launcher or a standalone package for your system.</p>
-          <p className="updated">Last updated: <time dateTime="2026-10-15">2026-10-15</time></p>
+          <p className="updated">Last updated: <PageUpdated path="/download/" /></p>
           <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Check its app list before installing newly added projects such as FigCraft. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
         </header>
 

@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import Link from "next/link";
 
 import { AlternativeTable } from "@/components/alternatives/alternative-table";
@@ -30,7 +31,7 @@ export default function PhotoshopAlternativesPage() {
     ] }} />
     <div className="container guide-shell">
       <Breadcrumbs currentPath="/alternatives/photoshop/" items={[{ label: "Home", href: "/" }, { label: "Alternatives", href: "/alternatives/" }, { label: "Photoshop" }]} />
-      <header className="guide-header"><Eyebrow>Image editing guide · Six options compared</Eyebrow><h1>{guide.h1}</h1><p className="lede">{guide.introduction}</p><p className="updated">Last updated: 2026-10-15</p></header>
+      <header className="guide-header"><Eyebrow>Image editing guide · Six options compared</Eyebrow><h1>{guide.h1}</h1><p className="lede">{guide.introduction}</p><p className="updated">Last updated: <PageUpdated path="/alternatives/photoshop/" /></p></header>
       <VerdictPanel items={guide.verdicts} />
       <div className="guide-layout"><main className="guide-main">
         <section className="guide-section" id="glance"><p className="guide-kicker">Comparison</p><h2>The six options at a glance</h2><AlternativeTable table={guide.table} /></section>

@@ -11,6 +11,8 @@ import { StatusBadge } from "@/components/status-badge";
 import type { AppRecord, SourceRecord } from "@/content/types";
 import type { AppGuide } from "@/content/guides";
 import { absoluteUrl } from "@/lib/site";
+import { PageUpdated } from "@/components/page-updated";
+import { pageUpdatedAt } from "@/content/page-dates";
 
 export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide: AppGuide; sources: SourceRecord[] }) {
   const faqSchema = {
@@ -37,7 +39,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
         url: absoluteUrl(`/apps/${app.slug}/`),
         sameAs: [app.officialPage, app.repository],
         description: guide.intro,
-        dateModified: app.lastVerified,
+        dateModified: pageUpdatedAt(`/apps/${app.slug}/`),
       }} />
       <JsonLd data={faqSchema} />
 
@@ -49,7 +51,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
 
         <header className="photocraft-hero">
           <div className="photocraft-hero__copy">
-            <Eyebrow><span>Independent guide · Last updated <time dateTime={app.lastVerified}>{app.lastVerified}</time></span></Eyebrow>
+            <Eyebrow><span>Independent guide · Last updated <PageUpdated path={`/apps/${app.slug}/`} /></span></Eyebrow>
             <h1 className={guide.headline ? "photocraft-hero__heading--compact" : undefined}>{guide.headline ?? <>{app.name}: an <span>open-source {app.adobeCounterpart} alternative</span></>}</h1>
             <p className="lede">{guide.intro}</p>
             <div className="button-row">

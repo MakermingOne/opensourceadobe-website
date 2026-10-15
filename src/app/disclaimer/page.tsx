@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialSourceNote } from "@/components/editorial-source-note";
@@ -17,7 +18,7 @@ export default function DisclaimerPage() {
       <header className="page-intro">
         <Eyebrow>Disclaimer · independence</Eyebrow>
         <h1>No affiliation.<br /><span>No implied endorsement.</span></h1>
-        <p className="updated">Last updated: 2026-10-11</p>
+        <p className="updated">Last updated: <PageUpdated path="/disclaimer/" /></p>
       </header>
       <article className="prose">
         <h2>Independent publication</h2>

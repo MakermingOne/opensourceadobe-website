@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AppTable } from "@/components/app-table";
@@ -31,7 +32,7 @@ export default function AppsPage() {
           <Eyebrow>Official directory · getartcraft apps</Eyebrow>
           <h1>Browse the <span>ArtCraft app family.</span></h1>
           <p className="lede">Browse {apps.length} ArtCraft projects for photo editing, vector illustration, video, RAW development, PDFs, motion graphics, publishing, interface design, documents, audio, presentations, CAD and spreadsheets.</p>
-          <p className="updated">Last updated: <time dateTime="2026-10-15">2026-10-15</time></p>
+          <p className="updated">Last updated: <PageUpdated path="/apps/" /></p>
         </header>
 
         <section className="content-section" aria-labelledby="choose-app-heading">

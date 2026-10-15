@@ -42,6 +42,21 @@ Published guides, app records, release information, download links, and source c
 
 Product claims are attributed to official sources and include verification dates. Unknown capabilities remain explicitly unverified. These pages are source-led guides, not hands-on reviews. Download links point to official release assets; this repository does not redistribute installers.
 
+Substantive page-change dates live in `src/content/page-dates.ts` and are shared by visible page dates, the footer and sitemap. Source-access dates and release publication dates are separate records; changing metadata alone does not reset a guide's editorial date.
+
+## Social preview images
+
+Share cards are original 1200×630 editorial graphics, not official product artwork. Their text comes from the exported page title. To regenerate a selected card after editing its page:
+
+```sh
+pnpm build
+node scripts/generate-social-images.mjs /apps/ /alternatives/
+pnpm build
+pnpm validate:static
+```
+
+PNG files and editable SVG sources are included in `public/images/og/`.
+
 ## Third-party materials
 
 Font licenses are included in `public/fonts/licenses/`. Product names, trademarks, screenshots, and linked third-party software belong to their respective owners. Public visibility of this repository does not grant rights to third-party materials.

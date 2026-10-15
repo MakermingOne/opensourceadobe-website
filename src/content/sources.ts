@@ -1,7 +1,14 @@
 import { sourceRecordSchema, type SourceRecord } from "./types";
 import { releaseCheckedAt, releaseCheckedOn, releases } from "./releases";
+import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+  ...repositoryLicenses.map((record): SourceRecord => ({
+    id: `${record.slug}-license-notice`, type: "official-repository",
+    title: `${record.slug}: source-code license, branding and third-party NOTICE`,
+    url: record.files.find((file) => file.name === "NOTICE")!.url,
+    accessedAt: record.checkedAt,
+  })),
   {
     id: "pdfcraft-gaps-080", type: "official-repository",
     title: "PdfCraft v0.8.0: documented gaps and browser printing",

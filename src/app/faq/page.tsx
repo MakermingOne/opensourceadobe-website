@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -90,7 +91,7 @@ export default function FaqPage() {
           <Eyebrow>Questions before you switch</Eyebrow>
           <h1>OpenSourceAdobe <span>FAQ</span></h1>
           <p className="lede">Short answers about what these apps are, what “open source” and “alpha” mean, and what you should verify before replacing an Adobe workflow.</p>
-          <p className="updated">Last updated: 2026-10-13</p>
+          <p className="updated">Last updated: <PageUpdated path="/faq/" /></p>
         </header>
 
         <section className="content-section" aria-labelledby="faq-list-heading">

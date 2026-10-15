@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialSourceNote } from "@/components/editorial-source-note";
@@ -19,7 +20,7 @@ export default function ContactPage() {
         <Eyebrow>Contact · corrections first</Eyebrow>
         <h1>Get in touch.<br /><span>Help keep this guide accurate.</span></h1>
         <p className="lede">Email us with corrections, source suggestions, attribution questions or feedback about the site.</p>
-        <p className="updated">Last updated: 2026-10-13</p>
+        <p className="updated">Last updated: <PageUpdated path="/contact/" /></p>
       </header>
       <section className="contact-block">
         <p className="section-number">01</p>

@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -19,7 +20,7 @@ export default function AboutPage() {
         <Eyebrow>About · editorial method</Eyebrow>
         <h1>Useful skepticism<br /><span>for ambitious software.</span></h1>
         <p className="lede">OpenSourceAdobe is an unofficial, independent guide to open-source creative tools that overlap with Adobe workflows.</p>
-        <p className="updated">Last updated: 2026-10-11</p>
+        <p className="updated">Last updated: <PageUpdated path="/about/" /></p>
       </header>
       <article className="prose">
         <h2>What we do</h2>

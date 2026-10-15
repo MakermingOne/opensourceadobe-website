@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -68,7 +69,7 @@ export default function TutorialsPage() {
           <Eyebrow>Low-risk starter paths</Eyebrow>
           <h1>Start with the task <span>you want to complete.</span></h1>
           <p className="lede">The safest way to evaluate an alpha creative app is a small, reversible project. These starter paths show what to test before you move real work.</p>
-          <p className="updated">Last updated: 2026-10-13</p>
+          <p className="updated">Last updated: <PageUpdated path="/tutorials/" /></p>
           <p>The <a href="https://getartcraft.com/tutorials" target="_blank" rel="noreferrer">official tutorial library</a> currently focuses on the ArtCraft AI studio’s 2D and 3D workflows. For PhotoCraft and the other standalone apps, use the starter paths here and check the version shown in any community video.</p>
         </header>
 

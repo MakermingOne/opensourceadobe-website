@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { latestUpdateDate } from "@/content/updates";
+import { pageUpdateDates } from "@/content/page-dates";
+import { FooterUpdatedDate } from "@/components/footer-updated-date";
 
 const footerGroups = [
   { title: "Apps & downloads", links: [{ href: "/apps/", label: "Apps" }, { href: "/download/", label: "Download" }, { href: "/github/", label: "GitHub" }] },
@@ -25,7 +26,7 @@ export function SiteFooter() {
         </nav>
         <div className="footer-meta">
           <span>Evidence before enthusiasm.</span>
-          <span>Latest brief: <time dateTime={latestUpdateDate}>{latestUpdateDate}</time></span>
+          <FooterUpdatedDate dates={pageUpdateDates()} />
         </div>
       </div>
     </footer>

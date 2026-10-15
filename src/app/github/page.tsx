@@ -1,3 +1,8 @@
+import { PageUpdated } from "@/components/page-updated";
+import { faqSchema, GuideFaq } from "@/components/alternatives/guide-faq";
+import { githubFaqs } from "@/content/github-faq";
+import { repositoryLicenseLabel, repositoryLicenses } from "@/content/repository-licenses";
+import { pageUpdatedAt } from "@/content/page-dates";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -19,13 +24,14 @@ export const metadata = pageMetadata({
   image: "/images/og/artcraft-github.png",
 });
 
-const repoSources = ["artcraft-repository", "craft-launcher-repository", "craft-launcher-release", ...apps.flatMap((app) => app.sourceIds)].filter((id, index, ids) => ids.indexOf(id) === index).map((id) => sourcesById.get(id)).filter((source) => source !== undefined);
+const repoSources = ["artcraft-repository", "craft-launcher-repository", "craft-launcher-release", ...apps.flatMap((app) => app.sourceIds), ...repositoryLicenses.map((record) => `${record.slug}-license-notice`)].filter((id, index, ids) => ids.indexOf(id) === index).map((id) => sourcesById.get(id)).filter((source) => source !== undefined);
 
-const repos = apps.map((app) => ({ name: app.name, slug: app.slug, adobe: workflowLabels(app).table, license: app.license, platforms: app.platforms.join(", "), version: app.version }));
+const repos = apps.map((app) => ({ name: app.name, slug: app.slug, adobe: workflowLabels(app).table, license: repositoryLicenseLabel(app.slug), platforms: app.platforms.join(", "), version: app.version }));
 export default function GitHubPage() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
-      { "@type": "CollectionPage", name: "ArtCraft GitHub: official studio, apps and Launcher", description: metadata.description, dateModified: "2026-10-15", url: absoluteUrl("/github/") },
+      { "@type": "CollectionPage", name: "ArtCraft GitHub: official studio, apps and Launcher", description: metadata.description, dateModified: pageUpdatedAt("/github/"), url: absoluteUrl("/github/") },
+      faqSchema(githubFaqs),
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
         { "@type": "ListItem", position: 2, name: "GitHub", item: absoluteUrl("/github/") },
@@ -37,7 +43,7 @@ export default function GitHubPage() {
         <Eyebrow>Official repositories · Verified licenses</Eyebrow>
         <h1>ArtCraft GitHub: <span>find the official repository.</span></h1>
         <p className="lede">Looking for ArtCraft on GitHub? Start with storytold/artcraft for the AI image and video studio. PhotoCraft, PdfCraft and the other Crafting Apps have separate repositories; ArtCraft Launcher is a separate installer. Choose the project you actually want below.</p>
-        <p className="updated">Last updated: <time dateTime="2026-10-15">2026-10-15</time></p>
+        <p className="updated">Last updated: <PageUpdated path="/github/" /></p>
         <div className="button-row"><a className="button" href="https://github.com/storytold/artcraft" target="_blank" rel="noreferrer">Official ArtCraft GitHub ↗</a><a className="button button--secondary" href="#repos-heading">Find a Crafting App</a></div>
       </header>
 
@@ -56,7 +62,7 @@ export default function GitHubPage() {
       </section>
 
       <section className="content-section" aria-labelledby="repos-heading">
-        <div className="section-heading"><p className="section-number">01</p><div><h2 id="repos-heading">Repositories by app</h2><p>Official source repositories, with licenses checked in their documentation. Release dates are shown in the linked notes.</p></div></div>
+        <div className="section-heading"><p className="section-number">01</p><div><h2 id="repos-heading">Repositories by app</h2><p>Official source repositories, with LICENSE-MIT, LICENSE-APACHE and NOTICE checked individually. Release publication dates below are in UTC.</p></div></div>
         <div className="table-scroll guide-table-wrap" tabIndex={0} role="region" aria-label="Scroll the Crafting Apps repository table">
           <table className="guide-table">
             <caption>The {apps.length} Crafting Apps: repositories, platforms and release snapshot</caption>
@@ -66,9 +72,9 @@ export default function GitHubPage() {
                 <tr key={repo.slug}>
                   <td>{repo.name}</td>
                   <td>{repo.adobe}</td>
-                  <td>{repo.license}</td>
+                  <td>{repo.license === "MIT OR Apache-2.0" ? <><a href={`https://github.com/storytold/${repo.slug}/blob/main/LICENSE-MIT`} target="_blank" rel="noreferrer">MIT</a>{" OR "}<a href={`https://github.com/storytold/${repo.slug}/blob/main/LICENSE-APACHE`} target="_blank" rel="noreferrer">Apache-2.0</a></> : repo.license}</td>
                   <td>{repo.platforms}</td>
-                  <td><a href={releasesBySlug.get(repo.slug)?.url} target="_blank" rel="noreferrer">v{repo.version} ↗</a></td>
+                  <td><a href={releasesBySlug.get(repo.slug)?.url} target="_blank" rel="noreferrer">v{repo.version} ↗</a><br /><time dateTime={releasesBySlug.get(repo.slug)?.publishedAt}>{releasesBySlug.get(repo.slug)?.publishedAt.slice(0, 10)} UTC</time></td>
                   <td><a href={`https://github.com/storytold/${repo.slug}`} target="_blank" rel="noreferrer">github.com/storytold/{repo.slug} ↗</a></td>
                 </tr>
               ))}
@@ -90,7 +96,7 @@ export default function GitHubPage() {
         <div className="section-heading"><p className="section-number">03</p><div><h2 id="build-heading">Build from source</h2><p>Each repository includes build instructions for its supported platforms.</p></div></div>
         <div className="prose">
           <p>The Crafting Apps are written in Rust. Clone the individual app repository and follow its README rather than the AI studio’s build instructions. For the studio, use <a href="https://github.com/storytold/artcraft/blob/main/_docs/dev_setup.md" target="_blank" rel="noreferrer">ArtCraft’s development setup guide</a>. We do not provide build support or re-hosted binaries.</p>
-          <p>The official directory lists browser targets for twelve apps, including FigCraft. FilmCraft is listed primarily for macOS, Windows and Linux. A web-build package is not the same as a hosted browser service.</p>
+          <p>Twelve of the thirteen apps have a browser target; FilmCraft is distributed for macOS, Windows and Linux only. A web-build package is not the same as a hosted browser service.</p>
         </div>
       </section>
 
@@ -100,6 +106,11 @@ export default function GitHubPage() {
           <p>The ArtCraft community is on Discord at discord.gg/artcraft. For bug reports and feature requests, open an issue on the relevant GitHub repository.</p>
           <p>For a broader view of how these apps compare to Adobe products, see our <Link href="/alternatives/">open source Adobe alternatives guide</Link> or the <Link href="/vs-adobe/">ArtCraft vs Adobe workflow map</Link>.</p>
         </div>
+      </section>
+
+      <section className="content-section" aria-labelledby="faq-heading">
+        <div className="section-heading"><p className="section-number">05</p><div><h2 id="faq-heading">FAQ</h2></div></div>
+        <GuideFaq items={githubFaqs} />
       </section>
 
       <SourceList sources={repoSources} />

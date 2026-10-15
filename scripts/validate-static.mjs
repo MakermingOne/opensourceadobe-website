@@ -63,6 +63,25 @@ for (const route of routes) {
 
   if (!title) failures.push(`${route}: missing title`);
   if (!description) failures.push(`${route}: missing meta description`);
+  const ogTitle = capture(html, /<meta property="og:title" content="([^"]+)"/i);
+  const ogDescription = capture(html, /<meta property="og:description" content="([^"]+)"/i);
+  const ogImage = capture(html, /<meta property="og:image" content="([^"]+)"/i);
+  const twitterImage = capture(html, /<meta name="twitter:image" content="([^"]+)"/i);
+  if (ogTitle !== title) failures.push(`${route}: og:title differs from the page title`);
+  if (ogDescription !== description) failures.push(`${route}: og:description differs from the page description`);
+  if (!ogImage.startsWith(`${siteUrl}/images/og/`) || twitterImage !== ogImage) failures.push(`${route}: missing or inconsistent OG/Twitter image`);
+  if (capture(html, /<meta property="og:image:width" content="([^"]+)"/i) !== "1200" || capture(html, /<meta property="og:image:height" content="([^"]+)"/i) !== "630") failures.push(`${route}: share image dimensions must be 1200×630`);
+  if (!capture(html, /<meta property="og:image:alt" content="([^"]+)"/i)) failures.push(`${route}: missing social image alt text`);
+  if (capture(html, /<meta name="twitter:card" content="([^"]+)"/i) !== "summary_large_image") failures.push(`${route}: missing large Twitter card`);
+  if (ogImage.startsWith(siteUrl)) {
+    try {
+      const png = await readFile(join(outputDirectory, new URL(ogImage).pathname));
+      if (png.toString("hex", 0, 8) !== "89504e470d0a1a0a" || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) failures.push(`${route}: share PNG is not 1200×630`);
+    } catch { failures.push(`${route}: share image file is unavailable`); }
+  }
+  const bodyDate = capture(html, /<time[^>]*datetime="([^"]+)"[^>]*data-page-updated/i);
+  const footerDate = capture(html, /<time[^>]*datetime="([^"]+)"[^>]*data-footer-updated/i);
+  if (!bodyDate || footerDate !== bodyDate) failures.push(`${route}: body and footer editorial dates differ or are missing`);
   if (canonical !== expectedCanonical) failures.push(`${route}: canonical is ${canonical || "missing"}; expected ${expectedCanonical}`);
   if (h1Count !== 1) failures.push(`${route}: expected one H1, found ${h1Count}`);
   if (!/Sources/.test(html)) failures.push(`${route}: missing visible Sources section`);
@@ -107,6 +126,10 @@ if (!expectIndexing && !/Disallow:\s*\//.test(robotsText)) failures.push("robots
 const sitemapText = await readFile(join(outputDirectory, "sitemap.xml"), "utf8");
 for (const route of routes) {
   if (!sitemapText.includes(`<loc>${siteUrl}${route}</loc>`)) failures.push(`sitemap.xml is missing ${route}`);
+  const html = await readFile(routeFile(route), "utf8");
+  const date = capture(html, /<time[^>]*datetime="([^"]+)"[^>]*data-page-updated/i);
+  const entry = sitemapText.split("<url>").find((item) => item.includes(`<loc>${siteUrl}${route}</loc>`));
+  if (date && !entry?.includes(`<lastmod>${date}</lastmod>`)) failures.push(`${route}: sitemap and visible editorial dates differ`);
 }
 
 const notFoundHtml = await readFile(join(outputDirectory, "404.html"), "utf8");

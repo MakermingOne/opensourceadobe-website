@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -29,7 +30,7 @@ export default function ComparePage() {
           <Eyebrow>ArtCraft vs Adobe · 7 workflow comparisons</Eyebrow>
           <h1>ArtCraft software vs Adobe, <span>one workflow at a time.</span></h1>
           <p className="lede">Compare PhotoCraft with Photoshop, VectorCraft with Illustrator, FilmCraft with Premiere Pro and four more open-source alternatives. A category match does not guarantee project-file compatibility or production readiness.</p>
-          <p className="updated">Last updated: 2026-10-15</p>
+          <p className="updated">Last updated: <PageUpdated path="/vs-adobe/" /></p>
         </header>
 
         <div className="comparison-stack">

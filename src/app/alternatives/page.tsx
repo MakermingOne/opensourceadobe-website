@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -51,21 +52,21 @@ export default function AlternativesPage() {
         <Eyebrow>Unofficial · Independent guide</Eyebrow>
         <h1>Open source Adobe alternatives, <span>by the app you are replacing.</span></h1>
         <p className="lede">A free editor is not automatically open source, and a tool that opens an Adobe file is not automatically a drop-in replacement. Start with the workflow you need, then compare the license, platform, editable file handoff, and the specific point where each option breaks.</p>
-        <p className="updated">Last updated: 2026-10-13</p>
+        <p className="updated">Last updated: <PageUpdated path="/alternatives/" /></p>
       </header>
 
       <section className="content-section" aria-labelledby="coverage-heading">
         <div className="section-heading"><p className="section-number">01</p><div><h2 id="coverage-heading">Coverage map</h2><p>Every Adobe product we track, the closest open source ArtCraft app, and whether a full guide is published yet.</p></div></div>
         <div className="table-wrap">
           <table>
-            <thead><tr><th>Adobe product</th><th>Closest open source app</th><th>Guide status</th><th>Next step</th></tr></thead>
+            <thead><tr><th scope="col">Adobe product</th><th scope="col">Closest open source app</th><th scope="col">Guide status</th><th scope="col">Next step</th></tr></thead>
             <tbody>
               {coverageRows.map((row) => (
                 <tr key={row.adobe}>
                   <td>{row.adobe}</td>
                   <td>{row.app}</td>
                   <td>{row.status}</td>
-                  <td>{row.status === "Published" ? <Link href={`/alternatives/${row.adobe === "Photoshop" ? "photoshop" : "lightroom"}/`}>Open guide →</Link> : "Guide in progress"}</td>
+                  <td>{row.status === "Published" ? <Link href={`/alternatives/${row.adobe === "Photoshop" ? "photoshop" : "lightroom"}/`}>Open guide →</Link> : "—"}</td>
                 </tr>
               ))}
             </tbody>
@@ -77,7 +78,7 @@ export default function AlternativesPage() {
         <div className="section-heading"><p className="section-number">02</p><div><h2 id="honesty-heading">The honest table</h2><p>How close each open source alternative actually gets to the Adobe product it replaces.</p></div></div>
         <div className="table-wrap">
           <table>
-            <thead><tr><th>Adobe product</th><th>What is true today</th><th>Ceiling</th></tr></thead>
+            <thead><tr><th scope="col">Adobe product</th><th scope="col">What is true today</th><th scope="col">How close it gets</th></tr></thead>
             <tbody>
               {honestyRows.map((row) => (
                 <tr key={row.adobe}>
@@ -89,6 +90,7 @@ export default function AlternativesPage() {
             </tbody>
           </table>
         </div>
+        <p className="prose">High, Partial and Low describe how close the alternatives currently get to the original product; they are not quality ratings.</p>
       </section>
 
       <section className="content-section" aria-labelledby="only-open-source-heading">

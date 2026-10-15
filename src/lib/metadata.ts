@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { isProductionDeployment } from "@/lib/deployment";
 import { absoluteUrl, canonicalPath, siteConfig } from "@/lib/site";
+import { socialImagePath } from "@/content/social-images";
 
 const isProduction = isProductionDeployment();
 
@@ -18,7 +19,9 @@ export function pageMetadata({
   absoluteTitle?: boolean;
 }): Metadata {
   const canonical = canonicalPath(path);
-  const imageUrl = image ? new URL(image, siteConfig.url).toString() : undefined;
+  const imageUrl = new URL(image ?? socialImagePath(canonical), siteConfig.url).toString();
+  // The root layout's title template does not apply to its same-segment page.
+  const resolvedTitle = absoluteTitle || canonical === "/" ? title : `${title} | ${siteConfig.name}`;
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -27,14 +30,12 @@ export function pageMetadata({
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
-      title,
+      title: resolvedTitle,
       description,
       url: absoluteUrl(canonical),
-      images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: title }] : undefined,
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: resolvedTitle }],
     },
-    twitter: imageUrl
-      ? { card: "summary_large_image", title, description, images: [imageUrl] }
-      : undefined,
+    twitter: { card: "summary_large_image", title: resolvedTitle, description, images: [{ url: imageUrl, alt: resolvedTitle }] },
     robots: isProduction
       ? { index: true, follow: true }
       : { index: false, follow: false, noarchive: true },

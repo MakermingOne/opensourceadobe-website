@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,7 +44,7 @@ export default function HomePage() {
           <div className="poster-grid">
             <div className="poster-copy">
               <Eyebrow>Independent directory · {apps.length} ArtCraft apps</Eyebrow>
-              <p className="poster-manifesto">Explore Adobe alternatives and tools for interface design, documents, audio and more.</p>
+              <p className="poster-manifesto">An independent, source-led guide to open-source creative software.</p>
               <h1 id="home-heading">Find your open source Adobe alternative <span>by workflow.</span></h1>
               <p className="poster-deck">Compare PhotoCraft, VectorCraft, FilmCraft, LightCraft and the wider ArtCraft family before you switch. New to the directory: FigCraft for interface design and prototyping.</p>
               <div className="button-row">
@@ -73,7 +74,7 @@ export default function HomePage() {
       </section>
 
       <section className="section container" id="app-directory" aria-labelledby="directory-heading">
-        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated October 15, 2026</Eyebrow><h2 id="directory-heading">Explore {apps.length} ArtCraft apps by workflow</h2><p>Find a tool for photo editing, illustration, video, interface design, documents, audio and more. Open its guide or official page to check availability and supported formats before switching.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
+        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated <PageUpdated path="/" long /></Eyebrow><h2 id="directory-heading">Explore {apps.length} ArtCraft apps by workflow</h2><p>Find a tool for photo editing, illustration, video, interface design, documents, audio and more. Open its guide or official page to check availability and supported formats before switching.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
         <div className="workflow-links">
           {apps.map((app) => {
             const profile = workflowProfiles[app.slug as keyof typeof workflowProfiles];

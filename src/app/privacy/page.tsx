@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialSourceNote } from "@/components/editorial-source-note";
@@ -17,7 +18,7 @@ export default function PrivacyPage() {
       <header className="page-intro">
         <Eyebrow>Privacy · production analytics</Eyebrow>
         <h1>A small site<br /><span>with a plain disclosure.</span></h1>
-        <p className="updated">Effective: 2026-10-11 · Last updated: 2026-10-11</p>
+        <p className="updated">Effective: 2026-10-11 · Last updated: <PageUpdated path="/privacy/" /></p>
       </header>
       <article className="prose">
         <h2>Google Analytics</h2>

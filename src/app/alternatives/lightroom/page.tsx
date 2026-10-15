@@ -1,3 +1,4 @@
+import { PageUpdated } from "@/components/page-updated";
 import Link from "next/link";
 
 import { AlternativeTable } from "@/components/alternatives/alternative-table";
@@ -29,7 +30,7 @@ export default function LightroomAlternativesPage() {
     ] }} />
     <div className="container guide-shell">
       <Breadcrumbs currentPath="/alternatives/lightroom/" items={[{ label: "Home", href: "/" }, { label: "Alternatives", href: "/alternatives/" }, { label: "Lightroom" }]} />
-      <header className="guide-header"><Eyebrow>Photography workflow guide · Development and cataloguing</Eyebrow><h1>{guide.h1}</h1><p className="lede">{guide.introduction}</p><p className="updated">Last updated: 2026-10-15</p></header>
+      <header className="guide-header"><Eyebrow>Photography workflow guide · Development and cataloguing</Eyebrow><h1>{guide.h1}</h1><p className="lede">{guide.introduction}</p><p className="updated">Last updated: <PageUpdated path="/alternatives/lightroom/" /></p></header>
       <div className="guide-layout"><main className="guide-main">
         <section className="guide-section" id="raw"><p className="guide-kicker">Develop</p><h2>RAW development: who does it well</h2><AlternativeTable table={guide.rawTable} /></section>
         <section className="guide-section" id="catalog"><p className="guide-kicker">Organize</p><h2>Cataloguing and library management</h2><p className="guide-prose">The second table is separate because library continuity is where many otherwise capable Lightroom alternatives become incomplete.</p><AlternativeTable table={guide.catalogTable} /></section>

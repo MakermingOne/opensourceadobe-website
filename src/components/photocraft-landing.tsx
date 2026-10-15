@@ -12,6 +12,8 @@ import { StatusBadge } from "@/components/status-badge";
 import type { AppRecord, SourceRecord } from "@/content/types";
 import { photocraftMedia } from "@/content/media";
 import { absoluteUrl } from "@/lib/site";
+import { PageUpdated } from "@/components/page-updated";
+import { pageUpdatedAt } from "@/content/page-dates";
 
 const features = [
   {
@@ -115,7 +117,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
           sameAs: [app.officialPage, app.repository],
           description:
             "ArtCraft PhotoCraft is a free, native image editor for layered workflows. Its documentation lists PSD and PSB support, masks, adjustments, type, vectors and brushes.",
-          dateModified: app.lastVerified,
+          dateModified: pageUpdatedAt("/apps/photocraft/"),
         }}
       />
       <JsonLd data={faqSchema} />
@@ -128,7 +130,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
 
         <header className="photocraft-hero">
           <div className="photocraft-hero__copy">
-            <Eyebrow><span>Independent guide · Last updated <time dateTime={app.lastVerified}>{app.lastVerified}</time></span></Eyebrow>
+            <Eyebrow><span>Independent guide · Last updated <PageUpdated path="/apps/photocraft/" /></span></Eyebrow>
             <h1 className="photocraft-hero__heading--compact">ArtCraft PhotoCraft: an <span>open-source Photoshop alternative</span></h1>
             <p className="lede">
               ArtCraft PhotoCraft is a free, native image editor for layered workflows. Its documentation lists PSD and PSB support, masks, adjustments, type, vectors and brushes. Find official downloads below, and check the early-alpha limits before switching from Photoshop.
