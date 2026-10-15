@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101014"/>
+  <rect x="72" y="86" width="20" height="20" fill="#2d81ff"/>
+  <text x="110" y="105" fill="#fff" font-family="Arial,sans-serif" font-size="28">OpenSourceAdobe / Updates</text>
+  <text x="72" y="250" fill="#fff" font-family="Arial,sans-serif" font-size="62" font-weight="700">ArtCraft development updates</text>
+  <text x="72" y="330" fill="#8aabff" font-family="Arial,sans-serif" font-size="48">New apps. New releases. Clear limits.</text>
+  <path d="M72 405h1056" stroke="#45454e"/>
+  <text x="72" y="470" fill="#fff" font-family="Arial,sans-serif" font-size="30">What changed. What to test next.</text>
+  <text x="72" y="530" fill="#d5d9e2" font-family="Arial,sans-serif" font-size="26">Official sources · Dated briefs · Practical workflow notes</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101114"/>
+  <rect width="18" height="630" fill="#285fdc"/>
+  <path d="M18 110H1200M18 518H1200" stroke="#343741"/>
+  <rect x="72" y="70" width="8" height="8" fill="#8aabff"/>
+  <text x="96" y="82" fill="#aab1c0" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">OPENSOURCEADOBE</text>
+  <text x="72" y="218" fill="#f8f9fd" font-family="Arial, sans-serif" font-size="70" font-weight="700">Open-source Photoshop</text>
+  <text x="72" y="305" fill="#f8f9fd" font-family="Arial, sans-serif" font-size="70" font-weight="700">alternatives,</text>
+  <text x="72" y="392" fill="#285fdc" font-family="Arial, sans-serif" font-size="70" font-weight="700">compared</text>
+  <text x="72" y="566" fill="#aab1c0" font-family="Arial, sans-serif" font-size="22">GIMP · PhotoCraft · Photopea · Krita · Paint.NET · Glimpse</text>
+</svg>

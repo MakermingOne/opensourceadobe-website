@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101014"/>
+  <rect x="72" y="86" width="20" height="20" fill="#2d81ff"/>
+  <text x="110" y="105" fill="#fff" font-family="Arial,sans-serif" font-size="28">OpenSourceAdobe</text>
+  <text x="72" y="258" fill="#fff" font-family="Arial,sans-serif" font-size="66" font-weight="700">Explore 13 ArtCraft apps</text>
+  <text x="72" y="340" fill="#2d81ff" font-family="Arial,sans-serif" font-size="66" font-weight="700">by workflow.</text>
+  <text x="72" y="435" fill="#d5d9e2" font-family="Arial,sans-serif" font-size="27">Photos · Video · Design · Documents · Audio · Data</text>
+  <path d="M72 492h1056" stroke="#45454e"/>
+  <text x="72" y="552" fill="#d5d9e2" font-family="Arial,sans-serif" font-size="24">Independent guide · Official sources · Clear limitations</text>
+</svg>
