@@ -3,6 +3,12 @@ import { releaseCheckedAt, releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+  {
+    id: "pdfcraft-language-package-limits", type: "official-repository",
+    title: "PdfCraft: October 15 localization and installer-status correction",
+    url: "https://github.com/storytold/pdfcraft/commit/953ac1483f4f8f1e3ac755571f50a55381b74581",
+    accessedAt: "2026-10-16",
+  },
   ...repositoryLicenses.map((record): SourceRecord => ({
     id: `${record.slug}-license-notice`, type: "official-repository",
     title: `${record.slug}: source-code license, branding and third-party NOTICE`,

@@ -37,7 +37,8 @@ describe("site URL contract", () => {
     expect(publishedRoutes).toContain("/alternatives/photoshop/");
     expect(publishedRoutes).toContain("/alternatives/lightroom/");
     expect(publishedRoutes).toContain("/updates/2026-10-15/");
-    expect(publishedRoutes).toHaveLength(22);
+    expect(publishedRoutes).toContain("/updates/2026-10-16/");
+    expect(publishedRoutes).toHaveLength(23);
   });
 
   it("redirects the www host to the canonical host with an exact 301", () => {

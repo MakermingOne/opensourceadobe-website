@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(24);
+  await expect(page.locator(".update-entry")).toHaveCount(26);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
   await expect(page.locator(".update-entry")).toHaveCount(3);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -71,10 +71,10 @@ test("RSS is valid XML and links to the published daily brief", async ({ request
   }, xml);
   expect(result.errors).toBe(0);
   expect(result.links).toContain("https://opensourceadobe.com/updates/2026-10-13/");
-  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-15/");
+  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-16/");
 });
 
-for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/"]) {
+for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/"]) {
   for (const width of [375, 768, 1024, 1280]) {
     test(`${route} fits ${width}px and exposes working internal links`, async ({ page, request }) => {
       await page.setViewportSize({ width, height: 900 });
@@ -86,7 +86,7 @@ for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/"
   }
 }
 
-for (const route of ["/updates/2026-10-15/", "/apps/photocraft/", "/apps/pdfcraft/"]) {
+for (const route of ["/updates/2026-10-15/", "/updates/2026-10-16/", "/apps/photocraft/", "/apps/pdfcraft/"]) {
   test(`${route} remains readable without JavaScript`, async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 900 } });
     try {
@@ -102,3 +102,16 @@ for (const route of ["/updates/2026-10-15/", "/apps/photocraft/", "/apps/pdfcraf
     }
   });
 }
+
+
+test("October 16 distinguishes documentation and community events from a release", async ({ page }) => {
+  await page.goto("/updates/2026-10-16/");
+  await expect(page.locator("#pdfcraft-language-package-limits")).toContainText("Documentation update");
+  await expect(page.locator("#pdfcraft-language-package-limits")).toContainText("Event dated 2026-10-15");
+  await expect(page.locator("#pdfcraft-language-package-limits")).not.toContainText("Release published");
+  await expect(page.locator("#community-pdfcraft-print-quality")).toContainText("Community report");
+  await expect(page.locator(".sources")).toContainText("third party");
+  await page.goto("/apps/pdfcraft/");
+  await expect(page.locator("#main-content")).toContainText("Linux packages are unsigned");
+  await expect(page.locator("#main-content")).toContainText("Chinese, Telugu or mirrored Arabic");
+});

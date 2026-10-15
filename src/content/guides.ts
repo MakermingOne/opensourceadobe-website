@@ -48,13 +48,14 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
     waitIf: [
       "You need Office documents converted to PDF, or Word export with matching layout.",
       "Your job depends on reliable editing of complex existing text or non-Latin OCR.",
+      "You need a fully usable Chinese, Telugu or mirrored Arabic interface; the October 15 documentation records gaps in these interface languages.",
       "You need preflight, PDF/X or PDF/UA compliance, full XFA forms or advanced signature validation.",
       "You cannot accept alpha reliability, or you need independently validated handling of hostile or confidential files.",
     ],
     platformNotes: [
       ["macOS", "Universal DMG for Apple silicon and Intel Macs"],
       ["Windows", "MSI and portable packages for x64, x86 and ARM64"],
-      ["Linux", "AppImage, Flatpak, DEB, RPM and tarball packages; an open 0.7.1 Flatpak report describes missing physical printers—test your exact package"],
+      ["Linux", "AppImage, Flatpak, DEB, RPM and tarball packages; the October 15 docs state Linux packages are unsigned. An open 0.7.1 Flatpak report describes missing physical printers—test your exact package"],
       ["Web", "A WebAssembly ZIP to host yourself; the 0.8.0 gaps document describes a browser print dialog, although the README still lists web printing as a gap"],
     ],
     faqs: [

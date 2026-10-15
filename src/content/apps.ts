@@ -163,7 +163,7 @@ const appInput: AppRecord[] = [
     supportedTasks: ["Viewing and searching PDFs", "Reordering, combining, extracting and splitting pages", "Comments, forms and password-protected documents described by the project"],
     limitations: ["PdfCraft is alpha; the repository documents gaps in Office conversion, complex text editing, non-Latin OCR, preflight and advanced signatures.", ...sharedLimitations],
     unknowns: ["Independent validation of document fidelity, security-sensitive workflows and production reliability"],
-    sourceIds: ["artcraft-apps", "pdfcraft-official", "pdfcraft-repository", "craft-launcher-release", "pdfcraft-gaps-080", "pdfcraft-flatpak-printing"],
+    sourceIds: ["artcraft-apps", "pdfcraft-official", "pdfcraft-repository", "craft-launcher-release", "pdfcraft-gaps-080", "pdfcraft-flatpak-printing", "pdfcraft-language-package-limits"],
     lastVerified: "2026-10-11",
   },
   {

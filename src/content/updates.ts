@@ -25,6 +25,30 @@ export type DailyUpdate = {
 
 // Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
+  date: "2026-10-16",
+  title: "PdfCraft update: interface-language limits and a printing report",
+  seoTitle: "PdfCraft Update: Language Limits & Printing — Oct 16, 2026",
+  description: "PdfCraft’s October 15 documentation correction identifies interface-language and Linux package-signing limits. A separate Reddit report raises print-quality questions.",
+  introduction: "Our October 16 check found no newer official app release than the versions in the October 15 brief. Instead, PdfCraft’s October 15 documentation correction makes several existing limitations more explicit. We also record a new community printing report with its missing details. These are a documentation review and attributed feedback, not a new release or an independent test.",
+  entries: [
+    {
+      id: "pdfcraft-language-package-limits", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update", eventDate: "2026-10-15",
+      title: "PdfCraft clarifies interface-language and package-signing limits",
+      summary: "An October 15 official documentation correction marks localization and installers as partial. It reports missing-glyph boxes in Chinese release interfaces, no bundled release font for Telugu, and an Arabic interface that is not mirrored. It also states that macOS and Windows releases are signed while Linux packages are unsigned. These are documented limitations, not newly shipped features.",
+      impact: "If you need one of these interface languages, check the actual build before switching. Interface localization is separate from PDF text rendering and OCR language support. For Linux, use the official release and compare its checksum; a matching checksum alone does not establish a signed package or an independent security review.",
+      sourceTitle: "PdfCraft October 15 documentation correction", sourceUrl: "https://github.com/storytold/pdfcraft/commit/953ac1483f4f8f1e3ac755571f50a55381b74581",
+      relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s language and platform limits",
+    },
+    {
+      id: "community-pdfcraft-print-quality", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-15",
+      title: "A user reports photo-paper and print-quality settings not carrying through",
+      summary: "In an October 15 r/ArtCraftAI post, a user reports selecting photo paper and high print quality but receiving plain-paper, normal-quality output through PdfCraft. The post does not identify an app version, operating system, package or printer. We have not reproduced the result or verified a fix.",
+      impact: "Before printing a larger photo job, check a single page, paper selection and the printer driver’s effective settings. A useful upstream report needs the version, platform, package and printer model. This single report does not establish a failure across all PdfCraft builds.",
+      sourceTitle: "Reddit: PdfCraft printing-quality report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x6uyfh/printing/",
+      relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s printing notes",
+    },
+  ],
+}, {
   date: "2026-10-15",
   modifiedDate: "2026-10-15",
   title: "ArtCraft update: PhotoCraft 0.9.0 and a new release wave",

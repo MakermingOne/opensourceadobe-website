@@ -26,7 +26,7 @@ describe("October 15 morning source refresh", () => {
   it("extends the same day's brief without losing earlier reporting", () => {
     expect(new Set(dailyUpdates.map((item) => item.date)).size).toBe(dailyUpdates.length);
     expect(dailyUpdates.find((item) => item.date === "2026-10-13")?.entries).toHaveLength(6);
-    const ids = dailyUpdates[0].entries.map((entry) => entry.id);
+    const ids = dailyUpdates.find((item) => item.date === "2026-10-15")!.entries.map((entry) => entry.id);
     expect(ids).toEqual(expect.arrayContaining(["launcher-041", "pdfcraft-080", "pdfcraft-current-limits", "community-android-ports", "community-pdfcraft-printing", "pdfcraft-web-printing"]));
   });
   it("updates verified PhotoCraft packages but leaves PdfCraft's release unchanged", () => {
@@ -37,6 +37,6 @@ describe("October 15 morning source refresh", () => {
   it("uses published version documentation instead of the stale web-printing claim", () => {
     expect(guideBySlug.pdfcraft.platformNotes.find(([platform]) => platform === "Web")?.[1]).toContain("browser print dialog");
     expect(guideBySlug.pdfcraft.faqs.find((faq) => faq.question.includes("offline"))?.answer).not.toContain("web printing as a gap");
-    expect(dailyUpdates[0].entries.find((entry) => entry.id === "pdfcraft-web-printing")?.sourceUrl).toBe("https://github.com/storytold/pdfcraft/blob/v0.8.0/docs/gaps.md");
+    expect(dailyUpdates.find((item) => item.date === "2026-10-15")!.entries.find((entry) => entry.id === "pdfcraft-web-printing")?.sourceUrl).toBe("https://github.com/storytold/pdfcraft/blob/v0.8.0/docs/gaps.md");
   });
 });
