@@ -10,7 +10,7 @@ const editorialDates: Record<string, string> = {
   "/tutorials/": "2026-10-13",
   "/faq/": "2026-10-13",
   "/apps/photocraft/": "2026-10-15",
-  "/apps/vectorcraft/": "2026-10-15",
+  "/apps/vectorcraft/": "2026-10-16",
   "/apps/filmcraft/": "2026-10-15",
   "/apps/lightcraft/": "2026-10-15",
   "/apps/pdfcraft/": "2026-10-16",

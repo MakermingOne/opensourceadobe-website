@@ -106,7 +106,7 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
     platformNotes: [
       ["macOS", "Universal download for Apple silicon and Intel Macs"],
       ["Windows", "Installer and portable builds for x64, x86 and ARM64"],
-      ["Linux", "AppImage, Flatpak, Debian, RPM and tarball packages"],
+      ["Linux", "AppImage, Flatpak, Debian, RPM and tarball packages. Official packaging docs require libm GLIBC_2.35 for RPM builds and record a 0.10.0 startup failure on Rocky Linux 9. Installation alone does not prove compatibility; a development dependency change is not a verified fix in existing downloads"],
       ["Web", "A self-hostable WebAssembly build is published"],
     ],
     faqs: [

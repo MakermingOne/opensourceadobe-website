@@ -26,10 +26,10 @@ export type DailyUpdate = {
 // Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
   date: "2026-10-16",
-  title: "PdfCraft update: interface-language limits and a printing report",
-  seoTitle: "PdfCraft Update: Language Limits & Printing — Oct 16, 2026",
-  description: "PdfCraft’s October 15 documentation correction identifies interface-language and Linux package-signing limits. A separate Reddit report raises print-quality questions.",
-  introduction: "Our October 16 check found no newer official app release than the versions in the October 15 brief. Instead, PdfCraft’s October 15 documentation correction makes several existing limitations more explicit. We also record a new community printing report with its missing details. These are a documentation review and attributed feedback, not a new release or an independent test.",
+  title: "ArtCraft update: PdfCraft limits and VectorCraft Linux compatibility",
+  seoTitle: "ArtCraft Update: PDF Limits & VectorCraft Linux — Oct 16, 2026",
+  description: "PdfCraft language and printing limits, plus VectorCraft’s documented Linux RPM dependency boundary. Official documentation and community feedback, not new releases.",
+  introduction: "Our October 16 check found no newer official app release than the versions in the October 15 brief. PdfCraft’s October 15 documentation correction makes several existing limitations more explicit. A later check adds VectorCraft’s documented Linux RPM dependency boundary. We also record a community printing report with its missing details. These are documentation reviews and attributed feedback, not new releases or independent tests.",
   entries: [
     {
       id: "pdfcraft-language-package-limits", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update", eventDate: "2026-10-15",
@@ -46,6 +46,14 @@ export const dailyUpdates: DailyUpdate[] = [{
       impact: "Before printing a larger photo job, check a single page, paper selection and the printer driver’s effective settings. A useful upstream report needs the version, platform, package and printer model. This single report does not establish a failure across all PdfCraft builds.",
       sourceTitle: "Reddit: PdfCraft printing-quality report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x6uyfh/printing/",
       relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s printing notes",
+    },
+    {
+      id: "vectorcraft-rpm-runtime-limits", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Documentation update", eventDate: "2026-10-15",
+      title: "VectorCraft documents a Linux RPM compatibility boundary",
+      summary: "An October 15 official packaging commit explains that RPM builds require libm’s GLIBC_2.35 capability. It records VectorCraft 0.10.0 installing on Rocky Linux 9 but failing to start because libc backports did not provide the required libm symbols. The development change tightens the declared dependency; it does not establish that existing release packages include that change.",
+      impact: "This is a documentation and packaging change, not a new release or a verified fix for your installation. On RHEL or Rocky Linux 9, do not assume a successful RPM install proves compatibility. Check the package’s runtime requirements and test startup before moving work. The older-version example does not establish identical behavior in 0.11.0.",
+      sourceTitle: "VectorCraft: RPM runtime requirement and Rocky Linux 9 example", sourceUrl: "https://github.com/storytold/vectorcraft/commit/e12a670c405b5c4a059de3be02920c0c6e05b0dc",
+      relatedPath: "/apps/vectorcraft/", relatedLabel: "Check VectorCraft’s Linux platform notes",
     },
   ],
 }, {

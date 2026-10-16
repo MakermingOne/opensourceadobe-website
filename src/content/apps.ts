@@ -75,7 +75,7 @@ const appInput: AppRecord[] = [
       "Typography and print-production behavior on real client files",
       "Performance on complex professional artwork",
     ],
-    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository"],
+    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository", "vectorcraft-rpm-runtime-limits"],
     lastVerified: "2026-10-11",
   },
   {

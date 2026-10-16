@@ -4,6 +4,12 @@ import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
   {
+    id: "vectorcraft-rpm-runtime-limits", type: "official-repository",
+    title: "VectorCraft: RPM runtime requirement and Rocky Linux 9 example",
+    url: "https://github.com/storytold/vectorcraft/commit/e12a670c405b5c4a059de3be02920c0c6e05b0dc",
+    accessedAt: "2026-10-16",
+  },
+  {
     id: "pdfcraft-language-package-limits", type: "official-repository",
     title: "PdfCraft: October 15 localization and installer-status correction",
     url: "https://github.com/storytold/pdfcraft/commit/953ac1483f4f8f1e3ac755571f50a55381b74581",

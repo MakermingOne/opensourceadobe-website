@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(26);
+  await expect(page.locator(".update-entry")).toHaveCount(27);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
   await expect(page.locator(".update-entry")).toHaveCount(3);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -110,8 +110,14 @@ test("October 16 distinguishes documentation and community events from a release
   await expect(page.locator("#pdfcraft-language-package-limits")).toContainText("Event dated 2026-10-15");
   await expect(page.locator("#pdfcraft-language-package-limits")).not.toContainText("Release published");
   await expect(page.locator("#community-pdfcraft-print-quality")).toContainText("Community report");
+  await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("Documentation update");
+  await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("Event dated 2026-10-15");
+  await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("not a new release");
   await expect(page.locator(".sources")).toContainText("third party");
   await page.goto("/apps/pdfcraft/");
   await expect(page.locator("#main-content")).toContainText("Linux packages are unsigned");
   await expect(page.locator("#main-content")).toContainText("Chinese, Telugu or mirrored Arabic");
+  await page.goto("/apps/vectorcraft/");
+  await expect(page.locator("#main-content")).toContainText("libm GLIBC_2.35");
+  await expect(page.locator(".sources")).toContainText("Rocky Linux 9");
 });
