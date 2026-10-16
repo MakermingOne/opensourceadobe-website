@@ -4,6 +4,18 @@ import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
   {
+    id: "vectorcraft-parity-0120", type: "official-repository",
+    title: "VectorCraft v0.12.0: legacy .ai export and remaining interchange limits",
+    url: "https://github.com/storytold/vectorcraft/blob/v0.12.0/docs/target-app-parity.md",
+    accessedAt: "2026-10-17",
+  },
+  {
+    id: "vectorcraft-packaging-0120", type: "official-repository",
+    title: "VectorCraft v0.12.0: Linux package runtime requirements",
+    url: "https://github.com/storytold/vectorcraft/blob/v0.12.0/docs/releasing.md",
+    accessedAt: "2026-10-17",
+  },
+  {
     id: "vectorcraft-rpm-runtime-limits", type: "official-repository",
     title: "VectorCraft: RPM runtime requirement and Rocky Linux 9 example",
     url: "https://github.com/storytold/vectorcraft/commit/e12a670c405b5c4a059de3be02920c0c6e05b0dc",

@@ -25,6 +25,30 @@ export type DailyUpdate = {
 
 // Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
+  date: "2026-10-17",
+  title: "VectorCraft 0.12.0: new export tools and a PdfCraft follow-up",
+  seoTitle: "VectorCraft 0.12.0 & PdfCraft Update — Oct 17, 2026",
+  description: "VectorCraft 0.12.0 adds legacy .ai export and browser pen input. A PdfCraft user reports printing after an update, with important details still missing.",
+  introduction: "VectorCraft 0.12.0 was published October 16 UTC and checked for this October 17 brief. Its release notes cover legacy Illustrator export, browser pen input, a Dimension tool and Linux packaging changes. Separately, a PdfCraft user has followed up on an earlier printer-detection report. Official release notes and that individual experience are different kinds of evidence; neither establishes complete Adobe compatibility or a universal printing fix.",
+  entries: [
+    {
+      id: "vectorcraft-0120", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
+      title: "VectorCraft 0.12.0 adds legacy .ai export and browser pen input",
+      summary: "Official release notes list legacy .ai export, a Dimension tool, browser Apple Pencil and touch handling, portable mode and an RPM dependency correction. The tagged documentation limits legacy version 7 .ai export to one artboard per file without transparency, and still identifies reliable Illustrator file exchange as a gap. These are project-reported changes, not our independent tests.",
+      impact: "Try a copied illustration and reopen exported files in the receiving application. Browser pen input does not establish a native iPad or Android app. The RPM change now appears in a published release, but enforces the libm GLIBC_2.35 requirement rather than making older RHEL systems compatible. Check the 0.12.0 GitHub release; the product page still lists older downloads.",
+      sourceTitle: "VectorCraft v0.12.0 official release notes", sourceUrl: "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
+      relatedPath: "/apps/vectorcraft/", relatedLabel: "Check VectorCraft’s current release and export limits",
+    },
+    {
+      id: "community-pdfcraft-printer-follow-up", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-16",
+      title: "A PdfCraft user reports that an update restored default-printer output",
+      summary: "The original poster of the physical-printer detection question replied on October 16 that, after updating, they could print to their default printer. The reply does not specify an app version, operating system or package. This follows the earlier missing-printer report; we have not reproduced the result or linked it to a particular release.",
+      impact: "This is encouraging follow-up, not a universal fix for every printer or package, and it does not resolve the separate print-quality report. Retest a single page on your exact setup and record the version, platform and printer if a problem remains. Our October 15 report stays available as the historical context.",
+      sourceTitle: "Reddit: original poster’s October 16 printing follow-up", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x5kde8/comment/ph249u7/",
+      relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s current printing cautions",
+    },
+  ],
+}, {
   date: "2026-10-16",
   title: "ArtCraft update: PdfCraft limits and VectorCraft Linux compatibility",
   seoTitle: "ArtCraft Update: PDF Limits & VectorCraft Linux — Oct 16, 2026",

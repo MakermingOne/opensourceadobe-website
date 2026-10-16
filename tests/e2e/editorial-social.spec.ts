@@ -25,16 +25,16 @@ for (const route of publishedRoutes) {
   });
 }
 
-test("the footer updates on client navigation and retains dates without JavaScript", async ({ page, browser }) => {
+test("the footer updates on client navigation and retains dates without JavaScript", async ({ page, browser, baseURL }) => {
   await page.goto("/apps/");
-  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-15");
+  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-17");
   await page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true }).click();
   await expect(page).toHaveURL(/\/about\/$/);
   await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const staticPage = await context.newPage();
-    await staticPage.goto("http://127.0.0.1:4173/about/");
+    await staticPage.goto(new URL("/about/", baseURL!).href);
     await expect(staticPage.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");
     await expect(staticPage.locator("[data-page-updated]")).toHaveAttribute("datetime", "2026-10-11");
   } finally { await context.close(); }

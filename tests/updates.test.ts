@@ -8,10 +8,12 @@ import { pageUpdatedAt } from "@/content/page-dates";
 
 describe("dated development journal", () => {
   it("adds the current brief without rewriting the October 13 record", () => {
-    expect(latestUpdateDate).toBe("2026-10-16");
+    expect(latestUpdateDate).toBe("2026-10-17");
     expect(dailyUpdates.find((issue) => issue.date === "2026-10-13")?.entries).toHaveLength(6);
     expect(dailyUpdates.find((issue) => issue.date === "2026-10-15")?.entries).toHaveLength(18);
-    expect(dailyUpdates[0].entries).toHaveLength(3);
+    expect(dailyUpdates[0].entries).toHaveLength(2);
+    expect(dailyUpdates.find((issue) => issue.date === "2026-10-16")?.entries).toHaveLength(3);
+    expect(publishedRoutes).toContain("/updates/2026-10-17/");
     expect(publishedRoutes).toContain("/updates/2026-10-16/");
     expect(publishedRoutes).toContain("/updates/2026-10-15/");
   });
@@ -19,7 +21,7 @@ describe("dated development journal", () => {
     const entry = dailyUpdates.find((issue) => issue.date === "2026-10-15")!.entries.find((item) => item.id === "pdfcraft-080")!;
     expect(entry.eventDate).toBe("2026-10-14");
     expect(entry.sourceUrl).toBe("https://github.com/storytold/pdfcraft/releases/tag/v0.8.0");
-    expect(updatesForApp("pdfcraft")).toHaveLength(7);
+    expect(updatesForApp("pdfcraft")).toHaveLength(8);
   });
   it("labels Reddit separately and retains original sources", () => {
     for (const issue of dailyUpdates) {
@@ -45,6 +47,6 @@ describe("dated development journal", () => {
     expect(source?.accessedAt).toBe("2026-10-16");
     expect(appsBySlug.get("vectorcraft")?.sourceIds).toContain("vectorcraft-rpm-runtime-limits");
     expect(guideBySlug.vectorcraft.platformNotes.find(([platform]) => platform === "Linux")?.[1]).toContain("libm GLIBC_2.35");
-    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-16");
+    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-17");
   });
 });

@@ -212,7 +212,7 @@ for (const guide of [
     await expect(page.getByRole("heading", { name: `Who should try ${guide.app} now?` })).toBeVisible();
     await expect(page.getByRole("link", { name: `Get ${guide.app}` }).first()).toHaveAttribute(
       "href",
-      `https://getartcraft.com/apps/${guide.slug}`,
+      guide.slug === "vectorcraft" ? "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0" : `https://getartcraft.com/apps/${guide.slug}`,
     );
     await expect(page.getByText("CLAIM 01", { exact: true })).toHaveCount(0);
   });

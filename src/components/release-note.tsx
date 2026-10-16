@@ -2,7 +2,7 @@ import { releasesBySlug, releaseCheckedOn } from "@/content/releases";
 
 const changes: Record<string, string> = {
   photocraft: "Release notes list system-printing changes, crop and straighten automation, grayscale export fixes and native-document saving changes. Test your own documents before relying on these fixes.",
-  vectorcraft: "Release notes list artboard movement fixes and changes to PDF and Illustrator editing-data imports. Reliable layered Illustrator round-trips still need testing.",
+  vectorcraft: "Version 0.12.0 notes list legacy .ai export, the Dimension tool, browser pen/touch handling and RPM dependency changes. Legacy export has limits; reliable Illustrator round-trips still need testing.",
   filmcraft: "Release notes list TTML caption timing, 32-bit audio export, raw ADTS AAC import and adjustment-layer transition changes. Direct Premiere project compatibility is still a documented gap.",
   lightcraft: "Release notes list selected-photo album creation, HEIC/HEIF/NRW folder import and filmstrip changes. Camera-color and migration limits still apply.",
   pdfcraft: "Release notes list font and Unicode fixes, text-editing changes and large-document handling improvements. Retest copies of your own documents; this remains alpha software.",

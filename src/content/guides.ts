@@ -74,7 +74,7 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
     verdict:
       "A credible alpha to test for SVG-first illustration, icons and posters—not yet a blind replacement for every Illustrator handoff.",
     verdictDetail:
-      "The official project already lists familiar drawing tools, editable effects, image tracing and open-format export. Its own gap list still calls out reliable exchange with real-world Illustrator files, parts of 3D and materials, scripting and some raster effects.",
+      "The official 0.12.0 release adds a Dimension tool and legacy version 7 .ai export alongside the drawing, tracing and open-format workflow. Its tagged documentation still identifies reliable real-world Illustrator exchange as a gap: the legacy route is not a complete replacement for Illustrator’s editing data.",
     bestFor: "SVG artwork, icons, posters and everyday vector drawing.",
     checkFirst: "Complex .ai round-trips, print production, 3D effects and scripted workflows.",
     features: [
@@ -106,8 +106,8 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
     platformNotes: [
       ["macOS", "Universal download for Apple silicon and Intel Macs"],
       ["Windows", "Installer and portable builds for x64, x86 and ARM64"],
-      ["Linux", "AppImage, Flatpak, Debian, RPM and tarball packages. Official packaging docs require libm GLIBC_2.35 for RPM builds and record a 0.10.0 startup failure on Rocky Linux 9. Installation alone does not prove compatibility; a development dependency change is not a verified fix in existing downloads"],
-      ["Web", "A self-hostable WebAssembly build is published"],
+      ["Linux", "AppImage, Flatpak, Debian, RPM and tarball packages. The 0.12.0 release notes include the RPM dependency correction; tagged docs require libm GLIBC_2.35. This enforces a runtime boundary rather than adding RHEL 9 compatibility—test your exact package"],
+      ["Web", "A self-hostable WebAssembly build is published; 0.12.0 notes add Apple Pencil and touch handling. This is browser input, not a native mobile-app release"],
     ],
     faqs: [
       {
@@ -116,7 +116,7 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
       },
       {
         question: "Can VectorCraft open Illustrator files?",
-        answer: "The project documents PDF-compatible .ai import and export, but also identifies reliable layered exchange with real-world .ai files as a gap. Test copies of your own files before relying on it.",
+        answer: "Yes, the project documents PDF-compatible .ai import. Version 0.12.0 also adds legacy version 7 .ai export preserving layers, groups and type, but with one artboard per file and no transparency. Its tagged docs still flag real-world exchange and missing Illustrator editing-data output. Reopen a copied export in the receiving app before trusting a handoff.",
       },
       {
         question: "Can VectorCraft replace Adobe Illustrator?",

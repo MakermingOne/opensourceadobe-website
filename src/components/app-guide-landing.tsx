@@ -13,8 +13,10 @@ import type { AppGuide } from "@/content/guides";
 import { absoluteUrl } from "@/lib/site";
 import { PageUpdated } from "@/components/page-updated";
 import { pageUpdatedAt } from "@/content/page-dates";
+import { releasesBySlug } from "@/content/releases";
 
 export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide: AppGuide; sources: SourceRecord[] }) {
+  const downloadUrl = app.slug === "vectorcraft" ? releasesBySlug.get(app.slug)!.url : app.officialPage;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -55,7 +57,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
             <h1 className={guide.headline ? "photocraft-hero__heading--compact" : undefined}>{guide.headline ?? <>{app.name}: an <span>open-source {app.adobeCounterpart} alternative</span></>}</h1>
             <p className="lede">{guide.intro}</p>
             <div className="button-row">
-              {app.slug === "pdfcraft" ? <a className="button" href="#download-heading">Choose your PdfCraft download</a> : <a className="button" href={app.officialPage} rel="noreferrer" target="_blank">Get {app.name}</a>}
+              {app.slug === "pdfcraft" ? <a className="button" href="#download-heading">Choose your PdfCraft download</a> : <a className="button" href={downloadUrl} rel="noreferrer" target="_blank">Get {app.name}</a>}
               <a className="button button--secondary" href={app.repository} rel="noreferrer" target="_blank">View the source code</a>
             </div>
             <p className="hero-caution"><strong>Our take:</strong> {guide.verdict}</p>
@@ -129,7 +131,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           <div className="landing-heading">
             <Eyebrow>Available now</Eyebrow>
             <h2 id="download-heading">How can you get {app.name}?</h2>
-            <p>The official product page provides ArtCraft Launcher and standalone downloads. Use that page to select the current package for your system.</p>
+            <p>{app.slug === "vectorcraft" ? "Use the checked GitHub release to choose a package for your system. The official product page also provides Launcher and standalone links, but may list an older version." : "The official product page provides ArtCraft Launcher and standalone downloads. Use that page to select the current package for your system."}</p>
           </div>
           <div className={`platform-grid platform-grid--${guide.platformNotes.length}`}>
             {guide.platformNotes.map(([platform, detail]) => (
@@ -138,7 +140,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           </div>
           <div className="download-cta">
             <div><strong>Current official release</strong><span>{app.name} {app.version} · Free · MIT or Apache-2.0</span></div>
-            <a className="button button--light" href={app.officialPage} rel="noreferrer" target="_blank">Get {app.name}</a>
+            <a className="button button--light" href={downloadUrl} rel="noreferrer" target="_blank">Get {app.name}</a>
           </div>
         </section>}
 

@@ -40,7 +40,7 @@ export default function DownloadPage() {
         <header className="page-intro">
           <Eyebrow>Safe download directory</Eyebrow>
           <h1>Download from the <span>official source.</span></h1>
-          <p className="lede">We do not mirror installers. Every download button below opens the current ArtCraft product page, where you can choose the Launcher or a standalone package for your system.</p>
+          <p className="lede">We do not mirror installers. Download buttons open an official ArtCraft product page or a checked GitHub release. Choose the Launcher or a standalone package for your system, and check the listed version before installing.</p>
           <p className="updated">Last updated: <PageUpdated path="/download/" /></p>
           <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Check its app list before installing newly added projects such as FigCraft. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
         </header>
@@ -70,7 +70,7 @@ export default function DownloadPage() {
                   </dl>
                 </div>
                 <div className="download-card__actions">
-                  <a className="button" href={app.officialPage} target="_blank" rel="noreferrer">Download {app.name} ↗</a>
+                  <a className="button" href={app.slug === "vectorcraft" ? releasesBySlug.get(app.slug)!.url : app.officialPage} target="_blank" rel="noreferrer">Download {app.name} ↗</a>
                   <Link href={`/apps/${app.slug}/`}>Read the guide</Link>
                   <a href={releasesBySlug.get(app.slug)?.url} target="_blank" rel="noreferrer">Latest release notes ↗</a>
                 </div>

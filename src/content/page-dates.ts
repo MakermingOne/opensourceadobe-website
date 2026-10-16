@@ -4,13 +4,13 @@ import { dailyUpdates, updatePath } from "@/content/updates";
 // Update this record when changing a page; body, footer and sitemap share it.
 const editorialDates: Record<string, string> = {
   "/": "2026-10-15",
-  "/apps/": "2026-10-15",
-  "/vs-adobe/": "2026-10-15",
-  "/download/": "2026-10-15",
+  "/apps/": "2026-10-17",
+  "/vs-adobe/": "2026-10-17",
+  "/download/": "2026-10-17",
   "/tutorials/": "2026-10-13",
   "/faq/": "2026-10-13",
   "/apps/photocraft/": "2026-10-15",
-  "/apps/vectorcraft/": "2026-10-16",
+  "/apps/vectorcraft/": "2026-10-17",
   "/apps/filmcraft/": "2026-10-15",
   "/apps/lightcraft/": "2026-10-15",
   "/apps/pdfcraft/": "2026-10-16",
@@ -21,7 +21,7 @@ const editorialDates: Record<string, string> = {
   "/alternatives/": "2026-10-15",
   "/alternatives/photoshop/": "2026-10-15",
   "/alternatives/lightroom/": "2026-10-15",
-  "/github/": "2026-10-15",
+  "/github/": "2026-10-17",
 };
 
 export function pageUpdateDates(): Record<string, string> {

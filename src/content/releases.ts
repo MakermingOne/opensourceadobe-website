@@ -1,8 +1,9 @@
-// Official pages, repositories and GitHub releases checked on 2026-10-15.
+// Baseline checked October 15; subsequent app-specific refreshes are dated below.
 // This is an editorial snapshot, not a runtime API.
 export const releaseCheckedAt = "2026-10-15";
+const releaseCheckDates: Record<string, string> = { vectorcraft: "2026-10-17" };
 export function releaseCheckedOn(slug: string) {
-  return releases.some((release) => release.slug === slug) ? releaseCheckedAt : "Not verified";
+  return releases.some((release) => release.slug === slug) ? releaseCheckDates[slug] ?? releaseCheckedAt : "Not verified";
 }
 export const releases = [
   {
@@ -13,9 +14,9 @@ export const releases = [
   },
   {
     "slug": "vectorcraft",
-    "version": "0.11.0",
-    "publishedAt": "2026-10-14T14:54:46Z",
-    "url": "https://github.com/storytold/vectorcraft/releases/tag/v0.11.0"
+    "version": "0.12.0",
+    "publishedAt": "2026-10-16T12:26:40Z",
+    "url": "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0"
   },
   {
     "slug": "filmcraft",

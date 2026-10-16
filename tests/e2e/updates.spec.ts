@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(27);
+  await expect(page.locator(".update-entry")).toHaveCount(29);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
   await expect(page.locator(".update-entry")).toHaveCount(3);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -71,10 +71,10 @@ test("RSS is valid XML and links to the published daily brief", async ({ request
   }, xml);
   expect(result.errors).toBe(0);
   expect(result.links).toContain("https://opensourceadobe.com/updates/2026-10-13/");
-  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-16/");
+  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-17/");
 });
 
-for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/"]) {
+for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/", "/updates/2026-10-17/"]) {
   for (const width of [375, 768, 1024, 1280]) {
     test(`${route} fits ${width}px and exposes working internal links`, async ({ page, request }) => {
       await page.setViewportSize({ width, height: 900 });
@@ -86,12 +86,12 @@ for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/"
   }
 }
 
-for (const route of ["/updates/2026-10-15/", "/updates/2026-10-16/", "/apps/photocraft/", "/apps/pdfcraft/"]) {
-  test(`${route} remains readable without JavaScript`, async ({ browser }) => {
+for (const route of ["/updates/2026-10-15/", "/updates/2026-10-16/", "/updates/2026-10-17/", "/apps/photocraft/", "/apps/pdfcraft/"]) {
+  test(`${route} remains readable without JavaScript`, async ({ browser, baseURL }) => {
     const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 375, height: 900 } });
     try {
       const page = await context.newPage();
-      const response = await page.goto(`http://127.0.0.1:4173${route}`);
+      const response = await page.goto(new URL(route, baseURL!).href);
       expect(response?.status()).toBe(200);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
       await expect(page.getByRole("heading", { name: "Sources", exact: true })).toHaveCount(1);
@@ -120,4 +120,21 @@ test("October 16 distinguishes documentation and community events from a release
   await page.goto("/apps/vectorcraft/");
   await expect(page.locator("#main-content")).toContainText("libm GLIBC_2.35");
   await expect(page.locator(".sources")).toContainText("Rocky Linux 9");
+});
+
+test("October 17 connects the new release, bounded export guidance and community follow-up", async ({ page }) => {
+  await page.goto("/updates/2026-10-17/");
+  await expect(page.locator("#vectorcraft-0120")).toContainText("Official release");
+  await expect(page.locator("#vectorcraft-0120")).toContainText("Release published 2026-10-16 UTC");
+  await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("Community report");
+  await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("not a universal fix");
+  await page.goto("/apps/vectorcraft/");
+  await expect(page.getByRole("heading", { name: "Version 0.12.0", exact: true })).toBeVisible();
+  const buttons = page.getByRole("link", { name: "Get VectorCraft", exact: true });
+  await expect(buttons).toHaveCount(2);
+  for (const button of await buttons.all()) await expect(button).toHaveAttribute("href", "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
+  await page.getByText("Can VectorCraft open Illustrator files?", { exact: true }).click();
+  await expect(page.locator("details[open]")).toContainText("one artboard per file and no transparency");
+  await page.goto("/download/");
+  await expect(page.getByRole("link", { name: "Download VectorCraft ↗", exact: true })).toHaveAttribute("href", "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
 });
