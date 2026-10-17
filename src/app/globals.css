@@ -682,3 +682,38 @@ article.updates-shell .page-intro h1 { font-size: clamp(2.125rem, 3.7vw, 3.25rem
   .eyebrow::before, .identity-mark, .plain-list li::before { background: CanvasText; }
   .button, .status, .evidence-ledger { border: 1px solid CanvasText; }
 }
+
+/* Locale controls are URL links; no locale-dependent redirects or content swap. */
+.identity-bar__inner .language-switcher { display: flex; gap: 14px; margin-left: auto; flex-shrink: 0; }
+.language-switcher a { color: #fff; min-height: 32px; display: inline-flex; align-items: center; text-transform: none; letter-spacing: 0; font-size: 0.75rem; }
+.language-switcher [aria-current="page"] { color: #fff; font-weight: 700; text-decoration-thickness: 2px; }
+.language-suggestion { display: flex; justify-content: center; align-items: center; gap: 12px; background: var(--accent-soft); height: 36px; font: 0.875rem/1.5 "PingFang TC", "Microsoft JhengHei", sans-serif; }
+.language-suggestion button { background: none; border: 0; color: var(--ink); padding: 4px 12px; cursor: pointer; font-size: 1rem; }
+html[lang="zh-Hant"] { --font-display: var(--font-archivo), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; --font-body: var(--font-inter), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; }
+html[lang="zh-Hant"] body { font-size: 1.0625rem; line-height: 1.8; word-break: normal; overflow-wrap: anywhere; }
+html[lang="zh-Hant"] :is(h1,h2,h3,p,a,span,small,th,td,summary) { letter-spacing: 0; text-transform: none; }
+html[lang="zh-Hant"] :is(h1,h2,h3) { line-height: 1.4; }
+html[lang="zh-Hant"] .page-intro h1 { font-size: clamp(1.8rem, 4vw, 3.5rem); max-width: 1000px; }
+html[lang="zh-Hant"] .content-section h2 { font-size: clamp(1.4rem, 2.7vw, 2.1rem); }
+html[lang="zh-Hant"] .primary-nav { flex-wrap: wrap; gap: 12px 24px; }
+.localized-page { max-width: 1120px; }
+.localized-page .content-section { padding-block: 36px; border-top: 1px solid var(--line); }
+.localized-page .content-section p { max-width: 82ch; }
+.localized-page .table-scroll { overflow-x: auto; max-width: 100%; margin-block: 24px; border: 1px solid var(--line); }
+.localized-page table { width: 100%; min-width: 640px; border-collapse: collapse; }
+.localized-page caption { text-align: left; font-weight: 700; padding: 16px; background: var(--bg-sunken); }
+.localized-page th, .localized-page td { vertical-align: top; text-align: left; padding: 16px; border-bottom: 1px solid var(--line); }
+.localized-page th { background: var(--bg-sunken); }
+.localized-page .related-links { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; list-style: none; }
+.localized-page .faq-item { border-bottom: 1px solid var(--line); padding-block: 16px; }
+.localized-page .faq-item h3 { font-size: 1.125rem; }
+.localized-page .source-links li { margin-block: 10px; }
+.localized-page .locale-counterpart { margin-block: 32px; }
+@media (max-width: 600px) {
+  .identity-bar__inner { gap: 6px; }
+  .identity-bar__inner > span:not(.identity-mark) { font-size: 0.625rem; letter-spacing: 0; }
+  .identity-bar__inner .language-switcher { gap: 8px; }
+  html[lang="zh-Hant"] .header-main { gap: 16px; padding-block: 16px; }
+  html[lang="zh-Hant"] .primary-nav { justify-content: flex-start; gap: 10px 20px; }
+  html[lang="zh-Hant"] .primary-nav a { font-size: 0.8125rem; }
+}

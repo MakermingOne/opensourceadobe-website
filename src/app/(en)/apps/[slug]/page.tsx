@@ -1,3 +1,4 @@
+import { enPages } from "@/content/pages/en";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AppGuideLanding } from "@/components/app-guide-landing";
@@ -17,9 +18,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!app || !app.detailPublished) return {};
   if (app.slug === "photocraft") {
     return pageMetadata({
-      title: "ArtCraft PhotoCraft: Downloads & Photoshop Alternative",
+      title: enPages.photocraft.title,
       absoluteTitle: true,
-      description: "Explore ArtCraft PhotoCraft, its official downloads, PSD editing and early-alpha limits before replacing Photoshop.",
+      description: enPages.photocraft.description,
       path: "/apps/photocraft/",
       image: "/images/og/artcraft-photocraft.png",
     });

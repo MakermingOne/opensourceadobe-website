@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 import { publishedRoutes } from "../../src/lib/site";
 import { pageUpdatedAt } from "../../src/content/page-dates";
 

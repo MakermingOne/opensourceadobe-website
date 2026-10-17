@@ -28,4 +28,5 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - run: pnpm validate:static
+      - run: pnpm validate:i18n
       - run: pnpm test:e2e

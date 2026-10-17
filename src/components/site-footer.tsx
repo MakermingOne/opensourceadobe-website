@@ -2,31 +2,30 @@ import Link from "next/link";
 import { pageUpdateDates } from "@/content/page-dates";
 import { FooterUpdatedDate } from "@/components/footer-updated-date";
 
-const footerGroups = [
-  { title: "Apps & downloads", links: [{ href: "/apps/", label: "Apps" }, { href: "/download/", label: "Download" }, { href: "/github/", label: "GitHub" }] },
-  { title: "Compare & learn", links: [{ href: "/alternatives/", label: "Alternatives" }, { href: "/vs-adobe/", label: "Compare" }, { href: "/tutorials/", label: "Tutorials" }, { href: "/faq/", label: "FAQ" }] },
-  { title: "Updates & site", links: [{ href: "/updates/", label: "Updates" }, { href: "/updates/feed.xml", label: "RSS" }, { href: "/about/", label: "About" }, { href: "/contact/", label: "Contact" }, { href: "/disclaimer/", label: "Disclaimer" }, { href: "/privacy/", label: "Privacy" }] },
-];
+import { dictionaries } from "@/i18n/dictionaries";
+import { localePath, type Locale } from "@/i18n/config";
 
-export function SiteFooter() {
+export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
+  const copy = dictionaries[locale];
+  const footerGroups = copy.footerGroups;
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
           <p className="wordmark wordmark--footer">OpenSource<span>Adobe</span></p>
-          <p className="footer-note">An independent guide. Not affiliated with Adobe or ArtCraft.</p>
+          <p className="footer-note">{copy.footerNote}</p>
         </div>
-        <nav aria-label="Footer navigation" className="footer-links">
+        <nav aria-label={copy.footerNav} className="footer-links">
           {footerGroups.map((group, index) => <div className="footer-link-group" key={group.title}>
             <h2 id={`footer-group-${index}`}>{group.title}</h2>
             <ul aria-labelledby={`footer-group-${index}`}>{group.links.map((link) => <li key={link.href}>
-              {link.href.endsWith(".xml") ? <a href={link.href}>{link.label}</a> : <Link href={link.href}>{link.label}</Link>}
+              {link.href.endsWith(".xml") ? <a href={link.href}>{link.label}</a> : <Link href={localePath(locale, link.href)}>{link.label}</Link>}
             </li>)}</ul>
           </div>)}
         </nav>
         <div className="footer-meta">
-          <span>Evidence before enthusiasm.</span>
-          <FooterUpdatedDate dates={pageUpdateDates()} />
+          <span>{copy.evidence}</span>
+          <FooterUpdatedDate dates={pageUpdateDates()} label={copy.updated} />
         </div>
       </div>
     </footer>

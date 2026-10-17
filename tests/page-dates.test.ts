@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { pageUpdatedAt, pageUpdateDates } from "@/content/page-dates";
 import { publishedRoutes } from "@/lib/site";
-import sitemap from "@/app/sitemap";
+import sitemap from "@/lib/sitemap";
 
 describe("one source for substantive editorial dates", () => {
   it("provides every published page and the sitemap with the same date", () => {

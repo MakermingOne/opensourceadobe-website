@@ -31,6 +31,7 @@ pnpm typecheck
 pnpm test
 pnpm build
 pnpm validate:static
+pnpm validate:i18n
 pnpm test:e2e
 ```
 
@@ -60,3 +61,11 @@ PNG files and editable SVG sources are included in `public/images/og/`.
 ## Third-party materials
 
 Font licenses are included in `public/fonts/licenses/`. Product names, trademarks, screenshots, and linked third-party software belong to their respective owners. Public visibility of this repository does not grant rights to third-party materials.
+
+## Languages
+
+English URLs remain unprefixed. The first Traditional Chinese pages are available under `/zh-Hant/`: home, Photoshop alternatives, PhotoCraft setup and downloads. Navigation uses URL links and never redirects visitors based on browser language.
+
+`src/i18n/config.ts` is the published-language/page registry. Shared interface copy is in `src/i18n/*.json`; localized page copy is in `src/content/pages/`. Additional languages add configuration, a dictionary and editorial content while reusing the same locale routes and renderer. Product/platform/status facts continue to come from the shared app records.
+
+`/sitemap.xml` is a language sitemap index. HTML and language sitemaps use the same reciprocal alternate URLs, including English as the default. Run `pnpm validate:i18n` after building to verify the exported language metadata. Build finalization also produces locale `404.html` files; your static host must support nearest-directory 404 handling to show localized errors with the correct status.

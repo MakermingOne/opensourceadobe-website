@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");

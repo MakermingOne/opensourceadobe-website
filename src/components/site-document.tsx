@@ -5,7 +5,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isProductionDeployment } from "@/lib/deployment";
 import { siteConfig } from "@/lib/site";
-import "./globals.css";
+import "@/app/globals.css";
+import { dictionaries } from "@/i18n/dictionaries";
+import { locales, type Locale } from "@/i18n/config";
+import { LanguageSuggestion } from "@/components/language-suggestion";
 
 const archivo = localFont({
   src: "../assets/fonts/archivo-latin-variable.woff2",
@@ -58,11 +61,12 @@ export const viewport: Viewport = {
   themeColor: "#101114",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export function SiteDocument({ children, locale = "en" }: Readonly<{ children: React.ReactNode; locale?: Locale }>) {
+  const copy = dictionaries[locale];
   const loadAnalytics = isProduction && Boolean(siteConfig.analyticsId);
 
   return (
-    <html lang="en" className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
+    <html lang={locale} dir={locales[locale].dir} className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
       <head>
         <script
           async
@@ -71,10 +75,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
-        <a className="skip-link" href="#main-content">Skip to main content</a>
-        <SiteHeader />
+        <a className="skip-link" href="#main-content">{copy.skip}</a>
+        <SiteHeader locale={locale} />
+        <LanguageSuggestion locale={locale} />
         <main id="main-content">{children}</main>
-        <SiteFooter />
+        <SiteFooter locale={locale} />
         {loadAnalytics ? <GoogleAnalytics gaId={siteConfig.analyticsId} /> : null}
       </body>
     </html>

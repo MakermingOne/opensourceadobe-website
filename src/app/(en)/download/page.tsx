@@ -1,3 +1,4 @@
+import { enPages } from "@/content/pages/en";
 import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,8 +15,8 @@ import { absoluteUrl } from "@/lib/site";
 import { releasesBySlug } from "@/content/releases";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Download ArtCraft Apps Safely",
-  description: "Find official ArtCraft downloads for PhotoCraft, PdfCraft, VectorCraft, FilmCraft and LightCraft, with platform choices and alpha limits.",
+  title: enPages.download.title,
+  description: enPages.download.description,
   path: "/download/",
 });
 
@@ -39,7 +40,7 @@ export default function DownloadPage() {
         <Breadcrumbs currentPath="/download/" items={[{ label: "Home", href: "/" }, { label: "Download" }]} />
         <header className="page-intro">
           <Eyebrow>Safe download directory</Eyebrow>
-          <h1>Download from the <span>official source.</span></h1>
+          <h1>{enPages.download.h1}<span>{enPages.download.h1Emphasis}</span></h1>
           <p className="lede">We do not mirror installers. Download buttons open an official ArtCraft product page or a checked GitHub release. Choose the Launcher or a standalone package for your system, and check the listed version before installing.</p>
           <p className="updated">Last updated: <PageUpdated path="/download/" /></p>
           <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Check its app list before installing newly added projects such as FigCraft. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
@@ -49,7 +50,7 @@ export default function DownloadPage() {
           <div className="section-heading section-heading--tight">
             <p className="section-number">01</p>
             <div>
-              <h2 id="available-heading">Choose the work you want to do.</h2>
+              <h2 id="available-heading">{enPages.download.heading1}</h2>
               <p>These {publishedApps.length} apps have a sourced OpenSourceAdobe guide. Need a PDF tool? <Link href="/apps/pdfcraft/">Download PdfCraft for your system</Link> and check its Acrobat workflow limits before installing.</p>
             </div>
           </div>
@@ -82,7 +83,7 @@ export default function DownloadPage() {
         <section className="landing-section" aria-labelledby="other-downloads-heading">
           <div className="landing-heading">
             <Eyebrow>Also in the ArtCraft family</Eyebrow>
-            <h2 id="other-downloads-heading">More tools for creative and everyday work.</h2>
+            <h2 id="other-downloads-heading">{enPages.download.heading2}</h2>
             <p>We have not published full independent guides for these apps yet. Their links therefore go directly to the official project pages.</p>
           </div>
           <div className="resource-list">
@@ -98,7 +99,7 @@ export default function DownloadPage() {
 
         <aside className="safety-note" aria-labelledby="download-safety-heading">
           <Eyebrow>Before installing</Eyebrow>
-          <h2 id="download-safety-heading">Treat alpha software as a test first.</h2>
+          <h2 id="download-safety-heading">{enPages.download.heading3}</h2>
           <p>Confirm the domain, select the correct architecture, keep important files backed up, and test with copies. Availability does not prove that an app is ready for every production workflow.</p>
         </aside>
 

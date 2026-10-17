@@ -3,6 +3,8 @@ import { isProductionDeployment } from "@/lib/deployment";
 import { absoluteUrl, canonicalPath, siteConfig } from "@/lib/site";
 import { socialImagePath } from "@/content/social-images";
 
+import { languageAlternates, resolveLocalePath, locales } from "@/i18n/config";
+
 const isProduction = isProductionDeployment();
 
 export function pageMetadata({
@@ -19,16 +21,17 @@ export function pageMetadata({
   absoluteTitle?: boolean;
 }): Metadata {
   const canonical = canonicalPath(path);
-  const imageUrl = new URL(image ?? socialImagePath(canonical), siteConfig.url).toString();
+  const imageUrl = new URL(image ?? socialImagePath(resolveLocalePath(canonical)?.path ?? canonical), siteConfig.url).toString();
   // The root layout's title template does not apply to its same-segment page.
   const resolvedTitle = absoluteTitle || canonical === "/" ? title : `${title} | ${siteConfig.name}`;
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical, types: { "application/rss+xml": `${siteConfig.url}/updates/feed.xml` } },
+    alternates: { canonical, languages: languageAlternates(canonical), types: { "application/rss+xml": `${siteConfig.url}/updates/feed.xml` } },
     openGraph: {
       type: "website",
+      locale: locales[resolveLocalePath(canonical)?.locale ?? "en"].openGraphLocale,
       siteName: siteConfig.name,
       title: resolvedTitle,
       description,

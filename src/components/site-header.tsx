@@ -1,36 +1,30 @@
 import Link from "next/link";
 
-const navigation = [
-  { href: "/", label: "Home" },
-  { href: "/apps/", label: "Apps" },
-  { href: "/alternatives/", label: "Alternatives" },
-  { href: "/vs-adobe/", label: "Compare" },
-  { href: "/download/", label: "Download" },
-  { href: "/tutorials/", label: "Tutorials" },
-  { href: "/updates/", label: "Updates" },
-  { href: "/faq/", label: "FAQ" },
-  { href: "/about/", label: "About" },
-  { href: "/github/", label: "GitHub" },
-];
+import { dictionaries } from "@/i18n/dictionaries";
+import { localePath, type Locale } from "@/i18n/config";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
-export function SiteHeader() {
+export function SiteHeader({ locale = "en" }: { locale?: Locale }) {
+  const copy = dictionaries[locale];
+  const navigation = copy.navigation;
   return (
     <header className="site-header">
       <div className="identity-bar">
         <div className="container identity-bar__inner">
           <span className="identity-mark" aria-hidden="true" />
-          <span>Unofficial · Independent guide</span>
+          <span>{copy.identity}</span>
+          <LanguageSwitcher locale={locale} />
         </div>
       </div>
       <div className="container header-main">
-        <Link href="/" className="wordmark" aria-label="OpenSourceAdobe home">
+        <Link href={localePath(locale, "/")} className="wordmark" aria-label={copy.homeLabel}>
           OpenSource<span>Adobe</span>
         </Link>
-        <nav aria-label="Primary navigation">
+        <nav aria-label={copy.primaryNav}>
           <ul className="primary-nav">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
+                <Link href={localePath(locale, item.href)}>{item.label}</Link>
               </li>
             ))}
           </ul>

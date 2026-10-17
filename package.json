@@ -7,7 +7,7 @@
     "node": "24.x"
   },
   "scripts": {
-    "build": "next build --webpack",
+    "build": "next build --webpack && node scripts/finalize-static.mjs",
     "dev": "next dev",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -15,10 +15,11 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "validate:static": "node scripts/validate-static.mjs",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm validate:static && pnpm test:e2e",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm validate:static && pnpm validate:i18n && pnpm test:e2e",
     "preview:cloudflare": "DEPLOYMENT_ENV=preview pnpm build && wrangler dev",
     "deploy:cloudflare": "DEPLOYMENT_ENV=production pnpm build && wrangler deploy --no-bundle",
-    "deploy:cloudflare:pages": "DEPLOYMENT_ENV=production pnpm build && wrangler pages deploy out --project-name opensourceadobe --branch main"
+    "deploy:cloudflare:pages": "DEPLOYMENT_ENV=production pnpm build && wrangler pages deploy out --project-name opensourceadobe --branch main",
+    "validate:i18n": "node scripts/validate-i18n.mjs"
   },
   "dependencies": {
     "@next/third-parties": "16.4.0",

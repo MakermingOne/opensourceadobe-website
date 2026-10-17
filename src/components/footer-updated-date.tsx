@@ -2,10 +2,10 @@
 
 import { usePathname } from "next/navigation";
 
-export function FooterUpdatedDate({ dates }: { dates: Record<string, string> }) {
+export function FooterUpdatedDate({ dates, label = "Updated" }: { dates: Record<string, string>; label?: string }) {
   const pathname = usePathname();
   const path = pathname === "/" ? "/" : `/${pathname.split("/").filter(Boolean).join("/")}/`;
   const date = dates[path];
   if (!date) return null;
-  return <span>Updated <time dateTime={date} data-footer-updated>{date}</time></span>;
+  return <span>{label} <time dateTime={date} data-footer-updated>{date}</time></span>;
 }

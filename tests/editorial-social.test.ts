@@ -29,7 +29,7 @@ describe("complete social metadata", () => {
 
 describe("requested editorial corrections", () => {
   it("explains all thirteen apps without an ambiguous standalone count", () => {
-    const page = readFileSync("src/app/github/page.tsx", "utf8");
+    const page = readFileSync("src/app/(en)/github/page.tsx", "utf8");
     expect(page).toContain("Twelve of the thirteen apps have a browser target; FilmCraft is distributed for macOS, Windows and Linux only.");
     expect(page).not.toContain("The official directory lists browser targets for twelve apps");
     expect(page).toContain("<GuideFaq items={githubFaqs}");
@@ -37,14 +37,14 @@ describe("requested editorial corrections", () => {
     expect(page.indexOf('id="faq-heading"')).toBeLessThan(page.indexOf("<SourceList"));
   });
   it("clarifies the alternatives scale without redundant progress copy", () => {
-    const page = readFileSync("src/app/alternatives/page.tsx", "utf8");
+    const page = readFileSync("src/app/(en)/alternatives/page.tsx", "utf8");
     expect(page).toContain("How close it gets");
     expect(page).not.toContain("<th>Ceiling</th>");
     expect(page).not.toContain(': "Guide in progress"');
     expect(page).toContain("not quality ratings");
   });
   it("replaces directory repetition with an independent-guide positioning sentence", () => {
-    const page = readFileSync("src/app/page.tsx", "utf8");
+    const page = readFileSync("src/app/(en)/page.tsx", "utf8");
     expect(page).toContain("An independent, source-led guide to open-source creative software.");
     expect(page).toContain("Compare PhotoCraft, VectorCraft, FilmCraft, LightCraft and the wider ArtCraft family before you switch.");
   });

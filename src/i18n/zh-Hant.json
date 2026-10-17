@@ -1,0 +1,96 @@
+{
+  "skip": "跳至主要內容",
+  "identity": "非官方・獨立指南",
+  "homeLabel": "OpenSourceAdobe 首頁",
+  "primaryNav": "主要導覽",
+  "footerNav": "頁尾導覽",
+  "footerNote": "本站為獨立指南，與 Adobe 或 ArtCraft 無隸屬關係。",
+  "evidence": "以來源與證據協助選擇。",
+  "updated": "更新日期",
+  "sources": "資料來源",
+  "faq": "常見問題",
+  "breadcrumb": "所在位置",
+  "englishVersion": "閱讀本頁英文版",
+  "notFoundTitle": "找不到這個頁面",
+  "notFoundDescription": "這個頁面可能已移動，或尚未提供繁體中文版。",
+  "backHome": "返回繁體中文首頁",
+  "suggestion": "本站有繁體中文版 →",
+  "dismissSuggestion": "關閉語言提示",
+  "navigation": [
+    {
+      "href": "/",
+      "label": "首頁"
+    },
+    {
+      "href": "/alternatives/photoshop/",
+      "label": "Photoshop 替代方案"
+    },
+    {
+      "href": "/apps/photocraft/",
+      "label": "PhotoCraft 教學"
+    },
+    {
+      "href": "/download/",
+      "label": "下載與安裝"
+    }
+  ],
+  "footerGroups": [
+    {
+      "title": "選擇與比較",
+      "links": [
+        {
+          "href": "/",
+          "label": "開源 Adobe 替代軟體"
+        },
+        {
+          "href": "/alternatives/photoshop/",
+          "label": "Photoshop 替代方案"
+        }
+      ]
+    },
+    {
+      "title": "下載與教學",
+      "links": [
+        {
+          "href": "/apps/photocraft/",
+          "label": "PhotoCraft 下載教學"
+        },
+        {
+          "href": "/download/",
+          "label": "ArtCraft 官方下載指南"
+        }
+      ]
+    }
+  ],
+  "appCategories": {
+    "photocraft": "修圖與影像編輯",
+    "vectorcraft": "向量繪圖",
+    "filmcraft": "影片剪輯",
+    "lightcraft": "相片管理與 RAW 顯影",
+    "pdfcraft": "PDF 編輯與整理",
+    "effectcraft": "動態圖像與視覺特效",
+    "designcraft": "版面編排與出版",
+    "figcraft": "介面設計與原型",
+    "wordcraft": "文書處理",
+    "soundcraft": "音訊錄製與混音",
+    "deckcraft": "簡報製作",
+    "cadcraft": "CAD 與技術製圖",
+    "gridcraft": "試算表與資料分析"
+  },
+  "statuses": {
+    "early-alpha": "早期測試（Early alpha）",
+    "in-development": "開發中"
+  },
+  "appTable": {
+    "caption": "ArtCraft 創作工具與工作流程對照",
+    "headers": [
+      "工具",
+      "對應 Adobe 產品",
+      "用途",
+      "支援平台",
+      "開發狀態"
+    ],
+    "noCounterpart": "無直接對應產品",
+    "details": "功能與相容性資訊"
+  }
+}
