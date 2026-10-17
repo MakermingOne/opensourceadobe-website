@@ -14,7 +14,7 @@ describe("published language variants", () => {
   });
   it("never advertises unpublished translations", () => {
     expect(languageAlternates("/updates/")).toEqual({ en: "https://opensourceadobe.com/updates/", "x-default": "https://opensourceadobe.com/updates/" });
-    expect(localizedPaths("zh-Hant")).toHaveLength(4);
+    expect(localizedPaths("zh-Hant")).toHaveLength(5);
     expect(switchLocalePath("/updates/2026-10-17/", "zh-Hant")).toBe("/zh-Hant/");
     expect(switchLocalePath("/zh-Hant/download/", "en")).toBe("/download/");
     expect(resolveLocalePath("/fr/")).toBeNull();

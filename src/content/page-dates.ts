@@ -3,6 +3,7 @@ import { dailyUpdates, updatePath } from "@/content/updates";
 // Dates of substantive editorial changes, not builds or source-access checks.
 // Update this record when changing a page; body, footer and sitemap share it.
 const editorialDates: Record<string, string> = {
+  "/zh-Hant/vs-adobe/": "2026-10-18",
   "/pl/": "2026-10-17",
   "/pl/alternatives/photoshop/": "2026-10-17",
   "/pl/apps/photocraft/": "2026-10-17",
@@ -16,7 +17,7 @@ const editorialDates: Record<string, string> = {
   "/hi/apps/photocraft/": "2026-10-17",
   "/hi/download/": "2026-10-17",
 
-  "/zh-Hant/": "2026-10-17",
+  "/zh-Hant/": "2026-10-18",
   "/zh-Hant/alternatives/photoshop/": "2026-10-17",
   "/zh-Hant/apps/photocraft/": "2026-10-17",
   "/zh-Hant/download/": "2026-10-17",

@@ -23,7 +23,7 @@ function LocalizedNotFound({ locale }: { locale: Locale }) {
 }
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { locale, path } = await resolve(params);
-  if (path === "/404/") return { title: dictionaries[locale].notFoundTitle, robots: { index: false, follow: true } };
+  if (path === "/404/") return { title: dictionaries[locale].notFoundTitle, description: dictionaries[locale].notFoundDescription, robots: { index: false, follow: true } };
   const page = getPageContent(locale, path);
   if (!page) notFound();
   return pageMetadata({ title: page.title, description: page.description, path: localePath(locale, path), absoluteTitle: true });

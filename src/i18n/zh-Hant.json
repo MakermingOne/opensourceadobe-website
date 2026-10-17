@@ -26,6 +26,10 @@
       "label": "Photoshop 替代方案"
     },
     {
+      "href": "/vs-adobe/",
+      "label": "能取代 Adobe 嗎"
+    },
+    {
       "href": "/apps/photocraft/",
       "label": "PhotoCraft 教學"
     },
@@ -45,6 +49,10 @@
         {
           "href": "/alternatives/photoshop/",
           "label": "Photoshop 替代方案"
+        },
+        {
+          "href": "/vs-adobe/",
+          "label": "ArtCraft 與 Adobe 的限制比較"
         }
       ]
     },

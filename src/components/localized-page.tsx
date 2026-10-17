@@ -1,3 +1,4 @@
+import { appGuideHref } from "@/i18n/app-links";
 import { JsonLd } from "@/components/json-ld";
 import { apps, appsBySlug } from "@/content/apps";
 import type { LocalizedLink, LocalizedPage as PageContent } from "@/content/pages/types";
@@ -42,7 +43,7 @@ export function LocalizedPage({ page, locale }: { page: PageContent; locale: Loc
       {page.sections.map((section) => <section className="content-section" id={section.id} key={section.id} aria-labelledby={`${section.id}-heading`}>
         <h2 id={`${section.id}-heading`}>{section.heading}</h2>
         {section.paragraphs.map((text) => <p key={text}>{text}</p>)}
-        {section.kind === "apps" && appCopy ? <div className="table-scroll" role="region" aria-label={appCopy.appTable.caption} tabIndex={0}><table><caption>{appCopy.appTable.caption}</caption><thead><tr>{appCopy.appTable.headers.map((header) => <th scope="col" key={header}>{header}</th>)}</tr></thead><tbody>{appRows.map(({ app, cells }) => <tr key={app.slug}><th scope="row">{app.slug === "photocraft" ? <a href={localePath(locale, "/apps/photocraft/")}>{cells[0]}</a> : <a href={app.officialPage}>{cells[0]}</a>}</th>{cells.slice(1).map((cell, index) => <td key={index}>{cell}</td>)}</tr>)}</tbody></table></div> : null}
+        {section.kind === "apps" && appCopy ? <div className="table-scroll" role="region" aria-label={appCopy.appTable.caption} tabIndex={0}><table><caption>{appCopy.appTable.caption}</caption><thead><tr>{appCopy.appTable.headers.map((header) => <th scope="col" key={header}>{header}</th>)}</tr></thead><tbody>{appRows.map(({ app, cells }) => <tr key={app.slug}><th scope="row"><a href={appGuideHref(locale, app)}>{cells[0]}</a></th>{cells.slice(1).map((cell, index) => <td key={index}>{cell}</td>)}</tr>)}</tbody></table></div> : null}
         {section.table ? <div className="table-scroll" role="region" aria-label={section.table.caption} tabIndex={0}><table><caption>{section.table.caption}</caption><thead><tr>{section.table.headers.map((header) => <th scope="col" key={header}>{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row) => <tr key={row[0]}>{row.map((cell, index) => index === 0 ? <th scope="row" key={index}>{cell}</th> : <td key={index}>{cell}</td>)}</tr>)}</tbody></table></div> : null}
         <RelatedLinks links={section.links} locale={locale} />
       </section>)}

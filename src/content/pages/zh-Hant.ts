@@ -1,3 +1,4 @@
+import { zhHantComparison } from "./zh-Hant-comparison";
 import type { LocalizedPage } from "./types";
 import { brushNotes, brushSources, currentDigest } from "./update-notes";
 
@@ -13,6 +14,7 @@ const downloadLink = { label: "ArtCraft 下載與名稱釐清", href: "/download
 const homeLink = { label: "開源 Adobe 替代軟體總覽", href: "/" };
 
 export const zhHantPages: Record<string, LocalizedPage> = {
+  "/vs-adobe/": zhHantComparison,
   "/": {
     path: "/",
     title: "開源 Adobe 替代軟體：13 款免費 ArtCraft 工具對照與下載",
@@ -24,7 +26,7 @@ export const zhHantPages: Record<string, LocalizedPage> = {
       { id: "workflows", heading: "13 款開源創作工具，依工作流程分類", paragraphs: ["影像工作可先看 PhotoCraft 與 LightCraft：前者偏向圖層式修圖，後者處理相片資料庫與 RAW 顯影。向量繪圖與版面編排則分別看 VectorCraft、DesignCraft；製作影片、動態圖像與音訊，可進一步了解 FilmCraft、EffectCraft、SoundCraft。", "PdfCraft 處理 PDF，FigCraft 偏向介面設計與原型。WordCraft、DeckCraft、GridCraft 與 CADCraft 則延伸到文件、簡報、試算表及技術製圖。這些工具並非每一款都有直接對應的 Adobe 產品，也不應只憑介面相似就推定檔案相容。"] },
       { id: "comparison", heading: "ArtCraft 與 Adobe 全對照表", paragraphs: ["工具名稱、平台與開發狀態沿用本站共用目錄。平台欄代表官方列出的目標平台，各版本的安裝檔與處理器架構仍須到官方 Releases 核對。Early alpha 表示早期測試，開發中也不等同可穩定取代現有工作流程。"], kind: "apps" },
       { id: "boundaries", heading: "哪些工作可以交給開源工具，哪些還不行", paragraphs: ["學習圖層、整理個人素材、試做小型作品，都適合從檔案副本開始。正式轉移前，請保留原始檔，測試開啟、編輯、儲存、關閉後重開，以及最後輸出。畫面看起來相近，只是驗收的第一步。", "需要與客戶交換複雜 PSD、使用特定外掛、交付印刷色彩，或維護長篇剪輯專案時，應另外驗證字型、色彩描述檔、效果、連結素材及輸出結果。本站不把官方功能清單當成完整相容的保證，也不建議只因為免費就立刻停用原本的交付工具。", "開源授權與素材使用權也要分開理解。工具原始碼的授權，不會自動授予字型、圖庫、範本或客戶素材的使用權；商業專案仍應逐項確認。"] },
-      { id: "evidence", heading: "從類別到功能與相容性證據", paragraphs: ["如果主要工作是修圖，先讀 Photoshop 替代方案，再到 PhotoCraft 產品頁核對下載與安裝方式。前者幫你判斷是否適合轉換，後者協助你開始試用，兩頁各有不同用途。", "目前繁體中文首批只涵蓋首頁、Photoshop 比較、PhotoCraft 與下載引導。其他工具的深入比較仍在英文版，尚未建立的中文頁面不會以空白翻譯頁代替。"], links: [alternativeLink, photoLink, downloadLink] },
+      { id: "evidence", heading: "從類別到功能與相容性證據", paragraphs: ["如果主要工作是修圖，先讀 Photoshop 替代方案，再到 PhotoCraft 產品頁核對下載與安裝方式。前者幫你判斷是否適合轉換，後者協助你開始試用，兩頁各有不同用途。", "目前繁體中文首批只涵蓋首頁、Photoshop 比較、PhotoCraft 與下載引導。其他工具的深入比較仍在英文版，尚未建立的中文頁面不會以空白翻譯頁代替。"], links: [{ label: "ArtCraft 可以取代 Adobe 嗎？先看四項限制", href: "/vs-adobe/" }, alternativeLink, photoLink, downloadLink] },
       { id: "updates", heading: "最新版本與更新", paragraphs: ["工具更新快速，同一天的產品介紹頁、目錄與 GitHub Releases 也可能顯示不同版本。選擇安裝檔時，請以官方發行頁的版本、日期與資產清單為準，並記下自己實際測試的版本。", "本站英文更新頁保留發布日期、官方來源及功能限制。新版本值得重新測試，但版本號增加不能證明舊問題都已解決；若工作仰賴某項功能，請用相同樣本重新驗證。"], links: [{ label: "版本發布與更新紀錄（英文）", href: "https://opensourceadobe.com/updates/" }, { label: "完整工具目錄（英文）", href: "https://opensourceadobe.com/apps/" }] },
     ],
     faq: [

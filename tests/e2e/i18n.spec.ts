@@ -8,7 +8,7 @@ const pages = [
   { en: "/apps/photocraft/", zh: "/zh-Hant/apps/photocraft/", primary: "PhotoCraft 下載" },
   { en: "/download/", zh: "/zh-Hant/download/", primary: "ArtCraft 下載" },
 ] as const;
-const translatedPaths = pages.map(({ zh }) => zh);
+const translatedPaths: string[] = [...pages.map(({ zh }) => zh), "/zh-Hant/vs-adobe/"];
 const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, "x-default": origin + path });
 async function openLanguages(page: Page) {
   const languages = page.getByRole("navigation", { name: "Language", exact: true });
