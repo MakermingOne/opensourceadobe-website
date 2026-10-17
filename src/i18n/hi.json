@@ -1,0 +1,62 @@
+{
+  "skip": "मुख्य सामग्री पर जाएँ",
+  "identity": "स्वतंत्र, अनौपचारिक गाइड",
+  "homeLabel": "OpenSourceAdobe होम",
+  "primaryNav": "मुख्य नेविगेशन",
+  "footerNav": "फ़ुटर नेविगेशन",
+  "footerNote": "यह स्वतंत्र गाइड Adobe या ArtCraft से संबद्ध नहीं है।",
+  "evidence": "आधिकारिक स्रोतों के आधार पर सही टूल चुनें।",
+  "updated": "अपडेट की तारीख",
+  "dateSeparator": ": ",
+  "sources": "स्रोत",
+  "faq": "अक्सर पूछे जाने वाले सवाल",
+  "breadcrumb": "आप यहाँ हैं",
+  "englishVersion": "यह पेज English में पढ़ें",
+  "notFoundTitle": "यह पेज नहीं मिला",
+  "notFoundDescription": "पेज का पता बदल गया है या इसका हिंदी संस्करण अभी उपलब्ध नहीं है।",
+  "backHome": "हिंदी होम पेज पर लौटें",
+  "suggestion": "यह गाइड हिंदी में भी उपलब्ध है →",
+  "dismissSuggestion": "भाषा का सुझाव बंद करें",
+  "navigation": [
+    {"href": "/", "label": "होम"},
+    {"href": "/alternatives/photoshop/", "label": "Photoshop का विकल्प"},
+    {"href": "/apps/photocraft/", "label": "PhotoCraft गाइड"},
+    {"href": "/download/", "label": "डाउनलोड और इंस्टॉल"}
+  ],
+  "footerGroups": [
+    {"title": "चुनें और तुलना करें", "links": [
+      {"href": "/", "label": "Adobe के ओपन-सोर्स विकल्प"},
+      {"href": "/alternatives/photoshop/", "label": "Photoshop की तुलना"}
+    ]},
+    {"title": "डाउनलोड और शुरुआत", "links": [
+      {"href": "/apps/photocraft/", "label": "PhotoCraft डाउनलोड गाइड"},
+      {"href": "/download/", "label": "ArtCraft Launcher गाइड"}
+    ]}
+  ],
+  "appCategories": {
+    "photocraft": "फ़ोटो और इमेज एडिटिंग",
+    "vectorcraft": "वेक्टर डिज़ाइन",
+    "filmcraft": "वीडियो एडिटिंग",
+    "lightcraft": "फ़ोटो लाइब्रेरी और RAW एडिटिंग",
+    "pdfcraft": "PDF एडिटिंग और फ़ाइल प्रबंधन",
+    "effectcraft": "मोशन ग्राफ़िक्स और विज़ुअल इफ़ेक्ट्स",
+    "designcraft": "पेज लेआउट और पब्लिशिंग",
+    "figcraft": "इंटरफ़ेस डिज़ाइन और प्रोटोटाइप",
+    "wordcraft": "दस्तावेज़ लिखना और संपादन",
+    "soundcraft": "ऑडियो रिकॉर्डिंग और मिक्सिंग",
+    "deckcraft": "प्रेज़ेंटेशन",
+    "cadcraft": "CAD और तकनीकी ड्रॉइंग",
+    "gridcraft": "स्प्रेडशीट और डेटा विश्लेषण"
+  },
+  "statuses": {
+    "early-alpha": "शुरुआती परीक्षण (Early alpha)",
+    "in-development": "विकास जारी है",
+    "not-verified": "पुष्टि नहीं हुई"
+  },
+  "appTable": {
+    "caption": "ArtCraft टूल और उनके काम की तुलना",
+    "headers": ["टूल", "संबंधित Adobe उत्पाद", "किस काम के लिए", "प्लैटफ़ॉर्म", "विकास की स्थिति"],
+    "noCounterpart": "सीधा समकक्ष नहीं",
+    "details": "फ़ीचर और फ़ाइल संगतता"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "skip": "Przejdź do treści",
+  "identity": "Niezależny, nieoficjalny poradnik",
+  "homeLabel": "Strona główna OpenSourceAdobe",
+  "primaryNav": "Nawigacja główna",
+  "footerNav": "Nawigacja w stopce",
+  "footerNote": "Niezależny poradnik. Nie jesteśmy powiązani z Adobe ani ArtCraft.",
+  "evidence": "Wybieraj na podstawie źródeł i ograniczeń.",
+  "updated": "Aktualizacja",
+  "dateSeparator": ": ",
+  "sources": "Źródła",
+  "faq": "Najczęstsze pytania",
+  "breadcrumb": "Ścieżka strony",
+  "englishVersion": "Przeczytaj tę stronę po angielsku",
+  "notFoundTitle": "Nie znaleziono strony",
+  "notFoundDescription": "Strona mogła zmienić adres lub nie ma jeszcze polskiej wersji.",
+  "backHome": "Wróć do polskiej strony głównej",
+  "suggestion": "Dostępna jest polska wersja →",
+  "dismissSuggestion": "Zamknij podpowiedź języka",
+  "navigation": [
+    { "href": "/", "label": "Strona główna" },
+    { "href": "/alternatives/photoshop/", "label": "Alternatywa dla Photoshopa" },
+    { "href": "/apps/photocraft/", "label": "Poradnik PhotoCraft" },
+    { "href": "/download/", "label": "Pobieranie i instalacja" }
+  ],
+  "footerGroups": [
+    { "title": "Wybór i porównanie", "links": [
+      { "href": "/", "label": "Otwarte alternatywy dla Adobe" },
+      { "href": "/alternatives/photoshop/", "label": "Alternatywa dla Photoshopa" }
+    ] },
+    { "title": "Pobieranie i poradniki", "links": [
+      { "href": "/apps/photocraft/", "label": "Pobieranie PhotoCraft" },
+      { "href": "/download/", "label": "Instalacja ArtCraft" }
+    ] }
+  ],
+  "appCategories": {
+    "photocraft": "Retusz i edycja zdjęć",
+    "vectorcraft": "Grafika wektorowa",
+    "filmcraft": "Montaż wideo",
+    "lightcraft": "Katalogowanie zdjęć i wywoływanie RAW",
+    "pdfcraft": "Edycja i porządkowanie PDF",
+    "effectcraft": "Animacja i efekty wizualne",
+    "designcraft": "Skład i publikowanie",
+    "figcraft": "Projektowanie interfejsów i prototypów",
+    "wordcraft": "Edycja dokumentów",
+    "soundcraft": "Nagrywanie i miksowanie dźwięku",
+    "deckcraft": "Tworzenie prezentacji",
+    "cadcraft": "CAD i rysunek techniczny",
+    "gridcraft": "Arkusze kalkulacyjne i analiza danych"
+  },
+  "statuses": {
+    "early-alpha": "Wczesna wersja alfa",
+    "in-development": "W trakcie rozwoju",
+    "not-verified": "Niezweryfikowany"
+  },
+  "appTable": {
+    "caption": "Narzędzia ArtCraft i ich zastosowania",
+    "headers": ["Narzędzie", "Odpowiednik Adobe", "Zastosowanie", "Platformy", "Stan rozwoju"],
+    "tool": "Narzędzie",
+    "counterpart": "Odpowiednik Adobe",
+    "use": "Zastosowanie",
+    "platform": "Platformy",
+    "status": "Stan rozwoju",
+    "noCounterpart": "Brak bezpośredniego odpowiednika",
+    "details": "Funkcje i zgodność plików"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "skip": "Zum Hauptinhalt",
+  "identity": "Unabhängiger, inoffizieller Ratgeber",
+  "homeLabel": "OpenSourceAdobe Startseite",
+  "primaryNav": "Hauptnavigation",
+  "footerNav": "Fußnavigation",
+  "footerNote": "Unabhängiger Ratgeber ohne Verbindung zu Adobe oder ArtCraft.",
+  "evidence": "Entscheidungshilfe mit nachvollziehbaren Quellen.",
+  "updated": "Aktualisiert",
+  "dateSeparator": ": ",
+  "sources": "Quellen",
+  "faq": "Häufige Fragen",
+  "breadcrumb": "Sie befinden sich hier",
+  "englishVersion": "Diese Seite auf Englisch lesen",
+  "notFoundTitle": "Diese Seite wurde nicht gefunden",
+  "notFoundDescription": "Die Seite wurde möglicherweise verschoben oder ist noch nicht auf Deutsch verfügbar.",
+  "backHome": "Zur deutschen Startseite",
+  "suggestion": "Diese Website ist auch auf Deutsch verfügbar →",
+  "dismissSuggestion": "Sprachhinweis schließen",
+  "navigation": [
+    { "href": "/", "label": "Überblick" },
+    { "href": "/alternatives/photoshop/", "label": "Photoshop-Alternative" },
+    { "href": "/apps/photocraft/", "label": "PhotoCraft" },
+    { "href": "/download/", "label": "Download und Installation" }
+  ],
+  "footerGroups": [
+    { "title": "Auswahl und Vergleich", "links": [
+      { "href": "/", "label": "Open-Source-Alternativen zu Adobe" },
+      { "href": "/alternatives/photoshop/", "label": "PhotoCraft als Photoshop-Alternative" }
+    ] },
+    { "title": "Download und Einstieg", "links": [
+      { "href": "/apps/photocraft/", "label": "PhotoCraft herunterladen" },
+      { "href": "/download/", "label": "ArtCraft Launcher installieren" }
+    ] }
+  ],
+  "appCategories": {
+    "photocraft": "Bildbearbeitung und Retusche",
+    "vectorcraft": "Vektorgrafik",
+    "filmcraft": "Videoschnitt",
+    "lightcraft": "Fotoverwaltung und RAW-Entwicklung",
+    "pdfcraft": "PDF-Bearbeitung und Organisation",
+    "effectcraft": "Motion Design und visuelle Effekte",
+    "designcraft": "Seitenlayout und Publishing",
+    "figcraft": "UI-Design und Prototypen",
+    "wordcraft": "Textverarbeitung",
+    "soundcraft": "Audioaufnahme und Mischung",
+    "deckcraft": "Präsentationen",
+    "cadcraft": "CAD und technische Zeichnungen",
+    "gridcraft": "Tabellenkalkulation und Datenanalyse"
+  },
+  "statuses": {
+    "early-alpha": "Frühe Alpha-Version",
+    "in-development": "In Entwicklung",
+    "not-verified": "Nicht bestätigt"
+  },
+  "appTable": {
+    "caption": "ArtCraft-Werkzeuge nach Einsatzgebiet und Adobe-Gegenstück",
+    "headers": ["Werkzeug", "Adobe-Gegenstück", "Einsatzgebiet", "Zielplattformen", "Entwicklungsstand"],
+    "noCounterpart": "Kein direktes Gegenstück",
+    "details": "Funktionen und Kompatibilität"
+  }
+}

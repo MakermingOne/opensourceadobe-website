@@ -717,3 +717,26 @@ html[lang="zh-Hant"] .primary-nav { flex-wrap: wrap; gap: 12px 24px; }
   html[lang="zh-Hant"] .primary-nav { justify-content: flex-start; gap: 10px 20px; }
   html[lang="zh-Hant"] .primary-nav a { font-size: 0.8125rem; }
 }
+
+/* A native language menu remains usable without JavaScript at narrow widths. */
+.identity-bar__inner .language-switcher { display: block; position: relative; z-index: 30; }
+.language-switcher summary { color: #fff; font: inherit; font-size: 0.8125rem; text-transform: none; letter-spacing: 0; cursor: pointer; min-height: 36px; display: flex; align-items: center; gap: 8px; list-style: none; }
+.language-switcher summary::-webkit-details-marker { display: none; }
+.language-switcher summary:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.language-switcher ul { position: absolute; right: 0; top: 100%; min-width: 176px; padding: 8px; margin: 0; list-style: none; background: var(--bg-raised); border: 1px solid var(--line); box-shadow: 0 8px 24px rgb(0 0 0 / 15%); }
+.language-switcher li a, .language-switcher li [aria-current="page"] { display: flex; color: var(--ink); min-height: 44px; padding: 8px 12px; font-family: var(--font-body), "Kohinoor Devanagari", "Nirmala UI", Mangal, sans-serif; font-size: 0.875rem; }
+.language-switcher li a:hover, .language-switcher li a:focus-visible { background: var(--accent-soft); color: var(--ink-strong); }
+html:not([lang="en"]) .localized-page { overflow-wrap: anywhere; word-break: normal; }
+html:not([lang="en"]) .localized-page :is(h1,h2,h3) { letter-spacing: 0; text-transform: none; line-height: 1.4; }
+html:not([lang="en"]) .localized-page .page-intro h1 { font-size: clamp(1.8rem, 4vw, 3.5rem); max-width: 1000px; }
+html:is([lang="pl"],[lang="de"]) .localized-page { line-height: 1.75; hyphens: auto; }
+html[lang="hi"] { --font-display: var(--font-archivo), "Kohinoor Devanagari", "Nirmala UI", "Noto Sans Devanagari", Mangal, sans-serif; --font-body: var(--font-inter), "Kohinoor Devanagari", "Nirmala UI", "Noto Sans Devanagari", Mangal, sans-serif; }
+html[lang="hi"] body { font-size: 1.0625rem; line-height: 1.85; letter-spacing: 0; }
+html[lang="hi"] :is(h1,h2,h3,p,a,span,summary,th,td,small) { letter-spacing: 0; text-transform: none; }
+html[lang="hi"] :is(h1,h2,h3) { line-height: 1.5; }
+html:is([lang="pl"],[lang="de"],[lang="hi"]) .primary-nav { flex-wrap: wrap; gap: 12px 24px; }
+@media (max-width: 600px) {
+  html:not([lang="en"]) .header-main { gap: 16px; padding-block: 16px; }
+  html:not([lang="en"]) .primary-nav { justify-content: flex-start; gap: 10px 20px; }
+  html:not([lang="en"]) .primary-nav a { font-size: 0.8125rem; }
+}

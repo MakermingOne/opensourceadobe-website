@@ -9,6 +9,12 @@ const pages = [
   { en: "/download/", zh: "/zh-Hant/download/", primary: "ArtCraft 下載" },
 ] as const;
 const translatedPaths = pages.map(({ zh }) => zh);
+const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, "x-default": origin + path });
+async function openLanguages(page: Page) {
+  const languages = page.getByRole("navigation", { name: "Language", exact: true });
+  if (!(await languages.locator("details").evaluate((element) => element.hasAttribute("open")))) await languages.locator("summary").click();
+  return languages;
+}
 
 type Schema = Record<string, unknown>;
 async function schemas(page: Page): Promise<Schema[]> {
@@ -67,8 +73,8 @@ for (const route of pages) {
     for (const current of [route.zh, route.en]) {
       await page.goto(current);
       const alternates = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((links) => Object.fromEntries(links.map((link) => [link.getAttribute("hreflang"), link.getAttribute("href")])));
-      expect(alternates).toEqual({ en: origin + route.en, "zh-Hant": origin + route.zh, "x-default": origin + route.en });
-      const languages = page.getByRole("navigation", { name: "Language", exact: true });
+      expect(alternates).toEqual(alternateGroup(route.en));
+      const languages = await openLanguages(page);
       await expect(languages.getByRole("link", { name: "English", exact: true })).toHaveAttribute("href", route.en);
       await expect(languages.getByRole("link", { name: "繁體中文", exact: true })).toHaveAttribute("href", route.zh);
     }
@@ -89,7 +95,7 @@ for (const route of pages) {
         await link.scrollIntoViewIfNeeded();
         await expect(link).toBeVisible();
       }
-      const language = page.getByRole("navigation", { name: "Language", exact: true }).getByRole("link", { name: "English", exact: true });
+      const language = (await openLanguages(page)).getByRole("link", { name: "English", exact: true });
       await language.scrollIntoViewIfNeeded();
       await language.click();
       await expect(page).toHaveURL(new RegExp(`${route.en}$`));

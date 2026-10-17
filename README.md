@@ -64,7 +64,7 @@ Font licenses are included in `public/fonts/licenses/`. Product names, trademark
 
 ## Languages
 
-English URLs remain unprefixed. The first Traditional Chinese pages are available under `/zh-Hant/`: home, Photoshop alternatives, PhotoCraft setup and downloads. Navigation uses URL links and never redirects visitors based on browser language.
+English URLs remain unprefixed. Traditional Chinese (`/zh-Hant/`), Polish (`/pl/`), German (`/de/`) and Hindi (`/hi/`) each provide localized home, Photoshop alternatives, PhotoCraft setup and download guides. Navigation uses URL links and never redirects visitors based on browser language.
 
 `src/i18n/config.ts` is the published-language/page registry. Shared interface copy is in `src/i18n/*.json`; localized page copy is in `src/content/pages/`. Additional languages add configuration, a dictionary and editorial content while reusing the same locale routes and renderer. Product/platform/status facts continue to come from the shared app records.
 

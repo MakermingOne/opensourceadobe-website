@@ -24,31 +24,40 @@ if (!index.includes("<sitemapindex")) {
 const sitemapUrls = [...index.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => decode(match[1]));
 check(sitemapUrls.length >= 2, "sitemap index must list at least two language sitemaps");
 const entries = new Map();
+const languageCounts = new Map();
 for (const url of sitemapUrls) {
   check(new URL(url).origin === origin, `Unexpected sitemap origin: ${url}`);
+  const locale = new URL(url).pathname.split("/").at(-1).replace(/\.xml$/, "");
+  languageCounts.set(locale, 0);
   const xml = await readFile(join(output, new URL(url).pathname), "utf8");
   check(xml.includes("<urlset"), `${url}: missing urlset`);
   for (const [block] of xml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
     const location = decode(capture(block, /<loc>(.*?)<\/loc>/));
     check(!entries.has(location), `Duplicate sitemap URL: ${location}`);
-    entries.set(location, { alternates: links(block), path: new URL(location).pathname });
+    entries.set(location, { alternates: links(block), path: new URL(location).pathname, locale });
+    languageCounts.set(locale, languageCounts.get(locale) + 1);
   }
 }
 const titles = new Set();
-let chineseCount = 0;
+const variants = new Map();
+for (const [url, entry] of entries) {
+  const base = entry.locale === "en" ? entry.path : entry.path.slice(entry.locale.length + 1);
+  const group = variants.get(base) ?? {};
+  group[entry.locale] = url;
+  variants.set(base, group);
+}
 for (const [url, entry] of entries) {
   let html;
   try { html = await read(entry.path); } catch { failures.push(`${url}: exported HTML missing`); continue; }
-  const chinese = entry.path.startsWith("/zh-Hant/");
-  const base = chinese ? entry.path.slice("/zh-Hant".length) : entry.path;
-  const translated = entries.has(`${origin}/zh-Hant${base}`);
-  const expected = { en: origin + base, ...(translated ? { "zh-Hant": `${origin}/zh-Hant${base}` } : {}), "x-default": origin + base };
+  const chinese = entry.locale === "zh-Hant";
+  const base = entry.locale === "en" ? entry.path : entry.path.slice(entry.locale.length + 1);
+  const expected = { ...variants.get(base), "x-default": origin + base };
   const htmlAlternates = links(html);
   check(same(entry.alternates, expected), `${entry.path}: sitemap alternates differ from available translations`);
   check(same(htmlAlternates, expected), `${entry.path}: HTML alternates differ from sitemap/available translations`);
   for (const target of Object.values(expected)) check(entries.has(target), `${entry.path}: alternate not in sitemap: ${target}`);
   const root = attributes(capture(html, /(<html\b[^>]*>)/i));
-  check(root.lang === (chinese ? "zh-Hant" : "en") && root.dir === "ltr", `${entry.path}: incorrect SSR lang/dir`);
+  check(root.lang === entry.locale && root.dir === "ltr", `${entry.path}: incorrect SSR lang/dir`);
   const canonical = [...html.matchAll(/<link\b[^>]*>/g)].map(([tag]) => attributes(tag)).find((tag) => tag.rel === "canonical")?.href;
   check(canonical === url, `${entry.path}: canonical must be self-referencing`);
   const title = decode(capture(html, /<title>(.*?)<\/title>/));
@@ -59,11 +68,10 @@ for (const [url, entry] of entries) {
   for (const [, json] of html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
     try { structured.push(...flattenSchema(JSON.parse(json))); } catch { failures.push(`${entry.path}: invalid JSON-LD`); }
   }
-  if (chinese) {
-    chineseCount++;
-    check([...title.matchAll(/\p{Script=Han}/gu)].length <= 30, `${entry.path}: title exceeds 30 Han characters`);
+  if (entry.locale !== "en") {
+    if (chinese) check([...title.matchAll(/\p{Script=Han}/gu)].length <= 30, `${entry.path}: title exceeds 30 Han characters`);
     const visibleMain = decode(mainMarkup(html).replace(/<script\b[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, ""));
-    check(!/平替|软件|矢量|视频/.test(visibleMain), `${entry.path}: prohibited regional wording`);
+    if (chinese) check(!/平替|软件|矢量|视频/.test(visibleMain), `${entry.path}: prohibited regional wording`);
     const questions = structured.find((node) => node["@type"] === "FAQPage")?.mainEntity;
     check(Array.isArray(questions) && questions.length >= 4, `${entry.path}: FAQPage needs at least four questions`);
     for (const question of questions ?? []) {
@@ -72,7 +80,7 @@ for (const [url, entry] of entries) {
     }
   }
 }
-check(chineseCount === 4, `Expected four Chinese pages, found ${chineseCount}`);
+for (const [locale, count] of languageCounts) check(count > 0, `${locale}: empty language sitemap`);
 
 const baselineFlag = process.argv.indexOf("--baseline");
 if (baselineFlag !== -1) {
@@ -86,16 +94,20 @@ if (baselineFlag !== -1) {
   }
 }
 
-// A locale-specific 404 is optional until the deployment adapter exposes it.
-const chinese404 = join(output, "zh-Hant", "404.html");
-try {
-  await stat(chinese404);
-  const html = await readFile(chinese404, "utf8");
-  check(/<html[^>]*lang="zh-Hant"/.test(html), "Chinese 404 must declare zh-Hant");
-  check(/name="robots"[^>]*content="[^"]*noindex/.test(html), "Chinese 404 must be noindex");
-} catch { /* No localized 404 artifact is currently required. */ }
+// Locale errors must be exported and remain excluded from indexing/sitemaps.
+for (const locale of languageCounts.keys()) {
+  if (locale === "en") continue;
+  try {
+    const file = join(output, locale, "404.html");
+    await stat(file);
+    const html = await readFile(file, "utf8");
+    const root = attributes(capture(html, /(<html\b[^>]*>)/i));
+    check(root.lang === locale, `${locale}: 404 declares the wrong language`);
+    check(/name="robots"[^>]*content="[^"]*noindex/.test(html), `${locale}: 404 must be noindex`);
+  } catch { failures.push(`${locale}: localized 404.html is missing`); }
+}
 
 if (failures.length) {
   console.error(`i18n validation failed (${failures.length}):\n${failures.map((failure) => `- ${failure}`).join("\n")}`);
   process.exitCode = 1;
-} else console.log(`i18n validation passed for ${entries.size} URLs, including ${chineseCount} Chinese pages${baselineFlag === -1 ? "" : "; English baseline unchanged"}.`);
+} else console.log(`i18n validation passed for ${entries.size} URLs, across ${languageCounts.size} languages${baselineFlag === -1 ? "" : "; English baseline unchanged"}.`);

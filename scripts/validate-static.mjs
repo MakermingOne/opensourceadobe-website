@@ -125,7 +125,8 @@ if (!expectIndexing && !/Disallow:\s*\//.test(robotsText)) failures.push("robots
 
 const sitemapIndex = await readFile(join(outputDirectory, "sitemap.xml"), "utf8");
 if (!sitemapIndex.includes("<sitemapindex")) failures.push("sitemap.xml must be a language sitemap index");
-const sitemapText = (await Promise.all(["en", "zh-Hant"].map((locale) => readFile(join(outputDirectory, "sitemaps", `${locale}.xml`), "utf8")))).join("\n");
+const sitemapFiles = [...sitemapIndex.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => new URL(match[1]).pathname);
+const sitemapText = (await Promise.all(sitemapFiles.map((file) => readFile(join(outputDirectory, file), "utf8")))).join("\n");
 for (const route of routes) {
   if (!sitemapText.includes(`<loc>${siteUrl}${route}</loc>`)) failures.push(`sitemap.xml is missing ${route}`);
   const html = await readFile(routeFile(route), "utf8");

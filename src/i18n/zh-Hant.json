@@ -92,5 +92,6 @@
     ],
     "noCounterpart": "無直接對應產品",
     "details": "功能與相容性資訊"
-  }
+  },
+  "dateSeparator": "："
 }

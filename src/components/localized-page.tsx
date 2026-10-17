@@ -38,7 +38,7 @@ export function LocalizedPage({ page, locale }: { page: PageContent; locale: Loc
     ] }} />
     <article className="container page-shell localized-page">
       <nav className="breadcrumbs" aria-label={copy.breadcrumb}><a href={localePath(locale, "/")}>{copy.navigation[0].label}</a>{page.path !== "/" ? <span aria-current="page"> / {page.h1}</span> : null}</nav>
-      <header className="page-intro"><p className="eyebrow">{copy.identity}</p><h1>{page.h1}</h1>{page.intro.map((text) => <p className="lede" key={text}>{text}</p>)}<p className="updated">{copy.updated}：<time dateTime={date} data-page-updated>{date}</time></p></header>
+      <header className="page-intro"><p className="eyebrow">{copy.identity}</p><h1>{page.h1}</h1>{page.intro.map((text) => <p className="lede" key={text}>{text}</p>)}<p className="updated">{copy.updated}{copy.dateSeparator}<time dateTime={date} data-page-updated>{date}</time></p></header>
       {page.sections.map((section) => <section className="content-section" id={section.id} key={section.id} aria-labelledby={`${section.id}-heading`}>
         <h2 id={`${section.id}-heading`}>{section.heading}</h2>
         {section.paragraphs.map((text) => <p key={text}>{text}</p>)}
