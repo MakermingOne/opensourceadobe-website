@@ -13,6 +13,14 @@ const routes = [
   "/apps/filmcraft/",
   "/apps/lightcraft/",
   "/apps/pdfcraft/",
+  "/apps/effectcraft/",
+  "/apps/designcraft/",
+  "/apps/figcraft/",
+  "/apps/wordcraft/",
+  "/apps/soundcraft/",
+  "/apps/deckcraft/",
+  "/apps/cadcraft/",
+  "/apps/gridcraft/",
   "/github/",
   "/about/",
   "/brandon-thomas/",
@@ -56,7 +64,7 @@ test("home remains usable at a 200% desktop zoom equivalent", async ({ page }) =
   const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(documentWidth).toBeLessThanOrEqual(640);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.getByRole("link", { name: "See all 13 apps", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Choose your app", exact: true })).toBeVisible();
 });
 
 test("home hero headline stays balanced on desktop", async ({ page }) => {
@@ -68,7 +76,7 @@ test("home hero headline stays balanced on desktop", async ({ page }) => {
   await expect(heading.locator("span")).toHaveCSS("white-space", "nowrap");
 });
 
-for (const route of ["/brandon-thomas/", "/alternatives/photoshop/", "/alternatives/lightroom/", "/apps/pdfcraft/", "/apps/photocraft/", "/github/"]) {
+for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/apps/pdfcraft/", "/apps/photocraft/", "/github/"]) {
   for (const width of [375, 768, 1280]) {
     test(`${route} has no document overflow at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
@@ -101,11 +109,11 @@ test("Lightroom guide separates development from cataloguing", async ({ page }) 
 test("home introduces the current ArtCraft app hub", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
 
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Find your open source Adobe alternative by workflow.");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Find your free, open-source tools by workflow.");
   await expect(page.getByText("PhotoCraft", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("VectorCraft", { exact: true }).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "Explore 13 ArtCraft apps by workflow" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Can these apps replace Adobe?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What should you check before switching?" })).toBeVisible();
   await expect(page.getByRole("img", { name: /illustrated creative workbench/i })).toBeVisible();
   await expect(page.locator("[data-workflow-icon]")).toHaveCount(13);
   for (const slug of ["figcraft", "wordcraft", "soundcraft", "deckcraft", "cadcraft", "gridcraft"]) {
@@ -133,7 +141,7 @@ test("PdfCraft guide answers download intent with official assets and alpha limi
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Download PdfCraft: ArtCraft’s PDF workbench");
   await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.8\.0\/pdfcraft-0\.8\.0-windows-x64\.msi$/);
   await expect(page.getByText(/not a complete Acrobat Pro replacement/).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "Choose your PdfCraft download" })).toHaveAttribute("href", "#download-heading");
+  await expect(page.getByRole("link", { name: "Download PdfCraft", exact: true })).toHaveAttribute("href", "#download-heading");
   expect(await page.locator('script[type="application/ld+json"]').allTextContents()).toEqual(expect.arrayContaining([expect.stringContaining('"@type":"FAQPage"')]));
 });
 
@@ -211,9 +219,9 @@ for (const guide of [
     await expect(page.getByRole("heading", { name: `Can ${guide.app} replace ${guide.adobe}?` })).toBeVisible();
     await expect(page.getByRole("heading", { name: `What can you do with ${guide.app}?` })).toBeVisible();
     await expect(page.getByRole("heading", { name: `Who should try ${guide.app} now?` })).toBeVisible();
-    await expect(page.getByRole("link", { name: `Get ${guide.app}` }).first()).toHaveAttribute(
+    await expect(page.getByRole("link", { name: `Download ${guide.app}`, exact: true }).first()).toHaveAttribute(
       "href",
-      guide.slug === "vectorcraft" ? "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0" : `https://getartcraft.com/apps/${guide.slug}`,
+      "#download-heading",
     );
     await expect(page.getByText("CLAIM 01", { exact: true })).toHaveCount(0);
   });

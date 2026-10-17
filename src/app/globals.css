@@ -741,6 +741,26 @@ html:is([lang="pl"],[lang="de"],[lang="hi"]) .primary-nav { flex-wrap: wrap; gap
   html:not([lang="en"]) .primary-nav a { font-size: 0.8125rem; }
 }
 
+/* Shared download journey: platform choice first, installation on demand. */
+.install-guide {
+  border-block: 1px solid var(--line);
+  padding-block: 1rem;
+  margin-block: 1.5rem;
+}
+.install-guide > summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding-block: .5rem;
+}
+.install-guide > summary:hover { color: var(--accent-ink); }
+.install-guide > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.install-guide[open] > summary { margin-bottom: 1rem; }
+.install-guide ol { padding-left: 1.25rem; }
+.install-guide li + li { margin-top: .75rem; }
+.workflow-card__action { color: var(--accent-ink); text-decoration: underline; font-weight: 600; }
+.download-jump-links { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-block: 1.5rem; }
+.download-card { scroll-margin-top: 7rem; }
+
 /* Reading rhythm for the source-led founder profile. */
 .founder-profile .page-intro > p:not(.lede) { margin-top: 18px; }
 .founder-profile .prose p + p { margin-top: 18px; }

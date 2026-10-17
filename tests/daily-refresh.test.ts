@@ -18,7 +18,7 @@ describe("October 15 morning source refresh", () => {
       if (slug !== "vectorcraft") {
         expect(release.version).toBe(version);
         expect(release.publishedAt).toMatch(/^2026-10-14T/);
-        expect(releaseCheckedOn(slug)).toBe("2026-10-15");
+        expect(releaseCheckedOn(slug)).toBe("2026-10-17");
       }
       const entry = issue.entries.find((item) => item.appSlug === slug && item.sourceUrl === `https://github.com/storytold/${slug}/releases/tag/v${version}`)!;
       expect(entry?.kind).toBe("Official release");

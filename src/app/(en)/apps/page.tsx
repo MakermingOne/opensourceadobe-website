@@ -29,7 +29,7 @@ export default function AppsPage() {
       <div className="container page-shell page-shell--scan">
         <Breadcrumbs currentPath="/apps/" items={[{ label: "Home", href: "/" }, { label: "Apps" }]} />
         <header className="page-intro">
-          <Eyebrow>Official directory · getartcraft apps</Eyebrow>
+          <Eyebrow>Independent directory · Official project sources</Eyebrow>
           <h1>Browse the <span>ArtCraft app family.</span></h1>
           <p className="lede">Browse {apps.length} ArtCraft projects for photo editing, vector illustration, video, RAW development, PDFs, motion graphics, publishing, interface design, documents, audio, presentations, CAD and spreadsheets.</p>
           <p className="updated">Last updated: <PageUpdated path="/apps/" /></p>
@@ -40,7 +40,7 @@ export default function AppsPage() {
             <p className="section-number">01</p>
             <div>
               <h2 id="choose-app-heading">Choose an app by the work you need to do.</h2>
-              <p>Open a full guide where one is published, including our <Link href="/apps/pdfcraft/">PdfCraft download guide</Link>. Other cards take you to the official product page. Find source code and release notes in the <Link href="/github/">ArtCraft GitHub directory</Link>.</p>
+              <p>Every app now has a download and installation guide, including our <Link href="/apps/pdfcraft/">PdfCraft download guide</Link>. Choose your platform, check installation steps and review each tool’s compatibility limits. Find source code and release notes in the <Link href="/github/">ArtCraft GitHub directory</Link>.</p>
             </div>
           </div>
           <div className="choice-grid">

@@ -1,7 +1,7 @@
 // Baseline checked October 15; subsequent app-specific refreshes are dated below.
 // This is an editorial snapshot, not a runtime API.
 export const releaseCheckedAt = "2026-10-15";
-const releaseCheckDates: Record<string, string> = { vectorcraft: "2026-10-17" };
+const releaseCheckDates: Record<string, string> = {"photocraft": "2026-10-17", "vectorcraft": "2026-10-17", "filmcraft": "2026-10-17", "lightcraft": "2026-10-17", "pdfcraft": "2026-10-17", "effectcraft": "2026-10-17", "designcraft": "2026-10-17", "figcraft": "2026-10-17", "wordcraft": "2026-10-17", "soundcraft": "2026-10-17", "deckcraft": "2026-10-17", "cadcraft": "2026-10-17", "gridcraft": "2026-10-17"};
 export function releaseCheckedOn(slug: string) {
   return releases.some((release) => release.slug === slug) ? releaseCheckDates[slug] ?? releaseCheckedAt : "Not verified";
 }

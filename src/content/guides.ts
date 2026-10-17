@@ -1,3 +1,5 @@
+import { additionalGuides, type AdditionalGuideSlug } from "@/content/additional-guides";
+
 export type GuideFeature = {
   title: string;
   body: string;
@@ -9,7 +11,7 @@ export type GuideFaq = {
 };
 
 export type AppGuide = {
-  slug: "vectorcraft" | "filmcraft" | "lightcraft" | "pdfcraft";
+  slug: "vectorcraft" | "filmcraft" | "lightcraft" | "pdfcraft" | AdditionalGuideSlug;
   headline?: string;
   applicationCategory: string;
   intro: string;
@@ -25,6 +27,7 @@ export type AppGuide = {
 };
 
 export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
+  ...additionalGuides,
   pdfcraft: {
     slug: "pdfcraft",
     headline: "Download PdfCraft: ArtCraft’s PDF workbench",

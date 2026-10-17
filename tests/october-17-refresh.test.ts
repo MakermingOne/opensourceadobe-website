@@ -18,7 +18,7 @@ describe("October 17 verified increments", () => {
     expect(entry?.sourceUrl).toBe("https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
     expect(releasesBySlug.get("vectorcraft")?.version).toBe("0.12.0");
     expect(releaseCheckedOn("vectorcraft")).toBe("2026-10-17");
-    expect(releaseCheckedOn("photocraft")).toBe("2026-10-15");
+    expect(releaseCheckedOn("photocraft")).toBe("2026-10-17");
     expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-17");
   });
   it("keeps legacy Illustrator export limits visible", () => {
@@ -39,8 +39,9 @@ describe("October 17 verified increments", () => {
   });
   it("takes VectorCraft download actions to the checked release rather than stale product-page installers", () => {
     const html = renderToStaticMarkup(createElement(AppGuideLanding, { app: appsBySlug.get("vectorcraft")!, guide: guideBySlug.vectorcraft, sources: [] }));
-    const actions = [...html.matchAll(/<a[^>]+href="([^"]+)"[^>]*>Get VectorCraft<\/a>/g)];
-    expect(actions).toHaveLength(2);
-    expect(actions.every((action) => action[1] === "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0")).toBe(true);
+    const actions = [...html.matchAll(/<a[^>]+href="([^"]+)"[^>]*>Download VectorCraft for [^<]+<\/a>/g)];
+    expect(actions).toHaveLength(3);
+    expect(actions.every((action) => action[1].startsWith("https://github.com/storytold/vectorcraft/releases/download/v0.12.0/"))).toBe(true);
+    expect(html).toContain('href="#download-heading"');
   });
 });

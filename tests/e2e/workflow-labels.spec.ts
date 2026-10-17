@@ -2,7 +2,7 @@ import { expect, test } from "./fixtures";
 
 const counterparts = [
   ["WordCraft", "Microsoft Word"],
-  ["SoundCraft", "Adobe Audition and general DAWs"],
+  ["SoundCraft", "Pro Tools"],
   ["DeckCraft", "Microsoft PowerPoint"],
   ["CADCraft", "AutoCAD"],
   ["GridCraft", "Microsoft Excel"],

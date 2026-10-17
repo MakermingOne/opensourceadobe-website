@@ -130,13 +130,13 @@ test("October 17 connects the new release, bounded export guidance and community
   await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("not a universal fix");
   await page.goto("/apps/vectorcraft/");
   await expect(page.getByRole("heading", { name: "Version 0.12.0", exact: true })).toBeVisible();
-  const buttons = page.getByRole("link", { name: "Get VectorCraft", exact: true });
-  await expect(buttons).toHaveCount(2);
-  for (const button of await buttons.all()) await expect(button).toHaveAttribute("href", "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
+  const buttons = page.getByRole("link", { name: /^Download VectorCraft for/ });
+  await expect(buttons).toHaveCount(3);
+  for (const button of await buttons.all()) await expect(button).toHaveAttribute("href", /^https:\/\/github\.com\/storytold\/vectorcraft\/releases\/download\/v0\.12\.0\//);
   await page.getByText("Can VectorCraft open Illustrator files?", { exact: true }).click();
   await expect(page.locator("details[open]")).toContainText("one artboard per file and no transparency");
   await page.goto("/download/");
-  await expect(page.getByRole("link", { name: "Download VectorCraft ↗", exact: true })).toHaveAttribute("href", "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
+  await expect(page.getByRole("link", { name: "Choose your VectorCraft download", exact: true })).toHaveAttribute("href", "/apps/vectorcraft/#download-heading");
 });
 
 test("October 17 evening keeps development work distinct from releases and syncs translations", async ({ page, request }) => {

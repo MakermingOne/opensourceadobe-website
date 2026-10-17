@@ -45,12 +45,12 @@ export default function HomePage() {
           <div className="poster-grid">
             <div className="poster-copy">
               <Eyebrow>Independent directory · {apps.length} ArtCraft apps</Eyebrow>
-              <p className="poster-manifesto">An independent, source-led guide to open-source creative software.</p>
+              <p className="poster-manifesto">Free, open-source tools. Official downloads. Practical installation guides.</p>
               <h1 id="home-heading">{enPages.home.h1}<span>{enPages.home.h1Emphasis}</span></h1>
-              <p className="poster-deck">Compare PhotoCraft, VectorCraft, FilmCraft, LightCraft and the wider ArtCraft family before you switch. New to the directory: FigCraft for interface design and prototyping.</p>
+              <p className="poster-deck">Find your tool for photos, video, design, documents or audio. Compare all 13 ArtCraft apps, choose a Windows, Mac or Linux download, and check what works before switching.</p>
               <div className="button-row">
-                <Link className="button button--light" href="#app-directory">See all {apps.length} apps</Link>
-                <Link className="text-link text-link--invert" href="/vs-adobe/">ArtCraft vs Adobe →</Link>
+                <Link className="button button--light" href="#app-directory">Choose your app</Link>
+                <Link className="text-link text-link--invert" href="/download/">Browse official downloads →</Link>
               </div>
               <p className="poster-disclaimer">Status and feature claims come from official ArtCraft sources; production readiness is not independently verified.</p>
             </div>
@@ -75,11 +75,11 @@ export default function HomePage() {
       </section>
 
       <section className="section container" id="app-directory" aria-labelledby="directory-heading">
-        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated <PageUpdated path="/" long /></Eyebrow><h2 id="directory-heading">{enPages.home.heading1.beforeCount}{apps.length}{enPages.home.heading1.afterCount}</h2><p>Find a tool for photo editing, illustration, video, interface design, documents, audio and more. Open its guide or official page to check availability and supported formats before switching.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
+        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated <PageUpdated path="/" long /></Eyebrow><h2 id="directory-heading">{enPages.home.heading1.beforeCount}{apps.length}{enPages.home.heading1.afterCount}</h2><p>Find a tool for photo editing, illustration, video, interface design, documents, audio and more. Every app has a download and installation guide with checked releases and compatibility limits.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
         <div className="workflow-links">
           {apps.map((app) => {
             const profile = workflowProfiles[app.slug as keyof typeof workflowProfiles];
-            const card = <><span className="workflow-card__icon"><WorkflowIcon slug={app.slug as WorkflowSlug} /></span><span>{app.category}</span><strong>{app.name}</strong><small>{profile.bestFor}</small><small className="workflow-card__mapping">{workflowLabels(app).card ?? `For the ${app.adobeCounterpart} workflow`}</small></>;
+            const card = <><span className="workflow-card__icon"><WorkflowIcon slug={app.slug as WorkflowSlug} /></span><span>{app.category}</span><strong>{app.name}</strong><small>{profile.bestFor}</small><small className="workflow-card__mapping">{workflowLabels(app).card ?? `For the ${app.adobeCounterpart} workflow`}</small><small className="workflow-card__action">Downloads & installation →</small></>;
             return app.detailPublished ? <Link className="workflow-card" href={`/apps/${app.slug}/`} key={app.slug}>{card}</Link> : <a className="workflow-card" href={app.officialPage} target="_blank" rel="noreferrer" key={app.slug}>{card}</a>;
           })}
         </div>

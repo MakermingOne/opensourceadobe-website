@@ -2,7 +2,7 @@ import type { AppRecord } from "@/content/types";
 
 const beyondAdobeCounterparts: Record<string, string> = {
   wordcraft: "Microsoft Word",
-  soundcraft: "Adobe Audition and general DAWs",
+  soundcraft: "Pro Tools",
   deckcraft: "Microsoft PowerPoint",
   cadcraft: "AutoCAD",
   gridcraft: "Microsoft Excel",
@@ -16,4 +16,8 @@ export function workflowLabels(app: Pick<AppRecord, "slug" | "adobeCounterpart">
     card: counterpart ? `Beyond Adobe · compares with ${counterpart}` : undefined,
     table: counterpart ? `Beyond Adobe (vs ${counterpart})` : app.adobeCounterpart,
   };
+}
+
+export function comparedProduct(app: Pick<AppRecord, "slug" | "adobeCounterpart">) {
+  return beyondAdobeCounterparts[app.slug] ?? app.adobeCounterpart;
 }

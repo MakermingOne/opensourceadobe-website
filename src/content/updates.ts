@@ -77,7 +77,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "A MacBook Pro user reports heat, fan activity and freezing while propagating rotoscope frames, while also saying the result impressed them. The app version, chip, memory and footage specifications are not reported. This is one person’s account, not an independent performance benchmark or a confirmed cause.",
       impact: "Before relying on rotoscoping for a deadline, try a short copy of representative footage and record the version, hardware, frame range and source dimensions. No fix was verified in this check. The report does not establish the same behavior across Macs, operating systems or released builds.",
       sourceTitle: "Reddit: EffectCraft rotoscoping performance report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7lppk/serious_performance_issues_with_rotoscoping_in/",
-      relatedPath: "/apps/", relatedLabel: "Compare EffectCraft’s scope and development status",
+      relatedPath: "/apps/effectcraft/", relatedLabel: "Compare EffectCraft’s scope and development status",
     },
   ],
 }, {
@@ -158,7 +158,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "Release notes cover starter templates, online-file ownership and recovery, sharing terms and changes to .fig export for instances, variables and styles. The repository describes live collaboration as a preview, with best-effort Figma file support.",
       impact: "Local editing and online sharing are different privacy choices. Share Online uploads a file to a server; edit or view links grant access, and stopping sharing is not the same as removing the stored file. Read the project’s sharing terms before uploading confidential designs.",
       sourceTitle: "FigCraft v0.6.0 release notes", sourceUrl: "https://github.com/storytold/figcraft/releases/tag/v0.6.0",
-      relatedPath: "/apps/", relatedLabel: "Find FigCraft and its official repository",
+      relatedPath: "/apps/figcraft/", relatedLabel: "Find FigCraft and its official repository",
     },
     {
       id: "effectcraft-0100", appSlug: "effectcraft", appName: "EffectCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -166,7 +166,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "The release notes list track mattes limiting adjustment-layer effects, changes to particle and time effects, and improved track-point interaction when zoomed out. These are project-reported changes to the motion-graphics workflow.",
       impact: "Retry a small copied composition that uses these features and inspect the rendered frames. The directory still labels EffectCraft In development; do not infer full After Effects project or plug-in compatibility from these fixes.",
       sourceTitle: "EffectCraft v0.10.0 release notes", sourceUrl: "https://github.com/storytold/effectcraft/releases/tag/v0.10.0",
-      relatedPath: "/apps/", relatedLabel: "Find EffectCraft’s official project",
+      relatedPath: "/apps/effectcraft/", relatedLabel: "Find EffectCraft’s official project",
     },
     {
       id: "designcraft-080", appSlug: "designcraft", appName: "DesignCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -174,7 +174,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "The official notes list atomic replacement for saves and exports, separate recovery data for each running app, unsaved-document prompts and preservation of live state when persistence fails.",
       impact: "Check save, reopen and recovery behavior on a copy of a layout. These changes are not an independent guarantee against data loss; keep backups and verify exported pages before using an early build for print delivery.",
       sourceTitle: "DesignCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/designcraft/releases/tag/v0.8.0",
-      relatedPath: "/apps/", relatedLabel: "Explore DesignCraft’s publishing workflow",
+      relatedPath: "/apps/designcraft/", relatedLabel: "Explore DesignCraft’s publishing workflow",
     },
     {
       id: "wordcraft-070", appSlug: "wordcraft", appName: "WordCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -182,7 +182,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "Release notes cover section placement and paragraph spacing, WMF and EMF picture insertion, symbol-font rendering and reading RTF using its code page. These changes focus on how imported documents look and behave.",
       impact: "Reopen a copied document containing sections, legacy pictures or multilingual text, then compare page breaks and output. A closer rendering in these cases does not establish complete Microsoft Word file fidelity.",
       sourceTitle: "WordCraft v0.7.0 release notes", sourceUrl: "https://github.com/storytold/wordcraft/releases/tag/v0.7.0",
-      relatedPath: "/apps/", relatedLabel: "Find WordCraft’s official release",
+      relatedPath: "/apps/wordcraft/", relatedLabel: "Find WordCraft’s official release",
     },
     {
       id: "soundcraft-070", appSlug: "soundcraft", appName: "SoundCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -190,7 +190,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "The official notes list clearing VCA assignments, command-filter handling, MIDI editor targeting and window behavior, and filmstrip thumbnails following the clip’s own movie time.",
       impact: "Retest track controls and MIDI editing in a small copied session. These changes do not verify your audio interface, plug-in collection or a complete Audition or DAW migration; check those dependencies separately.",
       sourceTitle: "SoundCraft v0.7.0 release notes", sourceUrl: "https://github.com/storytold/soundcraft/releases/tag/v0.7.0",
-      relatedPath: "/apps/", relatedLabel: "Find SoundCraft’s audio workflow",
+      relatedPath: "/apps/soundcraft/", relatedLabel: "Find SoundCraft’s audio workflow",
     },
     {
       id: "deckcraft-070", appSlug: "deckcraft", appName: "DeckCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -198,7 +198,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "Release notes describe changes to superscript and subscript spacing, theme backgrounds, gradient ramps, PPTX picture fills and placeholder geometry. They target specific slide-rendering differences rather than promise identical presentations.",
       impact: "Compare imported slides with the original, especially fonts, dark themes and image fills. Rehearse a presentation and inspect exported output before relying on it in front of an audience.",
       sourceTitle: "DeckCraft v0.7.0 release notes", sourceUrl: "https://github.com/storytold/deckcraft/releases/tag/v0.7.0",
-      relatedPath: "/apps/", relatedLabel: "Find DeckCraft’s presentation project",
+      relatedPath: "/apps/deckcraft/", relatedLabel: "Find DeckCraft’s presentation project",
     },
     {
       id: "cadcraft-070", appSlug: "cadcraft", appName: "CADCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -206,7 +206,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "The release notes list picking SOLID entities inside their fill, model-space plotting centers and offsets, a hatch and gradient dialog, and changes to invalid viewport handling.",
       impact: "Test a copied drawing and compare plotted scale, offsets, fills and selection behavior. Keep your existing validation workflow for contractual drawings; these notes are not proof of complete AutoCAD or DWG fidelity.",
       sourceTitle: "CADCraft v0.7.0 release notes", sourceUrl: "https://github.com/storytold/cadcraft/releases/tag/v0.7.0",
-      relatedPath: "/apps/", relatedLabel: "Find CADCraft’s official project",
+      relatedPath: "/apps/cadcraft/", relatedLabel: "Find CADCraft’s official project",
     },
     {
       id: "gridcraft-070", appSlug: "gridcraft", appName: "GridCraft", kind: "Official release", eventDate: "2026-10-14",
@@ -214,7 +214,7 @@ export const dailyUpdates: DailyUpdate[] = [{
       summary: "Official notes list recalculating dependents after large spill ranges are cleared, LAMBDA argument handling, nested SUBTOTAL behavior and rejection of sheet names XLSX cannot store.",
       impact: "Compare calculated values and exported workbooks against trusted results, particularly for reports that use dynamic arrays or subtotals. Keep originals and audit important totals; fixes to individual formulas do not establish general Excel compatibility.",
       sourceTitle: "GridCraft v0.7.0 release notes", sourceUrl: "https://github.com/storytold/gridcraft/releases/tag/v0.7.0",
-      relatedPath: "/apps/", relatedLabel: "Find GridCraft’s spreadsheet project",
+      relatedPath: "/apps/gridcraft/", relatedLabel: "Find GridCraft’s spreadsheet project",
     },
     {
       id: "pdfcraft-web-printing", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update",

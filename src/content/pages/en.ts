@@ -80,15 +80,15 @@ const photoWorkflowRows = [
 
 export const enPages = {
   home: {
-    h1: "Find your open source Adobe alternative ",
+    h1: "Find your free, open-source tools ",
     h1Emphasis: "by workflow.",
     heading1: { beforeCount: "Explore ", afterCount: " ArtCraft apps by workflow" },
-    heading2: "Which open-source Adobe alternative fits your work?",
-    heading3: "Can these apps replace Adobe?",
+    heading2: "Which ArtCraft tool fits your workflow?",
+    heading3: "What should you check before switching?",
     heading4: "Go from the category to the evidence.",
     heading5: "Clear boundaries are part of the recommendation.",
     title: (count: number) => `ArtCraft Adobe Alternatives: ${count} Open-Source Creative Apps`,
-    description: (count: number) => `Explore ${count} ArtCraft apps for photos, video and design. Compare Adobe alternatives, check app status and find official downloads.`,
+    description: (count: number) => `Explore ${count} free, open-source ArtCraft apps. Find official Windows, Mac and Linux downloads, installation guides and compatibility limits for each tool.`,
   },
   download: {
     h1: "Download from the ",
@@ -97,7 +97,7 @@ export const enPages = {
     heading2: "More tools for creative and everyday work.",
     heading3: "Treat alpha software as a test first.",
     title: "Download ArtCraft Apps Safely",
-    description: "Find official ArtCraft downloads for PhotoCraft, PdfCraft, VectorCraft, FilmCraft and LightCraft, with platform choices and alpha limits.",
+    description: "Find official downloads and installation guides for all 13 ArtCraft apps on Windows, macOS and Linux, with checked versions and compatibility limits.",
   },
   photocraft: {
     h1: "ArtCraft PhotoCraft: an ",

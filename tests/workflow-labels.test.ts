@@ -5,7 +5,7 @@ import { workflowLabels } from "@/lib/workflow-labels";
 
 const counterparts = {
   wordcraft: "Microsoft Word",
-  soundcraft: "Adobe Audition and general DAWs",
+  soundcraft: "Pro Tools",
   deckcraft: "Microsoft PowerPoint",
   cadcraft: "AutoCAD",
   gridcraft: "Microsoft Excel",

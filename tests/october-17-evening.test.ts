@@ -46,11 +46,11 @@ describe("October 17 evening source-qualified additions", () => {
       expect(photo.sources.some((source) => source.href.includes("1x7rppr"))).toBe(true);
     }
   });
-  it("updates the affected English guides without bulk-refreshing unrelated pages", () => {
+  it("preserves the community advice dates alongside the catalog download revision", () => {
     expect(enPages.photocraft.faqs.some((faq) => faq.answer.includes("Spacing"))).toBe(true);
     expect(guideBySlug.pdfcraft.faqs.some((faq) => faq.question.includes("cursor"))).toBe(true);
     expect(pageUpdatedAt("/apps/photocraft/")).toBe("2026-10-17");
     expect(pageUpdatedAt("/apps/pdfcraft/")).toBe("2026-10-17");
-    expect(pageUpdatedAt("/apps/filmcraft/")).toBe("2026-10-15");
+    expect(pageUpdatedAt("/apps/filmcraft/")).toBe("2026-10-17");
   });
 });

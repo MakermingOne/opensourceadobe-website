@@ -43,10 +43,10 @@ describe("requested editorial corrections", () => {
     expect(page).not.toContain(': "Guide in progress"');
     expect(page).toContain("not quality ratings");
   });
-  it("replaces directory repetition with an independent-guide positioning sentence", () => {
+  it("explains the download and installation journey without implying official ownership", () => {
     const page = readFileSync("src/app/(en)/page.tsx", "utf8");
-    expect(page).toContain("An independent, source-led guide to open-source creative software.");
-    expect(page).toContain("Compare PhotoCraft, VectorCraft, FilmCraft, LightCraft and the wider ArtCraft family before you switch.");
+    expect(page).toContain("Free, open-source tools. Official downloads. Practical installation guides.");
+    expect(page).toContain("Compare all 13 ArtCraft apps, choose a Windows, Mac or Linux download, and check what works before switching.");
   });
   it("uses page-specific editorial dates instead of the latest-news date in the footer", () => {
     const footer = readFileSync("src/components/site-footer.tsx", "utf8");

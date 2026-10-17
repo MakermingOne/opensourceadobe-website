@@ -69,6 +69,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             </p>
             <div className="button-row">
               <a className="button" href="#download-heading">Download PhotoCraft</a>
+              <a className="text-link" href="#install">Installation guide</a>
               <a className="button button--secondary" href={app.repository} rel="noreferrer" target="_blank">View the source code</a>
             </div>
             <p className="hero-caution"><strong>Our take:</strong> promising enough to test on copies of your files, but still too early for an unqualified production switch.</p>
@@ -87,6 +88,8 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             <div className="layer-row"><span>01</span><strong>Native canvas</strong><small>GPU-backed</small></div>
           </div>
         </header>
+
+        <OfficialDownloads slug="photocraft" name={app.name} />
 
         <section className="landing-section answer-block" aria-labelledby="artcraft-photocraft-heading">
           <div><Eyebrow>Know which app you are choosing</Eyebrow><h2 id="artcraft-photocraft-heading">{enPages.photocraft.heading1}</h2></div>
@@ -211,7 +214,6 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
           </div>
         </section>
 
-        <OfficialDownloads slug="photocraft" name={app.name} />
 
         <section className="landing-section faq-section" aria-labelledby="faq-heading">
           <div className="landing-heading">

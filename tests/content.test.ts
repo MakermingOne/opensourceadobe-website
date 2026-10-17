@@ -23,14 +23,8 @@ describe("app content contract", () => {
     ]);
   });
 
-  it("publishes the five sourced app guides", () => {
-    expect(publishedApps.map((app) => app.slug).sort()).toEqual([
-      "filmcraft",
-      "lightcraft",
-      "pdfcraft",
-      "photocraft",
-      "vectorcraft",
-    ]);
+  it("publishes a sourced guide for every app", () => {
+    expect(publishedApps.map((app) => app.slug).sort()).toEqual(apps.map((app) => app.slug).sort());
   });
 
   it("uses unique slugs and rejects unapproved product names", () => {

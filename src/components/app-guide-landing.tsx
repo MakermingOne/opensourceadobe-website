@@ -1,3 +1,5 @@
+import { comparedProduct } from "@/lib/workflow-labels";
+import type { DownloadSlug } from "@/content/downloads";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -13,10 +15,9 @@ import type { AppGuide } from "@/content/guides";
 import { absoluteUrl } from "@/lib/site";
 import { PageUpdated } from "@/components/page-updated";
 import { pageUpdatedAt } from "@/content/page-dates";
-import { releasesBySlug } from "@/content/releases";
 
 export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide: AppGuide; sources: SourceRecord[] }) {
-  const downloadUrl = app.slug === "vectorcraft" ? releasesBySlug.get(app.slug)!.url : app.officialPage;
+  const counterpart = comparedProduct(app);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -54,10 +55,11 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
         <header className="photocraft-hero">
           <div className="photocraft-hero__copy">
             <Eyebrow><span>Independent guide · Last updated <PageUpdated path={`/apps/${app.slug}/`} /></span></Eyebrow>
-            <h1 className={guide.headline ? "photocraft-hero__heading--compact" : undefined}>{guide.headline ?? <>{app.name}: an <span>open-source {app.adobeCounterpart} alternative</span></>}</h1>
+            <h1 className={guide.headline ? "photocraft-hero__heading--compact" : undefined}>{guide.headline ?? <>{app.name}: an <span>open-source {counterpart} alternative</span></>}</h1>
             <p className="lede">{guide.intro}</p>
             <div className="button-row">
-              {app.slug === "pdfcraft" ? <a className="button" href="#download-heading">Choose your PdfCraft download</a> : <a className="button" href={downloadUrl} rel="noreferrer" target="_blank">Get {app.name}</a>}
+              <a className="button" href="#download-heading">Download {app.name}</a>
+              <a className="text-link" href="#install">Installation guide</a>
               <a className="button button--secondary" href={app.repository} rel="noreferrer" target="_blank">View the source code</a>
             </div>
             <p className="hero-caution"><strong>Our take:</strong> {guide.verdict}</p>
@@ -66,8 +68,8 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           <div className="guide-panel" aria-label={`${app.name} at a glance`}>
             <div className="guide-panel__topline"><span>{app.name}</span><StatusBadge value={app.status} /></div>
             <div className="guide-panel__mapping">
-              <span>Closest Adobe workflow</span>
-              <strong>{app.adobeCounterpart}</strong>
+              <span>Compared workflow</span>
+              <strong>{counterpart}</strong>
             </div>
             <dl>
               <div><dt>Release</dt><dd>{app.version}</dd></div>
@@ -78,12 +80,12 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           </div>
         </header>
 
-        {app.slug === "pdfcraft" && <OfficialDownloads slug="pdfcraft" name={app.name} />}
+        <OfficialDownloads slug={app.slug as DownloadSlug} name={app.name} platformNotes={guide.platformNotes} />
 
         <section className="landing-section answer-block" aria-labelledby="replacement-heading">
           <div>
             <Eyebrow>The short answer</Eyebrow>
-            <h2 id="replacement-heading">Can {app.name} replace {app.adobeCounterpart}?</h2>
+            <h2 id="replacement-heading">Can {app.name} replace {counterpart}?</h2>
           </div>
           <div className="answer-block__body">
             <p className="answer-lead">{guide.verdict}</p>
@@ -95,7 +97,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           <div className="landing-heading">
             <Eyebrow>What is already there</Eyebrow>
             <h2 id="features-heading">What can you do with {app.name}?</h2>
-            <p>These are capabilities documented by the official project. They are reasons to test the app, not a promise that every {app.adobeCounterpart} workflow behaves identically.</p>
+            <p>These are capabilities documented by the official project. They are reasons to test the app, not a promise that every {counterpart} workflow behaves identically.</p>
           </div>
           <div className="feature-matrix">
             {guide.features.map((feature, index) => (
@@ -126,23 +128,6 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
             </article>
           </div>
         </section>
-
-        {app.slug !== "pdfcraft" && <section className="landing-section" aria-labelledby="download-heading">
-          <div className="landing-heading">
-            <Eyebrow>Available now</Eyebrow>
-            <h2 id="download-heading">How can you get {app.name}?</h2>
-            <p>{app.slug === "vectorcraft" ? "Use the checked GitHub release to choose a package for your system. The official product page also provides Launcher and standalone links, but may list an older version." : "The official product page provides ArtCraft Launcher and standalone downloads. Use that page to select the current package for your system."}</p>
-          </div>
-          <div className={`platform-grid platform-grid--${guide.platformNotes.length}`}>
-            {guide.platformNotes.map(([platform, detail]) => (
-              <article key={platform}><h3>{platform}</h3><p>{detail}</p></article>
-            ))}
-          </div>
-          <div className="download-cta">
-            <div><strong>Current official release</strong><span>{app.name} {app.version} · Free · MIT or Apache-2.0</span></div>
-            <a className="button button--light" href={downloadUrl} rel="noreferrer" target="_blank">Get {app.name}</a>
-          </div>
-        </section>}
 
         <section className="landing-section faq-section" aria-labelledby="faq-heading">
           <div className="landing-heading">

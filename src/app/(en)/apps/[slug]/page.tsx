@@ -1,3 +1,4 @@
+import { comparedProduct } from "@/lib/workflow-labels";
 import { enPages } from "@/content/pages/en";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -36,8 +37,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     });
   }
   return pageMetadata({
-    title: `${app.name}: Free ${app.adobeCounterpart} Alternative`,
-    description: `See what ${app.name} can do, who should try it, current downloads, and the alpha limits to check before replacing ${app.adobeCounterpart}.`,
+    title: `Download ${app.name}: Free ${comparedProduct(app)} Alternative`,
+    description: `Download ${app.name} for Windows, macOS and Linux from official GitHub releases. Find installation steps, version details and ${comparedProduct(app)} compatibility limits.`,
     path: `/apps/${app.slug}/`,
   });
 }
