@@ -4,6 +4,24 @@ import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
   {
+    id: "photocraft-brush-090", type: "official-repository",
+    title: "PhotoCraft v0.9.0: brush-tip settings, including spacing",
+    url: "https://github.com/storytold/photocraft/blob/v0.9.0/docs/brush-parity.md",
+    accessedAt: "2026-10-17",
+  },
+  {
+    id: "community-photocraft-brush-spacing", type: "third-party",
+    title: "Community report: PhotoCraft brush spacing (version and OS unspecified)",
+    url: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/",
+    accessedAt: "2026-10-17",
+  },
+  {
+    id: "community-pdfcraft-white-cursor", type: "third-party",
+    title: "Community report: PdfCraft cursor visibility (environment unspecified)",
+    url: "https://www.reddit.com/r/ArtCraftAI/comments/1x7sq2x/pdfcraft_white_cursor_when_adding_text/",
+    accessedAt: "2026-10-17",
+  },
+  {
     id: "vectorcraft-parity-0120", type: "official-repository",
     title: "VectorCraft v0.12.0: legacy .ai export and remaining interchange limits",
     url: "https://github.com/storytold/vectorcraft/blob/v0.12.0/docs/target-app-parity.md",

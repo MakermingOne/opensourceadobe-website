@@ -2,7 +2,7 @@ import { expect, test } from "./fixtures";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(29);
+  await expect(page.locator(".update-entry")).toHaveCount(33);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
   await expect(page.locator(".update-entry")).toHaveCount(3);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -137,4 +137,21 @@ test("October 17 connects the new release, bounded export guidance and community
   await expect(page.locator("details[open]")).toContainText("one artboard per file and no transparency");
   await page.goto("/download/");
   await expect(page.getByRole("link", { name: "Download VectorCraft ↗", exact: true })).toHaveAttribute("href", "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
+});
+
+test("October 17 evening keeps development work distinct from releases and syncs translations", async ({ page, request }) => {
+  await page.goto("/updates/2026-10-17/");
+  await expect(page.locator(".update-entry")).toHaveCount(6);
+  await expect(page.locator("#figcraft-automation-roots-docs")).toContainText("not a new release");
+  await expect(page.locator("#community-photocraft-brush-spacing")).toContainText("Community report");
+  await expect(page.locator("#community-pdfcraft-white-cursor")).toContainText("not a confirmed cause");
+  await expect(page.locator("#community-effectcraft-rotoscoping")).toContainText("not reported");
+  for (const locale of ["zh-Hant", "pl", "de", "hi"]) {
+    await page.goto(`/${locale}/`);
+    await expect(page.locator("#update-2026-10-17")).toContainText("FigCraft");
+    await page.locator('#update-2026-10-17 a[href$="/apps/photocraft/#brush-spacing-report"]').click();
+    await expect(page).toHaveURL(new RegExp(`/${locale}/apps/photocraft/#brush-spacing-report$`));
+    await expect(page.locator("#brush-spacing-report")).toContainText("Spacing");
+    expect((await request.get(`/${locale}/apps/photocraft/`)).status()).toBe(200);
+  }
 });

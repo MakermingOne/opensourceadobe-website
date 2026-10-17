@@ -26,10 +26,10 @@ export type DailyUpdate = {
 // Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
   date: "2026-10-17",
-  title: "VectorCraft 0.12.0: new export tools and a PdfCraft follow-up",
-  seoTitle: "VectorCraft 0.12.0 & PdfCraft Update — Oct 17, 2026",
-  description: "VectorCraft 0.12.0 adds legacy .ai export and browser pen input. A PdfCraft user reports printing after an update, with important details still missing.",
-  introduction: "VectorCraft 0.12.0 was published October 16 UTC and checked for this October 17 brief. Its release notes cover legacy Illustrator export, browser pen input, a Dimension tool and Linux packaging changes. Separately, a PdfCraft user has followed up on an earlier printer-detection report. Official release notes and that individual experience are different kinds of evidence; neither establishes complete Adobe compatibility or a universal printing fix.",
+  title: "VectorCraft 0.12.0, FigCraft development and community notes",
+  seoTitle: "ArtCraft Update: FigCraft & Community Notes — Oct 17, 2026",
+  description: "VectorCraft 0.12.0, FigCraft’s unreleased file-access controls, and attributed PhotoCraft, PdfCraft and EffectCraft reports. Checked October 17.",
+  introduction: "VectorCraft 0.12.0 was published October 16 UTC and checked for this October 17 brief. Its release notes cover legacy Illustrator export, browser pen input, a Dimension tool and Linux packaging changes. Separately, a PdfCraft user has followed up on an earlier printer-detection report. Our evening check adds FigCraft’s development documentation and three individual community reports below. No newer official release was found for the thirteen apps or Launcher. Development commits and community experiences are not shipped-feature guarantees or independent tests. Direct Google results, X live search and YouTube’s upload list were inaccessible or throttled during this check; search-index coverage does not establish that those channels had no new posts.",
   entries: [
     {
       id: "vectorcraft-0120", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
@@ -46,6 +46,38 @@ export const dailyUpdates: DailyUpdate[] = [{
       impact: "This is encouraging follow-up, not a universal fix for every printer or package, and it does not resolve the separate print-quality report. Retest a single page on your exact setup and record the version, platform and printer if a problem remains. Our October 15 report stays available as the historical context.",
       sourceTitle: "Reddit: original poster’s October 16 printing follow-up", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x5kde8/comment/ph249u7/",
       relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s current printing cautions",
+    },
+    {
+      id: "figcraft-automation-roots-docs", appSlug: "figcraft", appName: "FigCraft", kind: "Documentation update", eventDate: "2026-10-17",
+      title: "FigCraft documents opt-in file-access boundaries for agents",
+      summary: "An October 17 development commit documents opt-in read and write folders for MCP and desktop automation. It describes separate --automation-read-root and --automation-write-root flags, refusal of paths outside those folders, and configuration on the desktop app when attaching an MCP client. Without the flags, behavior is unchanged.",
+      impact: "This is not a new release: the latest installer remains 0.6.0, whose tagged MCP documentation does not contain these options. Do not assume an installed build supports them. The development docs also exclude the app’s own storage and describe a path-check race; these controls are not a complete operating-system sandbox. Check your exact build before giving an agent access to working files.",
+      sourceTitle: "FigCraft October 17 automation-root documentation commit", sourceUrl: "https://github.com/storytold/figcraft/commit/ac4b98dbd72cea838447bd34621a47f1d40f0801",
+      relatedPath: "/github/", relatedLabel: "Find FigCraft’s official repository and release",
+    },
+    {
+      id: "community-photocraft-brush-spacing", appSlug: "photocraft", appName: "PhotoCraft", kind: "Community report", eventDate: "2026-10-16",
+      title: "A PhotoCraft user traces apparent brush lag to Spacing",
+      summary: "A Reddit user described ink appearing only after a minimum pen movement, including with mouse input and without pressure. The author then edited the post to say the brush Spacing setting explained their case and pointed to F5. Their app version and operating system are not specified. We have not independently reproduced the result.",
+      impact: "Check brush spacing on a small test canvas before assuming a GPU slowdown. The official 0.9.0 brush documentation lists spacing, but this user’s result does not prove a new fix, a universal shortcut or a solution to all brush latency. If a problem remains, record the version, platform, brush settings and input device for an upstream report.",
+      sourceTitle: "Reddit: PhotoCraft brush report and author’s spacing correction", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/",
+      relatedPath: "/apps/photocraft/", relatedLabel: "Read PhotoCraft’s brush-spacing and first-test advice",
+    },
+    {
+      id: "community-pdfcraft-white-cursor", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-16",
+      title: "A PdfCraft user reports a hard-to-see cursor when adding text",
+      summary: "A Reddit user reports the cursor turning white over a PDF while placing text; the text itself is described as fine. The app version, operating system and whether this is a browser or desktop build are not specified. We have not independently reproduced the behavior or verified a fix.",
+      impact: "A reply suggests browser hardware acceleration, but that is not a confirmed cause. Do not change system settings on that basis alone. Check cursor visibility on a copied document and include the build, display settings and a screenshot in a reproducible issue. This report does not establish damaged PDF text or a problem in every package.",
+      sourceTitle: "Reddit: PdfCraft white-cursor report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7sq2x/pdfcraft_white_cursor_when_adding_text/",
+      relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s text-placement cautions",
+    },
+    {
+      id: "community-effectcraft-rotoscoping", appSlug: "effectcraft", appName: "EffectCraft", kind: "Community report", eventDate: "2026-10-16",
+      title: "An EffectCraft user reports freezing during rotoscope propagation",
+      summary: "A MacBook Pro user reports heat, fan activity and freezing while propagating rotoscope frames, while also saying the result impressed them. The app version, chip, memory and footage specifications are not reported. This is one person’s account, not an independent performance benchmark or a confirmed cause.",
+      impact: "Before relying on rotoscoping for a deadline, try a short copy of representative footage and record the version, hardware, frame range and source dimensions. No fix was verified in this check. The report does not establish the same behavior across Macs, operating systems or released builds.",
+      sourceTitle: "Reddit: EffectCraft rotoscoping performance report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7lppk/serious_performance_issues_with_rotoscoping_in/",
+      relatedPath: "/apps/", relatedLabel: "Compare EffectCraft’s scope and development status",
     },
   ],
 }, {

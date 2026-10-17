@@ -11,7 +11,7 @@ describe("dated development journal", () => {
     expect(latestUpdateDate).toBe("2026-10-17");
     expect(dailyUpdates.find((issue) => issue.date === "2026-10-13")?.entries).toHaveLength(6);
     expect(dailyUpdates.find((issue) => issue.date === "2026-10-15")?.entries).toHaveLength(18);
-    expect(dailyUpdates[0].entries).toHaveLength(2);
+    expect(dailyUpdates[0].entries).toHaveLength(6);
     expect(dailyUpdates.find((issue) => issue.date === "2026-10-16")?.entries).toHaveLength(3);
     expect(publishedRoutes).toContain("/updates/2026-10-17/");
     expect(publishedRoutes).toContain("/updates/2026-10-16/");
@@ -21,7 +21,7 @@ describe("dated development journal", () => {
     const entry = dailyUpdates.find((issue) => issue.date === "2026-10-15")!.entries.find((item) => item.id === "pdfcraft-080")!;
     expect(entry.eventDate).toBe("2026-10-14");
     expect(entry.sourceUrl).toBe("https://github.com/storytold/pdfcraft/releases/tag/v0.8.0");
-    expect(updatesForApp("pdfcraft")).toHaveLength(8);
+    expect(updatesForApp("pdfcraft")).toHaveLength(9);
   });
   it("labels Reddit separately and retains original sources", () => {
     for (const issue of dailyUpdates) {

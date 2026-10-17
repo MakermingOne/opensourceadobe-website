@@ -1,4 +1,5 @@
 import type { LocalizedPage } from "./types";
+import { brushNotes, brushSources, currentDigest } from "./update-notes";
 
 const official = { label: "ArtCraft 官方工具目錄", href: "https://getartcraft.com/apps" };
 const photo = { label: "PhotoCraft 官方功能說明", href: "https://getartcraft.com/apps/photocraft" };
@@ -19,6 +20,7 @@ export const zhHantPages: Record<string, LocalizedPage> = {
     h1: "用工作流程找到你的開源 Adobe 替代方案",
     intro: ["開源 Adobe 替代軟體怎麼選？先從每天要完成的工作開始：修圖、向量繪圖、影片剪輯、相片整理，或是 PDF 與排版。本站將 ArtCraft 家族的 13 款工具放進同一份對照表，協助你找到值得試用的方向。", "OpenSourceAdobe 是獨立整理站，與 Adobe、ArtCraft 均無隸屬關係。以下功能與開發狀態依官方資料整理，並非本站的獨立實測；有下載檔，也不代表已適合正式交付。"],
     sections: [
+      currentDigest["zh-Hant"],
       { id: "workflows", heading: "13 款開源創作工具，依工作流程分類", paragraphs: ["影像工作可先看 PhotoCraft 與 LightCraft：前者偏向圖層式修圖，後者處理相片資料庫與 RAW 顯影。向量繪圖與版面編排則分別看 VectorCraft、DesignCraft；製作影片、動態圖像與音訊，可進一步了解 FilmCraft、EffectCraft、SoundCraft。", "PdfCraft 處理 PDF，FigCraft 偏向介面設計與原型。WordCraft、DeckCraft、GridCraft 與 CADCraft 則延伸到文件、簡報、試算表及技術製圖。這些工具並非每一款都有直接對應的 Adobe 產品，也不應只憑介面相似就推定檔案相容。"] },
       { id: "comparison", heading: "ArtCraft 與 Adobe 全對照表", paragraphs: ["工具名稱、平台與開發狀態沿用本站共用目錄。平台欄代表官方列出的目標平台，各版本的安裝檔與處理器架構仍須到官方 Releases 核對。Early alpha 表示早期測試，開發中也不等同可穩定取代現有工作流程。"], kind: "apps" },
       { id: "boundaries", heading: "哪些工作可以交給開源工具，哪些還不行", paragraphs: ["學習圖層、整理個人素材、試做小型作品，都適合從檔案副本開始。正式轉移前，請保留原始檔，測試開啟、編輯、儲存、關閉後重開，以及最後輸出。畫面看起來相近，只是驗收的第一步。", "需要與客戶交換複雜 PSD、使用特定外掛、交付印刷色彩，或維護長篇剪輯專案時，應另外驗證字型、色彩描述檔、效果、連結素材及輸出結果。本站不把官方功能清單當成完整相容的保證，也不建議只因為免費就立刻停用原本的交付工具。", "開源授權與素材使用權也要分開理解。工具原始碼的授權，不會自動授予字型、圖庫、範本或客戶素材的使用權；商業專案仍應逐項確認。"] },
@@ -75,6 +77,7 @@ export const zhHantPages: Record<string, LocalizedPage> = {
     h1: "PhotoCraft 下載與安裝教學",
     intro: ["PhotoCraft 下載請從官方產品頁或 storytold/photocraft 的 GitHub Releases 開始。它是 ArtCraft 家族的開源修圖工具，仍屬早期測試；建議先用檔案副本試操作，再評估是否加入日常流程。", "本頁整理安裝前要確認的資訊，不提供重新封裝的安裝檔。官方資料與安裝資產會更新，請以你選定版本的文件為準。"],
     sections: [
+      brushNotes["zh-Hant"],
       { id: "overview", heading: "PhotoCraft 是什麼", paragraphs: ["PhotoCraft 是以 Rust 開發的圖層式影像編輯專案，官方列出圖層、遮罩、文字、調整與 PSD／PSB 等功能。它面向熟悉 Photoshop 類型操作的使用者，但相近的操作概念不代表完整格式相容。", "如果你正在決定是否轉換工具，請先看功能與限制比較；若已確定要試用，再依本頁選擇安裝方式。本站未完成獨立實測，不把官方宣稱改寫為已驗證結果。"], links: [alternativeLink] },
       { id: "platforms", heading: "系統需求與支援平台", paragraphs: ["官方列出桌面及 Web 等目標，但發行資產才決定該版本能直接下載什麼。處理器架構、顯示驅動與套件依賴也會影響能否執行；Web 建置檔不一定是可直接開啟的線上編輯器。"], table: { caption: "PhotoCraft 各平台下載前檢查", headers: ["平台", "常見發行格式", "安裝前確認"], rows: [["Windows", "MSI；部分版本另有可攜式 ZIP", "x64、ARM64、x86 是否符合電腦與該版本資產"], ["macOS", "Universal DMG", "官方列出的系統版本、Apple silicon／Intel 支援"], ["Linux", "AppImage、DEB、RPM、Flatpak 等依版本提供", "處理器、執行環境及套件依賴"], ["Web", "WebAssembly 建置依版本提供", "是否需要自行架設、瀏覽器支援與部署說明"]] } },
       { id: "routes", heading: "下載方式：Launcher 或 GitHub 兩種路徑", paragraphs: ["ArtCraft Launcher 適合想管理多款 Craft Apps 的人，由同一工具處理安裝與更新。直接下載則適合只想安裝 PhotoCraft，或希望自行保留指定版本與安裝包的人。兩者最後安裝的工具仍要按實際版本確認。", "下載前查看儲存庫擁有者是否為 storytold，以及專案名稱是否為 photocraft。網路上的同名 AI 服務、社群移植與第三方整合包不能視為相同的官方桌面發行。"], links: [photoReleases, downloadLink, launcherReleases] },
@@ -89,7 +92,7 @@ export const zhHantPages: Record<string, LocalizedPage> = {
       { question: "下載後不能開啟怎麼辦？", answer: "先核對安裝包架構、系統需求與官方發行說明，保留錯誤訊息及版本。Linux 另檢查執行權限及依賴；macOS 與 Windows 請核對來源及系統提示。" },
       { question: "安裝成功就能拿來交付 PSD 嗎？", answer: "安裝成功只表示工具能啟動。請用代表性檔案副本測試開啟、另存與往返，確認客戶所需的字型、效果與色彩後，再決定可用範圍。" },
     ],
-    sources: [photo, photoRepo, photoReleases, launcher],
+    sources: [photo, photoRepo, photoReleases, launcher, ...brushSources["zh-Hant"]],
   },
   "/download/": {
     path: "/download/",

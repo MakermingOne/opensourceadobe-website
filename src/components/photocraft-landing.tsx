@@ -234,7 +234,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             <h2 id="method-heading">{enPages.photocraft.heading10}</h2>
           </div>
           <div>
-            <p>This guide summarizes the official PhotoCraft page and repository. We clearly separate project claims from independent testing and do not treat an official feature list as proof of production reliability.</p>
+            <p>This guide summarizes the official PhotoCraft page and repository alongside explicitly attributed community reports. We clearly separate project claims from independent testing and do not treat an official feature list as proof of production reliability.</p>
             <p><Link href="/about/">Read our editorial approach →</Link></p>
           </div>
         </section>

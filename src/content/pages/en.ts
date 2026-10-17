@@ -34,6 +34,10 @@ const photoFeatures = [
 
 const photoFaqs = [
   {
+    question: "Why do PhotoCraft brush strokes look delayed or spaced apart?",
+    answer: "Check the brush Spacing setting on a small canvas. In a community report checked October 17, the author attributed their apparent lag to spacing, not an app slowdown. Their version and operating system were not specified, and we have not reproduced the result. This is not a universal latency fix; record your build, input device and brush settings if it persists.",
+  },
+  {
     question: "Is PhotoCraft free and open source?",
     answer:
       "Yes. The official repository publishes PhotoCraft under the MIT or Apache-2.0 license, and the official download page lists the app as free.",

@@ -1,4 +1,5 @@
 import type { LocalizedPage } from "./types";
+import { brushNotes, brushSources, currentDigest } from "./update-notes";
 
 const official = { label: "Oficjalny katalog ArtCraft", href: "https://getartcraft.com/apps" };
 const photo = { label: "Oficjalny opis PhotoCraft", href: "https://getartcraft.com/apps/photocraft" };
@@ -19,6 +20,7 @@ export const plPages: Record<string, LocalizedPage> = {
     h1: "Otwarte alternatywy dla Adobe dopasowane do Twojej pracy",
     intro: ["Alternatywy dla Adobe najlepiej wybierać według zadania: retusz zdjęć, grafika wektorowa, montaż wideo czy skład publikacji. Zebraliśmy 13 narzędzi ArtCraft, aby ułatwić pierwszą orientację w darmowych programach kreatywnych i ich ograniczeniach.", "OpenSourceAdobe to niezależny poradnik, nie oficjalna witryna Adobe ani ArtCraft. Opisujemy informacje z dokumentacji projektów. Nie są to wyniki własnych testów zgodności ani gwarancja gotowości programów do pracy dla klientów."],
     sections: [
+      currentDigest["pl"],
       { id: "workflows", heading: "Darmowe programy graficzne i inne narzędzia według zastosowania", paragraphs: ["Do edycji warstwowej służy PhotoCraft, a do katalogowania zdjęć i wywoływania RAW — LightCraft. VectorCraft jest skierowany do grafiki wektorowej, DesignCraft do składu publikacji. FilmCraft, EffectCraft i SoundCraft obejmują odpowiednio montaż, efekty wizualne i dźwięk.", "PdfCraft dotyczy plików PDF, a FigCraft projektowania interfejsów i prototypów. WordCraft, DeckCraft, GridCraft oraz CADCraft rozszerzają rodzinę o dokumenty, prezentacje, arkusze i rysunek techniczny. Nie każdy program ma bezpośredni odpowiednik Adobe; podobny wygląd interfejsu nie dowodzi zgodności formatów."] },
       { id: "comparison", heading: "ArtCraft i Adobe: porównanie narzędzi", paragraphs: ["Tabela korzysta ze wspólnego katalogu witryny. Wymieniona platforma oznacza cel projektu, a nie potwierdzenie, że każde wydanie zawiera gotowy instalator dla Twojego procesora. Przed pobraniem sprawdź zasoby konkretnego wydania.", "Wczesna alfa oznacza etap testowy. Program może się uruchamiać i mieć bogatą listę funkcji, a mimo to wymagać dodatkowej weryfikacji przy zapisie plików lub dłuższej pracy."], kind: "apps" },
       { id: "boundaries", heading: "Co warto wypróbować, a co wymaga ostrożnego sprawdzenia", paragraphs: ["Nauka warstw, porządkowanie własnych materiałów i małe projekty są rozsądnym punktem startu. Pracuj na kopiach: otwórz dokument, wprowadź zmianę, zapisz, zamknij i ponownie otwórz. Dopiero potem porównaj eksport z oryginałem.", "W pracy z klientami znaczenie mają fonty, profile kolorów, efekty, podłączone zasoby i stabilność. Złożony PSD, materiał do druku albo projekt montażowy wymagają testu całego obiegu pliku, także w programie współpracownika. Sama obecność funkcji w dokumentacji tego nie zastępuje.", "Otwarte źródła i prawa do materiałów to oddzielne kwestie. Licencja programu nie nadaje automatycznie praw do fontów, zdjęć, szablonów czy zasobów klienta. Przed wykorzystaniem komercyjnym sprawdź każdy z tych elementów."] },
@@ -73,6 +75,7 @@ export const plPages: Record<string, LocalizedPage> = {
     h1: "PhotoCraft: pobieranie i instalacja krok po kroku",
     intro: ["PhotoCraft pobierzesz z oficjalnej strony produktu lub wydań repozytorium storytold/photocraft na GitHubie. Ten otwartoźródłowy edytor zdjęć jest nadal we wczesnej wersji alfa. Zacznij od kopii plików i małych prób, zanim włączysz go do codziennej pracy.", "Nie udostępniamy własnych instalatorów ani zmodyfikowanych paczek. Poniższy poradnik pomaga wybrać źródło i sprawdzić wymagania; ostatecznie obowiązuje dokumentacja wybranego wydania."],
     sections: [
+      brushNotes["pl"],
       { id: "overview", heading: "Czym jest PhotoCraft i do czego służy?", paragraphs: ["To rozwijany w Rust edytor obrazów oparty na warstwach, należący do rodziny ArtCraft. Oficjalne materiały wymieniają maski, tekst, dopasowania i formaty PSD oraz PSB. Podobieństwo tych pojęć do Photoshopa nie oznacza pełnej zgodności formatów.", "Jeśli dopiero decydujesz o zmianie programu, przeczytaj porównanie funkcji i ograniczeń. Ta strona skupia się na pobieraniu, instalacji i pierwszym uruchomieniu. Informacje projektu oddzielamy od testów użytkownika — nie przedstawiamy ich jako naszych wyników."], links: [alternativeLink] },
       { id: "platforms", heading: "Systemy i formaty instalatorów: co sprawdzić?", paragraphs: ["Lista platform projektu nie jest listą gotowych plików w każdym wydaniu. Sprawdź architekturę procesora, wymagany system, sterowniki i zależności. Paczka WebAssembly również nie musi oznaczać publicznego edytora działającego od razu w przeglądarce."], table: { caption: "Wybór pakietu PhotoCraft według platformy", headers: ["Platforma", "Formaty zależne od wydania", "Co zweryfikować przed pobraniem"], rows: [
         ["Windows", "MSI; niektóre wydania zawierają przenośny ZIP", "Czy x64, ARM64 lub x86 odpowiada komputerowi i danemu wydaniu"],
@@ -91,7 +94,7 @@ export const plPages: Record<string, LocalizedPage> = {
       { question: "Czy PhotoCraft jest po polsku?", answer: "Nie mamy wystarczającego oficjalnego potwierdzenia pełnego polskiego interfejsu danego wydania. Sprawdź ustawienia PhotoCraft i informacje o wersji, nie listę języków innego produktu." },
       { question: "Co zrobić, jeśli program się nie uruchamia?", answer: "Sprawdź architekturę instalatora, wymagania i dokumentację wydania. Zachowaj wersję oraz komunikat błędu. W Linuksie sprawdź także uprawnienia i zależności; w Windows i macOS źródło pliku oraz komunikaty systemowe." },
       { question: "Czy po instalacji mogę od razu oddawać pliki PSD klientom?", answer: "Samo uruchomienie aplikacji nie potwierdza zgodności. Przetestuj kopię typowego pliku, zapis i ponowne otwarcie oraz wymagane fonty, efekty i kolory w programie odbiorcy." },
-    ], sources: [photo, photoRepo, photoReleases, launcher],
+    ], sources: [photo, photoRepo, photoReleases, launcher, ...brushSources["pl"]],
   },
   "/download/": {
     path: "/download/",
