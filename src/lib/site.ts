@@ -24,6 +24,7 @@ export const publishedRoutes = [
   "/apps/lightcraft/",
   "/apps/pdfcraft/",
   "/about/",
+  "/brandon-thomas/",
   "/contact/",
   "/disclaimer/",
   "/privacy/",

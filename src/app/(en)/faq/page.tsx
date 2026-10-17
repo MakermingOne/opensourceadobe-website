@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Eyebrow } from "@/components/eyebrow";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
+import { brandonSources } from "@/content/brandon-thomas";
 import { sourcesById } from "@/content/sources";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
@@ -17,6 +18,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const faqs = [
+  { question: "Who created ArtCraft?", answer: "Brandon Thomas identifies himself as ArtCraft’s founder in his public GitHub profile, where he uses the username echelon. He describes himself as an engineer and filmmaker and also lists founder roles at Storyteller.ai and FakeYou." },
   {
     question: "What is OpenSourceAdobe?",
     answer: "OpenSourceAdobe is an independent guide to open-source creative apps that target familiar Adobe workflows. It is not affiliated with Adobe or ArtCraft.",
@@ -100,7 +102,9 @@ export default function FaqPage() {
             {faqs.map((item) => (
               <details key={item.question}>
                 <summary>{item.question}</summary>
-                {item.question === "Can these apps completely replace Adobe Creative Cloud?" ? (
+                {item.question === "Who created ArtCraft?" ? (
+                  <p>{item.answer} Read our <Link href="/brandon-thomas/">Brandon Thomas and ArtCraft profile</Link> for background and sources.</p>
+                ) : item.question === "Can these apps completely replace Adobe Creative Cloud?" ? (
                   <p>{item.answer} Browse the <Link href="/alternatives/">alternatives hub</Link> to compare each app by workflow.</p>
                 ) : (
                   <p>{item.answer}</p>
@@ -110,7 +114,7 @@ export default function FaqPage() {
           </div>
         </section>
 
-        <SourceList sources={faqSources} />
+        <SourceList sources={[brandonSources[0], ...faqSources]} />
       </div>
     </>
   );

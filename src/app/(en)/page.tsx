@@ -85,6 +85,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section container" aria-labelledby="founder-heading">
+        <div className="method-note"><div><Eyebrow>Behind the tools</Eyebrow><h2 id="founder-heading">Meet Brandon Thomas,<br />ArtCraft’s founder.</h2></div><div><p>Explore his public engineering and filmmaking background, the creative ideas behind the studio, and how the separate Crafting Apps fit together.</p><p><Link href="/brandon-thomas/">Brandon Thomas and ArtCraft →</Link></p></div></div>
+      </section>
       <section className="section container"><LatestUpdates /></section>
       <section className="section section--raised" aria-labelledby="decision-heading">
         <div className="container">

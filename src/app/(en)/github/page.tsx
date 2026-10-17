@@ -103,6 +103,7 @@ export default function GitHubPage() {
       <section className="content-section" aria-labelledby="community-heading">
         <div className="section-heading"><p className="section-number">04</p><div><h2 id="community-heading">Community and support</h2><p>Where to ask questions and follow development.</p></div></div>
         <div className="prose">
+          <p>Who is behind the project? Read our <Link href="/brandon-thomas/">Brandon Thomas and ArtCraft profile</Link> for his public background and first-party sources.</p>
           <p>The ArtCraft community is on Discord at discord.gg/artcraft. For bug reports and feature requests, open an issue on the relevant GitHub repository.</p>
           <p>For a broader view of how these apps compare to Adobe products, see our <Link href="/alternatives/">open source Adobe alternatives guide</Link> or the <Link href="/vs-adobe/">ArtCraft vs Adobe workflow map</Link>.</p>
         </div>

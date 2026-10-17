@@ -16,6 +16,7 @@ const routes = [
   "/apps/lightcraft/",
   "/apps/pdfcraft/",
   "/about/",
+  "/brandon-thomas/",
   "/contact/",
   "/disclaimer/",
   "/privacy/",

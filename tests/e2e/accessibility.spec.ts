@@ -15,6 +15,7 @@ const routes = [
   "/apps/pdfcraft/",
   "/github/",
   "/about/",
+  "/brandon-thomas/",
   "/contact/",
   "/disclaimer/",
   "/privacy/",
@@ -67,7 +68,7 @@ test("home hero headline stays balanced on desktop", async ({ page }) => {
   await expect(heading.locator("span")).toHaveCSS("white-space", "nowrap");
 });
 
-for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/apps/pdfcraft/", "/apps/photocraft/", "/github/"]) {
+for (const route of ["/brandon-thomas/", "/alternatives/photoshop/", "/alternatives/lightroom/", "/apps/pdfcraft/", "/apps/photocraft/", "/github/"]) {
   for (const width of [375, 768, 1280]) {
     test(`${route} has no document overflow at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
