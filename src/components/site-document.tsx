@@ -8,7 +8,6 @@ import { siteConfig } from "@/lib/site";
 import "@/app/globals.css";
 import { dictionaries } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
-import { LanguageSuggestion } from "@/components/language-suggestion";
 
 const archivo = localFont({
   src: "../assets/fonts/archivo-latin-variable.woff2",
@@ -77,7 +76,6 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
       <body>
         <a className="skip-link" href="#main-content">{copy.skip}</a>
         <SiteHeader locale={locale} />
-        <LanguageSuggestion locale={locale} />
         <main id="main-content">{children}</main>
         <SiteFooter locale={locale} />
         {loadAnalytics ? <GoogleAnalytics gaId={siteConfig.analyticsId} /> : null}
