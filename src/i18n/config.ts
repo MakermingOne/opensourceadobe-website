@@ -4,13 +4,13 @@ import { absoluteUrl, canonicalPath, publishedRoutes } from "@/lib/site";
 // means adding its dictionary/content and an enabled entry here.
 const guidePaths = ["/", "/alternatives/photoshop/", "/apps/photocraft/", "/download/"] as readonly string[];
 export const locales = {
-  en: { label: "English", flag: "🇺🇸", openGraphLocale: "en_US", dir: "ltr", enabled: true, paths: publishedRoutes as readonly string[] },
-  "zh-Hant": { label: "繁體中文", flag: "🇹🇼", openGraphLocale: "zh_TW", dir: "ltr", enabled: true, paths: [...guidePaths, "/vs-adobe/"] },
-  pl: { label: "Polski", flag: "🇵🇱", openGraphLocale: "pl_PL", dir: "ltr", enabled: true, paths: guidePaths },
-  de: { label: "Deutsch", flag: "🇩🇪", openGraphLocale: "de_DE", dir: "ltr", enabled: true, paths: guidePaths },
-  ja: { label: "日本語", flag: "🇯🇵", openGraphLocale: "ja_JP", dir: "ltr", enabled: true, paths: guidePaths },
-  ko: { label: "한국어", flag: "🇰🇷", openGraphLocale: "ko_KR", dir: "ltr", enabled: true, paths: guidePaths },
-  hi: { label: "हिन्दी", flag: "🇮🇳", openGraphLocale: "hi_IN", dir: "ltr", enabled: true, paths: guidePaths },
+  en: { label: "English", flag: "/flags/us.svg", openGraphLocale: "en_US", dir: "ltr", enabled: true, paths: publishedRoutes as readonly string[] },
+  "zh-Hant": { label: "繁體中文", flag: "/flags/tw.svg", openGraphLocale: "zh_TW", dir: "ltr", enabled: true, paths: [...guidePaths, "/vs-adobe/"] },
+  pl: { label: "Polski", flag: "/flags/pl.svg", openGraphLocale: "pl_PL", dir: "ltr", enabled: true, paths: guidePaths },
+  de: { label: "Deutsch", flag: "/flags/de.svg", openGraphLocale: "de_DE", dir: "ltr", enabled: true, paths: guidePaths },
+  ja: { label: "日本語", flag: "/flags/jp.svg", openGraphLocale: "ja_JP", dir: "ltr", enabled: true, paths: guidePaths },
+  ko: { label: "한국어", flag: "/flags/kr.svg", openGraphLocale: "ko_KR", dir: "ltr", enabled: true, paths: guidePaths },
+  hi: { label: "हिन्दी", flag: "/flags/in.svg", openGraphLocale: "hi_IN", dir: "ltr", enabled: true, paths: guidePaths },
 } as const;
 export type Locale = keyof typeof locales;
 export const defaultLocale: Locale = "en";

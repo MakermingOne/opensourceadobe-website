@@ -776,3 +776,4 @@ html:is([lang="ja"],[lang="ko"]) body { line-height: 1.8; }
 html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { letter-spacing: 0; text-transform: none; }
 
 .language-switcher li a { gap: 8px; }
+.language-switcher .language-flag { display: block; width: 20px; height: 15px; flex-shrink: 0; object-fit: cover; }
