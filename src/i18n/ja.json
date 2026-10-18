@@ -1,0 +1,62 @@
+{
+  "skip": "本文へ移動",
+  "identity": "独立した非公式ガイド",
+  "homeLabel": "OpenSourceAdobe ホーム",
+  "primaryNav": "メインナビゲーション",
+  "footerNav": "フッターナビゲーション",
+  "footerNote": "Adobe、ArtCraft とは関係のない独立したガイドです。",
+  "evidence": "公式資料をもとに、導入前の判断をお手伝いします。",
+  "updated": "更新日",
+  "dateSeparator": "：",
+  "sources": "参考資料",
+  "faq": "よくある質問",
+  "breadcrumb": "現在の位置",
+  "englishVersion": "このページの英語版を読む",
+  "notFoundTitle": "ページが見つかりません",
+  "notFoundDescription": "ページが移動したか、日本語版がまだ公開されていない可能性があります。",
+  "backHome": "日本語のホームへ戻る",
+  "suggestion": "このサイトには日本語版があります →",
+  "dismissSuggestion": "言語の案内を閉じる",
+  "navigation": [
+    { "href": "/", "label": "ツール一覧" },
+    { "href": "/alternatives/photoshop/", "label": "Photoshop の代替" },
+    { "href": "/apps/photocraft/", "label": "PhotoCraft" },
+    { "href": "/download/", "label": "ダウンロード・導入" }
+  ],
+  "footerGroups": [
+    { "title": "選び方と比較", "links": [
+      { "href": "/", "label": "Adobe のオープンソース代替ツール" },
+      { "href": "/alternatives/photoshop/", "label": "Photoshop と PhotoCraft を比較" }
+    ] },
+    { "title": "ダウンロードと使い始め方", "links": [
+      { "href": "/apps/photocraft/", "label": "PhotoCraft のダウンロード" },
+      { "href": "/download/", "label": "ArtCraft Launcher の導入方法" }
+    ] }
+  ],
+  "appCategories": {
+    "photocraft": "画像編集・写真のレタッチ",
+    "vectorcraft": "ベクターイラスト制作",
+    "filmcraft": "動画編集",
+    "lightcraft": "写真管理・RAW 現像",
+    "pdfcraft": "PDF の編集・整理",
+    "effectcraft": "モーショングラフィックス・映像合成",
+    "designcraft": "ページレイアウト・出版",
+    "figcraft": "UI デザイン・プロトタイプ制作",
+    "wordcraft": "文書作成",
+    "soundcraft": "音声の録音・編集・ミキシング",
+    "deckcraft": "プレゼンテーション作成",
+    "cadcraft": "CAD・製図",
+    "gridcraft": "表計算・データ分析"
+  },
+  "statuses": {
+    "early-alpha": "初期アルファ版",
+    "in-development": "開発中",
+    "not-verified": "未確認"
+  },
+  "appTable": {
+    "caption": "ArtCraft の各ツールと対応する Adobe 製品・用途",
+    "headers": ["ツール", "対応する Adobe 製品", "主な用途", "対象プラットフォーム", "開発状況"],
+    "noCounterpart": "直接対応する製品なし",
+    "details": "機能と互換性を確認"
+  }
+}

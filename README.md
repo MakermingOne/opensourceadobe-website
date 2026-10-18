@@ -69,3 +69,7 @@ English URLs remain unprefixed. Traditional Chinese (`/zh-Hant/`), Polish (`/pl/
 `src/i18n/config.ts` is the published-language/page registry. Shared interface copy is in `src/i18n/*.json`; localized page copy is in `src/content/pages/`. Additional languages add configuration, a dictionary and editorial content while reusing the same locale routes and renderer. Product/platform/status facts continue to come from the shared app records.
 
 `/sitemap.xml` is a language sitemap index. HTML and language sitemaps use the same reciprocal alternate URLs, including English as the default. Run `pnpm validate:i18n` after building to verify the exported language metadata. Build finalization also produces locale `404.html` files; your static host must support nearest-directory 404 handling to show localized errors with the correct status.
+
+## Languages
+
+English URLs stay unprefixed. Traditional Chinese, Polish, German, Hindi, Japanese and Korean use locale prefixes. `src/i18n/config.ts` lists published pages and generates language switches, metadata and sitemaps. Unpublished app translations link to the official project. Run `pnpm validate:i18n` after building to check reciprocal alternates and internal link destinations.

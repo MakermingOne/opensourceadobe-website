@@ -8,7 +8,7 @@ describe("published language variants", () => {
     expect(localePath("zh-Hant", "/")).toBe("/zh-Hant/");
   });
   it("generates reciprocal absolute alternates including self and default", () => {
-    const expected = { en: "https://opensourceadobe.com/alternatives/photoshop/", "zh-Hant": "https://opensourceadobe.com/zh-Hant/alternatives/photoshop/", pl: "https://opensourceadobe.com/pl/alternatives/photoshop/", de: "https://opensourceadobe.com/de/alternatives/photoshop/", hi: "https://opensourceadobe.com/hi/alternatives/photoshop/", "x-default": "https://opensourceadobe.com/alternatives/photoshop/" };
+    const expected = { en: "https://opensourceadobe.com/alternatives/photoshop/", "zh-Hant": "https://opensourceadobe.com/zh-Hant/alternatives/photoshop/", pl: "https://opensourceadobe.com/pl/alternatives/photoshop/", de: "https://opensourceadobe.com/de/alternatives/photoshop/", hi: "https://opensourceadobe.com/hi/alternatives/photoshop/", ja: "https://opensourceadobe.com/ja/alternatives/photoshop/", ko: "https://opensourceadobe.com/ko/alternatives/photoshop/", "x-default": "https://opensourceadobe.com/alternatives/photoshop/" };
     expect(languageAlternates("/alternatives/photoshop/")).toEqual(expected);
     expect(languageAlternates("/zh-Hant/alternatives/photoshop/")).toEqual(expected);
   });
@@ -45,6 +45,6 @@ it("publishes four complete guides in Polish, German and Hindi with reciprocal v
     expect(localizedPaths(locale as keyof typeof locales)).toEqual(["/", "/alternatives/photoshop/", "/apps/photocraft/", "/download/"]);
     expect(resolveLocalePath(`/${locale}/download/`)).toEqual({ locale, path: "/download/" });
     const alternate = languageAlternates(`/${locale}/download/`);
-    expect(Object.keys(alternate).sort()).toEqual(["en", "zh-Hant", "pl", "de", "hi", "x-default"].sort());
+    expect(Object.keys(alternate).sort()).toEqual(["en", "zh-Hant", "pl", "de", "hi", "ja", "ko", "x-default"].sort());
   }
 });

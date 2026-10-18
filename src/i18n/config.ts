@@ -8,6 +8,8 @@ export const locales = {
   "zh-Hant": { label: "繁體中文", openGraphLocale: "zh_TW", dir: "ltr", enabled: true, paths: [...guidePaths, "/vs-adobe/"] },
   pl: { label: "Polski", openGraphLocale: "pl_PL", dir: "ltr", enabled: true, paths: guidePaths },
   de: { label: "Deutsch", openGraphLocale: "de_DE", dir: "ltr", enabled: true, paths: guidePaths },
+  ja: { label: "日本語", openGraphLocale: "ja_JP", dir: "ltr", enabled: true, paths: guidePaths },
+  ko: { label: "한국어", openGraphLocale: "ko_KR", dir: "ltr", enabled: true, paths: guidePaths },
   hi: { label: "हिन्दी", openGraphLocale: "hi_IN", dir: "ltr", enabled: true, paths: guidePaths },
 } as const;
 export type Locale = keyof typeof locales;

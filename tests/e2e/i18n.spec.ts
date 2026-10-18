@@ -9,7 +9,7 @@ const pages = [
   { en: "/download/", zh: "/zh-Hant/download/", primary: "ArtCraft 下載" },
 ] as const;
 const translatedPaths: string[] = [...pages.map(({ zh }) => zh), "/zh-Hant/vs-adobe/"];
-const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, "x-default": origin + path });
+const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, ja: `${origin}/ja${path}`, ko: `${origin}/ko${path}`, "x-default": origin + path });
 async function openLanguages(page: Page) {
   const languages = page.getByRole("navigation", { name: "Language", exact: true });
   if (!(await languages.locator("details").evaluate((element) => element.hasAttribute("open")))) await languages.locator("summary").click();
@@ -136,18 +136,12 @@ for (const route of pages) {
     expect(results.violations.filter((item) => ["serious", "critical"].includes(item.impact ?? "")).map((item) => ({id: item.id, nodes: item.nodes.map((node) => node.target)}))).toEqual([]);
   });
 }
-test("language suggestion is dismissible and never changes a URL", async ({ browser, baseURL }) => {
-  const context = await browser.newContext({ locale: "zh-TW", viewport: {width: 390, height: 844} });
+test("browser language never adds a suggestion banner or changes a URL", async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ locale: "zh-TW", viewport: { width: 390, height: 844 } });
   try {
     const page = await context.newPage();
     await page.goto(new URL("/updates/", baseURL).href);
-    const notice = page.locator(".language-suggestion");
-    await expect(notice).toBeVisible();
-    await expect(notice.locator("a")).toHaveAttribute("href", "/zh-Hant/");
-    expect(await notice.evaluate((element) => element.getBoundingClientRect().height)).toBeLessThanOrEqual(40);
-    await notice.getByRole("button").click();
-    await page.reload();
-    await expect(notice).toHaveCount(0);
+    await expect(page.locator(".language-suggestion")).toHaveCount(0);
     await expect(page).toHaveURL(/\/updates\/$/);
   } finally { await context.close(); }
 });

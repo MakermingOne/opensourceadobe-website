@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "./fixtures";
 
 const origin = "https://opensourceadobe.com";
-const languages = ["en", "zh-Hant", "pl", "de", "hi"];
+const languages = ["en", "zh-Hant", "pl", "de", "hi", "ja", "ko"];
 const guides = ["/", "/alternatives/photoshop/", "/apps/photocraft/", "/download/"];
 for (const locale of ["pl", "de", "hi"]) {
   for (const path of guides) {
@@ -45,7 +45,7 @@ for (const locale of ["pl", "de", "hi"]) {
       expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
       const menu=page.getByRole("navigation",{name:"Language",exact:true});
       await menu.locator("summary").click();
-      expect(await menu.getByRole("link").count()).toBe(5);
+      expect(await menu.getByRole("link").count()).toBe(languages.length);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
       const target=locale==="de"?"pl":"de";
       const link=menu.locator(`a[hreflang="${target}"]`);

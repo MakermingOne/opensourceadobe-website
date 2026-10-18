@@ -72,6 +72,25 @@ for (const [url, entry] of entries) {
     if (chinese) check([...title.matchAll(/\p{Script=Han}/gu)].length <= 30, `${entry.path}: title exceeds 30 Han characters`);
     const visibleMain = decode(mainMarkup(html).replace(/<script\b[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, ""));
     if (chinese) check(!/平替|软件|矢量|视频/.test(visibleMain), `${entry.path}: prohibited regional wording`);
+    // Check rendered body and shell links, including data-driven app tables.
+    // External project links are intentionally outside this export's scope.
+    for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
+      const href = attributes(tag).href;
+      if (!href || /^(?:mailto:|tel:|javascript:)/i.test(href)) continue;
+      let target;
+      try { target = new URL(href, url); } catch { failures.push(`${entry.path}: invalid link ${href}`); continue; }
+      if (target.origin !== origin) continue;
+      const pathname = decodeURIComponent(target.pathname);
+      try {
+        const destination = fileFor(pathname);
+        await stat(destination);
+        if (target.hash && pathname.endsWith("/")) {
+          const document = await readFile(destination, "utf8");
+          const id = decodeURIComponent(target.hash.slice(1));
+          check([...document.matchAll(/\bid="([^"]*)"/g)].some((match) => decode(match[1]) === id), `${entry.path}: missing anchor ${href}`);
+        }
+      } catch { failures.push(`${entry.path}: link points to missing exported destination ${href}`); }
+    }
     const questions = structured.find((node) => node["@type"] === "FAQPage")?.mainEntity;
     check(Array.isArray(questions) && questions.length >= 4, `${entry.path}: FAQPage needs at least four questions`);
     for (const question of questions ?? []) {

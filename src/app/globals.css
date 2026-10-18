@@ -768,3 +768,9 @@ html:is([lang="pl"],[lang="de"],[lang="hi"]) .primary-nav { flex-wrap: wrap; gap
 .founder-profile .prose ul { list-style: disc; padding-left: 24px; margin-block: 22px; }
 .founder-profile .prose li + li { margin-top: 12px; }
 .founder-profile .method-note { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); }
+
+/* Native system fonts cover Japanese/Korean glyphs without remote font requests. */
+html[lang="ja"] { --font-display: var(--font-archivo), "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; --font-body: var(--font-inter), "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; }
+html[lang="ko"] { --font-display: var(--font-archivo), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; --font-body: var(--font-inter), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+html:is([lang="ja"],[lang="ko"]) body { line-height: 1.8; }
+html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { letter-spacing: 0; text-transform: none; }

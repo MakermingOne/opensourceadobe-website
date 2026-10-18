@@ -1,0 +1,62 @@
+{
+  "skip": "본문 바로가기",
+  "identity": "독립적으로 운영하는 비공식 가이드",
+  "homeLabel": "OpenSourceAdobe 홈",
+  "primaryNav": "주요 메뉴",
+  "footerNav": "하단 메뉴",
+  "footerNote": "Adobe 및 ArtCraft와 제휴하지 않은 독립 가이드입니다.",
+  "evidence": "공식 출처를 바탕으로 기능과 한계를 살펴봅니다.",
+  "updated": "업데이트",
+  "dateSeparator": ": ",
+  "sources": "출처",
+  "faq": "자주 묻는 질문",
+  "breadcrumb": "현재 위치",
+  "englishVersion": "영어 원문 보기",
+  "notFoundTitle": "페이지를 찾을 수 없습니다",
+  "notFoundDescription": "페이지 주소가 바뀌었거나 아직 한국어로 제공되지 않는 페이지입니다.",
+  "backHome": "한국어 홈으로 돌아가기",
+  "suggestion": "이 사이트를 한국어로 볼 수 있습니다 →",
+  "dismissSuggestion": "언어 안내 닫기",
+  "navigation": [
+    { "href": "/", "label": "전체 도구" },
+    { "href": "/alternatives/photoshop/", "label": "포토샵 대체" },
+    { "href": "/apps/photocraft/", "label": "PhotoCraft" },
+    { "href": "/download/", "label": "다운로드·설치" }
+  ],
+  "footerGroups": [
+    { "title": "도구 선택과 비교", "links": [
+      { "href": "/", "label": "어도비 대체 오픈소스 도구" },
+      { "href": "/alternatives/photoshop/", "label": "PhotoCraft와 포토샵 비교" }
+    ] },
+    { "title": "다운로드와 시작하기", "links": [
+      { "href": "/apps/photocraft/", "label": "PhotoCraft 다운로드" },
+      { "href": "/download/", "label": "ArtCraft Launcher 설치" }
+    ] }
+  ],
+  "appCategories": {
+    "photocraft": "사진 편집과 보정",
+    "vectorcraft": "벡터 그래픽",
+    "filmcraft": "동영상 편집",
+    "lightcraft": "사진 관리와 RAW 현상",
+    "pdfcraft": "PDF 편집과 문서 정리",
+    "effectcraft": "모션 그래픽과 시각 효과",
+    "designcraft": "페이지 레이아웃과 출판",
+    "figcraft": "UI 디자인과 프로토타입",
+    "wordcraft": "워드 프로세싱",
+    "soundcraft": "오디오 녹음과 믹싱",
+    "deckcraft": "프레젠테이션",
+    "cadcraft": "CAD 설계와 도면",
+    "gridcraft": "스프레드시트와 데이터 분석"
+  },
+  "statuses": {
+    "early-alpha": "초기 알파",
+    "in-development": "개발 중",
+    "not-verified": "확인되지 않음"
+  },
+  "appTable": {
+    "caption": "작업별 ArtCraft 도구와 대응하는 Adobe 제품",
+    "headers": ["도구", "대응 Adobe 제품", "주요 용도", "대상 플랫폼", "개발 상태"],
+    "noCounterpart": "직접 대응하는 제품 없음",
+    "details": "기능과 호환성"
+  }
+}
