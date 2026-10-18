@@ -774,3 +774,5 @@ html[lang="ja"] { --font-display: var(--font-archivo), "Hiragino Kaku Gothic Pro
 html[lang="ko"] { --font-display: var(--font-archivo), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; --font-body: var(--font-inter), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
 html:is([lang="ja"],[lang="ko"]) body { line-height: 1.8; }
 html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { letter-spacing: 0; text-transform: none; }
+
+.language-switcher li a { gap: 8px; }
