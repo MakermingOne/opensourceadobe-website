@@ -1,29 +1,3 @@
-export type UpdateKind = "Official release" | "Project announcement" | "Documentation update" | "Community report";
-export type UpdateEntry = {
-  id: string;
-  appSlug: string;
-  appName: string;
-  kind: UpdateKind;
-  title: string;
-  summary: string;
-  impact: string;
-  sourceTitle: string;
-  sourceUrl: string;
-  eventDate?: string;
-  relatedPath: string;
-  relatedLabel: string;
-};
-export type DailyUpdate = {
-  date: string;
-  modifiedDate?: string;
-  title: string;
-  description: string;
-  seoTitle: string;
-  introduction: string;
-  entries: UpdateEntry[];
-};
-
-// Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
   date: "2026-10-19",
   title: "VectorCraft 0.12.0 and LightCraft 0.8.0 released",
@@ -102,78 +76,6 @@ export const dailyUpdates: DailyUpdate[] = [{
       impact: "FigCraft remains in Early alpha with active development on collaboration features. The file-access controls suggest future team-oriented functionality, but these are not yet available in public builds.",
       sourceTitle: "FigCraft development documentation", sourceUrl: "https://github.com/storytold/figcraft",
       relatedPath: "/apps/", relatedLabel: "Browse all ArtCraft apps"
-    }
-  ],
-}, {
-  date: "2026-10-19",
-  title: "French guides and AI history integration",
-  seoTitle: "ArtCraft Update: French Guides & AI History — Oct 19, 2026",
-  description: "French ArtCraft guides published and AI history feature integrated into learning resources. Checked October 19.",
-  introduction: "This October 19 brief covers the publication of French-language ArtCraft guides and the integration of AI history tracking into our learning resources section. These are site improvements made to expand accessibility and user experience.",
-  entries: [
-    {
-      id: "french-guides", appSlug: "launcher", appName: "Launcher", kind: "Documentation update",
-      title: "French ArtCraft guides published",
-      summary: "Complete French translations of ArtCraft app guides are now available, covering all 13 applications with localized tutorials and feature descriptions.",
-      impact: "French-speaking users can now access full documentation in their native language, improving accessibility for the francophone creative community.",
-      sourceTitle: "French ArtCraft guides", sourceUrl: "https://opensourceadobe.com/fr/",
-      relatedPath: "/fr/", relatedLabel: "Browse French guides"
-    },
-    {
-      id: "ai-history-learning", appSlug: "launcher", appName: "Launcher", kind: "Documentation update",
-      title: "AI history feature integrated into learning resources",
-      summary: "The learning resources section now includes AI history tracking to help users understand the evolution of AI features across ArtCraft applications.",
-      impact: "Users can track how AI capabilities have evolved in each app, providing context for current features and future development direction.",
-      sourceTitle: "Learning resources with AI history", sourceUrl: "https://opensourceadobe.com/tutorials/",
-      relatedPath: "/tutorials/", relatedLabel: "Explore learning resources"
-    }
-  ],
-}, {
-  date: "2026-10-18",
-  title: "Multilingual expansion and ad optimization",
-  seoTitle: "ArtCraft Update: Multilingual & Ads — Oct 18, 2026",
-  description: "Japanese, Korean, and Traditional Chinese guides published. Adsterra placements optimized and AdSense authorization fixed. Checked October 18.",
-  introduction: "This October 18 brief documents a major multilingual expansion with Japanese, Korean, and Traditional Chinese guides, plus advertising infrastructure improvements including Adsterra placement optimization and AdSense ads.txt authorization.",
-  entries: [
-    {
-      id: "japanese-korean-guides", appSlug: "launcher", appName: "Launcher", kind: "Documentation update",
-      title: "Japanese and Korean ArtCraft guides published",
-      summary: "Complete Japanese and Korean translations of all ArtCraft guides are now live, with localized navigation and SEO-optimized routing.",
-      impact: "Japanese and Korean creative professionals can now access full ArtCraft documentation in their native languages.",
-      sourceTitle: "Japanese and Korean guides", sourceUrl: "https://opensourceadobe.com/ja/",
-      relatedPath: "/ja/", relatedLabel: "Browse Japanese guides"
-    },
-    {
-      id: "traditional-chinese-guide", appSlug: "launcher", appName: "Launcher", kind: "Documentation update",
-      title: "Traditional Chinese Adobe decision guide added",
-      summary: "A comprehensive Traditional Chinese guide for Adobe alternatives decision-making is now available.",
-      impact: "Traditional Chinese users can now make informed decisions about Adobe alternatives with localized guidance.",
-      sourceTitle: "Traditional Chinese decision guide", sourceUrl: "https://opensourceadobe.com/zh/",
-      relatedPath: "/zh/", relatedLabel: "View Chinese guide"
-    },
-    {
-      id: "download-guides-13-apps", appSlug: "launcher", appName: "Launcher", kind: "Documentation update",
-      title: "Download and installation guides for all 13 apps",
-      summary: "Complete download and installation guides are now available for all 13 ArtCraft applications.",
-      impact: "Users can now follow step-by-step installation instructions for every ArtCraft app.",
-      sourceTitle: "Download guides", sourceUrl: "https://opensourceadobe.com/download/",
-      relatedPath: "/download/", relatedLabel: "View download guides"
-    },
-    {
-      id: "adsterra-optimization", appSlug: "launcher", appName: "Launcher", kind: "Project announcement",
-      title: "Adsterra placements optimized",
-      summary: "Adsterra advertising placements have been optimized with improved collapsing behavior and cleaner label presentation.",
-      impact: "Improved user experience with less intrusive advertising while maintaining site revenue.",
-      sourceTitle: "Site improvements", sourceUrl: "https://opensourceadobe.com/",
-      relatedPath: "/", relatedLabel: "Visit homepage"
-    },
-    {
-      id: "adsense-authorization", appSlug: "launcher", appName: "Launcher", kind: "Project announcement",
-      title: "AdSense ads.txt authorization published",
-      summary: "Google AdSense ads.txt authorization file has been published to verify ad inventory ownership.",
-      impact: "Ensures proper ad revenue attribution and prevents unauthorized ad serving.",
-      sourceTitle: "AdSense authorization", sourceUrl: "https://opensourceadobe.com/ads.txt",
-      relatedPath: "/", relatedLabel: "Visit homepage"
     }
   ],
 }, {
@@ -474,6 +376,7 @@ export const dailyUpdates: DailyUpdate[] = [{
     },
   ],
 }];
+
 dailyUpdates.sort((a, b) => b.date.localeCompare(a.date));
 
 export function updatePath(date: string) { return `/updates/${date}/`; }
