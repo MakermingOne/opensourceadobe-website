@@ -87,7 +87,8 @@ for (const route of pages) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(route.zh);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
-      const links = page.locator('header a[href^="/"], footer a[href^="/"], .breadcrumbs a[href^="/"]');
+      await page.locator(".mobile-menu > summary").click();
+      const links = page.locator('header a[href^="/"], footer a[href^="/"], .breadcrumbs a[href^="/"]').filter({ visible: true });
       for (const link of await links.all()) {
         if (await link.evaluate((element) => Boolean(element.closest('[aria-label="Language"]')))) continue;
         const href = (await link.getAttribute("href"))!.split("#")[0];

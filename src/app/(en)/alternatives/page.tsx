@@ -46,7 +46,7 @@ export default function AlternativesPage() {
         { "@type": "ListItem", position: 2, name: "Alternatives", item: absoluteUrl("/alternatives/") },
       ] },
     ] }} />
-    <div className="container page-shell">
+    <div className="container page-shell alternatives-page">
       <Breadcrumbs currentPath="/alternatives/" items={[{ label: "Home", href: "/" }, { label: "Alternatives" }]} />
       <header className="page-intro">
         <Eyebrow>Unofficial · Independent guide</Eyebrow>
@@ -58,15 +58,16 @@ export default function AlternativesPage() {
       <section className="content-section" aria-labelledby="coverage-heading">
         <div className="section-heading"><p className="section-number">01</p><div><h2 id="coverage-heading">Coverage map</h2><p>Every Adobe product we track, the closest open source ArtCraft app, and whether a full guide is published yet.</p></div></div>
         <div className="table-wrap">
-          <table>
+          <table className="alternatives-table">
+            <caption className="sr-only">Adobe products and available comparison guides</caption>
             <thead><tr><th scope="col">Adobe product</th><th scope="col">Closest open source app</th><th scope="col">Guide status</th><th scope="col">Next step</th></tr></thead>
             <tbody>
               {coverageRows.map((row) => (
                 <tr key={row.adobe}>
-                  <td>{row.adobe}</td>
-                  <td>{row.app}</td>
-                  <td>{row.status}</td>
-                  <td>{row.status === "Published" ? <Link href={`/alternatives/${row.adobe === "Photoshop" ? "photoshop" : "lightroom"}/`}>Open guide →</Link> : "—"}</td>
+                  <th scope="row" data-label="Adobe product">{row.adobe}</th>
+                  <td data-label="Closest open source app">{row.app}</td>
+                  <td data-label="Guide status">{row.status === "Published" ? "Comparison guide published" : "Comparison guide in progress"}</td>
+                  <td data-label="Next step">{row.status === "Published" ? <Link href={`/alternatives/${row.adobe === "Photoshop" ? "photoshop" : "lightroom"}/`}>Open guide →</Link> : <Link href={`/apps/${row.app.toLowerCase()}/`}>App guide →</Link>}</td>
                 </tr>
               ))}
             </tbody>
@@ -77,14 +78,15 @@ export default function AlternativesPage() {
       <section className="content-section" aria-labelledby="honesty-heading">
         <div className="section-heading"><p className="section-number">02</p><div><h2 id="honesty-heading">The honest table</h2><p>How close each open source alternative actually gets to the Adobe product it replaces.</p></div></div>
         <div className="table-wrap">
-          <table>
+          <table className="alternatives-table">
+            <caption className="sr-only">Workflow suitability and limitations</caption>
             <thead><tr><th scope="col">Adobe product</th><th scope="col">What is true today</th><th scope="col">How close it gets</th></tr></thead>
             <tbody>
               {honestyRows.map((row) => (
                 <tr key={row.adobe}>
-                  <td>{row.adobe}</td>
-                  <td>{row.verdict}</td>
-                  <td>{row.ceiling}</td>
+                  <th scope="row" data-label="Adobe product">{row.adobe}</th>
+                  <td data-label="What is true today">{row.verdict}</td>
+                  <td data-label="How close it gets">{row.ceiling}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,0 +1,13 @@
+import type { Locale } from "./config";
+
+type FrontendCopy = { menu: string; heading: string; app: string; system: string; download: string; guide: string; packages: string; note: string };
+export const frontendCopy: Record<Locale, FrontendCopy> = {
+  en: { menu: "Menu", heading: "Choose your download", app: "Choose an app", system: "Your operating system", download: "Download", guide: "Installation guide", packages: "All packages & release notes", note: "Windows and Linux packages below are for x64; macOS is universal. For ARM or other formats, use the full release list." },
+  "zh-Hant": { menu: "選單", heading: "選擇下載版本", app: "選擇應用程式", system: "作業系統", download: "下載", guide: "安裝指南", packages: "全部安裝包與發行說明", note: "以下 Windows 與 Linux 安裝包適用於 x64；macOS 為通用版本。ARM 或其他格式請查看完整發行清單。" },
+  pl: { menu: "Menu", heading: "Wybierz plik do pobrania", app: "Wybierz aplikację", system: "System operacyjny", download: "Pobierz", guide: "Instrukcja instalacji", packages: "Wszystkie pakiety i informacje o wydaniu", note: "Pakiety Windows i Linux poniżej są przeznaczone dla x64; macOS jest uniwersalny. ARM i inne formaty znajdziesz na pełnej liście wydania." },
+  de: { menu: "Menü", heading: "Download auswählen", app: "App auswählen", system: "Betriebssystem", download: "Herunterladen", guide: "Installationsanleitung", packages: "Alle Pakete und Versionshinweise", note: "Die Windows- und Linux-Pakete sind für x64; macOS ist universell. ARM und andere Formate finden Sie in der vollständigen Veröffentlichung." },
+  fr: { menu: "Menu", heading: "Choisir un téléchargement", app: "Choisir une application", system: "Système d’exploitation", download: "Télécharger", guide: "Guide d’installation", packages: "Tous les paquets et notes de version", note: "Les paquets Windows et Linux ci-dessous sont pour x64 ; macOS est universel. Pour ARM ou d’autres formats, consultez la version complète." },
+  ja: { menu: "メニュー", heading: "ダウンロードを選ぶ", app: "アプリを選択", system: "オペレーティングシステム", download: "ダウンロード", guide: "インストールガイド", packages: "すべてのパッケージとリリースノート", note: "以下の Windows・Linux 版は x64 用、macOS 版はユニバーサルです。ARM やその他の形式はリリース一覧を確認してください。" },
+  ko: { menu: "메뉴", heading: "다운로드 선택", app: "앱 선택", system: "운영체제", download: "다운로드", guide: "설치 안내", packages: "모든 패키지 및 릴리스 노트", note: "아래 Windows 및 Linux 패키지는 x64용이며 macOS는 유니버설입니다. ARM 또는 다른 형식은 전체 릴리스 목록을 확인하세요." },
+  hi: { menu: "मेन्यू", heading: "डाउनलोड चुनें", app: "ऐप चुनें", system: "ऑपरेटिंग सिस्टम", download: "डाउनलोड", guide: "इंस्टॉलेशन गाइड", packages: "सभी पैकेज और रिलीज़ नोट्स", note: "नीचे Windows और Linux पैकेज x64 के लिए हैं; macOS यूनिवर्सल है। ARM या अन्य फ़ॉर्मैट के लिए पूरी रिलीज़ सूची देखें।" },
+};

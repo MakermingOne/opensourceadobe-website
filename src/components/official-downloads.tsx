@@ -20,7 +20,7 @@ export function OfficialDownloads({ slug, name, platformNotes }: { slug: Downloa
         <h3>{item.platform}</h3>
         <p>{item.description}</p>
         <p>{(item.sizeBytes / 1024 / 1024).toFixed(1)} MB · v{record.version}</p>
-        <p><a href={officialAssetUrl(slug, item.filename)}>Download {name} for {item.platform} ↗</a></p>
+        <p><a className="button" href={officialAssetUrl(slug, item.filename)}>Download {name} for {item.platform} ↗</a></p>
       </article>)}
     </div>
     <p>Windows ARM64 or 32-bit PC? Linux ARM64, DEB, RPM, Flatpak or a portable Windows ZIP? <a href={releaseUrl} target="_blank" rel="noreferrer">Choose another package in the full release ↗</a>. Match the architecture to your computer; the buttons above are not suitable for every device.</p>

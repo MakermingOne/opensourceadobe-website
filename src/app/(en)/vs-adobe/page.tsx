@@ -1,3 +1,4 @@
+import { comparedProduct } from "@/lib/workflow-labels";
 import { PageUpdated } from "@/components/page-updated";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -18,30 +19,39 @@ export const metadata: Metadata = pageMetadata({
   path: "/vs-adobe/",
 });
 
+const beyondAdobe = new Set(["figcraft", "wordcraft", "soundcraft", "deckcraft", "cadcraft", "gridcraft"]);
+const comparisonGroups = [
+  { id: "adobe-workflows", title: "Adobe workflows", apps: apps.filter((app) => !beyondAdobe.has(app.slug)) },
+  { id: "beyond-adobe-workflows", title: "Beyond Adobe", apps: apps.filter((app) => beyondAdobe.has(app.slug)) },
+];
+
 const directorySource = sourcesById.get("artcraft-apps");
 
 export default function ComparePage() {
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: "ArtCraft vs Adobe workflow comparison", url: absoluteUrl("/vs-adobe/") }} />
-      <div className="container page-shell">
+      <div className="container page-shell comparison-page">
         <Breadcrumbs currentPath="/vs-adobe/" items={[{ label: "Home", href: "/" }, { label: "Compare" }]} />
         <header className="page-intro">
-          <Eyebrow>ArtCraft vs Adobe · 7 workflow comparisons</Eyebrow>
+          <Eyebrow>ArtCraft · 13 workflow comparisons</Eyebrow>
           <h1>ArtCraft software vs Adobe, <span>one workflow at a time.</span></h1>
-          <p className="lede">Compare PhotoCraft with Photoshop, VectorCraft with Illustrator, FilmCraft with Premiere Pro and four more open-source alternatives. A category match does not guarantee project-file compatibility or production readiness.</p>
+          <p className="lede">Compare seven Adobe workflows, plus six tools for interface design, documents, audio, presentations, CAD and spreadsheets. A category match does not guarantee project-file compatibility or production readiness.</p>
           <p className="updated">Last updated: <PageUpdated path="/vs-adobe/" /></p>
         </header>
 
+        <nav className="comparison-jumps" aria-label="Comparison groups">{comparisonGroups.map((group) => <a href={`#${group.id}`} key={group.id}>{group.title} · {group.apps.length} →</a>)}</nav>
+        {comparisonGroups.map((group) => <section className="comparison-group" key={group.id} aria-labelledby={group.id}>
+        <h2 id={group.id}>{group.title}</h2>
         <div className="comparison-stack">
-          {apps.map((app, index) => {
+          {group.apps.map((app, index) => {
             const profile = workflowProfiles[app.slug as keyof typeof workflowProfiles];
             return (
               <article className="comparison-row" key={app.slug}>
                 <div className="comparison-row__index">{String(index + 1).padStart(2, "0")}</div>
                 <div className="comparison-row__title">
                   <p>{profile.prompt}</p>
-                  <h2>{app.name} <span>instead of {app.adobeCounterpart}</span></h2>
+                  <h3>{app.name} <span>Compared with {comparedProduct(app)}</span></h3>
                   <StatusBadge value={app.status} />
                 </div>
                 <div>
@@ -60,7 +70,7 @@ export default function ComparePage() {
               </article>
             );
           })}
-        </div>
+        </div></section>)}
         {directorySource ? <div className="comparison-sources"><SourceList sources={[directorySource]} /></div> : null}
       </div>
     </>
