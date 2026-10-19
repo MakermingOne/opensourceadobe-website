@@ -5,6 +5,7 @@ import { absoluteUrl, canonicalPath, publishedRoutes } from "@/lib/site";
 const guidePaths = ["/", "/alternatives/photoshop/", "/apps/photocraft/", "/download/"] as readonly string[];
 export const locales = {
   en: { label: "English", flag: "/flags/us.svg", openGraphLocale: "en_US", dir: "ltr", enabled: true, paths: publishedRoutes as readonly string[] },
+  "en-AU": { label: "English (AU)", flag: "/flags/au.svg", openGraphLocale: "en_AU", dir: "ltr", enabled: true, paths: guidePaths },
   "zh-Hant": { label: "繁體中文", flag: "/flags/tw.svg", openGraphLocale: "zh_TW", dir: "ltr", enabled: true, paths: [...guidePaths, "/vs-adobe/"] },
   pl: { label: "Polski", flag: "/flags/pl.svg", openGraphLocale: "pl_PL", dir: "ltr", enabled: true, paths: guidePaths },
   de: { label: "Deutsch", flag: "/flags/de.svg", openGraphLocale: "de_DE", dir: "ltr", enabled: true, paths: guidePaths },

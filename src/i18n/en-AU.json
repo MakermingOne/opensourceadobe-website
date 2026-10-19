@@ -1,0 +1,62 @@
+{
+  "skip": "Skip to main content",
+  "identity": "Unofficial · Independent guide",
+  "homeLabel": "OpenSourceAdobe Australian English home",
+  "primaryNav": "Main navigation",
+  "footerNav": "Footer navigation",
+  "footerNote": "An independent guide, with no affiliation to Adobe or ArtCraft.",
+  "evidence": "Clear sources to help you choose.",
+  "updated": "Updated",
+  "dateSeparator": ": ",
+  "sources": "Sources",
+  "faq": "Frequently asked questions",
+  "breadcrumb": "Breadcrumb",
+  "englishVersion": "Read the full English guide",
+  "notFoundTitle": "We couldn’t find that page",
+  "notFoundDescription": "This page may have moved, or an Australian English guide has not been published at this address yet.",
+  "backHome": "Back to the Australian English home page",
+  "suggestion": "Read this site in Australian English →",
+  "dismissSuggestion": "Dismiss language suggestion",
+  "navigation": [
+    { "href": "/", "label": "Overview" },
+    { "href": "/alternatives/photoshop/", "label": "Photoshop alternative" },
+    { "href": "/apps/photocraft/", "label": "PhotoCraft" },
+    { "href": "/download/", "label": "Downloads and installation" }
+  ],
+  "footerGroups": [
+    { "title": "Choose and compare", "links": [
+      { "href": "/", "label": "Open-source Adobe alternatives" },
+      { "href": "/alternatives/photoshop/", "label": "Compare PhotoCraft with Photoshop" }
+    ] },
+    { "title": "Download and get started", "links": [
+      { "href": "/apps/photocraft/", "label": "PhotoCraft download guide" },
+      { "href": "/download/", "label": "Install ArtCraft Launcher" }
+    ] }
+  ],
+  "appCategories": {
+    "photocraft": "Photo editing and retouching",
+    "vectorcraft": "Vector illustration",
+    "filmcraft": "Video editing",
+    "lightcraft": "Photo organisation and RAW development",
+    "pdfcraft": "PDF editing and organisation",
+    "effectcraft": "Motion graphics and visual effects",
+    "designcraft": "Page layout and publishing",
+    "figcraft": "Interface design and prototyping",
+    "wordcraft": "Word processing",
+    "soundcraft": "Audio recording and mixing",
+    "deckcraft": "Presentations",
+    "cadcraft": "CAD and technical drawing",
+    "gridcraft": "Spreadsheets and data analysis"
+  },
+  "statuses": {
+    "early-alpha": "Early alpha",
+    "in-development": "In development",
+    "not-verified": "Not verified"
+  },
+  "appTable": {
+    "caption": "ArtCraft tools by task, Adobe counterpart and development status",
+    "headers": ["Tool", "Adobe counterpart", "Main use", "Target platforms", "Development status"],
+    "noCounterpart": "No direct counterpart",
+    "details": "Features and compatibility"
+  }
+}

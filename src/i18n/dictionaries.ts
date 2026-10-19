@@ -6,4 +6,5 @@ import hi from "./hi.json";
 import ja from "./ja.json";
 import ko from "./ko.json";
 import fr from "./fr.json";
-export const dictionaries = { en, "zh-Hant": zhHant, pl, de, hi, ja, ko, fr };
+import enAU from "./en-AU.json";
+export const dictionaries = { en, "zh-Hant": zhHant, pl, de, hi, ja, ko, fr, "en-AU": enAU };

@@ -4,6 +4,7 @@ import type { Locale } from "@/i18n/config";
 
 const labels: Record<Locale, { title: string; tasks: string[] }> = {
   en: { title: "Choose a task", tasks: ["Edit photos", "Edit video", "Work with PDFs", "Draw vectors", "Develop RAW", "Edit audio"] },
+  "en-AU": { title: "Choose a task", tasks: ["Edit photos", "Edit video", "Work with PDFs", "Draw vectors", "Develop RAW", "Edit audio"] },
   "zh-Hant": { title: "選擇工作項目", tasks: ["相片編輯", "影片剪輯", "PDF 處理", "向量繪圖", "RAW 顯影", "音訊編輯"] },
   fr: { title: "Choisir une tâche", tasks: ["Retouche photo", "Montage vidéo", "Documents PDF", "Dessin vectoriel", "Développement RAW", "Montage audio"] },
   de: { title: "Aufgabe wählen", tasks: ["Fotos bearbeiten", "Videos schneiden", "PDFs bearbeiten", "Vektoren zeichnen", "RAW entwickeln", "Audio bearbeiten"] },
