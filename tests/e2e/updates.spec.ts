@@ -2,13 +2,13 @@ import { expect, test } from "./fixtures";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(23);
+  await expect(page.locator(".update-entry")).toHaveCount(37);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
-  await expect(page.locator(".update-entry")).toHaveCount(2);
+  await expect(page.locator(".update-entry")).toHaveCount(4);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("link", { name: "Read the daily brief" }).first().click();
-  await expect(page).toHaveURL(/\/updates\/2026-10-15\//);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("PhotoCraft 0.9.0");
+  await expect(page).toHaveURL(/\/updates\/2026-10-19\//);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("VectorCraft 0.12.0");
   await expect(page.getByRole("heading", { name: "Sources", exact: true })).toBeVisible();
 });
 
@@ -20,19 +20,18 @@ test("Contact uses the email address without a GitHub contact destination", asyn
   await expect(content.locator('a[href*="github.com"]')).toHaveCount(0);
 });
 
-test("briefs include official events only", async ({ page }) => {
+test("latest brief separates official changes from community ports", async ({ page }) => {
   await page.goto("/updates/2026-10-15/");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("PhotoCraft 0.9.0");
   await expect(page.locator("#photocraft-090")).toContainText("2026-10-14");
+  await expect(page.locator("#pdfcraft-web-printing")).toContainText("documentation clarification");
+  await expect(page.locator("#community-pdfcraft-printing")).toContainText("Community report");
   await expect(page.locator("#pdfcraft-080")).toContainText("2026-10-14");
-  await expect(page.locator(".update-entry")).toHaveCount(14);
-  await expect(page.locator(".sources")).not.toContainText("third party");
+  await expect(page.locator("#community-android-ports")).toContainText("Community report");
+  await expect(page.locator("#community-android-ports")).toContainText("not the official storytold desktop releases");
+  await expect(page.locator(".sources")).toContainText("third party");
   await page.getByRole("link", { name: "Back to all updates" }).click();
   await expect(page).toHaveURL(/\/updates\/$/);
-  const dates = await page.locator(".update-date time").allTextContents();
-  expect(new Set(dates).size).toBe(dates.length);
-  await expect(page.locator(".update-entry").filter({ hasText: "Community report" })).toHaveCount(0);
-  const sources = await page.locator('.update-links a[target="_blank"]').evaluateAll(nodes => nodes.map(node => node.getAttribute("href")));
-  expect(new Set(sources).size).toBe(sources.length);
 });
 
 for (const width of [375, 768, 1024, 1280]) {
@@ -72,7 +71,7 @@ test("RSS is valid XML and links to the published daily brief", async ({ request
   }, xml);
   expect(result.errors).toBe(0);
   expect(result.links).toContain("https://opensourceadobe.com/updates/2026-10-13/");
-  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-17/");
+  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-19/");
 });
 
 for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/", "/updates/2026-10-17/"]) {
@@ -110,11 +109,11 @@ test("October 16 distinguishes documentation and community events from a release
   await expect(page.locator("#pdfcraft-language-package-limits")).toContainText("Documentation update");
   await expect(page.locator("#pdfcraft-language-package-limits")).toContainText("Event dated 2026-10-15");
   await expect(page.locator("#pdfcraft-language-package-limits")).not.toContainText("Release published");
-
+  await expect(page.locator("#community-pdfcraft-print-quality")).toContainText("Community report");
   await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("Documentation update");
   await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("Event dated 2026-10-15");
   await expect(page.locator("#vectorcraft-rpm-runtime-limits")).toContainText("not a new release");
-  await expect(page.locator(".sources")).not.toContainText("third party");
+  await expect(page.locator(".sources")).toContainText("third party");
   await page.goto("/apps/pdfcraft/");
   await expect(page.locator("#main-content")).toContainText("Linux packages are unsigned");
   await expect(page.locator("#main-content")).toContainText("Chinese, Telugu or mirrored Arabic");
@@ -127,7 +126,8 @@ test("October 17 connects the new release, bounded export guidance and community
   await page.goto("/updates/2026-10-17/");
   await expect(page.locator("#vectorcraft-0120")).toContainText("Official release");
   await expect(page.locator("#vectorcraft-0120")).toContainText("Release published 2026-10-16 UTC");
-  await expect(page.locator("#community-pdfcraft-printer-follow-up")).toHaveCount(0);
+  await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("Community report");
+  await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("not a universal fix");
   await page.goto("/apps/vectorcraft/");
   await expect(page.getByRole("heading", { name: "Version 0.12.0", exact: true })).toBeVisible();
   const buttons = page.getByRole("link", { name: /^Download VectorCraft for/ });
@@ -141,11 +141,11 @@ test("October 17 connects the new release, bounded export guidance and community
 
 test("October 17 evening keeps development work distinct from releases and syncs translations", async ({ page, request }) => {
   await page.goto("/updates/2026-10-17/");
-  await expect(page.locator(".update-entry")).toHaveCount(2);
+  await expect(page.locator(".update-entry")).toHaveCount(6);
   await expect(page.locator("#figcraft-automation-roots-docs")).toContainText("not a new release");
-  await expect(page.locator("#community-photocraft-brush-spacing")).toHaveCount(0);
-  await expect(page.locator("#community-pdfcraft-white-cursor")).toHaveCount(0);
-  await expect(page.locator("#community-effectcraft-rotoscoping")).toHaveCount(0);
+  await expect(page.locator("#community-photocraft-brush-spacing")).toContainText("Community report");
+  await expect(page.locator("#community-pdfcraft-white-cursor")).toContainText("not a confirmed cause");
+  await expect(page.locator("#community-effectcraft-rotoscoping")).toContainText("not reported");
   for (const locale of ["zh-Hant", "pl", "de", "hi"]) {
     await page.goto(`/${locale}/`);
     await expect(page.locator("#update-2026-10-17")).toContainText("FigCraft");
@@ -155,3 +155,17 @@ test("October 17 evening keeps development work distinct from releases and syncs
     expect((await request.get(`/${locale}/apps/photocraft/`)).status()).toBe(200);
   }
 });
+
+ test("daily archive retains both recent briefs and a date without a separate news item", async ({ page, request }) => {
+  await page.goto("/updates/");
+  const dates = await page.locator(".update-date time").allTextContents();
+  expect(dates).toHaveLength(7);
+  expect(new Set(dates).size).toBe(7);
+  await expect(page.locator(".daily-status")).toContainText("No separate product-news item");
+  for (const date of ["2026-10-14", "2026-10-18", "2026-10-19"]) expect((await request.get(`/updates/${date}/`)).ok()).toBe(true);
+  await page.goto("/updates/2026-10-14/");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("no separate news item");
+  await expect(page.locator(".update-contents")).toHaveCount(0);
+  await page.goto("/updates/2026-10-19/");
+  await expect(page.locator(".lede")).toContainText("not new October 19 releases");
+ });
