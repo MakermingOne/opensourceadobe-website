@@ -10,6 +10,7 @@ export const locales = {
   de: { label: "Deutsch", flag: "/flags/de.svg", openGraphLocale: "de_DE", dir: "ltr", enabled: true, paths: guidePaths },
   ja: { label: "日本語", flag: "/flags/jp.svg", openGraphLocale: "ja_JP", dir: "ltr", enabled: true, paths: guidePaths },
   ko: { label: "한국어", flag: "/flags/kr.svg", openGraphLocale: "ko_KR", dir: "ltr", enabled: true, paths: guidePaths },
+  fr: { label: "Français", flag: "/flags/fr.svg", openGraphLocale: "fr_FR", dir: "ltr", enabled: true, paths: guidePaths },
   hi: { label: "हिन्दी", flag: "/flags/in.svg", openGraphLocale: "hi_IN", dir: "ltr", enabled: true, paths: guidePaths },
 } as const;
 export type Locale = keyof typeof locales;

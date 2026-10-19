@@ -4,7 +4,7 @@ export * from "@playwright/test";
 // Preserve the site's scripts; isolate only third-party telemetry in test browsers.
 export const test = base.extend<{ telemetryIsolation: void }>({
   telemetryIsolation: [async ({ context }, use) => {
-    await context.route(/^https:\/\/(?:[^/]+\.)?(?:googlesyndication\.com|doubleclick\.net|googletagmanager\.com|google-analytics\.com)\//, (route) => route.fulfill({ status: 204, body: "" }));
+    await context.route(/^https:\/\/(?:[^/]+\.)?(?:bauval\.org|googlesyndication\.com|doubleclick\.net|googletagmanager\.com|google-analytics\.com)\//, (route) => route.fulfill({ status: 204, body: "" }));
     await use();
   }, { auto: true }],
 });

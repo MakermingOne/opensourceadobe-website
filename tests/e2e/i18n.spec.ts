@@ -9,7 +9,7 @@ const pages = [
   { en: "/download/", zh: "/zh-Hant/download/", primary: "ArtCraft 下載" },
 ] as const;
 const translatedPaths: string[] = [...pages.map(({ zh }) => zh), "/zh-Hant/vs-adobe/"];
-const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, ja: `${origin}/ja${path}`, ko: `${origin}/ko${path}`, "x-default": origin + path });
+const alternateGroup = (path: string) => ({ en: origin + path, "zh-Hant": `${origin}/zh-Hant${path}`, pl: `${origin}/pl${path}`, de: `${origin}/de${path}`, hi: `${origin}/hi${path}`, ja: `${origin}/ja${path}`, ko: `${origin}/ko${path}`, fr: `${origin}/fr${path}`, "x-default": origin + path });
 async function openLanguages(page: Page) {
   const languages = page.getByRole("navigation", { name: "Language", exact: true });
   if (!(await languages.locator("details").evaluate((element) => element.hasAttribute("open")))) await languages.locator("summary").click();

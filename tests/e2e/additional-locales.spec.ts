@@ -2,9 +2,9 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "./fixtures";
 
 const origin = "https://opensourceadobe.com";
-const languages = ["en", "zh-Hant", "pl", "de", "hi", "ja", "ko"];
+const languages = ["en", "zh-Hant", "pl", "de", "hi", "ja", "ko", "fr"];
 const guides = ["/", "/alternatives/photoshop/", "/apps/photocraft/", "/download/"];
-for (const locale of ["pl", "de", "hi"]) {
+for (const locale of ["pl", "de", "hi", "fr"]) {
   for (const path of guides) {
     const route = `/${locale}${path}`;
     test(`${route} has localized server HTML and complete language metadata`, async ({ page, request }) => {
@@ -59,7 +59,7 @@ test("all new languages work without JavaScript and have only valid localized sh
   const context=await browser.newContext({javaScriptEnabled:false});
   try {
     const page=await context.newPage();
-    for(const locale of ["pl","de","hi"]){
+    for(const locale of ["pl","de","hi","fr"]){
       await page.goto(new URL(`/${locale}/download/`,baseURL).href);
       const shell=page.locator('header a[href^="/"],footer a[href^="/"],.breadcrumbs a[href^="/"]');
       for(const link of await shell.all()){
