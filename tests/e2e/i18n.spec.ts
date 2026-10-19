@@ -126,7 +126,7 @@ test("Accept-Language leaves English URLs intact and unsupported locales return 
   const response = await request.get("/", { headers: { "Accept-Language": "zh-TW,zh;q=0.9" }, maxRedirects: 0 });
   expect(response.status()).toBe(200);
   expect(await response.text()).toMatch(/<html[^>]*lang="en"/);
-  expect((await request.get("/fr/")).status()).toBe(404);
+  expect((await request.get("/xx/")).status()).toBe(404);
 });
 
 for (const route of pages) {
