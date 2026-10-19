@@ -1,89 +1,35 @@
+export type UpdateKind = "Official release" | "Project announcement" | "Documentation update" | "Community report";
+export type UpdateEntry = {
+  id: string;
+  appSlug: string;
+  appName: string;
+  kind: UpdateKind;
+  title: string;
+  summary: string;
+  impact: string;
+  sourceTitle: string;
+  sourceUrl: string;
+  eventDate?: string;
+  relatedPath: string;
+  relatedLabel: string;
+};
+export type DailyUpdate = {
+  date: string;
+  modifiedDate?: string;
+  title: string;
+  description: string;
+  seoTitle: string;
+  introduction: string;
+  entries: UpdateEntry[];
+};
+
 export const dailyUpdates: DailyUpdate[] = [{
-  date: "2026-10-19",
-  title: "VectorCraft 0.12.0 and LightCraft 0.8.0 released",
-  seoTitle: "ArtCraft Update: VectorCraft 0.12.0 & LightCraft 0.8.0 — Oct 19, 2026",
-  description: "VectorCraft 0.12.0 adds web pen input and Dimension tool. LightCraft 0.8.0 brings HDR AVIF export, DNG export and expanded camera support. Checked October 19.",
-  introduction: "This October 19 brief covers two significant ArtCraft releases published in the past week. VectorCraft 0.12.0 (October 16) introduces browser-based Apple Pencil and touch input, a Dimension tool, and legacy Illustrator export. LightCraft 0.8.0 (October 14) adds HDR AVIF export, DNG export, non-linear Kelvin white balance, and expanded camera profile support. Both releases represent substantial feature additions rather than routine maintenance.",
-  entries: [
-    {
-      id: "vectorcraft-0120-web-pen", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
-      title: "VectorCraft 0.12.0: Web pen input and Dimension tool",
-      summary: "The latest VectorCraft release adds Apple Pencil and touch input support for the web version with palm rejection and pressure sensitivity. A new Dimension tool has been added for technical drawing workflows. Legacy .ai export now preserves groups and layers, addressing a long-standing compatibility gap.",
-      impact: "Web users can now use pressure-sensitive stylus input directly in the browser, bringing the web version closer to desktop parity. The Dimension tool expands VectorCraft's utility for technical illustration. Legacy .ai export improvements make file exchange with Illustrator users more reliable, though the project still identifies full Illustrator compatibility as a gap.",
-      sourceTitle: "VectorCraft v0.12.0 release notes", sourceUrl: "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
-      relatedPath: "/apps/vectorcraft/", relatedLabel: "Explore VectorCraft features"
-    },
-    {
-      id: "vectorcraft-0120-pdf-hardening", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
-      title: "VectorCraft 0.12.0: PDF import hardening",
-      summary: "This release includes extensive PDF import hardening to prevent crashes on malformed files. Dictionary values that cannot be parsed no longer crash nesting checks, ink/font scans, or stream processing. The shared PDF writer is now used for both export and print composition.",
-      impact: "Users working with PDFs from varied sources should experience fewer crashes. The hardening addresses real-world scenarios where PDFs from different generators have structural inconsistencies.",
-      sourceTitle: "VectorCraft v0.12.0 release notes", sourceUrl: "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
-      relatedPath: "/apps/vectorcraft/", relatedLabel: "VectorCraft workflow guide"
-    },
-    {
-      id: "lightcraft-080-hdr-dng", appSlug: "lightcraft", appName: "LightCraft", kind: "Official release", eventDate: "2026-10-14",
-      title: "LightCraft 0.8.0: HDR AVIF and DNG export",
-      summary: "LightCraft 0.8.0 adds HLG HDR AVIF export with tested SDR/HDR display decision logic, and Render to DNG export format. The release includes 85+ reviewed pull requests across integration batches.",
-      impact: "HDR workflows are now supported with proper display handling. DNG export enables archival and cross-application raw workflows. These are significant additions for photographers working with high dynamic range content.",
-      sourceTitle: "LightCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/lightcraft/releases/tag/v0.8.0",
-      relatedPath: "/apps/lightcraft/", relatedLabel: "LightCraft camera guide"
-    },
-    {
-      id: "lightcraft-080-camera-support", appSlug: "lightcraft", appName: "LightCraft", kind: "Official release", eventDate: "2026-10-14",
-      title: "LightCraft 0.8.0: Expanded camera support",
-      summary: "New camera support includes Nikon D90 and D7100 (with Lightroom-matching frame), Leica Q3 (verified against private DNGs), Olympus E-10 as-shot white balance, and Hasselblad Lunar. Non-linear Kelvin temperature slider now matches Lightroom's scale.",
-      impact: "Photographers with these camera models can now use LightCraft with proper color and white balance handling. The Kelvin slider improvement makes white balance adjustments more intuitive for Lightroom migrants.",
-      sourceTitle: "LightCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/lightcraft/releases/tag/v0.8.0",
-      relatedPath: "/apps/lightcraft/", relatedLabel: "Check camera compatibility"
-    }
-  ],
-}, {
-  date: "2026-10-18",
-  title: "PhotoCraft 0.9.0 and FigCraft development notes",
-  seoTitle: "ArtCraft Update: PhotoCraft 0.9.0 & FigCraft — Oct 18, 2026",
-  description: "PhotoCraft 0.9.0 adds Photoshop Actions import/export and CMYK support. FigCraft development documentation reveals unreleased file-access controls. Checked October 18.",
-  introduction: "This October 18 brief covers PhotoCraft 0.9.0 (October 14) with Photoshop Actions (.atn) import/export, CMYK foreground painting, and DPX codec support. We also review FigCraft's development documentation, which reveals unreleased file-access controls and development roadmap details. These are source-based reviews, not hands-on tests.",
-  entries: [
-    {
-      id: "photocraft-090-actions", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
-      title: "PhotoCraft 0.9.0: Photoshop Actions (.atn) support",
-      summary: "PhotoCraft 0.9.0 introduces Photoshop Actions import/export with an Actions panel, folder organization, dialog toggle, Insert Stop, and mapping of frequent Photoshop events including Place, Open, Image Size, and Paint Bucket. This closes issue #219.",
-      impact: "Users with existing Photoshop Actions can now import and run them in PhotoCraft, significantly improving workflow migration. The Actions panel provides familiar organization and editing capabilities.",
-      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
-      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft features and limitations"
-    },
-    {
-      id: "photocraft-090-cmyk", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
-      title: "PhotoCraft 0.9.0: CMYK painting and DPX codec",
-      summary: "CMYK correctness improvements ensure Color Picker, Brush, Paint Bucket, and Edit > Stroke all write picked inks correctly into CMYK documents. New DPX frames open/save support and XPM full X11 color name import are included.",
-      impact: "Print production workflows requiring CMYK are now more reliable. DPX support enables professional film and video workflows. These changes address real production requirements for print and broadcast users.",
-      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
-      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft print workflows"
-    },
-    {
-      id: "photocraft-090-performance", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
-      title: "PhotoCraft 0.9.0: Performance optimizations",
-      summary: "Brush stroke commit improved from 136ms to 0.8ms (P32), eliminating freeze on stroke release. Quick Selection is 37% faster on 24MP images. Layer moves avoid second document clones and bounds-cache sweeping per call.",
-      impact: "Painting and selection workflows are significantly more responsive, especially on high-resolution images. These optimizations address user-reported performance pain points.",
-      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
-      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft performance tips"
-    },
-    {
-      id: "figcraft-dev-file-access", appSlug: "figcraft", appName: "FigCraft", kind: "Documentation update",
-      title: "FigCraft development: File-access controls in progress",
-      summary: "FigCraft's development documentation reveals unreleased file-access controls for managing project permissions and sharing. The documentation describes frames, auto layout, components, and variants as core features, with desktop and Web targets planned.",
-      impact: "FigCraft remains in Early alpha with active development on collaboration features. The file-access controls suggest future team-oriented functionality, but these are not yet available in public builds.",
-      sourceTitle: "FigCraft development documentation", sourceUrl: "https://github.com/storytold/figcraft",
-      relatedPath: "/apps/", relatedLabel: "Browse all ArtCraft apps"
-    }
-  ],
-}, {
   date: "2026-10-17",
-  title: "VectorCraft 0.12.0, FigCraft development and community notes",
-  seoTitle: "ArtCraft Update: FigCraft & Community Notes — Oct 17, 2026",
-  description: "VectorCraft 0.12.0, FigCraft’s unreleased file-access controls, and attributed PhotoCraft, PdfCraft and EffectCraft reports. Checked October 17.",
-  introduction: "VectorCraft 0.12.0 was published October 16 UTC and checked for this October 17 brief. Its release notes cover legacy Illustrator export, browser pen input, a Dimension tool and Linux packaging changes. Separately, a PdfCraft user has followed up on an earlier printer-detection report. Our evening check adds FigCraft’s development documentation and three individual community reports below. No newer official release was found for the thirteen apps or Launcher. Development commits and community experiences are not shipped-feature guarantees or independent tests. Direct Google results, X live search and YouTube’s upload list were inaccessible or throttled during this check; search-index coverage does not establish that those channels had no new posts.",
+  modifiedDate: "2026-10-19",
+  title: "VectorCraft 0.12.0 and FigCraft documentation update",
+  seoTitle: "ArtCraft Update: VectorCraft & FigCraft — Oct 17, 2026",
+  description: "Official VectorCraft 0.12.0 release notes and FigCraft’s dated development documentation for opt-in file access.",
+  introduction: "Official VectorCraft 0.12.0 release notes cover legacy Illustrator export, browser pen input, a Dimension tool and Linux packaging changes. The release was published October 16 UTC. An October 17 FigCraft documentation commit describes opt-in file-access controls in development; it is not a new installer release. These summaries report upstream sources, not independent tests.",
   entries: [
     {
       id: "vectorcraft-0120", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
@@ -94,14 +40,6 @@ export const dailyUpdates: DailyUpdate[] = [{
       relatedPath: "/apps/vectorcraft/", relatedLabel: "Check VectorCraft’s current release and export limits",
     },
     {
-      id: "community-pdfcraft-printer-follow-up", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-16",
-      title: "A PdfCraft user reports that an update restored default-printer output",
-      summary: "The original poster of the physical-printer detection question replied on October 16 that, after updating, they could print to their default printer. The reply does not specify an app version, operating system or package. This follows the earlier missing-printer report; we have not reproduced the result or linked it to a particular release.",
-      impact: "This is encouraging follow-up, not a universal fix for every printer or package, and it does not resolve the separate print-quality report. Retest a single page on your exact setup and record the version, platform and printer if a problem remains. Our October 15 report stays available as the historical context.",
-      sourceTitle: "Reddit: original poster’s October 16 printing follow-up", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x5kde8/comment/ph249u7/",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s current printing cautions",
-    },
-    {
       id: "figcraft-automation-roots-docs", appSlug: "figcraft", appName: "FigCraft", kind: "Documentation update", eventDate: "2026-10-17",
       title: "FigCraft documents opt-in file-access boundaries for agents",
       summary: "An October 17 development commit documents opt-in read and write folders for MCP and desktop automation. It describes separate --automation-read-root and --automation-write-root flags, refusal of paths outside those folders, and configuration on the desktop app when attaching an MCP client. Without the flags, behavior is unchanged.",
@@ -109,37 +47,14 @@ export const dailyUpdates: DailyUpdate[] = [{
       sourceTitle: "FigCraft October 17 automation-root documentation commit", sourceUrl: "https://github.com/storytold/figcraft/commit/ac4b98dbd72cea838447bd34621a47f1d40f0801",
       relatedPath: "/github/", relatedLabel: "Find FigCraft’s official repository and release",
     },
-    {
-      id: "community-photocraft-brush-spacing", appSlug: "photocraft", appName: "PhotoCraft", kind: "Community report", eventDate: "2026-10-16",
-      title: "A PhotoCraft user traces apparent brush lag to Spacing",
-      summary: "A Reddit user described ink appearing only after a minimum pen movement, including with mouse input and without pressure. The author then edited the post to say the brush Spacing setting explained their case and pointed to F5. Their app version and operating system are not specified. We have not independently reproduced the result.",
-      impact: "Check brush spacing on a small test canvas before assuming a GPU slowdown. The official 0.9.0 brush documentation lists spacing, but this user’s result does not prove a new fix, a universal shortcut or a solution to all brush latency. If a problem remains, record the version, platform, brush settings and input device for an upstream report.",
-      sourceTitle: "Reddit: PhotoCraft brush report and author’s spacing correction", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/",
-      relatedPath: "/apps/photocraft/", relatedLabel: "Read PhotoCraft’s brush-spacing and first-test advice",
-    },
-    {
-      id: "community-pdfcraft-white-cursor", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-16",
-      title: "A PdfCraft user reports a hard-to-see cursor when adding text",
-      summary: "A Reddit user reports the cursor turning white over a PDF while placing text; the text itself is described as fine. The app version, operating system and whether this is a browser or desktop build are not specified. We have not independently reproduced the behavior or verified a fix.",
-      impact: "A reply suggests browser hardware acceleration, but that is not a confirmed cause. Do not change system settings on that basis alone. Check cursor visibility on a copied document and include the build, display settings and a screenshot in a reproducible issue. This report does not establish damaged PDF text or a problem in every package.",
-      sourceTitle: "Reddit: PdfCraft white-cursor report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7sq2x/pdfcraft_white_cursor_when_adding_text/",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s text-placement cautions",
-    },
-    {
-      id: "community-effectcraft-rotoscoping", appSlug: "effectcraft", appName: "EffectCraft", kind: "Community report", eventDate: "2026-10-16",
-      title: "An EffectCraft user reports freezing during rotoscope propagation",
-      summary: "A MacBook Pro user reports heat, fan activity and freezing while propagating rotoscope frames, while also saying the result impressed them. The app version, chip, memory and footage specifications are not reported. This is one person’s account, not an independent performance benchmark or a confirmed cause.",
-      impact: "Before relying on rotoscoping for a deadline, try a short copy of representative footage and record the version, hardware, frame range and source dimensions. No fix was verified in this check. The report does not establish the same behavior across Macs, operating systems or released builds.",
-      sourceTitle: "Reddit: EffectCraft rotoscoping performance report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x7lppk/serious_performance_issues_with_rotoscoping_in/",
-      relatedPath: "/apps/effectcraft/", relatedLabel: "Compare EffectCraft’s scope and development status",
-    },
   ],
 }, {
   date: "2026-10-16",
-  title: "ArtCraft update: PdfCraft limits and VectorCraft Linux compatibility",
+  modifiedDate: "2026-10-19",
+  title: "Official documentation: PdfCraft limits and VectorCraft Linux compatibility",
   seoTitle: "ArtCraft Update: PDF Limits & VectorCraft Linux — Oct 16, 2026",
-  description: "PdfCraft language and printing limits, plus VectorCraft’s documented Linux RPM dependency boundary. Official documentation and community feedback, not new releases.",
-  introduction: "Our October 16 check found no newer official app release than the versions in the October 15 brief. PdfCraft’s October 15 documentation correction makes several existing limitations more explicit. A later check adds VectorCraft’s documented Linux RPM dependency boundary. We also record a community printing report with its missing details. These are documentation reviews and attributed feedback, not new releases or independent tests.",
+  description: "Official October 15 documentation changes covering PdfCraft interface languages, package signing and VectorCraft Linux RPM requirements.",
+  introduction: "Two October 15 official documentation changes clarify PdfCraft interface-language and package-signing limits and VectorCraft’s Linux RPM runtime dependency. These are dated upstream documentation changes, not new app releases or independently verified fixes.",
   entries: [
     {
       id: "pdfcraft-language-package-limits", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update", eventDate: "2026-10-15",
@@ -148,14 +63,6 @@ export const dailyUpdates: DailyUpdate[] = [{
       impact: "If you need one of these interface languages, check the actual build before switching. Interface localization is separate from PDF text rendering and OCR language support. For Linux, use the official release and compare its checksum; a matching checksum alone does not establish a signed package or an independent security review.",
       sourceTitle: "PdfCraft October 15 documentation correction", sourceUrl: "https://github.com/storytold/pdfcraft/commit/953ac1483f4f8f1e3ac755571f50a55381b74581",
       relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s language and platform limits",
-    },
-    {
-      id: "community-pdfcraft-print-quality", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report", eventDate: "2026-10-15",
-      title: "A user reports photo-paper and print-quality settings not carrying through",
-      summary: "In an October 15 r/ArtCraftAI post, a user reports selecting photo paper and high print quality but receiving plain-paper, normal-quality output through PdfCraft. The post does not identify an app version, operating system, package or printer. We have not reproduced the result or verified a fix.",
-      impact: "Before printing a larger photo job, check a single page, paper selection and the printer driver’s effective settings. A useful upstream report needs the version, platform, package and printer model. This single report does not establish a failure across all PdfCraft builds.",
-      sourceTitle: "Reddit: PdfCraft printing-quality report", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x6uyfh/printing/",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s printing notes",
     },
     {
       id: "vectorcraft-rpm-runtime-limits", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Documentation update", eventDate: "2026-10-15",
@@ -168,16 +75,16 @@ export const dailyUpdates: DailyUpdate[] = [{
   ],
 }, {
   date: "2026-10-15",
-  modifiedDate: "2026-10-15",
+  modifiedDate: "2026-10-19",
   title: "ArtCraft update: PhotoCraft 0.9.0 and a new release wave",
   seoTitle: "ArtCraft Update: PhotoCraft 0.9.0 & New Releases — Oct 15, 2026",
-  description: "Twelve new official app releases, including PhotoCraft 0.9.0, VectorCraft 0.11.0 and LightCraft 0.8.0, plus PdfCraft printing notes and attributed community reports.",
-  introduction: "Our October 15 morning check found twelve newer Crafting App releases published October 14 UTC. PhotoCraft is now 0.9.0; VectorCraft, FilmCraft, LightCraft and eight other tools also have new builds. The earlier coverage of PdfCraft 0.8.0 and Launcher 0.4.1 remains below, with the original release dates preserved. We also clarify PdfCraft’s browser-printing documentation and separate Reddit reports from official product facts. A version bump does not establish production readiness, and these changes have not been independently tested here.",
+  description: "Official releases including PhotoCraft 0.9.0, VectorCraft 0.11.0, LightCraft 0.8.0, PdfCraft 0.8.0 and ArtCraft Launcher 0.4.1.",
+  introduction: "Official releases published October 14 UTC include PhotoCraft 0.9.0, VectorCraft 0.11.0, LightCraft 0.8.0 and nine other Crafting Apps. This brief also retains the official PdfCraft 0.8.0 and Launcher 0.4.1 releases with their original publication dates. Release notes describe project-reported changes and do not establish production readiness.",
   entries: [
     {
       id: "photocraft-090", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
       title: "PhotoCraft 0.9.0: printing, automation and export changes",
-      summary: "The official release notes list system printing through craft-print, crop and straighten automation, profileless grayscale export fixes and native-document saving changes. Our standalone download links now point to verified 0.9.0 packages; the official product page still lists an older version.",
+      summary: "The official release notes list system printing through craft-print, crop and straighten automation, profileless grayscale export fixes and native-document saving changes. The official product page may still list an older version than the GitHub release.",
       impact: "Try a copied document and compare its saved file, exported image and printed output with your usual workflow. PhotoCraft remains Early alpha: these release notes do not establish Photoshop-perfect PSD rendering, plug-in compatibility or dependable client delivery.",
       sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
       relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft downloads and workflow boundaries",
@@ -271,22 +178,6 @@ export const dailyUpdates: DailyUpdate[] = [{
       relatedPath: "/apps/gridcraft/", relatedLabel: "Find GridCraft’s spreadsheet project",
     },
     {
-      id: "pdfcraft-web-printing", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update",
-      title: "PdfCraft browser printing: a clarification from the 0.8.0 docs",
-      summary: "The gaps document included in the published 0.8.0 tag says web printing was added through the browser print dialog and records that gap as closed on October 12. The current README still lists web printing among missing features. This is a documentation clarification, not a new release today.",
-      impact: "Our guide no longer states that web printing is simply unavailable. Check the browser build and its actual printed output; browser printing does not establish that every desktop package can detect your physical printer. We have not independently tested the feature.",
-      sourceTitle: "PdfCraft v0.8.0 documented gaps and closed web-printing gap", sourceUrl: "https://github.com/storytold/pdfcraft/blob/v0.8.0/docs/gaps.md",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Read PdfCraft’s platform and printing notes",
-    },
-    {
-      id: "community-pdfcraft-printing", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report",
-      title: "PdfCraft users ask about missing physical printers",
-      summary: "An October 14 r/ArtCraftAI post reports that PdfCraft’s print destination list shows only PDF output rather than installed physical or network printers. The post does not establish a universal failure across versions or packages; we have not reproduced the issue.",
-      impact: "If printing matters to your workflow, test printer detection and a real page before switching. Include your operating system, package format and app version in an upstream report. Do not treat a Reddit reply or an AI-generated diagnosis as a verified fix, and keep another reader available for printing.",
-      sourceTitle: "Reddit: PdfCraft physical-printer detection question", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x5kde8/pdfcraft_usa_solo_stampa_in_pdf_non_c%C3%A8_la/",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s platform limitations",
-    },
-    {
       id: "launcher-041", appSlug: "craft-launcher", appName: "ArtCraft Launcher", kind: "Official release", eventDate: "2026-10-13",
       title: "ArtCraft Launcher 0.4.1 adds FigCraft",
       summary: "The official 0.4.1 release notes list the addition of FigCraft. Launcher is the separate ArtCraft project for installing, updating and opening the Crafting Apps; it is not the AI image and video studio.",
@@ -298,33 +189,18 @@ export const dailyUpdates: DailyUpdate[] = [{
       id: "pdfcraft-080", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Official release", eventDate: "2026-10-14",
       title: "PdfCraft 0.8.0: text, rendering and document-handling changes",
       summary: "The official release notes list font-metric and Unicode changes, preservation of neighboring text during replacements, large-document preparation away from the UI thread, and fixes to links, annotations and form handling. Version 0.8.0 supersedes the 0.7.1 download snapshot we checked earlier; the product page may still show an older build.",
-      impact: "Our download guide now links to the verified 0.8.0 packages. If an earlier build had text-editing or document-handling problems, retry a copied PDF and compare the saved output in another reader. These are project-reported changes, not fixes or performance gains independently verified by OpenSourceAdobe.",
+      impact: "If an earlier build had text-editing or document-handling problems, retry a copied PDF and compare the saved output in another reader. These are project-reported changes, not fixes or performance gains independently verified by OpenSourceAdobe.",
       sourceTitle: "PdfCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/pdfcraft/releases/tag/v0.8.0",
       relatedPath: "/apps/pdfcraft/", relatedLabel: "PdfCraft official downloads and guide",
-    },
-    {
-      id: "pdfcraft-current-limits", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Documentation update",
-      title: "PdfCraft’s documented limits: check conversion, OCR and signatures",
-      summary: "The current README identifies PdfCraft as alpha. It documents gaps in Office-to-PDF conversion, Word export layout, complex existing-text editing, non-Latin OCR, preflight and advanced signature validation. This is a review of the documentation available today, not an announcement that those limitations or features first appeared today.",
-      impact: "Reading, organizing, combining and splitting are practical tasks to evaluate first. Keep a proven tool for requirements the project does not yet meet, especially regulated signatures, print compliance or sensitive redaction. We have not independently validated security-sensitive output.",
-      sourceTitle: "PdfCraft README: current status and remaining gaps", sourceUrl: "https://github.com/storytold/pdfcraft#whats-next",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "Check PdfCraft’s Acrobat workflow boundaries",
-    },
-    {
-      id: "community-android-ports", appSlug: "pdfcraft", appName: "PdfCraft", kind: "Community report",
-      title: "Reddit users share Android ports; official support is unchanged",
-      summary: "A thread in r/ArtCraftAI lists community Android ports of PhotoCraft, WordCraft, LightCraft and PdfCraft. These repositories are not the official storytold desktop releases. The post is a community report; we have not tested the ports or reviewed their installers.",
-      impact: "Do not read a community port as official Android availability. Our download guides continue to link to verified official packages. If you explore a fork, check who maintains it and its relationship to the upstream project; this brief does not recommend installing its APK.",
-      sourceTitle: "Reddit: community-maintained Android ports of ArtCraft apps", sourceUrl: "https://www.reddit.com/r/ArtCraftAI/comments/1x5ncx1/a_list_of_android_ports_created_for_artcraft_apps/",
-      relatedPath: "/apps/pdfcraft/", relatedLabel: "See PdfCraft’s official platform options",
     },
   ],
 }, {
   date: "2026-10-13",
+  modifiedDate: "2026-10-19",
   title: "ArtCraft update: FigCraft joins the lineup and four editors get new releases",
   seoTitle: "ArtCraft Update: FigCraft & New Releases — Oct 13, 2026",
   description: "FigCraft joins the 13-app ArtCraft family. PhotoCraft, VectorCraft, FilmCraft and LightCraft have new releases, with practical notes for early adopters.",
-  introduction: "ArtCraft’s official directory now includes 13 apps. This October 13 brief covers the newly listed FigCraft, four recent editor releases and updated LightCraft migration guidance. The releases below were published October 12 UTC and checked by OpenSourceAdobe on October 13; this is a dated source review, not a hands-on test.",
+  introduction: "The official ArtCraft directory lists FigCraft for interface design and prototyping. This brief also covers PhotoCraft, VectorCraft, FilmCraft and LightCraft releases published October 12 UTC. These are summaries of official sources, not hands-on tests.",
   entries: [
     {
       id: "figcraft-lineup", appSlug: "figcraft", appName: "FigCraft", kind: "Project announcement",
@@ -365,14 +241,6 @@ export const dailyUpdates: DailyUpdate[] = [{
       impact: "Try a copied folder from your own camera, including its compression mode. Compare color, masks and metadata against your usual editor. Available installers do not prove camera-profile parity or dependable migration of a large library.",
       sourceTitle: "LightCraft v0.7.1 release notes", sourceUrl: "https://github.com/storytold/lightcraft/releases/tag/v0.7.1",
       relatedPath: "/apps/lightcraft/", relatedLabel: "LightCraft camera and library guide",
-    },
-    {
-      id: "lightcraft-migration", appSlug: "lightcraft", appName: "LightCraft", kind: "Documentation update",
-      title: "LightCraft migration and AI features: read the limits first",
-      summary: "The repository documents one-way, approximate Lightroom catalog import: unsupported profiles and AI settings are archived rather than faithfully reproduced. Experimental Bayer AI denoise needs separately installed weights; subject and sky selection still have heuristic limits.",
-      impact: "Back up the catalog and originals, import a copy and compare edited images. Do not expect Lightroom presets or AI settings to recreate the same look. This is a documentation check, not a claim that these capabilities first shipped today.",
-      sourceTitle: "LightCraft documented gaps", sourceUrl: "https://github.com/storytold/lightcraft/blob/main/docs/gaps.md",
-      relatedPath: "/alternatives/lightroom/", relatedLabel: "Compare Lightroom alternatives",
     },
   ],
 }];

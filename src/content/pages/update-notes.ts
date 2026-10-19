@@ -40,21 +40,21 @@ export const brushNotes: Record<Translation, LocalizedSection> = {
   "zh-Hant": {
     id: "brush-spacing-report", heading: "畫筆看似延遲？先檢查 Spacing",
     paragraphs: ["10 月 17 日核查的一則社群回報中，發帖者說筆尖移動一段距離才出墨，之後補充原因是畫筆的 Spacing 設定。對方提到 F5，但未交代版本與作業系統；本站未重現，也不把該快捷鍵視為所有平台都適用。", "PhotoCraft 0.9.0 官方畫筆文件確實列出間距設定。可先在小畫布檢查 Spacing，再判斷是否真的有延遲。這不是新版本修復公告，也不是所有畫筆效能問題的解法；若仍有問題，記錄版本、輸入裝置及畫筆參數再向官方回報。"],
-    links: [...brushSources["zh-Hant"], { label: "相關更新與證據限制（英文）", href: `${issueUrl}#community-photocraft-brush-spacing` }],
+    links: [...brushSources["zh-Hant"], { label: "相關更新與證據限制（英文）", href: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/" }],
   },
   pl: {
     id: "brush-spacing-report", heading: "Pędzel wygląda na opóźniony? Sprawdź Spacing",
     paragraphs: ["W relacji sprawdzonej 17 października użytkownik opisał kreskę pojawiającą się dopiero po przesunięciu piórka na pewną odległość. Później przypisał ten efekt ustawieniu Spacing. Wspomniał o F5, ale nie podał wersji aplikacji ani systemu. Nie odtworzyliśmy tego przypadku i nie potwierdzamy tego skrótu dla każdej platformy.", "Oficjalna dokumentacja PhotoCraft 0.9.0 wymienia odstępy pędzla. Sprawdź ustawienie Spacing na małym płótnie, zanim uznasz zjawisko za spowolnienie aplikacji. Nie jest to informacja o nowej poprawce ani rozwiązanie każdego problemu z opóźnieniem. Jeśli problem pozostaje, do zgłoszenia dołącz wersję, urządzenie wejściowe i parametry pędzla."],
-    links: [...brushSources.pl, { label: "Aktualizacja i ograniczenia dowodów (po angielsku)", href: `${issueUrl}#community-photocraft-brush-spacing` }],
+    links: [...brushSources.pl, { label: "Aktualizacja i ograniczenia dowodów (po angielsku)", href: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/" }],
   },
   de: {
     id: "brush-spacing-report", heading: "Verzögerte Pinselstriche? Zuerst Spacing prüfen",
     paragraphs: ["In einem am 17. Oktober geprüften Community-Beitrag erschien Farbe laut Verfasser erst nach einer gewissen Stiftbewegung. Später führte er dies auf die Einstellung Spacing zurück. Er nennt F5, aber weder App-Version noch Betriebssystem. Wir haben den Fall nicht reproduziert und bestätigen das Tastenkürzel nicht für jede Plattform.", "Die offizielle Pinseldokumentation zu PhotoCraft 0.9.0 führt den Pinselabstand auf. Prüfe Spacing auf einer kleinen Testfläche, bevor du von einem Leistungsproblem ausgehst. Das ist keine Meldung über einen neuen Patch und keine Lösung für jede Verzögerung. Bleibt das Problem, halte Version, Eingabegerät und Pinseleinstellungen für einen nachvollziehbaren Fehlerbericht fest."],
-    links: [...brushSources.de, { label: "Zugehöriger Bericht und Grenzen der Belege (Englisch)", href: `${issueUrl}#community-photocraft-brush-spacing` }],
+    links: [...brushSources.de, { label: "Zugehöriger Bericht und Grenzen der Belege (Englisch)", href: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/" }],
   },
   hi: {
     id: "brush-spacing-report", heading: "ब्रश देर से चलता दिखे तो पहले Spacing जाँचें",
     paragraphs: ["17 अक्टूबर को जाँची गई एक सामुदायिक रिपोर्ट में पेन कुछ दूरी चलने के बाद ही रंग दिखने की बात थी। लेखक ने बाद में इसे ब्रश की Spacing सेटिंग से जोड़ा। उन्होंने F5 बताया, पर ऐप का संस्करण या ऑपरेटिंग सिस्टम नहीं बताया। हमने इसे दोहराकर नहीं जाँचा और इस शॉर्टकट को हर प्लैटफ़ॉर्म के लिए पुष्ट नहीं मानते।", "PhotoCraft 0.9.0 के आधिकारिक ब्रश दस्तावेज़ में spacing मौजूद है। ऐप धीमा मानने से पहले छोटे कैनवस पर Spacing देखें। यह नए संस्करण में सुधार का ऐलान नहीं, न ही हर ब्रश लैग का समाधान है। समस्या बनी रहे तो संस्करण, इनपुट डिवाइस और ब्रश सेटिंग के साथ आधिकारिक प्रोजेक्ट में रिपोर्ट करें।"],
-    links: [...brushSources.hi, { label: "संबंधित अपडेट और साक्ष्य की सीमाएँ (English)", href: `${issueUrl}#community-photocraft-brush-spacing` }],
+    links: [...brushSources.hi, { label: "संबंधित अपडेट और साक्ष्य की सीमाएँ (English)", href: "https://www.reddit.com/r/ArtCraftAI/comments/1x7rppr/photocraft_laggy_brush_is_there_a_fix/" }],
   },
 };

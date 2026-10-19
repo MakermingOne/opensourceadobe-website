@@ -11,7 +11,7 @@ describe("October 17 evening source-qualified additions", () => {
   const issue = dailyUpdates.find((entry) => entry.date === "2026-10-17")!;
   it("adds to today's issue without duplicating it or inventing a release", () => {
     expect(dailyUpdates.filter((entry) => entry.date === issue.date)).toHaveLength(1);
-    expect(issue.entries).toHaveLength(6);
+    expect(issue.entries).toHaveLength(2);
     expect(issue.entries.find((entry) => entry.id === "vectorcraft-0120")).toBeDefined();
     const fig = issue.entries.find((entry) => entry.id === "figcraft-automation-roots-docs");
     expect(fig?.kind).toBe("Documentation update");
@@ -21,16 +21,8 @@ describe("October 17 evening source-qualified additions", () => {
     expect(fig?.summary).toContain("opt-in");
     expect(releasesBySlug.get("figcraft")?.version).toBe("0.6.0");
   });
-  it("qualifies individual community experiences and preserves missing details", () => {
-    for (const id of ["community-photocraft-brush-spacing", "community-pdfcraft-white-cursor", "community-effectcraft-rotoscoping"]) {
-      const entry = issue.entries.find((item) => item.id === id);
-      expect(entry?.kind).toBe("Community report");
-      expect(entry?.eventDate).toBe("2026-10-16");
-      expect(entry?.sourceUrl).toContain("reddit.com/r/ArtCraftAI/comments/");
-      expect(`${entry?.summary} ${entry?.impact}`).toMatch(/not (?:specified|reported|independently reproduced)/);
-    }
-    expect(issue.entries.find((item) => item.id === "community-photocraft-brush-spacing")?.summary).toContain("Spacing");
-    expect(issue.entries.find((item) => item.id === "community-pdfcraft-white-cursor")?.impact).toContain("not a confirmed cause");
+  it("excludes community experiences from the official brief", () => {
+    expect(issue.entries.every((entry) => entry.kind !== "Community report")).toBe(true);
   });
   it("syncs the dated digest and PhotoCraft brush advice in every published translation", () => {
     for (const locale of translatedLocales) {

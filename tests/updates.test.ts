@@ -7,31 +7,30 @@ import { sourcesById } from "@/content/sources";
 import { pageUpdatedAt } from "@/content/page-dates";
 
 describe("dated development journal", () => {
-  it("adds the current brief without rewriting the October 13 record", () => {
+  it("publishes unique dated briefs and reports each official source once", () => {
     expect(latestUpdateDate).toBe("2026-10-17");
-    expect(dailyUpdates.find((issue) => issue.date === "2026-10-13")?.entries).toHaveLength(6);
-    expect(dailyUpdates.find((issue) => issue.date === "2026-10-15")?.entries).toHaveLength(18);
-    expect(dailyUpdates[0].entries).toHaveLength(6);
-    expect(dailyUpdates.find((issue) => issue.date === "2026-10-16")?.entries).toHaveLength(3);
-    expect(publishedRoutes).toContain("/updates/2026-10-17/");
-    expect(publishedRoutes).toContain("/updates/2026-10-16/");
-    expect(publishedRoutes).toContain("/updates/2026-10-15/");
+    expect(new Set(dailyUpdates.map((issue) => issue.date)).size).toBe(dailyUpdates.length);
+    const entries = updatesForApp();
+    expect(new Set(entries.map((entry) => entry.sourceUrl)).size).toBe(entries.length);
+    expect(publishedRoutes).not.toContain("/updates/2026-10-18/");
+    expect(publishedRoutes).not.toContain("/updates/2026-10-19/");
   });
-  it("keeps the real release date distinct from the review date", () => {
-    const entry = dailyUpdates.find((issue) => issue.date === "2026-10-15")!.entries.find((item) => item.id === "pdfcraft-080")!;
-    expect(entry.eventDate).toBe("2026-10-14");
-    expect(entry.sourceUrl).toBe("https://github.com/storytold/pdfcraft/releases/tag/v0.8.0");
-    expect(updatesForApp("pdfcraft")).toHaveLength(9);
-  });
-  it("labels Reddit separately and retains original sources", () => {
+  it("keeps only official events, excluding community reports and routine source reviews", () => {
     for (const issue of dailyUpdates) {
-      expect(new Set(issue.entries.map((entry) => entry.id)).size).toBe(issue.entries.length);
+      expect(issue.entries.length).toBeGreaterThan(0);
       for (const entry of issue.entries) {
-        expect(entry.sourceUrl).toMatch(/^https:\/\//);
+        expect(entry.kind).not.toBe("Community report");
+        expect(entry.sourceUrl).toMatch(/^https:\/\/(github\.com\/storytold\/|getartcraft\.com\/)/);
         expect(publishedRoutes).toContain(entry.relatedPath);
-        if (entry.sourceUrl.includes("reddit.com")) expect(entry.kind).toBe("Community report");
+        if (entry.kind === "Documentation update") expect(entry.eventDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       }
     }
+  });
+  it("keeps the original release date distinct from the brief date", () => {
+    const entry = updatesForApp("pdfcraft").find((item) => item.id === "pdfcraft-080")!;
+    expect(entry.eventDate).toBe("2026-10-14");
+    expect(entry.date).toBe("2026-10-15");
+    expect(updatesForApp("pdfcraft")).toHaveLength(2);
   });
   it("records the VectorCraft RPM warning as documentation, not a shipped fix", () => {
     const entry = dailyUpdates.find((issue) => issue.date === "2026-10-16")!.entries.find((item) => item.id === "vectorcraft-rpm-runtime-limits");

@@ -28,14 +28,9 @@ describe("October 17 verified increments", () => {
     expect(answer).toContain("no transparency");
     expect(guideBySlug.vectorcraft.platformNotes.find(([platform]) => platform === "Linux")?.[1]).toContain("0.12.0 release notes");
   });
-  it("attributes the printer follow-up without claiming a universal fix", () => {
-    const entry = dailyUpdates.find((issue) => issue.date === "2026-10-17")?.entries.find((item) => item.id === "community-pdfcraft-printer-follow-up");
-    expect(entry?.kind).toBe("Community report");
-    expect(entry?.eventDate).toBe("2026-10-16");
-    expect(entry?.sourceUrl).toContain("/comment/ph249u7/");
-    expect(entry?.summary).toContain("does not specify");
-    expect(entry?.impact).toContain("not a universal fix");
-    expect(dailyUpdates.find((issue) => issue.date === "2026-10-16")?.entries).toHaveLength(3);
+  it("excludes community follow-ups from official updates", () => {
+    expect(dailyUpdates.flatMap((issue) => issue.entries).some((entry) => entry.id === "community-pdfcraft-printer-follow-up")).toBe(false);
+    expect(dailyUpdates.find((issue) => issue.date === "2026-10-16")?.entries).toHaveLength(2);
   });
   it("takes VectorCraft download actions to the checked release rather than stale product-page installers", () => {
     const html = renderToStaticMarkup(createElement(AppGuideLanding, { app: appsBySlug.get("vectorcraft")!, guide: guideBySlug.vectorcraft, sources: [] }));
