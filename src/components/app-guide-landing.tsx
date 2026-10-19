@@ -1,3 +1,4 @@
+import { ProductQuickFacts } from "@/components/product-quick-facts";
 import { comparedProduct } from "@/lib/workflow-labels";
 import type { DownloadSlug } from "@/content/downloads";
 import Link from "next/link";
@@ -46,7 +47,7 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
       }} />
       <JsonLd data={faqSchema} />
 
-      <div className="container page-shell photocraft-page">
+      <div className={`container page-shell photocraft-page${app.slug === "pdfcraft" ? " product-focus-page pdfcraft-page" : ""}`}>
         <Breadcrumbs
           currentPath={`/apps/${app.slug}/`}
           items={[{ label: "Home", href: "/" }, { label: "Apps", href: "/apps/" }, { label: app.name }]}
@@ -56,7 +57,8 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
           <div className="photocraft-hero__copy">
             <Eyebrow><span>Independent guide · Last updated <PageUpdated path={`/apps/${app.slug}/`} /></span></Eyebrow>
             <h1 className={guide.headline ? "photocraft-hero__heading--compact" : undefined}>{guide.headline ?? <>{app.name}: an <span>open-source {counterpart} alternative</span></>}</h1>
-            <p className="lede">{guide.intro}</p>
+            <p className="lede">{app.slug === "pdfcraft" ? "ArtCraft’s free, open-source PDF workbench for reading, combining, splitting and organizing documents. Choose an official desktop package, then test a copy of your PDF." : guide.intro}</p>
+            {app.slug === "pdfcraft" ? <ProductQuickFacts app={app} /> : null}
             <div className="button-row">
               <a className="button" href="#download-heading">Download {app.name}</a>
               <a className="text-link" href="#install">Installation guide</a>

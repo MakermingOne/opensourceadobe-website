@@ -1,3 +1,4 @@
+import { TaskShortcuts } from "@/components/task-shortcuts";
 import { enPages } from "@/content/pages/en";
 import { PageUpdated } from "@/components/page-updated";
 import Image from "next/image";
@@ -40,14 +41,15 @@ export default function HomePage() {
         ],
       }} />
 
-      <section className="poster-hero" aria-labelledby="home-heading">
+      <section className="poster-hero home-hero" aria-labelledby="home-heading">
         <div className="container">
           <div className="poster-grid">
             <div className="poster-copy">
               <Eyebrow>Independent directory · {apps.length} ArtCraft apps</Eyebrow>
               <p className="poster-manifesto">Free, open-source tools. Official downloads. Practical installation guides.</p>
               <h1 id="home-heading">{enPages.home.h1}<span>{enPages.home.h1Emphasis}</span></h1>
-              <p className="poster-deck">Find your tool for photos, video, design, documents or audio. Compare all 13 ArtCraft apps, choose a Windows, Mac or Linux download, and check what works before switching.</p>
+              <p className="poster-deck">Find a tool for your next project. Check its release status, then choose an official download.</p>
+              <TaskShortcuts />
               <div className="button-row">
                 <Link className="button button--light" href="#app-directory">Choose your app</Link>
                 <Link className="text-link text-link--invert" href="/download/">Browse official downloads →</Link>
@@ -75,7 +77,7 @@ export default function HomePage() {
       </section>
 
       <section className="section container" id="app-directory" aria-labelledby="directory-heading">
-        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated <PageUpdated path="/" long /></Eyebrow><h2 id="directory-heading">{enPages.home.heading1.beforeCount}{apps.length}{enPages.home.heading1.afterCount}</h2><p>Find a tool for photo editing, illustration, video, interface design, documents, audio and more. Every app has a download and installation guide with checked releases and compatibility limits.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
+        <div className="section-heading"><p className="section-number">01</p><div><Eyebrow>ArtCraft software directory · Last updated <PageUpdated path="/" long /></Eyebrow><h2 id="directory-heading">{enPages.home.heading1.beforeCount}{apps.length}{enPages.home.heading1.afterCount}</h2><p>Compare all 13 ArtCraft apps, choose a Windows, Mac or Linux download, and check what works before switching.</p><p>Start with the <Link href="/apps/photocraft/">ArtCraft PhotoCraft guide</Link> for layered images, <Link href="/apps/pdfcraft/">download PdfCraft</Link> for PDF tasks, or find the source in our <Link href="/github/">official ArtCraft GitHub directory</Link>.</p></div></div>
         <div className="workflow-links">
           {apps.map((app) => {
             const profile = workflowProfiles[app.slug as keyof typeof workflowProfiles];

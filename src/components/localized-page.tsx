@@ -1,3 +1,5 @@
+import { TaskShortcuts } from "@/components/task-shortcuts";
+import { frontendCopy } from "@/i18n/frontend";
 import { DownloadPicker } from "@/components/download-picker";
 import { appGuideHref } from "@/i18n/app-links";
 import { JsonLd } from "@/components/json-ld";
@@ -38,9 +40,9 @@ export function LocalizedPage({ page, locale }: { page: PageContent; locale: Loc
       ...tables.map((table) => ({ "@type": "ItemList", name: table.name, itemListElement: table.rows.map((row, index) => ({ "@type": "ListItem", position: index + 1, name: row.join(" · ") })) })),
       ...(application ? [{ "@type": "SoftwareApplication", name: application.name, applicationCategory: "MultimediaApplication", operatingSystem: application.platforms.join(", "), url: application.officialPage, downloadUrl: `${application.repository}/releases`, description: page.intro[0], offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }] : []),
     ] }} />
-    <article className={`container page-shell localized-page${page.path === "/download/" ? " download-page" : ""}`}>
+    <article className={`container page-shell localized-page${page.path === "/download/" ? " download-page" : page.path === "/" ? " localized-home" : application ? " localized-product" : ""}`}>
       <nav className="breadcrumbs" aria-label={copy.breadcrumb}><a href={localePath(locale, "/")}>{copy.navigation[0].label}</a>{page.path !== "/" ? <span aria-current="page"> / {page.h1}</span> : null}</nav>
-      <header className={`page-intro${page.path === "/download/" ? " download-intro" : ""}`}><p className="eyebrow">{copy.identity}</p><h1>{page.h1}</h1>{page.intro.map((text) => <p className="lede" key={text}>{text}</p>)}<p className="updated">{copy.updated}{copy.dateSeparator}<time dateTime={date} data-page-updated>{date}</time></p></header>
+      <header className={`page-intro${page.path === "/download/" ? " download-intro" : ""}`}><p className="eyebrow">{copy.identity}</p><h1>{page.h1}</h1>{page.path === "/" ? <TaskShortcuts locale={locale} /> : null}{application ? <div className="localized-product-entry"><p>{application.version} · {application.platforms.join(" · ")}</p><a className="button" href={localePath(locale, "/download/")}>{frontendCopy[locale].download}</a></div> : null}{page.intro.map((text) => <p className="lede" key={text}>{text}</p>)}<p className="updated">{copy.updated}{copy.dateSeparator}<time dateTime={date} data-page-updated>{date}</time></p></header>
       {page.path === "/download/" ? <DownloadPicker locale={locale} /> : null}
       {page.sections.map((section) => <section className="content-section" id={section.id} key={section.id} aria-labelledby={`${section.id}-heading`}>
         <h2 id={`${section.id}-heading`}>{section.heading}</h2>

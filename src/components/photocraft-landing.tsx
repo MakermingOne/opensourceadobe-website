@@ -9,7 +9,7 @@ import { SourceList } from "@/components/source-list";
 import { ReleaseNote } from "@/components/release-note";
 import { LatestUpdates } from "@/components/latest-updates";
 import { OfficialDownloads } from "@/components/official-downloads";
-import { StatusBadge } from "@/components/status-badge";
+import { ProductQuickFacts } from "@/components/product-quick-facts";
 import type { AppRecord, SourceRecord } from "@/content/types";
 import { photocraftMedia } from "@/content/media";
 import { absoluteUrl } from "@/lib/site";
@@ -54,7 +54,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
       />
       <JsonLd data={faqSchema} />
 
-      <div className="container page-shell photocraft-page">
+      <div className="container page-shell photocraft-page product-focus-page">
         <Breadcrumbs
           currentPath="/apps/photocraft/"
           items={[{ label: "Home", href: "/" }, { label: "Apps", href: "/apps/" }, { label: "PhotoCraft" }]}
@@ -65,8 +65,9 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             <Eyebrow><span>Independent guide · Last updated <PageUpdated path="/apps/photocraft/" /></span></Eyebrow>
             <h1 className="photocraft-hero__heading--compact">{enPages.photocraft.h1}<span>{enPages.photocraft.h1Emphasis}</span></h1>
             <p className="lede">
-              ArtCraft PhotoCraft is a free, native image editor for layered workflows. Its documentation lists PSD and PSB support, masks, adjustments, type, vectors and brushes. Find official downloads below, and check the early-alpha limits before switching from Photoshop.
+              A free, native editor for layers, masks, type and PSD files. Check its early-alpha limits before switching from Photoshop.
             </p>
+            <ProductQuickFacts app={app} />
             <div className="button-row">
               <a className="button" href="#download-heading">Download PhotoCraft</a>
               <a className="text-link" href="#install">Installation guide</a>
@@ -75,18 +76,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             <p className="hero-caution"><strong>Our take:</strong> promising enough to test on copies of your files, but still too early for an unqualified production switch.</p>
           </div>
 
-          <div className="layer-panel" aria-label="PhotoCraft at a glance">
-            <div className="layer-panel__topline"><span>PhotoCraft</span><StatusBadge value={app.status} /></div>
-            <div className="layer-panel__canvas" aria-hidden="true">
-              <div className="canvas-mark canvas-mark--one" />
-              <div className="canvas-mark canvas-mark--two" />
-              <span>PC</span>
-            </div>
-            <div className="layer-row"><span>04</span><strong>Adjustment layers</strong><small>Live + maskable</small></div>
-            <div className="layer-row"><span>03</span><strong>PSD / PSB</strong><small>Open + save</small></div>
-            <div className="layer-row"><span>02</span><strong>Type + vectors</strong><small>Editable</small></div>
-            <div className="layer-row"><span>01</span><strong>Native canvas</strong><small>GPU-backed</small></div>
-          </div>
+          <ProductScreenshot media={photocraftMedia[0]} priority className="product-hero-shot" />
         </header>
 
         <OfficialDownloads slug="photocraft" name={app.name} />

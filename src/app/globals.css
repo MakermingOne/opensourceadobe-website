@@ -854,3 +854,70 @@ html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { le
 @media (min-width: 360px) and (max-width: 600px) {
   .download-picker__controls { grid-template-columns: 1fr 1fr; gap: 12px; }
 }
+
+/* Task-first entry points and compact product introductions. */
+.home-hero .poster-grid { min-height: 0; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.home-hero .poster-copy { min-height: 0; padding-block: 48px; }
+.home-hero .poster-copy h1 { font-size: clamp(2.7rem, 4.2vw, 4.4rem); }
+.home-hero .poster-deck { max-width: 58ch; margin-bottom: 8px; }
+.home-hero .hero-workbench { margin: 0; }
+.home-hero .poster-disclaimer { margin-top: 22px; }
+.task-shortcuts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 24px 0; }
+.task-shortcuts a { display: flex; flex-direction: column; justify-content: center; gap: 5px; min-height: 72px; padding: 12px; border: 1px solid currentColor; border-radius: 5px; text-decoration: none; font-size: .9rem; line-height: 1.35; }
+.task-shortcuts a:hover { background: var(--accent); color: white; }
+.task-shortcuts small { font-size: .74rem; opacity: .8; }
+.home-hero .task-shortcuts a { color: inherit; border-color: #ffffff60; }
+.home-hero .task-shortcuts a:hover { background: #ffffff18; }
+.home-hero .button-row { margin-top: 24px; }
+.directory-page .breadcrumbs, .product-focus-page .breadcrumbs, .localized-home .breadcrumbs, .localized-product .breadcrumbs { margin-bottom: 36px; }
+.directory-page .page-intro { margin-bottom: 36px; }
+.directory-page .page-intro h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); }
+.directory-page .section-heading { margin-bottom: 24px; }
+.directory-page .section-heading p:not(.section-number) { max-width: 74ch; }
+.directory-controls { margin-bottom: 24px; }
+.directory-controls > label { display: block; font-weight: 700; margin-bottom: 8px; }
+.directory-controls input { width: min(100%, 620px); min-height: 48px; padding: 12px 16px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--bg-raised); color: var(--ink); font: inherit; }
+.directory-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.directory-filters button, .directory-result-summary button { min-height: 44px; padding: 10px 16px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--bg-raised); color: var(--ink); font: inherit; cursor: pointer; }
+.directory-filters button[aria-pressed="true"] { color: white; background: var(--accent); border-color: var(--accent); }
+.directory-result-summary { display: flex; gap: 16px; align-items: center; margin-top: 12px; }
+.directory-result-summary p { margin: 0; }
+.directory-empty { padding: 24px; border: 1px solid var(--line-strong); }
+.product-focus-page .photocraft-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; margin-bottom: 40px; align-items: center; }
+.product-focus-page .photocraft-hero h1 { font-size: clamp(2.2rem, 3.6vw, 3.5rem); line-height: 1.12; }
+.product-focus-page .photocraft-hero h1 span { display: block; font-size: .78em; margin-top: 10px; }
+.product-focus-page .photocraft-hero .button-row { margin-top: 22px; }
+.product-focus-page .hero-caution { margin-top: 20px; }
+.product-quick-facts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 20px; font-size: .88rem; }
+.product-quick-facts > span:last-child { flex-basis: 100%; }
+.product-hero-shot { margin: 0; }
+.product-hero-shot .product-shot__caption { grid-template-columns: 1fr; gap: 8px; font-size: .75rem; }
+.pdfcraft-page .guide-panel__mapping { min-height: 90px; }
+.pdfcraft-page .guide-panel__mapping strong { font-size: 2rem; }
+.localized-home .page-intro, .localized-product .page-intro { margin-bottom: 40px; }
+.localized-home .page-intro h1, .localized-product .page-intro h1 { font-size: clamp(2.4rem, 4.5vw, 4.2rem); }
+.localized-product-entry { margin-block: 24px; }
+@media (max-width: 960px) {
+  .home-hero .poster-grid { grid-template-columns: 1fr; gap: 0; }
+  .home-hero .hero-workbench { max-width: 700px; margin: 0 auto 36px; }
+  .product-focus-page .photocraft-hero { grid-template-columns: 1fr; }
+  .product-hero-shot { max-width: 760px; }
+}
+@media (max-width: 700px) {
+  .home-hero .poster-copy { padding-block: 32px; }
+  .home-hero .poster-copy h1 { font-size: clamp(2.3rem, 10vw, 3.3rem); }
+  .home-hero .poster-copy h1 span { white-space: normal; }
+  .home-hero .poster-manifesto { font-size: .88rem; }
+  .task-shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-block: 20px; }
+  .task-shortcuts a { min-height: 66px; padding: 10px; }
+  .product-focus-page .breadcrumbs, .directory-page .breadcrumbs, .localized-home .breadcrumbs, .localized-product .breadcrumbs { margin-bottom: 28px; }
+  .product-focus-page .photocraft-hero { gap: 0; margin-bottom: 32px; }
+  .product-focus-page .photocraft-hero h1 { font-size: 2.25rem; }
+  .product-focus-page .product-hero-shot, .pdfcraft-page .guide-panel { display: none; }
+  .product-focus-page .hero-caution { font-size: .9rem; }
+  .directory-page .page-intro h1 { font-size: 2.65rem; }
+  .directory-page .section-heading h2 { font-size: 1.8rem; }
+  .localized-home .page-intro h1, .localized-product .page-intro h1 { font-size: 2.2rem; }
+}
+.directory-controls input:focus-visible, .directory-filters button:focus-visible, .directory-result-summary button:focus-visible, .task-shortcuts a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.home-hero .task-shortcuts a:focus-visible { outline-color: var(--accent-on-dark); }

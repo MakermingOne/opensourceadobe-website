@@ -27,7 +27,7 @@ for (const route of publishedRoutes) {
 
 test("the footer updates on client navigation and retains dates without JavaScript", async ({ page, browser, baseURL }) => {
   await page.goto("/apps/");
-  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-17");
+  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-20");
   await page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true }).click();
   await expect(page).toHaveURL(/\/about\/$/);
   await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");

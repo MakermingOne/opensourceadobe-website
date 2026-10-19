@@ -100,8 +100,8 @@ export const enPages = {
     description: "Find official downloads and installation guides for all 13 ArtCraft apps on Windows, macOS and Linux, with checked versions and compatibility limits.",
   },
   photocraft: {
-    h1: "ArtCraft PhotoCraft: an ",
-    h1Emphasis: "open-source Photoshop alternative",
+    h1: "ArtCraft PhotoCraft: ",
+    h1Emphasis: "an open-source Photoshop alternative",
     heading1: "What is ArtCraft PhotoCraft?",
     heading2: "Can PhotoCraft replace Photoshop?",
     heading3: "See PhotoCraft's interface",

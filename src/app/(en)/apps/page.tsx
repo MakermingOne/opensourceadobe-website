@@ -6,13 +6,11 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Eyebrow } from "@/components/eyebrow";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
-import { StatusBadge } from "@/components/status-badge";
+import { AppDirectory } from "@/components/app-directory";
 import { apps } from "@/content/apps";
-import { workflowProfiles } from "@/content/guides";
 import { sourcesById } from "@/content/sources";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
-import { workflowLabels } from "@/lib/workflow-labels";
 
 export const metadata: Metadata = pageMetadata({
   title: `ArtCraft Apps: ${apps.length} Open-Source Creative Tools`,
@@ -26,12 +24,12 @@ export default function AppsPage() {
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: "ArtCraft app directory", url: absoluteUrl("/apps/") }} />
-      <div className="container page-shell page-shell--scan">
+      <div className="container page-shell page-shell--scan directory-page">
         <Breadcrumbs currentPath="/apps/" items={[{ label: "Home", href: "/" }, { label: "Apps" }]} />
         <header className="page-intro">
           <Eyebrow>Independent directory · Official project sources</Eyebrow>
           <h1>Browse the <span>ArtCraft app family.</span></h1>
-          <p className="lede">Browse {apps.length} ArtCraft projects for photo editing, vector illustration, video, RAW development, PDFs, motion graphics, publishing, interface design, documents, audio, presentations, CAD and spreadsheets.</p>
+          <p className="lede">Find a tool by task, app name or platform. Compare {apps.length} projects and check their release status before downloading.</p>
           <p className="updated">Last updated: <PageUpdated path="/apps/" /></p>
         </header>
 
@@ -43,33 +41,7 @@ export default function AppsPage() {
               <p>Every app now has a download and installation guide, including our <Link href="/apps/pdfcraft/">PdfCraft download guide</Link>. Choose your platform, check installation steps and review each tool’s compatibility limits. Find source code and release notes in the <Link href="/github/">ArtCraft GitHub directory</Link>.</p>
             </div>
           </div>
-          <div className="choice-grid">
-            {apps.map((app, index) => {
-              const profile = workflowProfiles[app.slug as keyof typeof workflowProfiles];
-              return (
-                <article className="choice-card" key={app.slug}>
-                  <div className="choice-card__topline">
-                    <span>{String(index + 1).padStart(2, "0")} · {profile.prompt}</span>
-                    <StatusBadge value={app.status} />
-                  </div>
-                  <div className="choice-card__body">
-                    <p>{app.category}</p>
-                    <h3>{app.name}</h3>
-                    <p className="choice-card__mapping">{workflowLabels(app).card ?? `Closest to ${app.adobeCounterpart}`}</p>
-                    <p>{profile.bestFor}</p>
-                  </div>
-                  <div className="choice-card__footer">
-                    <span>{app.platforms.join(" · ")}</span>
-                    {app.detailPublished ? (
-                      <Link href={`/apps/${app.slug}/`}>Explore {app.name} →</Link>
-                    ) : (
-                      <a href={app.officialPage} target="_blank" rel="noreferrer">Visit official page ↗</a>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <AppDirectory />
         </section>
 
         <section className="content-section" aria-labelledby="directory-heading">

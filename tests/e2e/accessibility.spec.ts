@@ -181,7 +181,7 @@ test("PhotoCraft landing page answers the switching questions before methodology
   await expect(page.getByRole("heading", { name: "PhotoCraft vs. Photoshop by task" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "What still needs proof" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Your first PhotoCraft test" })).toBeVisible();
-  await expect(page.getByRole("figure", { name: /PhotoCraft product screenshot/i })).toHaveCount(3);
+  await expect(page.locator(".product-gallery").getByRole("figure", { name: /PhotoCraft product screenshot/i })).toHaveCount(3);
   await expect(page.getByText("Is PhotoCraft suitable for commercial or client work?", { exact: true })).toBeVisible();
   await expect(page.getByText("Can I use PhotoCraft in a browser?", { exact: true })).toBeVisible();
 
