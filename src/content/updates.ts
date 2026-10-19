@@ -26,6 +26,86 @@ export type DailyUpdate = {
 // Dated editorial records: future refreshes add a new entry rather than rewriting history.
 export const dailyUpdates: DailyUpdate[] = [{
   date: "2026-10-19",
+  title: "VectorCraft 0.12.0 and LightCraft 0.8.0 released",
+  seoTitle: "ArtCraft Update: VectorCraft 0.12.0 & LightCraft 0.8.0 — Oct 19, 2026",
+  description: "VectorCraft 0.12.0 adds web pen input and Dimension tool. LightCraft 0.8.0 brings HDR AVIF export, DNG export and expanded camera support. Checked October 19.",
+  introduction: "This October 19 brief covers two significant ArtCraft releases published in the past week. VectorCraft 0.12.0 (October 16) introduces browser-based Apple Pencil and touch input, a Dimension tool, and legacy Illustrator export. LightCraft 0.8.0 (October 14) adds HDR AVIF export, DNG export, non-linear Kelvin white balance, and expanded camera profile support. Both releases represent substantial feature additions rather than routine maintenance.",
+  entries: [
+    {
+      id: "vectorcraft-0120-web-pen", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
+      title: "VectorCraft 0.12.0: Web pen input and Dimension tool",
+      summary: "The latest VectorCraft release adds Apple Pencil and touch input support for the web version with palm rejection and pressure sensitivity. A new Dimension tool has been added for technical drawing workflows. Legacy .ai export now preserves groups and layers, addressing a long-standing compatibility gap.",
+      impact: "Web users can now use pressure-sensitive stylus input directly in the browser, bringing the web version closer to desktop parity. The Dimension tool expands VectorCraft's utility for technical illustration. Legacy .ai export improvements make file exchange with Illustrator users more reliable, though the project still identifies full Illustrator compatibility as a gap.",
+      sourceTitle: "VectorCraft v0.12.0 release notes", sourceUrl: "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
+      relatedPath: "/apps/vectorcraft/", relatedLabel: "Explore VectorCraft features"
+    },
+    {
+      id: "vectorcraft-0120-pdf-hardening", appSlug: "vectorcraft", appName: "VectorCraft", kind: "Official release", eventDate: "2026-10-16",
+      title: "VectorCraft 0.12.0: PDF import hardening",
+      summary: "This release includes extensive PDF import hardening to prevent crashes on malformed files. Dictionary values that cannot be parsed no longer crash nesting checks, ink/font scans, or stream processing. The shared PDF writer is now used for both export and print composition.",
+      impact: "Users working with PDFs from varied sources should experience fewer crashes. The hardening addresses real-world scenarios where PDFs from different generators have structural inconsistencies.",
+      sourceTitle: "VectorCraft v0.12.0 release notes", sourceUrl: "https://github.com/storytold/vectorcraft/releases/tag/v0.12.0",
+      relatedPath: "/apps/vectorcraft/", relatedLabel: "VectorCraft workflow guide"
+    },
+    {
+      id: "lightcraft-080-hdr-dng", appSlug: "lightcraft", appName: "LightCraft", kind: "Official release", eventDate: "2026-10-14",
+      title: "LightCraft 0.8.0: HDR AVIF and DNG export",
+      summary: "LightCraft 0.8.0 adds HLG HDR AVIF export with tested SDR/HDR display decision logic, and Render to DNG export format. The release includes 85+ reviewed pull requests across integration batches.",
+      impact: "HDR workflows are now supported with proper display handling. DNG export enables archival and cross-application raw workflows. These are significant additions for photographers working with high dynamic range content.",
+      sourceTitle: "LightCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/lightcraft/releases/tag/v0.8.0",
+      relatedPath: "/apps/lightcraft/", relatedLabel: "LightCraft camera guide"
+    },
+    {
+      id: "lightcraft-080-camera-support", appSlug: "lightcraft", appName: "LightCraft", kind: "Official release", eventDate: "2026-10-14",
+      title: "LightCraft 0.8.0: Expanded camera support",
+      summary: "New camera support includes Nikon D90 and D7100 (with Lightroom-matching frame), Leica Q3 (verified against private DNGs), Olympus E-10 as-shot white balance, and Hasselblad Lunar. Non-linear Kelvin temperature slider now matches Lightroom's scale.",
+      impact: "Photographers with these camera models can now use LightCraft with proper color and white balance handling. The Kelvin slider improvement makes white balance adjustments more intuitive for Lightroom migrants.",
+      sourceTitle: "LightCraft v0.8.0 release notes", sourceUrl: "https://github.com/storytold/lightcraft/releases/tag/v0.8.0",
+      relatedPath: "/apps/lightcraft/", relatedLabel: "Check camera compatibility"
+    }
+  ],
+}, {
+  date: "2026-10-18",
+  title: "PhotoCraft 0.9.0 and FigCraft development notes",
+  seoTitle: "ArtCraft Update: PhotoCraft 0.9.0 & FigCraft — Oct 18, 2026",
+  description: "PhotoCraft 0.9.0 adds Photoshop Actions import/export and CMYK support. FigCraft development documentation reveals unreleased file-access controls. Checked October 18.",
+  introduction: "This October 18 brief covers PhotoCraft 0.9.0 (October 14) with Photoshop Actions (.atn) import/export, CMYK foreground painting, and DPX codec support. We also review FigCraft's development documentation, which reveals unreleased file-access controls and development roadmap details. These are source-based reviews, not hands-on tests.",
+  entries: [
+    {
+      id: "photocraft-090-actions", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
+      title: "PhotoCraft 0.9.0: Photoshop Actions (.atn) support",
+      summary: "PhotoCraft 0.9.0 introduces Photoshop Actions import/export with an Actions panel, folder organization, dialog toggle, Insert Stop, and mapping of frequent Photoshop events including Place, Open, Image Size, and Paint Bucket. This closes issue #219.",
+      impact: "Users with existing Photoshop Actions can now import and run them in PhotoCraft, significantly improving workflow migration. The Actions panel provides familiar organization and editing capabilities.",
+      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
+      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft features and limitations"
+    },
+    {
+      id: "photocraft-090-cmyk", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
+      title: "PhotoCraft 0.9.0: CMYK painting and DPX codec",
+      summary: "CMYK correctness improvements ensure Color Picker, Brush, Paint Bucket, and Edit > Stroke all write picked inks correctly into CMYK documents. New DPX frames open/save support and XPM full X11 color name import are included.",
+      impact: "Print production workflows requiring CMYK are now more reliable. DPX support enables professional film and video workflows. These changes address real production requirements for print and broadcast users.",
+      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
+      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft print workflows"
+    },
+    {
+      id: "photocraft-090-performance", appSlug: "photocraft", appName: "PhotoCraft", kind: "Official release", eventDate: "2026-10-14",
+      title: "PhotoCraft 0.9.0: Performance optimizations",
+      summary: "Brush stroke commit improved from 136ms to 0.8ms (P32), eliminating freeze on stroke release. Quick Selection is 37% faster on 24MP images. Layer moves avoid second document clones and bounds-cache sweeping per call.",
+      impact: "Painting and selection workflows are significantly more responsive, especially on high-resolution images. These optimizations address user-reported performance pain points.",
+      sourceTitle: "PhotoCraft v0.9.0 release notes", sourceUrl: "https://github.com/storytold/photocraft/releases/tag/v0.9.0",
+      relatedPath: "/apps/photocraft/", relatedLabel: "PhotoCraft performance tips"
+    },
+    {
+      id: "figcraft-dev-file-access", appSlug: "figcraft", appName: "FigCraft", kind: "Documentation update",
+      title: "FigCraft development: File-access controls in progress",
+      summary: "FigCraft's development documentation reveals unreleased file-access controls for managing project permissions and sharing. The documentation describes frames, auto layout, components, and variants as core features, with desktop and Web targets planned.",
+      impact: "FigCraft remains in Early alpha with active development on collaboration features. The file-access controls suggest future team-oriented functionality, but these are not yet available in public builds.",
+      sourceTitle: "FigCraft development documentation", sourceUrl: "https://github.com/storytold/figcraft",
+      relatedPath: "/apps/", relatedLabel: "Browse all ArtCraft apps"
+    }
+  ],
+}, {
+  date: "2026-10-19",
   title: "French guides and AI history integration",
   seoTitle: "ArtCraft Update: French Guides & AI History — Oct 19, 2026",
   description: "French ArtCraft guides published and AI history feature integrated into learning resources. Checked October 19.",
