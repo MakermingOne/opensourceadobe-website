@@ -96,6 +96,11 @@ export default function TutorialsPage() {
           </div>
         </section>
 
+        <section className="landing-section answer-block" aria-labelledby="ai-history-background-heading">
+          <div><Eyebrow>Creative technology background</Eyebrow><h2 id="ai-history-background-heading">Where did the idea of AI begin?</h2></div>
+          <div className="answer-block__body"><p className="answer-lead">Before today’s AI creative tools, a 1955 research proposal gave artificial intelligence its name.</p><p>Explore an illustrated history of the Dartmouth proposal, Logic Theorist, and the difference between the 1955 groundwork and the 1956 workshop. A short pop-culture detour explains why Back to the Future also points to 1955.</p><Link href="/learn/ai-history-1955/">Explore AI history: 1955 →</Link></div>
+        </section>
+
         <ExternalResourceDirectory />
 
         <section className="landing-section answer-block" aria-labelledby="tutorial-scope-heading">

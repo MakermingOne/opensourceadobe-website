@@ -6,6 +6,7 @@ export const socialImages: Record<string, string> = {
   "/vs-adobe/": "artcraft-compare",
   "/download/": "artcraft-download",
   "/tutorials/": "artcraft-tutorials",
+  "/learn/ai-history-1955/": "ai-history-1955",
   "/faq/": "artcraft-faq",
   "/brandon-thomas/": "brandon-thomas-artcraft",
   "/about/": "artcraft-about",

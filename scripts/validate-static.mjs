@@ -9,6 +9,7 @@ const routes = [
   "/vs-adobe/",
   "/download/",
   "/tutorials/",
+  "/learn/ai-history-1955/",
   "/faq/",
   "/apps/photocraft/",
   "/apps/vectorcraft/",
