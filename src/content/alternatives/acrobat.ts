@@ -68,7 +68,7 @@ export const acrobatGuide: BaseAlternativeGuide & { table: GuideTable } = {
     {
       name: "PDF24 Creator",
       paragraphs: [
-        "PDF24 Creator is a free, proprietary Windows application that collects many PDF utilities in one installer: merge, split, compress, convert, OCR, compare, protect and a virtual printer. It is free for personal and commercial use under the vendor’s terms, but it is not open source, and the code cannot be audited, forked or redistributed.",
+        "PDF24 Creator is a free, proprietary Windows application that collects many PDF utilities in one installer: merge, split, compress, convert, OCR, compare, protect and a virtual printer. It is free to download and use under the vendor’s terms, but it is not open source, and the code cannot be audited, forked or redistributed.",
         "Its practical advantage is breadth on Windows. A user who needs to combine scans, add a watermark, compress a file for email and print to PDF can do all of it without assembling several programs. The interface is functional rather than elegant, and the vendor also offers online tools with their own privacy terms.",
         "The boundary is control. The desktop suite is Windows-only, the licence is proprietary, and advanced editing, accessibility repair, preflight and certificate-based signing are not its strength. Online tools raise separate questions about where documents are processed. Use PDF24 when a Windows user needs a broad free utility set and has checked the current terms; do not describe it as an open source Acrobat alternative.",
       ],
