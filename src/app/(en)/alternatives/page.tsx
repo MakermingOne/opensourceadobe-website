@@ -27,7 +27,7 @@ const coverageRows: CoverageRow[] = [
   { adobe: "Acrobat", app: "PdfCraft", status: "published", guide: "acrobat" },
   { adobe: "After Effects", app: "EffectCraft", status: "published", guide: "after-effects" },
   { adobe: "InDesign", app: "DesignCraft", status: "published", guide: "indesign" },
-  { adobe: "Substance Painter", app: "—", status: "published", guide: "substance-painter" },
+  { adobe: "Substance Painter", app: "ArmorPaint", status: "published", guide: "substance-painter" },
   { adobe: "Premiere Pro", app: "FilmCraft", status: "app-only", appSlug: "filmcraft" },
   { adobe: "Dreamweaver", app: "—", status: "hub-only" },
   { adobe: "Adobe Express", app: "—", status: "hub-only" },
