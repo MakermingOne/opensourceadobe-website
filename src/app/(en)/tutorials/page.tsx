@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { ExternalResourceDirectory, TutorialVideoSelections } from "@/components/external-resources";
+import { LearningLibrary } from "@/components/learning-library";
 import { Eyebrow } from "@/components/eyebrow";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
@@ -63,21 +63,20 @@ export default function TutorialsPage() {
         description: metadata.description,
       }} />
 
-      <div className="container page-shell">
+      <div className="container page-shell tutorials-page">
         <Breadcrumbs currentPath="/tutorials/" items={[{ label: "Home", href: "/" }, { label: "Tutorials" }]} />
         <header className="page-intro">
-          <Eyebrow>Low-risk starter paths</Eyebrow>
+          <Eyebrow>Watch · Explore · Read</Eyebrow>
           <h1>Start with the task <span>you want to complete.</span></h1>
-          <p className="lede">Choose an official ArtCraft AI studio lesson or a community CraftApps installation guide, then try a small project with copied files.</p>
+          <p className="lede">Find videos, illustrated guides and reading for your tool or workflow. Filter the library, then try a small project with copied files.</p>
           <p className="updated">Last updated: <PageUpdated path="/tutorials/" /></p>
-          <div className="button-row"><a className="button" href="#official-studio-tutorials">Official studio tutorials</a><a className="button button--secondary" href="#community-installation-guides">Community installation guides</a></div>
         </header>
 
-        <TutorialVideoSelections />
+        <LearningLibrary />
 
         <section className="content-section" aria-labelledby="paths-heading">
           <div className="section-heading section-heading--tight">
-            <p className="section-number">03</p>
+            <Eyebrow>Try it yourself</Eyebrow>
             <div>
               <h2 id="paths-heading">Four practical first sessions.</h2>
               <p>Each path begins with copied files and ends with a result you can inspect outside the app.</p>
@@ -91,19 +90,12 @@ export default function TutorialsPage() {
                   <h3>{path.title}</h3>
                   <p>Using {path.app}</p>
                 </div>
-                <ol>{path.steps.map((step) => <li key={step}>{step}</li>)}</ol>
+                <details className="tutorial-exercise"><summary>Show the four steps</summary><ol>{path.steps.map((step) => <li key={step}>{step}</li>)}</ol></details>
                 <Link href={path.href}>Open the {path.app} guide →</Link>
               </article>
             ))}
           </div>
         </section>
-
-        <section className="landing-section answer-block" aria-labelledby="ai-history-background-heading">
-          <div><Eyebrow>Creative technology background</Eyebrow><h2 id="ai-history-background-heading">Where did the idea of AI begin?</h2></div>
-          <div className="answer-block__body"><p className="answer-lead">Before today’s AI creative tools, a 1955 research proposal gave artificial intelligence its name.</p><p>Explore an illustrated history of the Dartmouth proposal, Logic Theorist, and the difference between the 1955 groundwork and the 1956 workshop. A short pop-culture detour explains why Back to the Future also points to 1955.</p><Link href="/learn/ai-history-1955/">Explore AI history: 1955 →</Link></div>
-        </section>
-
-        <ExternalResourceDirectory />
 
         <section className="landing-section answer-block" aria-labelledby="tutorial-scope-heading">
           <div>

@@ -1,36 +1,53 @@
 import { test, expect } from './fixtures';
 import AxeBuilder from '@axe-core/playwright';
 
-for (const width of [320, 390, 1280]) test(`priority tutorials are separated and readable at ${width}px`, async ({ page }) => {
- await page.setViewportSize({ width, height: 900 });
- await page.route('https://i.ytimg.com/**', route => route.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64')}));
- await page.goto('/tutorials/', {waitUntil:'domcontentloaded'});
- const official = page.locator('#official-studio-tutorials');
- const community = page.locator('#community-installation-guides');
- await expect(official.locator('.resource-card')).toHaveCount(2);
- await expect(community.locator('.resource-card')).toHaveCount(2);
- await expect(official).toContainText('ArtCraft AI studio');
- await expect(official).toContainText('2025');
- await expect(community).toContainText('Benja Review');
- await expect(community).toContainText('GYAN BATO');
- await expect(community).toContainText('Exact app versions not verified');
- for (const [id, video, duration] of [
-  ['official-studio-2d-basics','ZASPqlqUBQc','2:22'],
-  ['official-studio-2d-to-3d','t8F-sy_zyK4','2:47'],
-  ['community-craftapps-windows-benja','oL4_LZxnTRA','1:22'],
-  ['community-craftapps-overview-gyan','ZKaW8u26afU','3:27'],
- ]) {
-  const card = page.locator('#'+id);
-  await expect(card.locator('h3 a')).toHaveAttribute('href','https://www.youtube.com/watch?v='+video);
-  await expect(card).toContainText(duration);
-  await expect(card.locator('details')).not.toHaveAttribute('open','');
+for(const width of [320,390,1280]) test(`learning library separates media and filters content at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.route('https://i.ytimg.com/**',r=>r.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64')}));
+ await page.goto('/tutorials/',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('.learning-video')).toHaveCount(9);
+ await expect(page.locator('.learning-feature')).toHaveCount(1);
+ await expect(page.locator('.learning-reading')).toHaveCount(7);
+ await expect(page.locator('#official-studio-2d-basics')).toContainText('Official');
+ await expect(page.locator('#community-craftapps-windows-benja')).toContainText('Community');
+ await expect(page.locator('#community-craftapps-windows-benja')).toContainText('Benja Review');
+ await expect(page.locator('.learning-video .learning-player[open]')).toHaveCount(0);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.getByRole('button',{name:'ArtCraft suite',exact:true}).click();
+ await page.locator('.learning-filter-details > summary').click();
+ await page.getByRole('button',{name:'Installation',exact:true}).click();
+ await page.getByLabel('Source platform').selectOption('YouTube');
+ await page.getByLabel('Operating system',{exact:true}).selectOption('Windows');
+ await expect(page.locator('.learning-video')).toHaveCount(2);
+ await expect(page.locator('#reading-library')).toHaveCount(0);
+ await page.getByRole('button',{name:'Clear filters',exact:true}).click();
+ await page.getByRole('button',{name:'PhotoCraft',exact:true}).click();
+ await page.getByRole('button',{name:'Background',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'No resources match these filters.'})).toBeVisible();
+ await page.getByRole('button',{name:'Show all resources'}).click();
+ await expect(page.locator('.learning-video')).toHaveCount(9);
+ await page.getByLabel('Source platform').selectOption('Reddit');
+ await expect(page.locator('.learning-reading')).toHaveCount(3);
+ await expect(page.locator('.learning-video')).toHaveCount(0);
+ await page.getByRole('button',{name:'Clear filters',exact:true}).click();
+ if(width===1280){
+  const result=await new AxeBuilder({page}).include('.learning-library').analyze();
+  expect(result.violations.filter(v=>['serious','critical'].includes(v.impact??''))).toEqual([]);
  }
- await page.getByRole('link',{name:'Official studio tutorials',exact:true}).click();
- await expect(page).toHaveURL(/#official-studio-tutorials$/);
- expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
- if(width===1280) {
-  await expect.poll(async () => (await page.locator("#official-studio-heading").boundingBox())!.y).toBeGreaterThanOrEqual((await page.locator(".site-header").boundingBox())!.height);
-  const results=await new AxeBuilder({page}).include('#official-studio-tutorials').include('#community-installation-guides').analyze();
-  expect(results.violations.filter(v=>['serious','critical'].includes(v.impact ?? ''))).toEqual([]);
- }
+});
+
+test('all learning resources and original links remain readable without JavaScript',async({browser,baseURL})=>{
+ const context=await browser.newContext({javaScriptEnabled:false});
+ try {
+  const page=await context.newPage();
+  await page.goto(`${baseURL}/tutorials/`,{waitUntil:'domcontentloaded'});
+  await expect(page.locator('.learning-filters')).toBeHidden();
+  await expect(page.locator('.learning-video')).toHaveCount(9);
+  await expect(page.locator('.learning-reading')).toHaveCount(7);
+  await expect(page.locator('.learning-feature img')).toHaveAttribute('src','/images/ai-history/archive-desk.jpg');
+  const card=page.locator('#community-craftapps-windows-benja');
+  await card.locator('.learning-notes summary').click();
+  await expect(card.locator('.learning-notes')).toContainText('Exact app versions not verified');
+  await expect(card.locator('h3 a')).toHaveAttribute('href','https://www.youtube.com/watch?v=oL4_LZxnTRA');
+ } finally {await context.close();}
 });
