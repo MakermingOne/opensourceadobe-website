@@ -921,3 +921,5 @@ html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { le
 }
 .directory-controls input:focus-visible, .directory-filters button:focus-visible, .directory-result-summary button:focus-visible, .task-shortcuts a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .home-hero .task-shortcuts a:focus-visible { outline-color: var(--accent-on-dark); }
+
+#official-studio-tutorials, #community-installation-guides { scroll-margin-top: 130px; }

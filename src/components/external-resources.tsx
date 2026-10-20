@@ -1,3 +1,4 @@
+import { priorityTutorials } from "@/content/tutorial-videos";
 import Link from "next/link";
 
 import {
@@ -15,6 +16,7 @@ const kindLabel: Record<ExternalResourceKind, string> = {
 };
 
 const tierLabel: Record<ExternalResource["tier"], string> = {
+  tutorial: "Tutorial",
   "hands-on": "Hands-on test",
   "first-look": "First look",
   news: "News / overview",
@@ -28,7 +30,7 @@ function ResourceCard({ resource }: { resource: ExternalResource }) {
     : null;
 
   return (
-    <article className="resource-card" data-kind={resource.kind}>
+    <article className="resource-card" data-kind={resource.kind} id={resource.id}>
       {isYouTube ? (
         <div className="resource-card__media">
           <a
@@ -64,14 +66,15 @@ function ResourceCard({ resource }: { resource: ExternalResource }) {
         </h3>
 
         <p className="resource-card__credit">
-          {resource.author}
+          {resource.authorUrl ? <a href={resource.authorUrl} target="_blank" rel="noreferrer">{resource.author}</a> : resource.author}
           {resource.authorDetail ? ` · ${resource.authorDetail}` : ""}
           {resource.views ? ` · ${resource.views}` : ""}
-          {" · "}
-          <time dateTime={resource.publishedAt}>{resource.publishedAt}</time>
+          {resource.duration ? ` · ${resource.duration}` : ""}
+          {resource.publishedAt ? <> · {/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(resource.publishedAt) ? <time dateTime={resource.publishedAt}>{resource.publishedAt}</time> : resource.publishedAt}</> : null}
         </p>
 
         <p className="resource-card__summary">{resource.summary}</p>
+        {resource.versionNote ? <p className="resource-card__summary"><strong>Applies to:</strong> {resource.versionNote}</p> : null}
 
         <p className="resource-card__takeaway">
           <strong>Why watch/read:</strong> {resource.keyTakeaway}
@@ -79,7 +82,7 @@ function ResourceCard({ resource }: { resource: ExternalResource }) {
 
         {isYouTube ? (
           <details className="resource-card__embed">
-            <summary>Play inline (YouTube iframe)</summary>
+            <summary>Watch here</summary>
             <div className="resource-card__iframe-wrap">
               <iframe
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -113,7 +116,7 @@ export function ExternalResourceDirectory() {
   return (
     <section aria-labelledby="external-resources-heading" className="content-section">
       <div className="section-heading section-heading--tight">
-        <p className="section-number">02</p>
+        <p className="section-number">04</p>
         <div>
           <h2 id="external-resources-heading">What people are already saying.</h2>
           <p>
@@ -155,4 +158,25 @@ export function ExternalResourceDirectory() {
       </aside>
     </section>
   );
+}
+
+
+export function TutorialVideoSelections() {
+  return <>
+    <section className="content-section" id="official-studio-tutorials" aria-labelledby="official-studio-heading">
+      <div className="section-heading section-heading--tight"><p className="section-number">01</p><div>
+        <h2 id="official-studio-heading">Official tutorials: ArtCraft AI studio</h2>
+        <p>Start with ArtCraft’s own lessons for the 2D canvas and 3D editor. These 2025 videos cover the AI studio; PhotoCraft and the standalone CraftApps have separate workflows.</p>
+        <p><a href="https://getartcraft.com/tutorials" target="_blank" rel="noreferrer">Browse the official ArtCraft tutorial library ↗</a></p>
+      </div></div>
+      <div className="resource-grid">{priorityTutorials.filter(video => video.collection === "official-studio").map(video => <ResourceCard key={video.id} resource={video} />)}</div>
+    </section>
+    <section className="content-section" id="community-installation-guides" aria-labelledby="community-install-heading">
+      <div className="section-heading section-heading--tight"><p className="section-number">02</p><div>
+        <h2 id="community-install-heading">Community guides: install the CraftApps</h2>
+        <p>Third-party installation walkthroughs, credited to their publishers. Exact app versions are not verified; use the <Link href="/download/">current official download links</Link> and check your operating system before following recorded steps.</p>
+      </div></div>
+      <div className="resource-grid">{priorityTutorials.filter(video => video.collection === "community-install").map(video => <ResourceCard key={video.id} resource={video} />)}</div>
+    </section>
+  </>;
 }

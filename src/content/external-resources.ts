@@ -8,19 +8,22 @@ export type ExternalResourceKind = "youtube" | "reddit" | "hn" | "article" | "of
 export interface ExternalResource {
   id: string;
   kind: ExternalResourceKind;
-  app: "PhotoCraft" | "VectorCraft" | "FilmCraft" | "LightCraft" | "ArtCraft suite";
+  app: "ArtCraft AI studio" | "PhotoCraft" | "VectorCraft" | "FilmCraft" | "LightCraft" | "ArtCraft suite";
   title: string;
   author: string;
   authorDetail?: string;
   url: string;
-  publishedAt: string;
+  publishedAt?: string;
+  authorUrl?: string;
+  duration?: string;
+  versionNote?: string;
   views?: string;
   summary: string;
   keyTakeaway: string;
   /** YouTube video id when kind === 'youtube' — used for embed + thumbnail. */
   youtubeId?: string;
-  /** Approximate credibility tier: hands-on / first-look / news / community-thread */
-  tier: "hands-on" | "first-look" | "news" | "community";
+  /** Editorial format used for the visible source label. */
+  tier: "hands-on" | "first-look" | "news" | "community" | "tutorial";
 }
 
 export const externalResources: ExternalResource[] = [

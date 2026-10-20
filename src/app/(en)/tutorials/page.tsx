@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { ExternalResourceDirectory } from "@/components/external-resources";
+import { ExternalResourceDirectory, TutorialVideoSelections } from "@/components/external-resources";
 import { Eyebrow } from "@/components/eyebrow";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
@@ -12,8 +12,8 @@ import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "ArtCraft Tutorials — Starter Paths + Curated Community Guides",
-  description: "Starter paths for PhotoCraft, VectorCraft, FilmCraft and LightCraft, plus curated YouTube tutorials, Reddit threads and press coverage from the ArtCraft community.",
+  title: "ArtCraft Tutorials: Official Studio Lessons & App Install Guides",
+  description: "Official ArtCraft AI studio lessons, clearly credited community CraftApps installation videos, and starter paths for PhotoCraft, VectorCraft, FilmCraft and LightCraft.",
   path: "/tutorials/",
 });
 
@@ -68,14 +68,16 @@ export default function TutorialsPage() {
         <header className="page-intro">
           <Eyebrow>Low-risk starter paths</Eyebrow>
           <h1>Start with the task <span>you want to complete.</span></h1>
-          <p className="lede">The safest way to evaluate an alpha creative app is a small, reversible project. These starter paths show what to test before you move real work.</p>
+          <p className="lede">Choose an official ArtCraft AI studio lesson or a community CraftApps installation guide, then try a small project with copied files.</p>
           <p className="updated">Last updated: <PageUpdated path="/tutorials/" /></p>
-          <p>The <a href="https://getartcraft.com/tutorials" target="_blank" rel="noreferrer">official tutorial library</a> currently focuses on the ArtCraft AI studio’s 2D and 3D workflows. For PhotoCraft and the other standalone apps, use the starter paths here and check the version shown in any community video.</p>
+          <div className="button-row"><a className="button" href="#official-studio-tutorials">Official studio tutorials</a><a className="button button--secondary" href="#community-installation-guides">Community installation guides</a></div>
         </header>
+
+        <TutorialVideoSelections />
 
         <section className="content-section" aria-labelledby="paths-heading">
           <div className="section-heading section-heading--tight">
-            <p className="section-number">01</p>
+            <p className="section-number">03</p>
             <div>
               <h2 id="paths-heading">Four practical first sessions.</h2>
               <p>Each path begins with copied files and ends with a result you can inspect outside the app.</p>
