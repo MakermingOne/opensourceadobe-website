@@ -46,7 +46,7 @@ for (const width of [390, 1440]) {
     await expect(tables).toHaveCount(2);
     const first = tables.first();
     const film = first.locator("tbody tr").filter({ hasText: "FilmCraft" });
-    await expect(film).toContainText("Comparison guide in progress");
+    await expect(film).toContainText("App guide only");
     const link = film.getByRole("link", { name: "App guide" });
     expect((await request.get((await link.getAttribute("href"))!)).ok()).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);

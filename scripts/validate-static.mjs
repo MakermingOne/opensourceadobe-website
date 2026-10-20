@@ -31,6 +31,11 @@ const routes = [
   "/alternatives/",
   "/alternatives/photoshop/",
   "/alternatives/lightroom/",
+  "/alternatives/illustrator/",
+  "/alternatives/acrobat/",
+  "/alternatives/after-effects/",
+  "/alternatives/indesign/",
+  "/alternatives/substance-painter/",
   "/github/",
   "/updates/",
 ];
@@ -109,7 +114,7 @@ for (const route of routes) {
   canonicals.add(canonical);
 }
 
-for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/apps/pdfcraft/", "/apps/photocraft/"]) {
+for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/alternatives/illustrator/", "/alternatives/acrobat/", "/alternatives/after-effects/", "/alternatives/indesign/", "/alternatives/substance-painter/", "/apps/pdfcraft/", "/apps/photocraft/"]) {
   const html = await readFile(routeFile(route), "utf8");
   if (!/FAQPage/.test(html)) failures.push(`${route}: missing FAQPage structured data`);
   if (!/property="og:image"/.test(html)) failures.push(`${route}: missing og:image`);
@@ -121,6 +126,11 @@ for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/a
 const exactGuideTitles = new Map([
   ["/alternatives/photoshop/", "Open Source Photoshop Alternatives: PhotoCraft, GIMP &amp; More"],
   ["/alternatives/lightroom/", "Open Source Lightroom Alternatives: darktable, RawTherapee &amp; More"],
+  ["/alternatives/illustrator/", "Open Source Illustrator Alternatives: Inkscape, VectorCraft &amp; More"],
+  ["/alternatives/acrobat/", "Open Source Acrobat Alternatives: PdfCraft, PDF Arranger &amp; More"],
+  ["/alternatives/after-effects/", "Open Source After Effects Alternatives: Blender, Natron &amp; More"],
+  ["/alternatives/indesign/", "Open Source InDesign Alternatives: Scribus, DesignCraft &amp; More"],
+  ["/alternatives/substance-painter/", "Open Source Substance Painter Alternatives: ArmorPaint &amp; More"],
 ]);
 for (const [route, expectedTitle] of exactGuideTitles) {
   const html = await readFile(routeFile(route), "utf8");

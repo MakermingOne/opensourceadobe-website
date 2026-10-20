@@ -42,7 +42,7 @@ for (const width of [375, 768, 1024, 1280]) {
     const nav = footer.getByRole("navigation", { name: "Footer navigation" });
     await footer.scrollIntoViewIfNeeded();
     await expect(nav.getByRole("heading", { level: 2 })).toHaveText(["Apps & downloads", "Compare & learn", "Updates & site"]);
-    await expect(nav.getByRole("link")).toHaveCount(14);
+    await expect(nav.getByRole("link")).toHaveCount(13);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     if (width >= 1024) {
       expect((await footer.boundingBox())!.height).toBeLessThan(400);

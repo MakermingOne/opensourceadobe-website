@@ -28,8 +28,9 @@ describe("first-round navigation and selection", () => {
     const html = renderToStaticMarkup(createElement(AlternativesPage));
     expect(html).toContain('data-label="Adobe product"');
     expect(html).toMatch(/href="\/apps\/filmcraft\/?"/);
-    expect(html).toMatch(/href="\/apps\/pdfcraft\/?"/);
-    expect(html).toContain("Comparison guide in progress");
+    expect(html).toMatch(/href="\/alternatives\/acrobat\/?"/);
+    expect(html).toContain("App guide only");
+    expect(html).toContain("Covered here only");
   });
   it("provides an explicit mobile menu and current-section state", () => {
     const html = renderToStaticMarkup(createElement(SiteHeader));

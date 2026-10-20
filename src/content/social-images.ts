@@ -29,6 +29,11 @@ export const socialImages: Record<string, string> = {
   "/apps/gridcraft/": "artcraft-download",
   "/alternatives/photoshop/": "photoshop-alternatives",
   "/alternatives/lightroom/": "lightroom-alternatives",
+  "/alternatives/illustrator/": "illustrator-alternatives",
+  "/alternatives/acrobat/": "acrobat-alternatives",
+  "/alternatives/after-effects/": "after-effects-alternatives",
+  "/alternatives/indesign/": "indesign-alternatives",
+  "/alternatives/substance-painter/": "substance-painter-alternatives",
 };
 
 export function socialImagePath(path: string) {

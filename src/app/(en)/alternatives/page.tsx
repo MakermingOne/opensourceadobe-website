@@ -17,24 +17,59 @@ export const metadata = pageMetadata({
 
 const hubSources = ["artcraft-apps"].map((id) => sourcesById.get(id)).filter((source) => source !== undefined);
 
-const coverageRows: Array<{ adobe: string; app: string; status: "Published" | "In progress" }> = [
-  { adobe: "Photoshop", app: "PhotoCraft", status: "Published" },
-  { adobe: "Lightroom", app: "LightCraft", status: "Published" },
-  { adobe: "Premiere Pro", app: "FilmCraft", status: "In progress" },
-  { adobe: "Illustrator", app: "VectorCraft", status: "In progress" },
-  { adobe: "Acrobat", app: "PdfCraft", status: "In progress" },
-  { adobe: "After Effects", app: "EffectCraft", status: "In progress" },
-  { adobe: "InDesign", app: "DesignCraft", status: "In progress" },
+type CoverageStatus = "published" | "app-only" | "hub-only";
+type CoverageRow = { adobe: string; app: string; status: CoverageStatus; guide?: string; appSlug?: string };
+
+const coverageRows: CoverageRow[] = [
+  { adobe: "Photoshop", app: "PhotoCraft", status: "published", guide: "photoshop" },
+  { adobe: "Lightroom", app: "LightCraft", status: "published", guide: "lightroom" },
+  { adobe: "Illustrator", app: "VectorCraft", status: "published", guide: "illustrator" },
+  { adobe: "Acrobat", app: "PdfCraft", status: "published", guide: "acrobat" },
+  { adobe: "After Effects", app: "EffectCraft", status: "published", guide: "after-effects" },
+  { adobe: "InDesign", app: "DesignCraft", status: "published", guide: "indesign" },
+  { adobe: "Substance Painter", app: "—", status: "published", guide: "substance-painter" },
+  { adobe: "Premiere Pro", app: "FilmCraft", status: "app-only", appSlug: "filmcraft" },
+  { adobe: "Dreamweaver", app: "—", status: "hub-only" },
+  { adobe: "Adobe Express", app: "—", status: "hub-only" },
+  { adobe: "Adobe XD", app: "FigCraft", status: "hub-only", appSlug: "figcraft" },
+  { adobe: "Character Animator", app: "—", status: "hub-only" },
+  { adobe: "Audition", app: "SoundCraft", status: "hub-only", appSlug: "soundcraft" },
+  { adobe: "Animate", app: "—", status: "hub-only" },
+  { adobe: "Adobe Fresco", app: "—", status: "hub-only" },
 ];
+
+const statusLabel: Record<CoverageStatus, string> = {
+  published: "Comparison guide published",
+  "app-only": "App guide only",
+  "hub-only": "Covered here only",
+};
 
 const honestyRows: Array<{ adobe: string; verdict: string; ceiling: "High" | "Partial" | "Low" }> = [
   { adobe: "Photoshop", verdict: "Strong for still image editing and painting; weak for production-grade PSD interchange and pro plug-in ecosystems.", ceiling: "Partial" },
   { adobe: "Lightroom", verdict: "Strong for RAW development and cataloging; weaker for cloud sync, mobile and AI-driven masking.", ceiling: "High" },
-  { adobe: "Premiere Pro", verdict: "Usable for short-form and editorial cuts; limited for collaboration, color management and motion-graphics templates.", ceiling: "Partial" },
   { adobe: "Illustrator", verdict: "Solid for SVG-first illustration, icons and posters; less reliable for .ai round-trips and print production.", ceiling: "Partial" },
-  { adobe: "Acrobat", verdict: "Good for reading, merging and simple edits; weaker for forms, digital signatures and preflight.", ceiling: "Low" },
+  { adobe: "Acrobat", verdict: "Good for reading, merging, annotation and simple edits; weaker for text reflow, forms, signatures and preflight.", ceiling: "Partial" },
   { adobe: "After Effects", verdict: "Early-stage; expect missing plug-ins, slower renders and limited template compatibility.", ceiling: "Low" },
-  { adobe: "InDesign", verdict: "Early-stage; expect missing long-document features, preflight and advanced typography.", ceiling: "Low" },
+  { adobe: "InDesign", verdict: "Scribus covers print layout, but expect IDML reflow, weaker long-document automation and an InDesign-free rebuild.", ceiling: "Partial" },
+  { adobe: "Substance Painter", verdict: "ArmorPaint covers hand-painted PBR sets; smart materials, generators and export presets are thinner.", ceiling: "Partial" },
+  { adobe: "Premiere Pro", verdict: "Usable for short-form and editorial cuts; limited for collaboration, color management and motion-graphics templates.", ceiling: "Partial" },
+  { adobe: "Dreamweaver", verdict: "No dedicated open source replacement tracked; code editors and static-site tools cover parts of the job.", ceiling: "Low" },
+  { adobe: "Adobe Express", verdict: "Template-driven open source tools exist, but not the same brand-template and stock-asset ecosystem.", ceiling: "Low" },
+  { adobe: "Adobe XD", verdict: "FigCraft and Penpot cover interface design; XD file interchange is not a reliable workflow.", ceiling: "Partial" },
+  { adobe: "Character Animator", verdict: "No direct open source equivalent tracked; 2D animation tools cover only parts of the performance-driven workflow.", ceiling: "Low" },
+  { adobe: "Audition", verdict: "SoundCraft targets audio editing; spectral repair, batch restoration and Adobe integration differ.", ceiling: "Partial" },
+  { adobe: "Animate", verdict: "Vector animation tools exist, but they do not reproduce Animate’s timeline, symbols and runtime targets.", ceiling: "Low" },
+  { adobe: "Adobe Fresco", verdict: "PhotoCraft and Krita cover painting, not Fresco’s live brushes, cloud library and Adobe ecosystem.", ceiling: "Low" },
+];
+
+const guides = [
+  { href: "/alternatives/photoshop/", category: "Image editing", title: "Photoshop alternatives", copy: "Compare GIMP, PhotoCraft, Photopea, Krita, Paint.NET, and Glimpse for layers, PSD files, plug-ins, and production boundaries." },
+  { href: "/alternatives/lightroom/", category: "Photography workflow", title: "Lightroom alternatives", copy: "Separate RAW development from catalog management, then compare darktable, RawTherapee, ART, LightCraft, digiKam, and Shotwell." },
+  { href: "/alternatives/illustrator/", category: "Vector illustration", title: "Illustrator alternatives", copy: "Compare Inkscape, VectorCraft, Scribus, LibreOffice Draw, Penpot, and Vectr on SVG editing, .ai interchange, and print output." },
+  { href: "/alternatives/acrobat/", category: "PDF workflow", title: "Acrobat alternatives", copy: "Compare PdfCraft, PDF Arranger, LibreOffice Draw, Okular, Stirling PDF, and PDF24 for reading, editing, forms, and signatures." },
+  { href: "/alternatives/after-effects/", category: "Motion and VFX", title: "After Effects alternatives", copy: "Compare Blender, Natron, Fusion, Kdenlive, Glaxnimate, and EffectCraft for compositing, motion graphics, and rendering." },
+  { href: "/alternatives/indesign/", category: "Page layout", title: "InDesign alternatives", copy: "Compare Scribus, DesignCraft, LibreOffice Writer, LaTeX, Affinity Publisher, and Canva for layout, long documents, and print." },
+  { href: "/alternatives/substance-painter/", category: "3D texturing", title: "Substance Painter alternatives", copy: "Compare ArmorPaint, Blender, Material Maker, Krita, GIMP, and 3D-Coat for PBR painting, baking, and material authoring." },
 ];
 
 export default function AlternativesPage() {
@@ -56,7 +91,7 @@ export default function AlternativesPage() {
       </header>
 
       <section className="content-section" aria-labelledby="coverage-heading">
-        <div className="section-heading"><p className="section-number">01</p><div><h2 id="coverage-heading">Coverage map</h2><p>Every Adobe product we track, the closest open source ArtCraft app, and whether a full guide is published yet.</p></div></div>
+        <div className="section-heading"><p className="section-number">01</p><div><h2 id="coverage-heading">Coverage map</h2><p>Every Adobe product we track, the closest open source app, and whether a full comparison guide is published yet.</p></div></div>
         <div className="table-wrap">
           <table className="alternatives-table">
             <caption className="sr-only">Adobe products and available comparison guides</caption>
@@ -66,13 +101,18 @@ export default function AlternativesPage() {
                 <tr key={row.adobe}>
                   <th scope="row" data-label="Adobe product">{row.adobe}</th>
                   <td data-label="Closest open source app">{row.app}</td>
-                  <td data-label="Guide status">{row.status === "Published" ? "Comparison guide published" : "Comparison guide in progress"}</td>
-                  <td data-label="Next step">{row.status === "Published" ? <Link href={`/alternatives/${row.adobe === "Photoshop" ? "photoshop" : "lightroom"}/`}>Open guide →</Link> : <Link href={`/apps/${row.app.toLowerCase()}/`}>App guide →</Link>}</td>
+                  <td data-label="Guide status">{statusLabel[row.status]}</td>
+                  <td data-label="Next step">{row.status === "published" && row.guide
+                    ? <Link href={`/alternatives/${row.guide}/`}>Open guide →</Link>
+                    : row.appSlug
+                      ? <Link href={`/apps/${row.appSlug}/`}>App guide →</Link>
+                      : <span>No dedicated guide</span>}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <p className="prose">A guide is published when a full comparison exists. “App guide only” means the closest ArtCraft app has a page but no standalone Adobe comparison yet. “Covered here only” means the product is not worth a separate page at current demand; the honest-table row below explains why.</p>
       </section>
 
       <section className="content-section" aria-labelledby="honesty-heading">
@@ -101,6 +141,8 @@ export default function AlternativesPage() {
           <p>If you are specifically looking for an <Link href="/alternatives/photoshop/">open source Photoshop alternative</Link>, the shortlist is PhotoCraft, GIMP, and Krita. Each one trades away something different: PhotoCraft is the newest and most ambitious, GIMP has the deepest feature history, and Krita is best for painting.</p>
           <p><Link href="/alternatives/photoshop/">Paint.NET is free but not open source; it belongs in a free-software list, not an open-source one</Link>. Paint.NET is the lightest on Windows.</p>
           <p>For an <Link href="/alternatives/lightroom/">open source Lightroom alternative</Link>, the choice splits between RAW developers (darktable, RawTherapee, ART) and catalog managers (digiKam, Shotwell). Most photographers end up using one of each, not a single replacement.</p>
+          <p>For an <Link href="/alternatives/illustrator/">open source Illustrator alternative</Link>, Inkscape is the mature starting point and VectorCraft is the ArtCraft project to watch. For <Link href="/alternatives/acrobat/">Acrobat</Link>, PdfCraft, PDF Arranger and Okular cover different parts of the PDF workflow. For <Link href="/alternatives/after-effects/">After Effects</Link>, Blender and Natron are the strongest open source options, while Fusion is free but proprietary.</p>
+          <p>For <Link href="/alternatives/indesign/">InDesign</Link>, Scribus is the only mature open source page-layout application here; Affinity Publisher and Canva are capable but closed. For <Link href="/alternatives/substance-painter/">Substance Painter</Link>, ArmorPaint is the closest open source PBR painter, with Blender covering baking and Material Maker covering procedural materials.</p>
           <p>The ArtCraft family is the newest entrant. The official directory now lists 13 open-source apps, including FigCraft for interface design and prototyping. The family covers Adobe-style workflows as well as documents, audio, presentations, CAD and spreadsheets. You can browse the full <Link href="/apps/">ArtCraft app directory</Link> to see every project, platform and license.</p>
         </div>
       </section>
@@ -109,20 +151,19 @@ export default function AlternativesPage() {
         <div className="section-heading"><p className="section-number">04</p><div><h2 id="leaving-heading">Leaving Creative Cloud</h2><p>Practical steps if you are moving away from Adobe subscriptions.</p></div></div>
         <div className="prose">
           <p>Start by exporting your cloud documents. Adobe does not make it easy to batch-export PSD, AI or INDD files, so plan for a manual weekend. Keep the originals in at least two places: one local drive and one off-site backup.</p>
-          <p>Next, test the open source replacement with real files, not demo files. Open your largest PSD in PhotoCraft or GIMP. Import a full Lightroom catalog into darktable. Try a .ai round-trip in VectorCraft. The point is not to find the perfect app; it is to find the app that fails in a way you can live with.</p>
+          <p>Next, test the open source replacement with real files, not demo files. Open your largest PSD in PhotoCraft or GIMP. Import a full Lightroom catalog into darktable. Try a .ai round-trip in VectorCraft or an IDML import in Scribus. The point is not to find the perfect app; it is to find the app that fails in a way you can live with.</p>
           <p>Finally, decide whether you need a full replacement or a partial one. Many designers keep Acrobat for PDF signatures, or Premiere for client work, while moving still image editing to open source. The <Link href="/vs-adobe/">ArtCraft vs Adobe workflow map</Link> shows which workflows are easiest to move first.</p>
         </div>
       </section>
 
       <section className="content-section" aria-labelledby="deep-dive-heading">
-        <div className="section-heading"><p className="section-number">05</p><div><h2 id="deep-dive-heading">Deep-dive guides</h2><p>The two complete guides currently published.</p></div></div>
+        <div className="section-heading"><p className="section-number">05</p><div><h2 id="deep-dive-heading">Deep-dive guides</h2><p>The seven complete guides currently published.</p></div></div>
         <div className="alternatives-grid">
-          <Link className="alternatives-card" href="/alternatives/photoshop/"><span>Image editing</span><div><h2>Photoshop alternatives</h2><p>Compare GIMP, PhotoCraft, Photopea, Krita, Paint.NET, and Glimpse for layers, PSD files, plug-ins, and production boundaries.</p></div><strong>Open the guide →</strong></Link>
-          <Link className="alternatives-card" href="/alternatives/lightroom/"><span>Photography workflow</span><div><h2>Lightroom alternatives</h2><p>Separate RAW development from catalog management, then compare darktable, RawTherapee, ART, LightCraft, digiKam, and Shotwell.</p></div><strong>Open the guide →</strong></Link>
+          {guides.map((guide) => <Link className="alternatives-card" href={guide.href} key={guide.href}><span>{guide.category}</span><div><h2>{guide.title}</h2><p>{guide.copy}</p></div><strong>Open the guide →</strong></Link>)}
         </div>
       </section>
 
-      <section className="content-section method-note"><div><Eyebrow>Sources</Eyebrow><h2>Sources & verification</h2></div><div><p>Accessed 2026-10-13. ArtCraft app status and feature claims are taken from official project pages and repositories. Adobe product names are trademarks of Adobe Inc. This site is not affiliated with Adobe or ArtCraft.</p><p><Link href="/faq/">Read the FAQ →</Link></p></div></section>
+      <section className="content-section method-note"><div><Eyebrow>Sources</Eyebrow><h2>Sources & verification</h2></div><div><p>Accessed 2026-10-20. ArtCraft app status and feature claims are taken from official project pages and repositories. Adobe product names are trademarks of Adobe Inc. This site is not affiliated with Adobe or ArtCraft.</p><p><Link href="/faq/">Read the FAQ →</Link></p></div></section>
 
       <SourceList sources={hubSources} />
     </div>

@@ -36,6 +36,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       image: "/images/og/download-pdfcraft.png",
     });
   }
+
+  if (app.slug === "filmcraft") {
+    return pageMetadata({
+      title: "Download FilmCraft: Free Open Source Video Editor",
+      absoluteTitle: true,
+      description: "Download FilmCraft for Windows, macOS and Linux from official GitHub releases. Find installation steps, version details and current video-editing limits.",
+      path: "/apps/filmcraft/",
+    });
+  }
   return pageMetadata({
     title: `Download ${app.name}: Free ${comparedProduct(app)} Alternative`,
     description: `Download ${app.name} for Windows, macOS and Linux from official GitHub releases. Find installation steps, version details and ${comparedProduct(app)} compatibility limits.`,

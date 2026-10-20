@@ -1,13 +1,18 @@
 import { describe, expect, it } from "vitest";
 
+import { acrobatGuide } from "@/content/alternatives/acrobat";
+import { afterEffectsGuide } from "@/content/alternatives/after-effects";
+import { illustratorGuide } from "@/content/alternatives/illustrator";
+import { indesignGuide } from "@/content/alternatives/indesign";
 import { lightroomGuide } from "@/content/alternatives/lightroom";
 import { photoshopGuide } from "@/content/alternatives/photoshop";
+import { substancePainterGuide } from "@/content/alternatives/substance-painter";
 
 function words(value: string) {
   return value.replace(/<[^>]+>/g, " ").trim().split(/\s+/).filter(Boolean);
 }
 
-function guideText(guide: typeof photoshopGuide | typeof lightroomGuide) {
+function guideText(guide: { introduction: string; verdicts: string[]; sections: Array<{ heading: string; paragraphs: string[] }>; options: Array<{ name: string; paragraphs: string[] }>; faqs: Array<{ question: string; answer: string }> }) {
   return [
     guide.introduction,
     ...guide.verdicts,
@@ -72,5 +77,33 @@ describe("Lightroom alternatives guide", () => {
     expect(lightroomGuide.faqs.every((faq) => words(faq.answer).length >= 40 && words(faq.answer).length <= 70)).toBe(true);
     expect(lightroomGuide.sources.every((source) => /^2026-10-(11|13|15)$/.test(source.accessedAt))).toBe(true);
     expect(lightroomGuide.sources.find((source) => source.id === "lightcraft-release-alt")?.accessedAt).toBe("2026-10-15");
+  });
+});
+
+const standardGuides = [
+  { name: "Acrobat", guide: acrobatGuide, keyword: "open source acrobat alternative", nonArtcraft: ["PDF Arranger", "Okular", "Stirling PDF"] },
+  { name: "Illustrator", guide: illustratorGuide, keyword: "open source illustrator alternative", nonArtcraft: ["Inkscape", "Scribus", "Penpot"] },
+  { name: "After Effects", guide: afterEffectsGuide, keyword: "open source after effects alternative", nonArtcraft: ["Blender", "Natron", "Kdenlive"] },
+  { name: "InDesign", guide: indesignGuide, keyword: "open source indesign alternative", nonArtcraft: ["Scribus", "LibreOffice Writer", "LaTeX"] },
+  { name: "Substance Painter", guide: substancePainterGuide, keyword: "substance painter alternative", nonArtcraft: ["ArmorPaint", "Blender", "Material Maker"] },
+];
+
+describe.each(standardGuides)("$name alternatives guide", ({ guide, keyword, nonArtcraft }) => {
+  it("meets the comparison, evidence, and FAQ contract", () => {
+    const text = guideText(guide);
+    expect(words(text).length).toBeGreaterThanOrEqual(1500);
+    expect(words(text).length).toBeLessThanOrEqual(2300);
+    expect(words(guide.introduction).slice(0, 100).join(" ").toLowerCase()).toContain(keyword);
+    expect(text).not.toMatch(/\[VERIFY\]|\bTODO\b|\bTBD\b/);
+    expect(guide.verdicts).toHaveLength(3);
+    expect(guide.table.rows).toHaveLength(6);
+    expect(guide.table.columns.at(-1)).toBe("Where it breaks down");
+    expect(guide.options).toHaveLength(6);
+    expect(guide.options.every((option) => words(option.paragraphs.join(" ")).length >= 150 && words(option.paragraphs.join(" ")).length <= 250)).toBe(true);
+    for (const name of nonArtcraft) expect(guide.options.map((option) => option.name)).toContain(name);
+    expect(guide.faqs).toHaveLength(4);
+    expect(guide.faqs.every((faq) => words(faq.answer).length >= 40 && words(faq.answer).length <= 70)).toBe(true);
+    expect(guide.sources.length).toBeGreaterThanOrEqual(6);
+    expect(guide.sources.every((source) => source.accessedAt === "2026-10-20")).toBe(true);
   });
 });

@@ -36,12 +36,17 @@ describe("site URL contract", () => {
     expect(publishedRoutes).toContain("/alternatives/");
     expect(publishedRoutes).toContain("/alternatives/photoshop/");
     expect(publishedRoutes).toContain("/alternatives/lightroom/");
+    expect(publishedRoutes).toContain("/alternatives/illustrator/");
+    expect(publishedRoutes).toContain("/alternatives/acrobat/");
+    expect(publishedRoutes).toContain("/alternatives/after-effects/");
+    expect(publishedRoutes).toContain("/alternatives/indesign/");
+    expect(publishedRoutes).toContain("/alternatives/substance-painter/");
     expect(publishedRoutes).toContain("/updates/2026-10-15/");
     expect(publishedRoutes).toContain("/updates/2026-10-16/");
     expect(publishedRoutes).toContain("/updates/2026-10-17/");
     expect(publishedRoutes).toContain("/brandon-thomas/");
     expect(publishedRoutes).not.toContain("/learn/ai-history-1955/");
-    expect(publishedRoutes).toHaveLength(37);
+    expect(publishedRoutes).toHaveLength(42);
   });
 
   it("redirects the www host to the canonical host with an exact 301", () => {
