@@ -42,7 +42,7 @@ const appInput: AppRecord[] = [
       "Production stability on each supported platform",
       "Performance on large professional documents",
     ],
-    sourceIds: ["artcraft-apps", "photocraft-official", "photocraft-repository", "photocraft-brush-090", "community-photocraft-brush-spacing"],
+    sourceIds: ["artcraft-apps", "photocraft-official", "photocraft-repository", "photocraft-brush-090", "community-photocraft-brush-spacing", "community-photocraft-brush-cursor-oct20"],
     lastVerified: "2026-10-11",
   },
   {
@@ -75,7 +75,7 @@ const appInput: AppRecord[] = [
       "Typography and print-production behavior on real client files",
       "Performance on complex professional artwork",
     ],
-    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository", "vectorcraft-rpm-runtime-limits", "vectorcraft-parity-0120", "vectorcraft-packaging-0120"],
+    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository", "community-vectorcraft-pencil-oct20", "vectorcraft-rpm-runtime-limits", "vectorcraft-parity-0120", "vectorcraft-packaging-0120"],
     lastVerified: "2026-10-11",
   },
   {
@@ -225,7 +225,7 @@ const appInput: AppRecord[] = [
     supportedTasks: ["Interface design, reusable components and interactive prototypes described by the official project"],
     limitations: ["The official directory labels FigCraft as early alpha.", ...sharedLimitations],
     unknowns: ["Independent Figma file interchange and collaborative-session reliability"],
-    sourceIds: ["artcraft-apps", "figcraft-official", "figcraft-repository"],
+    sourceIds: ["artcraft-apps", "figcraft-official", "figcraft-repository", "figcraft-mcp-070"],
     lastVerified: "2026-10-13",
   },
   {

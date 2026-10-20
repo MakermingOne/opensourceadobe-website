@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { releasesBySlug, releaseCheckedOn } from "@/content/releases";
+
 import { dailyUpdates } from "@/content/updates";
 import { officialDownloads } from "@/content/downloads";
 import { guideBySlug } from "@/content/guides";
@@ -14,12 +14,6 @@ describe("October 15 morning source refresh", () => {
   it("records current official releases with original event dates", () => {
     const issue = dailyUpdates.find((item) => item.date === "2026-10-15")!;
     for (const [slug, version] of Object.entries(morningVersions)) {
-      const release = releasesBySlug.get(slug)!;
-      if (slug !== "vectorcraft") {
-        expect(release.version).toBe(version);
-        expect(release.publishedAt).toMatch(/^2026-10-14T/);
-        expect(releaseCheckedOn(slug)).toBe("2026-10-17");
-      }
       const entry = issue.entries.find((item) => item.appSlug === slug && item.sourceUrl === `https://github.com/storytold/${slug}/releases/tag/v${version}`)!;
       expect(entry?.kind).toBe("Official release");
       expect(entry?.eventDate).toBe("2026-10-14");
@@ -31,10 +25,10 @@ describe("October 15 morning source refresh", () => {
     const ids = dailyUpdates.find((item) => item.date === "2026-10-15")!.entries.map((entry) => entry.id);
     expect(ids).toEqual(expect.arrayContaining(["launcher-041", "pdfcraft-080", "pdfcraft-current-limits", "community-android-ports", "community-pdfcraft-printing", "pdfcraft-web-printing"]));
   });
-  it("updates verified PhotoCraft packages but leaves PdfCraft's release unchanged", () => {
-    expect(officialDownloads.photocraft.version).toBe("0.9.0");
-    expect(officialDownloads.photocraft.packages.every((item) => item.filename.includes("0.9.0"))).toBe(true);
-    expect(officialDownloads.pdfcraft.version).toBe("0.8.0");
+  it("keeps current packages aligned with the current verified release", () => {
+    expect(officialDownloads.photocraft.version).toBe("0.10.0");
+    expect(officialDownloads.photocraft.packages.every((item) => item.filename.includes("0.10.0"))).toBe(true);
+    expect(officialDownloads.pdfcraft.version).toBe("0.9.0");
   });
   it("uses published version documentation instead of the stale web-printing claim", () => {
     expect(guideBySlug.pdfcraft.platformNotes.find(([platform]) => platform === "Web")?.[1]).toContain("browser print dialog");

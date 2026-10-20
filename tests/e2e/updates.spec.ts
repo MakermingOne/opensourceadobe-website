@@ -2,13 +2,13 @@ import { expect, test } from "./fixtures";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(37);
+  await expect(page.locator(".update-entry")).toHaveCount(53);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
-  await expect(page.locator(".update-entry")).toHaveCount(4);
+  await expect(page.locator(".update-entry")).toHaveCount(5);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("link", { name: "Read the daily brief" }).first().click();
-  await expect(page).toHaveURL(/\/updates\/2026-10-19\//);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("VectorCraft 0.12.0");
+  await expect(page).toHaveURL(/\/updates\/2026-10-20\//);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Published app releases");
   await expect(page.getByRole("heading", { name: "Sources", exact: true })).toBeVisible();
 });
 
@@ -71,7 +71,7 @@ test("RSS is valid XML and links to the published daily brief", async ({ request
   }, xml);
   expect(result.errors).toBe(0);
   expect(result.links).toContain("https://opensourceadobe.com/updates/2026-10-13/");
-  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-19/");
+  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-20/");
 });
 
 for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/", "/updates/2026-10-17/"]) {
@@ -129,10 +129,10 @@ test("October 17 connects the new release, bounded export guidance and community
   await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("Community report");
   await expect(page.locator("#community-pdfcraft-printer-follow-up")).toContainText("not a universal fix");
   await page.goto("/apps/vectorcraft/");
-  await expect(page.getByRole("heading", { name: "Version 0.12.0", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Version 0.13.1", exact: true })).toBeVisible();
   const buttons = page.getByRole("link", { name: /^Download VectorCraft for/ });
   await expect(buttons).toHaveCount(3);
-  for (const button of await buttons.all()) await expect(button).toHaveAttribute("href", /^https:\/\/github\.com\/storytold\/vectorcraft\/releases\/download\/v0\.12\.0\//);
+  for (const button of await buttons.all()) await expect(button).toHaveAttribute("href", /^https:\/\/github\.com\/storytold\/vectorcraft\/releases\/download\/v0\.13\.1\//);
   await page.getByText("Can VectorCraft open Illustrator files?", { exact: true }).click();
   await expect(page.locator("details[open]")).toContainText("one artboard per file and no transparency");
   await page.goto("/download/");
@@ -159,8 +159,8 @@ test("October 17 evening keeps development work distinct from releases and syncs
  test("daily archive retains both recent briefs and a date without a separate news item", async ({ page, request }) => {
   await page.goto("/updates/");
   const dates = await page.locator(".update-date time").allTextContents();
-  expect(dates).toHaveLength(7);
-  expect(new Set(dates).size).toBe(7);
+  expect(dates).toHaveLength(8);
+  expect(new Set(dates).size).toBe(8);
   await expect(page.locator(".daily-status")).toContainText("No separate product-news item");
   for (const date of ["2026-10-14", "2026-10-18", "2026-10-19"]) expect((await request.get(`/updates/${date}/`)).ok()).toBe(true);
   await page.goto("/updates/2026-10-14/");

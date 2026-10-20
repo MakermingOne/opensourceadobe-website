@@ -14,7 +14,7 @@ for (const code of ["fr"]) it(`${code} publishes complete guides and never inven
     const page = getPageContent(locale, path)!;
     expect(page).toBeDefined();
     expect(page.faq.length).toBeGreaterThanOrEqual(4);
-    expect(pageUpdatedAt(`/${code}${path}`)).toBe(path === "/" || path === "/apps/photocraft/" ? "2026-10-20" : "2026-10-19");
+    expect(pageUpdatedAt(`/${code}${path}`)).toBe("2026-10-20");
     for (const link of page.sections.flatMap(section => section.links ?? [])) {
       if (link.href.startsWith("/")) expect(resolveLocalePath(`/${code}${link.href.split("#")[0]}`)).not.toBeNull();
     }

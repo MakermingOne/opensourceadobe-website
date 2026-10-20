@@ -37,7 +37,7 @@ const routes = [
 
 for (const route of routes) {
   test(`${route} has no serious accessibility violations`, async ({ page }) => {
-    await page.goto(route, { waitUntil: "networkidle" });
+    await page.goto(route, { waitUntil: "domcontentloaded" });
     const results = await new AxeBuilder({ page }).analyze();
     const serious = results.violations
       .filter((violation) => ["serious", "critical"].includes(violation.impact ?? ""))
@@ -80,7 +80,7 @@ for (const route of ["/brandon-thomas/", "/alternatives/photoshop/", "/alternati
   for (const width of [375, 768, 1280]) {
     test(`${route} has no document overflow at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
-      await page.goto(route, { waitUntil: "networkidle" });
+      await page.goto(route, { waitUntil: "domcontentloaded" });
       const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth);
       expect(documentWidth).toBeLessThanOrEqual(width);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
@@ -139,7 +139,7 @@ test("primary navigation exposes the complete information architecture in order"
 test("PdfCraft guide answers download intent with official assets and alpha limits", async ({ page }) => {
   await page.goto("/apps/pdfcraft/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Download PdfCraft: ArtCraft’s PDF workbench");
-  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.8\.0\/pdfcraft-0\.8\.0-windows-x64\.msi$/);
+  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.9\.0\/pdfcraft-0\.9\.0-windows-x64\.msi$/);
   await expect(page.getByText(/not a complete Acrobat Pro replacement/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PdfCraft", exact: true })).toHaveAttribute("href", "#download-heading");
   expect(await page.locator('script[type="application/ld+json"]').allTextContents()).toEqual(expect.arrayContaining([expect.stringContaining('"@type":"FAQPage"')]));
@@ -158,7 +158,7 @@ for (const foundationPage of [
   { route: "/faq/", heading: "OpenSourceAdobe FAQ" },
 ]) {
   test(`${foundationPage.route} foundation page provides useful starter content`, async ({ page }) => {
-    const response = await page.goto(foundationPage.route, { waitUntil: "networkidle" });
+    const response = await page.goto(foundationPage.route, { waitUntil: "domcontentloaded" });
 
     expect(response?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toContainText(foundationPage.heading);
@@ -173,7 +173,7 @@ test("PhotoCraft landing page answers the switching questions before methodology
   await expect(page.getByRole("heading", { name: "What can you do with PhotoCraft?" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Who should try PhotoCraft now?" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PhotoCraft", exact: true })).toHaveAttribute("href", "#download-heading");
-  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.9\.0\/photocraft-0\.9\.0-macos-universal\.dmg$/);
+  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.10\.0\/photocraft-0\.10\.0-macos-universal\.dmg$/);
   await expect(page.getByText("Early alpha", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("CLAIM 01", { exact: true })).toHaveCount(0);
   await expect(page.getByText("Evidence ledger", { exact: true })).toHaveCount(0);

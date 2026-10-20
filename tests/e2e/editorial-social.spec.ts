@@ -45,8 +45,8 @@ test("GitHub FAQ and license evidence agree with visible release data", async ({
   const faqs = page.locator('.content-section[aria-labelledby="faq-heading"] details');
   await expect(faqs).toHaveCount(3);
   await faqs.nth(1).locator("summary").click();
-  await expect(faqs.nth(1)).toContainText("PhotoCraft 0.9.0");
-  await expect(faqs.nth(1)).toContainText("2026-10-14");
+  await expect(faqs.nth(1)).toContainText("PhotoCraft 0.10.0");
+  await expect(faqs.nth(1)).toContainText("2026-10-18");
   const table = page.getByRole("table", { name: /The 13 Crafting Apps/ });
   await expect(table.locator("tbody tr")).toHaveCount(13);
   await expect(table.locator('a[href$="LICENSE-MIT"]')).toHaveCount(13);

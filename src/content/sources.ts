@@ -1,8 +1,11 @@
 import { sourceRecordSchema, type SourceRecord } from "./types";
-import { releaseCheckedAt, releaseCheckedOn, releases } from "./releases";
+import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "community-photocraft-brush-cursor-oct20", "type": "third-party", "title": "Reddit: PhotoCraft problems, posted October 20 UTC", "url": "https://www.reddit.com/r/ArtCraftAI/comments/1xao6b0/photocraft_problems/", "accessedAt": "2026-10-20"},
+{"id": "community-vectorcraft-pencil-oct20", "type": "third-party", "title": "Reddit: Pencil tool needs improvement, posted October 20 UTC", "url": "https://www.reddit.com/r/VectorCraft/comments/1xapmj1/pencil_tool_needs_improvement/", "accessedAt": "2026-10-20"},
+{"id": "figcraft-mcp-070", "type": "official-repository", "title": "FigCraft v0.7.0 tagged MCP file-access documentation", "url": "https://github.com/storytold/figcraft/blob/v0.7.0/docs/mcp.md", "accessedAt": "2026-10-20"},
   {
     id: "photocraft-brush-090", type: "official-repository",
     title: "PhotoCraft v0.9.0: brush-tip settings, including spacing",
@@ -68,7 +71,7 @@ const sourceInput: SourceRecord[] = [
     type: "official-page",
     title: "ArtCraft — Controllable AI for Artists",
     url: "https://getartcraft.com/",
-    accessedAt: releaseCheckedAt,
+    accessedAt: "2026-10-20",
   },
   {
     id: "artcraft-repository",
@@ -89,7 +92,7 @@ const sourceInput: SourceRecord[] = [
     type: "official-page",
     title: "Crafting Apps: open-source creative tools — ArtCraft",
     url: "https://getartcraft.com/apps",
-    accessedAt: releaseCheckedAt,
+    accessedAt: "2026-10-20",
   },
   ...[
     "photocraft",
