@@ -5,11 +5,14 @@ import { JsonLd } from "@/components/json-ld";
 import { PageUpdated } from "@/components/page-updated";
 import { SourceList } from "@/components/source-list";
 import { brandonSources } from "@/content/brandon-thomas";
-import { pageUpdatedAt } from "@/content/page-dates";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 
 const path = "/brandon-thomas/";
+// Original editorial timestamp. Schema-only fixes do not refresh it;
+// update modifiedAt after substantive editorial edits.
+const publishedAt = "2026-10-18T01:11:44+08:00";
+const modifiedAt = publishedAt;
 const summary = "Brandon Thomas is the founder of ArtCraft. Known as echelon on GitHub, he describes himself as an engineer and filmmaker and also lists founder roles at Storyteller.ai and FakeYou.";
 
 export const metadata = pageMetadata({
@@ -22,11 +25,12 @@ export default function BrandonThomasPage() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
       {
-        "@type": "ProfilePage", "@id": absoluteUrl(path), url: absoluteUrl(path),
-        name: "Brandon Thomas and ArtCraft", description: summary, inLanguage: "en",
-        dateCreated: "2026-10-17", datePublished: "2026-10-18", dateModified: pageUpdatedAt(path),
+        "@type": "Article", "@id": absoluteUrl(path), url: absoluteUrl(path),
+        headline: "Brandon Thomas and ArtCraft", description: summary, inLanguage: "en",
+        datePublished: publishedAt, dateModified: modifiedAt,
+        mainEntityOfPage: absoluteUrl(path), image: absoluteUrl("/images/og/brandon-thomas-artcraft.png"),
         author: { "@type": "Organization", name: "OpenSourceAdobe", url: absoluteUrl("/about/") },
-        mainEntity: { "@id": `${absoluteUrl(path)}#person` },
+        about: { "@id": `${absoluteUrl(path)}#person` },
         citation: brandonSources.map((source) => source.url),
       },
       {

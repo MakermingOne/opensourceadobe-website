@@ -9,12 +9,18 @@ test("the founder profile identifies its subject and keeps its evidence readable
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://opensourceadobe.com/brandon-thomas/");
     const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
     const graph = blocks.flatMap((block) => JSON.parse(block)["@graph"] ?? []);
-    const profile = graph.find((entity) => entity["@type"] === "ProfilePage");
+    const profile = graph.find((entity) => entity["@type"] === "Article");
     const person = graph.find((entity) => entity["@type"] === "Person");
-    expect(profile.mainEntity["@id"]).toBe(person["@id"]);
+    expect(profile.about["@id"]).toBe(person["@id"]);
     expect(person).toMatchObject({ name: "Brandon Thomas", alternateName: "echelon", sameAs: ["https://github.com/echelon"] });
     expect(profile.author).toMatchObject({ "@type": "Organization", name: "OpenSourceAdobe" });
-    expect(profile.datePublished).toBe("2026-10-18");
+    expect(graph.some((entity) => entity["@type"] === "ProfilePage")).toBe(false);
+    expect(profile).not.toHaveProperty("dateCreated");
+    for (const field of ["datePublished", "dateModified"]) {
+      expect(profile[field]).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})$/);
+      expect(Number.isFinite(Date.parse(profile[field]))).toBe(true);
+    }
+    expect(profile.datePublished.slice(0,10)).toBe("2026-10-18");
     await expect(page.getByText(profile.description, { exact: true })).toBeVisible();
     const citations = await page.locator(".source-list a").evaluateAll((links) => links.map((link) => link.getAttribute("href")));
     expect(citations).toEqual(profile.citation);
