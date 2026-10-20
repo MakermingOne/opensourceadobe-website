@@ -49,7 +49,7 @@ const honestyRows: Array<{ adobe: string; verdict: string; ceiling: "High" | "Pa
   { adobe: "Lightroom", verdict: "Strong for RAW development and cataloging; weaker for cloud sync, mobile and AI-driven masking.", ceiling: "High" },
   { adobe: "Illustrator", verdict: "Solid for SVG-first illustration, icons and posters; less reliable for .ai round-trips and print production.", ceiling: "Partial" },
   { adobe: "Acrobat", verdict: "Good for reading, merging, annotation and simple edits; weaker for text reflow, forms, signatures and preflight.", ceiling: "Partial" },
-  { adobe: "After Effects", verdict: "Early-stage; expect missing plug-ins, slower renders and limited template compatibility.", ceiling: "Low" },
+  { adobe: "After Effects", verdict: "Blender and Natron cover compositing, but templates, typography and the plug-in ecosystem do not transfer; EffectCraft is still in development.", ceiling: "Low" },
   { adobe: "InDesign", verdict: "Scribus covers print layout, but expect IDML reflow, weaker long-document automation and an InDesign-free rebuild.", ceiling: "Partial" },
   { adobe: "Substance Painter", verdict: "ArmorPaint covers hand-painted PBR sets; smart materials, generators and export presets are thinner.", ceiling: "Partial" },
   { adobe: "Premiere Pro", verdict: "Usable for short-form and editorial cuts; limited for collaboration, color management and motion-graphics templates.", ceiling: "Partial" },
