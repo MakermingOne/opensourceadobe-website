@@ -45,7 +45,6 @@ const editorialDates: Record<string, string> = {
   "/vs-adobe/": "2026-10-20",
   "/download/": "2026-10-20",
   "/tutorials/": "2026-10-20",
-  "/learn/ai-history-1955/": "2026-10-19",
   "/faq/": "2026-10-18",
   "/apps/photocraft/": "2026-10-20",
   "/apps/vectorcraft/": "2026-10-20",

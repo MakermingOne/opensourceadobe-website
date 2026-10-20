@@ -40,8 +40,8 @@ describe("site URL contract", () => {
     expect(publishedRoutes).toContain("/updates/2026-10-16/");
     expect(publishedRoutes).toContain("/updates/2026-10-17/");
     expect(publishedRoutes).toContain("/brandon-thomas/");
-    expect(publishedRoutes).toContain("/learn/ai-history-1955/");
-    expect(publishedRoutes).toHaveLength(38);
+    expect(publishedRoutes).not.toContain("/learn/ai-history-1955/");
+    expect(publishedRoutes).toHaveLength(37);
   });
 
   it("redirects the www host to the canonical host with an exact 301", () => {

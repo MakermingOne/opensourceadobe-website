@@ -7,7 +7,7 @@ it('preserves every source once and distinguishes media formats and provenance',
  expect(new Set(learningResources.map(r=>r.id)).size).toBe(learningResources.length);
  for(const item of [...externalResources,...priorityTutorials]) expect(learningResources.some(r=>r.id===item.id && r.url===item.url)).toBe(true);
  expect(learningResources.filter(r=>r.format==='video')).toHaveLength(9);
- expect(learningResources.filter(r=>r.format==='image')).toHaveLength(1);
+ expect(learningResources.filter(r=>r.format==='image')).toHaveLength(0);
  expect(learningResources.filter(r=>r.format==='text')).toHaveLength(7);
  expect(learningResources.find(r=>r.id==='official-studio-2d-basics')?.tool).toBe('ArtCraft AI studio');
 });

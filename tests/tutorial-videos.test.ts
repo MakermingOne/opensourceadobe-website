@@ -6,7 +6,7 @@ import TutorialsPage from '@/app/(en)/tutorials/page';
 it('retains the requested video links and provenance in the unified media library', () => {
  const html = renderToStaticMarkup(createElement(TutorialsPage));
  expect(html).toContain('id="video-library"');
- expect(html).toContain('id="illustrated-guides"');
+ expect(html).not.toContain('/learn/ai-history-1955/');
  expect(html).toContain('id="reading-library"');
  expect(html.indexOf('id="video-library"')).toBeLessThan(html.indexOf('id="paths-heading"'));
  for (const id of ['ZASPqlqUBQc','t8F-sy_zyK4','oL4_LZxnTRA','ZKaW8u26afU']) expect(html).toContain(`https://www.youtube.com/watch?v=${id}`);

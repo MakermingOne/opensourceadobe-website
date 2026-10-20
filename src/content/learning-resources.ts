@@ -45,15 +45,6 @@ export const learningResources: LearningResource[] = [...priorityTutorials, ...e
  topics: topicsById[item.id] ?? [], systems: systemsById[item.id] ?? [],
  source: sourceLabels[item.kind], official: item.kind === 'official' || ('collection' in item && item.collection === 'official-studio'),
 }));
-learningResources.push({
- id:'illustrated-ai-history', kind:'article', app:'ArtCraft suite', tool:'General', tier:'news',
- format:'image', topics:['Background'], systems:[], source:'OpenSourceAdobe', official:false,
- title:'Where did the idea of AI begin?', author:'OpenSourceAdobe',
- url:'/learn/ai-history-1955/', publishedAt:'2026-10-19',
- summary:'An illustrated guide to the 1955 Dartmouth proposal, Logic Theorist and the people behind the early ideas of artificial intelligence.',
- keyTakeaway:'Explore the history behind creative AI, with archival sources and a clear distinction between the 1955 proposal and the 1956 workshop.',
- image:{src:'/images/ai-history/archive-desk.jpg',alt:'Editorial illustration of an archival desk with documents about the early history of artificial intelligence'},
-});
 
 export function filterLearningResources(filters: LearningFilters): LearningResource[] {
  const any=(value?:string)=>!value || value==='all';
