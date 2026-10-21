@@ -80,8 +80,8 @@ const photoWorkflowRows = [
 
 export const enPages = {
   home: {
-    h1: "Find your free, open-source tools ",
-    h1Emphasis: "by workflow.",
+    h1: "Open-source Adobe alternatives ",
+    h1Emphasis: "and everyday tools from ArtCraft.",
     heading1: { beforeCount: "Explore ", afterCount: " ArtCraft apps by workflow" },
     heading2: "Which ArtCraft tool fits your workflow?",
     heading3: "What should you check before switching?",

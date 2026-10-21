@@ -34,6 +34,11 @@ export const socialImages: Record<string, string> = {
   "/alternatives/after-effects/": "after-effects-alternatives",
   "/alternatives/indesign/": "indesign-alternatives",
   "/alternatives/substance-painter/": "substance-painter-alternatives",
+  "/artcraft/": "artcraft-what-is",
+  "/artcraft/pricing/": "artcraft-pricing",
+  "/artcraft/safety/": "artcraft-safety",
+  "/artcraft/alternatives/": "artcraft-ai-alternatives",
+  "/artcraft/photocraft-how-to-use/": "photocraft-how-to-use",
 };
 
 export function socialImagePath(path: string) {

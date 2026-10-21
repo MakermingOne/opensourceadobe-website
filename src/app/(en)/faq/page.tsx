@@ -106,6 +106,10 @@ export default function FaqPage() {
                   <p>{item.answer} Read our <Link href="/brandon-thomas/">Brandon Thomas and ArtCraft profile</Link> for background and sources.</p>
                 ) : item.question === "Can these apps completely replace Adobe Creative Cloud?" ? (
                   <p>{item.answer} Browse the <Link href="/alternatives/">alternatives hub</Link> to compare each app by workflow.</p>
+                ) : item.question === "Are the ArtCraft apps free and open source?" ? (
+                  <p>{item.answer} For the AI studio’s plans and credits, read the <Link href="/artcraft/pricing/">ArtCraft pricing guide</Link>.</p>
+                ) : item.question === "Where should I download the apps?" ? (
+                  <p>{item.answer} Read our <Link href="/artcraft/safety/">download checklist</Link> before you install.</p>
                 ) : (
                   <p>{item.answer}</p>
                 )}

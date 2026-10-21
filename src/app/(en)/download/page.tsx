@@ -91,6 +91,7 @@ export default function DownloadPage() {
           <Eyebrow>Before installing</Eyebrow>
           <h2 id="download-safety-heading">{enPages.download.heading3}</h2>
           <p>Confirm the domain, select the correct architecture, keep important files backed up, and test with copies. Availability does not prove that an app is ready for every production workflow.</p>
+          <p><Link href="/artcraft/safety/">Check a download against its published checksum →</Link></p>
         </aside>
 
         <SourceList sources={downloadSources} />

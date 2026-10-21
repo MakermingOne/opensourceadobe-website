@@ -72,6 +72,11 @@ const editorialDates: Record<string, string> = {
   "/alternatives/after-effects/": "2026-10-20",
   "/alternatives/indesign/": "2026-10-20",
   "/alternatives/substance-painter/": "2026-10-20",
+  "/artcraft/": "2026-10-20",
+  "/artcraft/pricing/": "2026-10-20",
+  "/artcraft/safety/": "2026-10-20",
+  "/artcraft/alternatives/": "2026-10-20",
+  "/artcraft/photocraft-how-to-use/": "2026-10-20",
   "/github/": "2026-10-20",
 };
 

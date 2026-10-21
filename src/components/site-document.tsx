@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { AdsterraPlacements } from "@/components/adsterra-placements";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isProductionDeployment } from "@/lib/deployment";
@@ -67,22 +66,12 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
 
   return (
     <html lang={locale} dir={locales[locale].dir} className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5205804952457245"
-          crossOrigin="anonymous"
-        />
-        {isProduction ? <script defer data-cfasync="false" src="https://abscloud.org/1/d3b0c9df12ea845050e9db47b4dfbffe" /> : null}
-      </head>
       <body>
         <a className="skip-link" href="#main-content">{copy.skip}</a>
         <SiteHeader locale={locale} />
         <main id="main-content">{children}</main>
-        {isProduction ? <AdsterraPlacements /> : null}
         <SiteFooter locale={locale} />
         {loadAnalytics ? <GoogleAnalytics gaId={siteConfig.analyticsId} /> : null}
-        {isProduction ? <script defer data-cfasync="false" src="https://bauval.org/14/624e9290f6170344e962d529f5b46aca" /> : null}
       </body>
     </html>
   );

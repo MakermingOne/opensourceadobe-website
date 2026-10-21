@@ -10,6 +10,11 @@ const routes = [
   "/download/",
   "/tutorials/",
   "/faq/",
+  "/artcraft/",
+  "/artcraft/pricing/",
+  "/artcraft/safety/",
+  "/artcraft/alternatives/",
+  "/artcraft/photocraft-how-to-use/",
   "/apps/photocraft/",
   "/apps/vectorcraft/",
   "/apps/filmcraft/",
@@ -114,7 +119,7 @@ for (const route of routes) {
   canonicals.add(canonical);
 }
 
-for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/alternatives/illustrator/", "/alternatives/acrobat/", "/alternatives/after-effects/", "/alternatives/indesign/", "/alternatives/substance-painter/", "/apps/pdfcraft/", "/apps/photocraft/"]) {
+for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/alternatives/illustrator/", "/alternatives/acrobat/", "/alternatives/after-effects/", "/alternatives/indesign/", "/alternatives/substance-painter/", "/artcraft/", "/artcraft/pricing/", "/artcraft/safety/", "/artcraft/alternatives/", "/artcraft/photocraft-how-to-use/", "/apps/pdfcraft/", "/apps/photocraft/"]) {
   const html = await readFile(routeFile(route), "utf8");
   if (!/FAQPage/.test(html)) failures.push(`${route}: missing FAQPage structured data`);
   if (!/property="og:image"/.test(html)) failures.push(`${route}: missing og:image`);
@@ -131,6 +136,11 @@ const exactGuideTitles = new Map([
   ["/alternatives/after-effects/", "Open Source After Effects Alternatives: Blender, Natron &amp; More"],
   ["/alternatives/indesign/", "Open Source InDesign Alternatives: Scribus, DesignCraft &amp; More"],
   ["/alternatives/substance-painter/", "Open Source Substance Painter Alternatives: ArmorPaint &amp; More"],
+  ["/artcraft/", "What Is ArtCraft? The AI Studio and Its Free Craft Apps"],
+  ["/artcraft/pricing/", "Is ArtCraft Free? Craft Apps, AI Studio and Credit Plans"],
+  ["/artcraft/safety/", "Is ArtCraft Safe to Download? A Verification Checklist"],
+  ["/artcraft/alternatives/", "ArtCraft Alternatives: Open-Source Tools and Their Limits"],
+  ["/artcraft/photocraft-how-to-use/", "How to Use PhotoCraft: First Edit, Save and Export"],
 ]);
 for (const [route, expectedTitle] of exactGuideTitles) {
   const html = await readFile(routeFile(route), "utf8");

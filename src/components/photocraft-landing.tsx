@@ -173,6 +173,7 @@ export function PhotoCraftLanding({ app, sources }: { app: AppRecord; sources: S
             <li><span>04</span><p><strong>Save both ways.</strong> Save a PhotoCraft copy and export the delivery format you usually send.</p></li>
             <li><span>05</span><p><strong>Reopen and compare.</strong> Check the saved document in PhotoCraft and your established editor before trusting the result.</p></li>
           </ol>
+          <p>For the menu steps behind these checks, read our <Link href="/artcraft/photocraft-how-to-use/">PhotoCraft first-edit guide</Link>, which follows the project’s official user documentation.</p>
         </section>
 
         <section className="landing-section fit-section" aria-labelledby="fit-heading">

@@ -35,6 +35,11 @@ const routes = [
   "/alternatives/after-effects/",
   "/alternatives/indesign/",
   "/alternatives/substance-painter/",
+  "/artcraft/",
+  "/artcraft/pricing/",
+  "/artcraft/safety/",
+  "/artcraft/alternatives/",
+  "/artcraft/photocraft-how-to-use/",
   "/updates/",
   "/updates/2026-10-13/",
   "/updates/2026-10-15/",
@@ -114,7 +119,7 @@ test("Lightroom guide separates development from cataloguing", async ({ page }) 
 test("home introduces the current ArtCraft app hub", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
 
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Find your free, open-source tools by workflow.");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Open-source Adobe alternatives and everyday tools from ArtCraft.");
   await expect(page.getByText("PhotoCraft", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("VectorCraft", { exact: true }).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "Explore 13 ArtCraft apps by workflow" })).toBeVisible();

@@ -45,8 +45,13 @@ describe("site URL contract", () => {
     expect(publishedRoutes).toContain("/updates/2026-10-16/");
     expect(publishedRoutes).toContain("/updates/2026-10-17/");
     expect(publishedRoutes).toContain("/brandon-thomas/");
+    expect(publishedRoutes).toContain("/artcraft/");
+    expect(publishedRoutes).toContain("/artcraft/pricing/");
+    expect(publishedRoutes).toContain("/artcraft/safety/");
+    expect(publishedRoutes).toContain("/artcraft/alternatives/");
+    expect(publishedRoutes).toContain("/artcraft/photocraft-how-to-use/");
     expect(publishedRoutes).not.toContain("/learn/ai-history-1955/");
-    expect(publishedRoutes).toHaveLength(42);
+    expect(publishedRoutes).toHaveLength(47);
   });
 
   it("redirects the www host to the canonical host with an exact 301", () => {
