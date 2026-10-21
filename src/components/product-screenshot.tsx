@@ -13,7 +13,7 @@ export function ProductScreenshot({
 }) {
   return (
     <figure
-      aria-label={`PhotoCraft product screenshot: ${media.caption}`}
+      aria-label={`Product screenshot: ${media.caption}`}
       className={`product-shot ${className}`.trim()}
     >
       <div className="product-shot__frame">

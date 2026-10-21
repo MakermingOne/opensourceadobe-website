@@ -44,3 +44,17 @@ export const photocraftMedia = [
     sourceUrl: "https://getartcraft.com/apps/photocraft",
   },
 ] as const satisfies readonly ProductMedia[];
+
+export const pdfcraftMedia = [
+  {
+    id: "pdfcraft-workbench",
+    src: "/images/artcraft/pdfcraft-hero.webp",
+    width: 1600,
+    height: 1000,
+    alt: "PdfCraft showing a showcase PDF cover with the All tools panel and threaded comments",
+    caption:
+      "The PDF workbench with a showcase document open, the All tools panel and threaded comments visible.",
+    sourceLabel: "ArtCraft official PdfCraft page",
+    sourceUrl: "https://getartcraft.com/apps/pdfcraft",
+  },
+] as const satisfies readonly ProductMedia[];

@@ -16,6 +16,8 @@ import type { AppGuide } from "@/content/guides";
 import { absoluteUrl } from "@/lib/site";
 import { PageUpdated } from "@/components/page-updated";
 import { pageUpdatedAt } from "@/content/page-dates";
+import { ProductScreenshot } from "@/components/product-screenshot";
+import { pdfcraftMedia } from "@/content/media";
 
 export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide: AppGuide; sources: SourceRecord[] }) {
   const counterpart = comparedProduct(app);
@@ -81,6 +83,10 @@ export function AppGuideLanding({ app, guide, sources }: { app: AppRecord; guide
             </dl>
           </div>
         </header>
+
+        {app.slug === "pdfcraft" ? (
+          <ProductScreenshot media={pdfcraftMedia[0]} priority className="product-hero-shot" />
+        ) : null}
 
         <OfficialDownloads slug={app.slug as DownloadSlug} name={app.name} platformNotes={guide.platformNotes} />
 

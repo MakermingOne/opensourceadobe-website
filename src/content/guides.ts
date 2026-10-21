@@ -295,32 +295,32 @@ export const workflowProfiles = {
   },
   figcraft: {
     prompt: "I design interfaces and prototypes",
-    bestFor: "Exploring interface layouts, components and interactive prototypes.",
+    bestFor: "Interface design and prototyping with auto layout, components and theme variables.",
     checkFirst: "Figma file interchange, collaboration and early-alpha reliability.",
   },
   wordcraft: {
     prompt: "I write documents",
-    bestFor: "Exploring open-source word processing workflows.",
+    bestFor: "Document writing with a ribbon interface, styles, track changes and .docx support.",
     checkFirst: "Compatibility with .docx files and Word document interchange.",
   },
   soundcraft: {
     prompt: "I edit audio",
-    bestFor: "Exploring open-source digital audio workstation workflows.",
+    bestFor: "Multitrack audio recording, editing and mixing with MIDI support.",
     checkFirst: "Plug-in format support, multitrack mixing depth, and DAW interchange.",
   },
   deckcraft: {
     prompt: "I make presentations",
-    bestFor: "Exploring open-source presentation workflows.",
+    bestFor: "Slide presentations with masters, themes, 150+ vector shapes and presenter view.",
     checkFirst: "Compatibility with .pptx files and PowerPoint interchange.",
   },
   cadcraft: {
     prompt: "I draft technical drawings",
-    bestFor: "Exploring open-source CAD and technical drawing workflows.",
+    bestFor: "Technical drafting with a command line, object snaps, dimensions and constraints.",
     checkFirst: "DWG/DXF interchange, parametric modeling depth, and precision drawing tools.",
   },
   gridcraft: {
     prompt: "I work with spreadsheets",
-    bestFor: "Exploring open-source spreadsheet workflows.",
+    bestFor: "Spreadsheets with 500+ functions, dynamic arrays, PivotTables and charts.",
     checkFirst: "Compatibility with .xlsx files and Excel formula coverage.",
   },
 } as const;

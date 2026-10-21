@@ -222,7 +222,10 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/figcraft",
     detailPublished: true,
     summary: "ArtCraft describes FigCraft as an open-source interface design and prototyping application with frames, auto layout, components and variants.",
-    supportedTasks: ["Interface design, reusable components and interactive prototypes described by the official project"],
+    supportedTasks: [
+      "Interface design with frames, auto layout and reusable components",
+      "Interactive prototypes with variants and theme variables",
+    ],
     limitations: ["The official directory labels FigCraft as early alpha.", ...sharedLimitations],
     unknowns: ["Independent Figma file interchange and collaborative-session reliability"],
     sourceIds: ["artcraft-apps", "figcraft-official", "figcraft-repository", "figcraft-mcp-070"],
@@ -242,8 +245,13 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/wordcraft",
     detailPublished: true,
     summary:
-      "WordCraft is ArtCraft's open-source word processing application, also from ArtCraft but beyond the Adobe replacement scope.",
-    supportedTasks: ["Document creation and editing workflows described by the official project"],
+      "ArtCraft describes WordCraft as an open-source word processor with a ribbon interface, styles, track changes, references and mail merge, reading and writing .docx natively.",
+    supportedTasks: [
+      "Document writing and formatting with a ribbon interface and live Styles gallery",
+      "Track changes, comments and document comparison",
+      "Tables of contents, footnotes, citations and bibliographies",
+      "Reading and writing .docx, with .odt, .rtf, .html, .md, .txt and PDF export",
+    ],
     limitations: [
       "The official README identifies WordCraft as alpha; pagination, complex DOCX round-trips and native printing still need work.",
       ...sharedBeyondAdobeNotes,
@@ -266,8 +274,13 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/soundcraft",
     detailPublished: true,
     summary:
-      "SoundCraft is ArtCraft's open-source digital audio workstation, also from ArtCraft but beyond the Adobe replacement scope.",
-    supportedTasks: ["Audio editing and production workflows described by the official project"],
+      "ArtCraft describes SoundCraft as an open-source digital audio workstation with dedicated Edit and Mix windows, multitrack audio and MIDI, and surround panning.",
+    supportedTasks: [
+      "Multitrack audio recording and editing in dedicated Edit and Mix windows",
+      "Mixing with inserts, sends, busses and live automation",
+      "Piano-roll MIDI editing, quantize and score notation",
+      "Surround panning up to 9.1.6 and synchronized video playback",
+    ],
     limitations: [
       "The official README identifies SoundCraft as pre-alpha, with audio-interface selection, MIDI-controller recording and AAF/OMF interchange still missing.",
       ...sharedBeyondAdobeNotes,
@@ -290,8 +303,13 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/deckcraft",
     detailPublished: true,
     summary:
-      "DeckCraft is ArtCraft's open-source presentation application, also from ArtCraft but beyond the Adobe replacement scope.",
-    supportedTasks: ["Slide creation and presentation workflows described by the official project"],
+      "ArtCraft describes DeckCraft as an open-source presentation app with slide masters, themes, over 150 vector shapes, transitions, animations and presenter view.",
+    supportedTasks: [
+      "Building slides with masters, themes and inheriting layouts",
+      "Vector drawing with 150+ preset shapes and sticky connectors",
+      "Transitions and animations including Morph and motion paths",
+      "Presenter view with speaker notes and rehearsal timings",
+    ],
     limitations: [
       "The official README identifies DeckCraft as alpha; PowerPoint file fidelity and presentation behavior need testing.",
       ...sharedBeyondAdobeNotes,
@@ -314,8 +332,13 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/cadcraft",
     detailPublished: true,
     summary:
-      "CADCraft is ArtCraft's open-source CAD and technical drawing application, also from ArtCraft but beyond the Adobe replacement scope.",
-    supportedTasks: ["CAD drafting and technical drawing workflows described by the official project"],
+      "ArtCraft describes CADCraft as an open-source CAD and drafting app with a command line, object snaps, layers, dimensions, hatches and parametric constraints.",
+    supportedTasks: [
+      "2D drafting with command-line input, object snaps and polar tracking",
+      "Reading and writing DXF, opening DWG, and exporting to PDF, SVG and PNG",
+      "Paper space layouts with scaled viewports and exact plotting",
+      "Associative dimensions, hatching, blocks and parametric constraints",
+    ],
     limitations: [
       "The official lineup labels CADCraft as in development.",
       ...sharedBeyondAdobeNotes,
@@ -338,8 +361,13 @@ const appInput: AppRecord[] = [
     repository: "https://github.com/storytold/gridcraft",
     detailPublished: true,
     summary:
-      "GridCraft is ArtCraft's open-source spreadsheet application, also from ArtCraft but beyond the Adobe replacement scope.",
-    supportedTasks: ["Spreadsheet creation and data analysis workflows described by the official project"],
+      "ArtCraft describes GridCraft as an open-source spreadsheet app with a ribbon interface, 500+ calculation functions, dynamic arrays, PivotTables and charts, reading and writing .xlsx.",
+    supportedTasks: [
+      "Spreadsheet editing with formula bar, fill handle and conditional formatting",
+      "500+ calculation functions with dynamic arrays, LET and LAMBDA",
+      "PivotTables with filters, field lists and date grouping",
+      "Seventeen chart types and native .xlsx round-trip",
+    ],
     limitations: [
       "The official README identifies GridCraft as alpha; workbook fidelity, very large files and chart depth still need work.",
       ...sharedBeyondAdobeNotes,
