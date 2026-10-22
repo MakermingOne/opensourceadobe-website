@@ -5,7 +5,7 @@ import { officialDownloads, type DownloadSlug } from '@/content/downloads';
 import { translatedLocales } from '@/i18n/config';
 import { getPageContent } from '@/content/pages';
 
-const versions = { photocraft: '0.10.0', vectorcraft: '0.13.1', filmcraft: '0.9.0', lightcraft: '0.9.1', pdfcraft: '0.9.0', effectcraft: '0.11.1', designcraft: '0.9.0', figcraft: '0.7.0', wordcraft: '0.8.0', soundcraft: '0.8.0', deckcraft: '0.8.0', cadcraft: '0.8.0', gridcraft: '0.8.0', 'craft-launcher': '0.5.1' };
+const versions = {"photocraft": "0.12.0", "vectorcraft": "0.14.0", "filmcraft": "0.10.0", "lightcraft": "0.11.0", "pdfcraft": "0.11.0", "effectcraft": "0.14.0", "designcraft": "0.11.0", "figcraft": "0.9.0", "wordcraft": "0.9.0", "soundcraft": "0.11.0", "deckcraft": "0.9.0", "cadcraft": "0.10.0", "gridcraft": "0.10.0", "craft-launcher": "0.6.1"};
 describe('October 20 verified release and community refresh', () => {
  it('records published assets instead of newer release-named development commits', () => {
   for (const [slug, version] of Object.entries(versions)) {
@@ -13,14 +13,14 @@ describe('October 20 verified release and community refresh', () => {
    if (slug !== 'craft-launcher') {
     const snapshot = officialDownloads[slug as DownloadSlug];
     expect(snapshot.version).toBe(version);
-    expect(snapshot.checkedAt).toBe('2026-10-20');
+    expect(snapshot.checkedAt).toBe('2026-10-22');
     expect(snapshot.packages.every(p => p.filename.includes(version) && p.sizeBytes > 0)).toBe(true);
    }
   }
  });
  it('preserves release event dates and separates unversioned community reports', () => {
-  expect(latestUpdateDate).toBe('2026-10-20');
-  const issue = dailyUpdates.find(i => i.date === latestUpdateDate)!;
+  expect(latestUpdateDate).toBe('2026-10-22');
+  const issue = dailyUpdates.find(i => i.date === '2026-10-20')!;
   expect(issue.entries.filter(e => e.kind === 'Official release')).toHaveLength(14);
   expect(issue.entries.filter(e => e.kind === 'Official release').every(e => ['2026-10-17', '2026-10-18'].includes(e.eventDate!))).toBe(true);
   expect(issue.entries.filter(e => e.kind === 'Community report')).toHaveLength(2);

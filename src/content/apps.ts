@@ -382,7 +382,7 @@ export const apps = appRecordSchema.array().length(13).parse(appInput.map((app) 
   ...app,
   version: releasesBySlug.get(app.slug)?.version ?? app.version,
   lastVerified: releaseCheckedOn(app.slug),
-  sourceIds: [...app.sourceIds, `${app.slug}-release`],
+  sourceIds: [...app.sourceIds, `${app.slug}-release`, ...(app.slug === "photocraft" ? ["photocraft-gaps-0120"] : [])],
 })));
 export const publishedApps = apps.filter((app) => app.detailPublished);
 export const appsBySlug = new Map(apps.map((app) => [app.slug, app]));

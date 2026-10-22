@@ -3,6 +3,9 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "photocraft-release-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 published release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.12.0", "accessedAt": "2026-10-22"},
+{"id": "photocraft-checksums-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.12.0/SHA256SUMS.txt", "accessedAt": "2026-10-22"},
+{"id": "photocraft-gaps-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 documented gaps, including generative features", "url": "https://github.com/storytold/photocraft/blob/v0.12.0/docs/gaps.md", "accessedAt": "2026-10-22"},
 {"id": "community-photocraft-brush-cursor-oct20", "type": "third-party", "title": "Reddit: PhotoCraft problems, posted October 20 UTC", "url": "https://www.reddit.com/r/ArtCraftAI/comments/1xao6b0/photocraft_problems/", "accessedAt": "2026-10-20"},
 {"id": "community-vectorcraft-pencil-oct20", "type": "third-party", "title": "Reddit: Pencil tool needs improvement, posted October 20 UTC", "url": "https://www.reddit.com/r/VectorCraft/comments/1xapmj1/pencil_tool_needs_improvement/", "accessedAt": "2026-10-20"},
 {"id": "figcraft-mcp-070", "type": "official-repository", "title": "FigCraft v0.7.0 tagged MCP file-access documentation", "url": "https://github.com/storytold/figcraft/blob/v0.7.0/docs/mcp.md", "accessedAt": "2026-10-20"},
