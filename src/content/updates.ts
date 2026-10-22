@@ -10,6 +10,7 @@ export type UpdateEntry = {
   sourceTitle: string;
   sourceUrl: string;
   eventDate?: string;
+  eventPublishedAt?: string;
   relatedPath: string;
   relatedLabel: string;
 };
@@ -17,6 +18,8 @@ export type DailyUpdate = {
   date: string;
   modifiedDate?: string;
   publishedDate?: string;
+  checkedDate?: string;
+  relatedBriefDates?: string[];
   title: string;
   description: string;
   seoTitle: string;
@@ -29,8 +32,8 @@ export const dailyUpdates: DailyUpdate[] = [
   "date": "2026-10-22",
   "title": "PhotoCraft 0.12.0, PdfCraft 0.11.0 and the latest Crafting Apps releases",
   "seoTitle": "ArtCraft Updates: PhotoCraft 0.12.0 & Releases — Oct 22, 2026",
-  "description": "Verified releases for 13 Crafting Apps and Launcher 0.6.1, plus attributed community discussions about generative fill, printing and an independent browser workspace.",
-  "introduction": "Checked October 22 (Beijing date): all 13 Crafting Apps and ArtCraft Launcher have newer published packages than our October 20 snapshot. Their original release dates below are October 21 UTC; some fall on October 22 in Beijing. The official News index still lists January 30 as its latest article. GitHub release assets take precedence over older version labels still shown on some product pages. Community posts and unmerged work are labeled separately. Direct X, YouTube uploads and Google search-page access were limited; indexed discovery and readable original sources do not establish complete coverage of those channels.",
+  "description": "Eight official releases published October 22 in Beijing, including PhotoCraft 0.12.0 and PdfCraft 0.11.0, plus community reports and a documentation clarification.",
+  "introduction": "Checked October 22 (Beijing date): this brief covers eight official releases published after midnight in Beijing, including PhotoCraft 0.12.0 and PdfCraft 0.11.0. Their original GitHub publication dates are October 21 UTC. The six releases published earlier on October 21 in Beijing are now in the separate October 21 brief, verified and published here October 22. Community reports remain under their October 22 source check because precise publication times were not established. The official News index still lists January 30 as its latest article. Direct X, YouTube uploads and Google search-page access were limited; coverage is incomplete.",
   "entries": [
     {
       "id": "photocraft-0120-oct22",
@@ -44,35 +47,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "PhotoCraft v0.12.0 official release notes",
       "sourceUrl": "https://github.com/storytold/photocraft/releases/tag/v0.12.0",
       "relatedPath": "/apps/photocraft/",
-      "relatedLabel": "Read the PhotoCraft guide"
-    },
-    {
-      "id": "vectorcraft-0140-oct22",
-      "appSlug": "vectorcraft",
-      "appName": "VectorCraft",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "VectorCraft 0.14.0: published release",
-      "summary": "The v0.14.0 notes address SVG image paths, PDF and Illustrator layer-name decoding, clearer warnings when Illustrator editing data cannot be read, and legacy Illustrator export details. Import and export fixes do not establish complete Illustrator round-trip compatibility.",
-      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
-      "sourceTitle": "VectorCraft v0.14.0 official release notes",
-      "sourceUrl": "https://github.com/storytold/vectorcraft/releases/tag/v0.14.0",
-      "relatedPath": "/apps/vectorcraft/",
-      "relatedLabel": "Read the VectorCraft guide"
-    },
-    {
-      "id": "filmcraft-0100-oct22",
-      "appSlug": "filmcraft",
-      "appName": "FilmCraft",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "FilmCraft 0.10.0: published release",
-      "summary": "The v0.10.0 notes describe SDR export colour metadata, TTML caption timing, retained graph-keyframe positions and stricter media/LUT input checks. Try a short sequence with your own captions and codecs; this does not establish support for every project format.",
-      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
-      "sourceTitle": "FilmCraft v0.10.0 official release notes",
-      "sourceUrl": "https://github.com/storytold/filmcraft/releases/tag/v0.10.0",
-      "relatedPath": "/apps/filmcraft/",
-      "relatedLabel": "Read the FilmCraft guide"
+      "relatedLabel": "Read the PhotoCraft guide",
+      "eventPublishedAt": "2026-10-21T18:28:57Z"
     },
     {
       "id": "lightcraft-0110-oct22",
@@ -86,7 +62,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "LightCraft v0.11.0 official release notes",
       "sourceUrl": "https://github.com/storytold/lightcraft/releases/tag/v0.11.0",
       "relatedPath": "/apps/lightcraft/",
-      "relatedLabel": "Read the LightCraft guide"
+      "relatedLabel": "Read the LightCraft guide",
+      "eventPublishedAt": "2026-10-21T18:29:19Z"
     },
     {
       "id": "pdfcraft-0110-oct22",
@@ -100,7 +77,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "PdfCraft v0.11.0 official release notes",
       "sourceUrl": "https://github.com/storytold/pdfcraft/releases/tag/v0.11.0",
       "relatedPath": "/apps/pdfcraft/",
-      "relatedLabel": "Read the PdfCraft guide"
+      "relatedLabel": "Read the PdfCraft guide",
+      "eventPublishedAt": "2026-10-21T19:57:25Z"
     },
     {
       "id": "effectcraft-0140-oct22",
@@ -114,7 +92,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "EffectCraft v0.14.0 official release notes",
       "sourceUrl": "https://github.com/storytold/effectcraft/releases/tag/v0.14.0",
       "relatedPath": "/apps/effectcraft/",
-      "relatedLabel": "Read the EffectCraft guide"
+      "relatedLabel": "Read the EffectCraft guide",
+      "eventPublishedAt": "2026-10-21T19:04:46Z"
     },
     {
       "id": "designcraft-0110-oct22",
@@ -128,7 +107,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "DesignCraft v0.11.0 official release notes",
       "sourceUrl": "https://github.com/storytold/designcraft/releases/tag/v0.11.0",
       "relatedPath": "/apps/designcraft/",
-      "relatedLabel": "Read the DesignCraft guide"
+      "relatedLabel": "Read the DesignCraft guide",
+      "eventPublishedAt": "2026-10-21T18:26:30Z"
     },
     {
       "id": "figcraft-090-oct22",
@@ -142,21 +122,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "FigCraft v0.9.0 official release notes",
       "sourceUrl": "https://github.com/storytold/figcraft/releases/tag/v0.9.0",
       "relatedPath": "/apps/figcraft/",
-      "relatedLabel": "Read the FigCraft guide"
-    },
-    {
-      "id": "wordcraft-090-oct22",
-      "appSlug": "wordcraft",
-      "appName": "WordCraft",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "WordCraft 0.9.0: published release",
-      "summary": "The v0.9.0 notes cover OpenType font-name resolution, table insets across page breaks, retained Navigation Pane visibility and REF-field hyperlinks in PDF output. Compare copied documents with their originals, including fonts, tables and links.",
-      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
-      "sourceTitle": "WordCraft v0.9.0 official release notes",
-      "sourceUrl": "https://github.com/storytold/wordcraft/releases/tag/v0.9.0",
-      "relatedPath": "/apps/wordcraft/",
-      "relatedLabel": "Read the WordCraft guide"
+      "relatedLabel": "Read the FigCraft guide",
+      "eventPublishedAt": "2026-10-21T18:26:33Z"
     },
     {
       "id": "soundcraft-0110-oct22",
@@ -170,35 +137,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "SoundCraft v0.11.0 official release notes",
       "sourceUrl": "https://github.com/storytold/soundcraft/releases/tag/v0.11.0",
       "relatedPath": "/apps/soundcraft/",
-      "relatedLabel": "Read the SoundCraft guide"
-    },
-    {
-      "id": "deckcraft-090-oct22",
-      "appSlug": "deckcraft",
-      "appName": "DeckCraft",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "DeckCraft 0.9.0: published release",
-      "summary": "The v0.9.0 notes include warnings for unreadable PPTX slides, transparent-background PNG export, HTML-paste text retention and starting a slide show when opening a .ppsx file. Check slide content and exported media with representative presentations.",
-      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
-      "sourceTitle": "DeckCraft v0.9.0 official release notes",
-      "sourceUrl": "https://github.com/storytold/deckcraft/releases/tag/v0.9.0",
-      "relatedPath": "/apps/deckcraft/",
-      "relatedLabel": "Read the DeckCraft guide"
-    },
-    {
-      "id": "cadcraft-0100-oct22",
-      "appSlug": "cadcraft",
-      "appName": "CADCraft",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "CADCraft 0.10.0: published release",
-      "summary": "The v0.10.0 notes describe explicit SVG import omissions, layout placement in DWG, dimension/text interoperability changes and millimetre plotting. These are project-reported changes; test drawing dimensions, layouts and printed scale before relying on interchange.",
-      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
-      "sourceTitle": "CADCraft v0.10.0 official release notes",
-      "sourceUrl": "https://github.com/storytold/cadcraft/releases/tag/v0.10.0",
-      "relatedPath": "/apps/cadcraft/",
-      "relatedLabel": "Read the CADCraft guide"
+      "relatedLabel": "Read the SoundCraft guide",
+      "eventPublishedAt": "2026-10-21T18:12:00Z"
     },
     {
       "id": "gridcraft-0100-oct22",
@@ -212,21 +152,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceTitle": "GridCraft v0.10.0 official release notes",
       "sourceUrl": "https://github.com/storytold/gridcraft/releases/tag/v0.10.0",
       "relatedPath": "/apps/gridcraft/",
-      "relatedLabel": "Read the GridCraft guide"
-    },
-    {
-      "id": "craft-launcher-061-oct22",
-      "appSlug": "craft-launcher",
-      "appName": "ArtCraft Launcher",
-      "kind": "Official release",
-      "eventDate": "2026-10-21",
-      "title": "ArtCraft Launcher 0.6.1: published release",
-      "summary": "The v0.6.1 notes fix saved filters hiding all apps at startup. The release drops FreeBSD aarch64 packages; do not infer an available ARM64 FreeBSD installer from an earlier platform claim. Other target packages must be selected by exact architecture.",
-      "impact": "If the app list disappears after startup, compare the installed Launcher version with 0.6.1 and its filter fix. Confirm the target package before updating; we have not run an installation test.",
-      "sourceTitle": "ArtCraft Launcher v0.6.1 official release notes",
-      "sourceUrl": "https://github.com/storytold/craft-launcher/releases/tag/v0.6.1",
-      "relatedPath": "/download/",
-      "relatedLabel": "Check official downloads"
+      "relatedLabel": "Read the GridCraft guide",
+      "eventPublishedAt": "2026-10-21T18:12:04Z"
     },
     {
       "id": "photocraft-generative-fill-discussion-oct22",
@@ -283,17 +210,116 @@ export const dailyUpdates: DailyUpdate[] = [
       "relatedPath": "/apps/photocraft/",
       "relatedLabel": "PhotoCraft guide"
     }
+  ],
+  "checkedDate": "2026-10-22",
+  "relatedBriefDates": [
+    "2026-10-21"
   ]
 },
 {
   "date": "2026-10-21",
   "publishedDate": "2026-10-22",
   "modifiedDate": "2026-10-22",
-  "title": "October 21: no update check was recorded",
-  "seoTitle": "ArtCraft Daily Record — October 21, 2026",
-  "description": "Retrospective date record added October 22: no source check was logged for October 21. See the October 22 brief for subsequently verified releases.",
-  "introduction": "This date record was added on October 22. No update check was recorded for October 21, so it does not claim that no releases or community activity occurred. The October 22 brief reports the official releases and community material subsequently verified, preserving their original event dates.",
-  "entries": []
+  "title": "October 21 releases: VectorCraft 0.14.0, FilmCraft 0.10.0 and Launcher 0.6.1",
+  "seoTitle": "ArtCraft Releases: VectorCraft & Launcher — Oct 21, 2026",
+  "description": "Six official releases published October 21 in Beijing: VectorCraft, FilmCraft, WordCraft, DeckCraft, CADCraft and Launcher. Verified and published here October 22.",
+  "introduction": "Six releases were published on October 21 in Beijing: VectorCraft 0.14.0, FilmCraft 0.10.0, WordCraft 0.9.0, DeckCraft 0.9.0, CADCraft 0.10.0 and ArtCraft Launcher 0.6.1. This retrospective brief was verified and published on October 22, not checked on October 21. Original UTC dates and exact Beijing publication times are shown separately. The eight releases published after midnight in Beijing are covered in the October 22 brief.",
+  "entries": [
+    {
+      "id": "vectorcraft-0140-oct22",
+      "appSlug": "vectorcraft",
+      "appName": "VectorCraft",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "VectorCraft 0.14.0: published release",
+      "summary": "The v0.14.0 notes address SVG image paths, PDF and Illustrator layer-name decoding, clearer warnings when Illustrator editing data cannot be read, and legacy Illustrator export details. Import and export fixes do not establish complete Illustrator round-trip compatibility.",
+      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
+      "sourceTitle": "VectorCraft v0.14.0 official release notes",
+      "sourceUrl": "https://github.com/storytold/vectorcraft/releases/tag/v0.14.0",
+      "relatedPath": "/apps/vectorcraft/",
+      "relatedLabel": "Read the VectorCraft guide",
+      "eventPublishedAt": "2026-10-21T07:46:25Z"
+    },
+    {
+      "id": "filmcraft-0100-oct22",
+      "appSlug": "filmcraft",
+      "appName": "FilmCraft",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "FilmCraft 0.10.0: published release",
+      "summary": "The v0.10.0 notes describe SDR export colour metadata, TTML caption timing, retained graph-keyframe positions and stricter media/LUT input checks. Try a short sequence with your own captions and codecs; this does not establish support for every project format.",
+      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
+      "sourceTitle": "FilmCraft v0.10.0 official release notes",
+      "sourceUrl": "https://github.com/storytold/filmcraft/releases/tag/v0.10.0",
+      "relatedPath": "/apps/filmcraft/",
+      "relatedLabel": "Read the FilmCraft guide",
+      "eventPublishedAt": "2026-10-21T07:46:20Z"
+    },
+    {
+      "id": "wordcraft-090-oct22",
+      "appSlug": "wordcraft",
+      "appName": "WordCraft",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "WordCraft 0.9.0: published release",
+      "summary": "The v0.9.0 notes cover OpenType font-name resolution, table insets across page breaks, retained Navigation Pane visibility and REF-field hyperlinks in PDF output. Compare copied documents with their originals, including fonts, tables and links.",
+      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
+      "sourceTitle": "WordCraft v0.9.0 official release notes",
+      "sourceUrl": "https://github.com/storytold/wordcraft/releases/tag/v0.9.0",
+      "relatedPath": "/apps/wordcraft/",
+      "relatedLabel": "Read the WordCraft guide",
+      "eventPublishedAt": "2026-10-21T07:46:28Z"
+    },
+    {
+      "id": "deckcraft-090-oct22",
+      "appSlug": "deckcraft",
+      "appName": "DeckCraft",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "DeckCraft 0.9.0: published release",
+      "summary": "The v0.9.0 notes include warnings for unreadable PPTX slides, transparent-background PNG export, HTML-paste text retention and starting a slide show when opening a .ppsx file. Check slide content and exported media with representative presentations.",
+      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
+      "sourceTitle": "DeckCraft v0.9.0 official release notes",
+      "sourceUrl": "https://github.com/storytold/deckcraft/releases/tag/v0.9.0",
+      "relatedPath": "/apps/deckcraft/",
+      "relatedLabel": "Read the DeckCraft guide",
+      "eventPublishedAt": "2026-10-21T07:46:17Z"
+    },
+    {
+      "id": "cadcraft-0100-oct22",
+      "appSlug": "cadcraft",
+      "appName": "CADCraft",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "CADCraft 0.10.0: published release",
+      "summary": "The v0.10.0 notes describe explicit SVG import omissions, layout placement in DWG, dimension/text interoperability changes and millimetre plotting. These are project-reported changes; test drawing dimensions, layouts and printed scale before relying on interchange.",
+      "impact": "Choose a published package matching your system and architecture. Release availability does not upgrade the app’s development status. FreeBSD x86_64 packages are present, but no FreeBSD aarch64 package is included in this checked release. Keep copies and test the files you actually use.",
+      "sourceTitle": "CADCraft v0.10.0 official release notes",
+      "sourceUrl": "https://github.com/storytold/cadcraft/releases/tag/v0.10.0",
+      "relatedPath": "/apps/cadcraft/",
+      "relatedLabel": "Read the CADCraft guide",
+      "eventPublishedAt": "2026-10-21T07:46:12Z"
+    },
+    {
+      "id": "craft-launcher-061-oct22",
+      "appSlug": "craft-launcher",
+      "appName": "ArtCraft Launcher",
+      "kind": "Official release",
+      "eventDate": "2026-10-21",
+      "title": "ArtCraft Launcher 0.6.1: published release",
+      "summary": "The v0.6.1 notes fix saved filters hiding all apps at startup. The release drops FreeBSD aarch64 packages; do not infer an available ARM64 FreeBSD installer from an earlier platform claim. Other target packages must be selected by exact architecture.",
+      "impact": "If the app list disappears after startup, compare the installed Launcher version with 0.6.1 and its filter fix. Confirm the target package before updating; we have not run an installation test.",
+      "sourceTitle": "ArtCraft Launcher v0.6.1 official release notes",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/releases/tag/v0.6.1",
+      "relatedPath": "/download/",
+      "relatedLabel": "Check official downloads",
+      "eventPublishedAt": "2026-10-21T08:05:24Z"
+    }
+  ],
+  "checkedDate": "2026-10-22",
+  "relatedBriefDates": [
+    "2026-10-22"
+  ]
 },
   {
   "date": "2026-10-20",
