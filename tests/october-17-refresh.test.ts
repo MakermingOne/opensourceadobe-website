@@ -10,7 +10,7 @@ import { appsBySlug } from "@/content/apps";
 
 describe("October 17 verified increments", () => {
   it("publishes the new release with its original event date", () => {
-    expect(latestUpdateDate).toBe("2026-10-22");
+    expect(latestUpdateDate >= "2026-10-22").toBe(true);
     const issue = dailyUpdates.find((item) => item.date === "2026-10-17");
     const entry = issue?.entries.find((item) => item.id === "vectorcraft-0120");
     expect(entry?.kind).toBe("Official release");

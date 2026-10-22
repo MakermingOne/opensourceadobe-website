@@ -29,7 +29,7 @@ describe("official keyword landing pages", () => {
     expect(appsBySlug.get("pdfcraft")?.detailPublished).toBe(true);
     expect(guideBySlug.pdfcraft.intro).toContain("Early alpha");
     expect(guideBySlug.pdfcraft.verdictDetail).toContain("Office-to-PDF");
-    expect(guideBySlug.pdfcraft.faqs).toHaveLength(6);
+    expect(guideBySlug.pdfcraft.faqs).toHaveLength(7);
     expect(sourcesById.get("artcraft-repository")?.url).toBe("https://github.com/storytold/artcraft");
   });
 });

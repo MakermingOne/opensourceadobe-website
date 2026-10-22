@@ -3,6 +3,7 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "pdfcraft-hidden-information-docs-oct23", "type": "official-repository", "title": "PdfCraft commit: scope and strict reading of hidden-information removal", "url": "https://github.com/storytold/pdfcraft/commit/4d64ca8e2da819dff1d0e08c63939560d3b62a78", "accessedAt": "2026-10-23"},
 {"id": "photocraft-release-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 published release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.12.0", "accessedAt": "2026-10-22"},
 {"id": "photocraft-checksums-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.12.0/SHA256SUMS.txt", "accessedAt": "2026-10-22"},
 {"id": "photocraft-gaps-0120", "type": "official-repository", "title": "PhotoCraft v0.12.0 documented gaps, including generative features", "url": "https://github.com/storytold/photocraft/blob/v0.12.0/docs/gaps.md", "accessedAt": "2026-10-22"},

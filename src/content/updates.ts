@@ -11,6 +11,8 @@ export type UpdateEntry = {
   sourceUrl: string;
   eventDate?: string;
   eventPublishedAt?: string;
+  checkedDate?: string;
+  publishedDate?: string;
   relatedPath: string;
   relatedLabel: string;
 };
@@ -29,12 +31,59 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-10-23",
+  "publishedDate": "2026-10-23",
+  "checkedDate": "2026-10-23",
+  "relatedBriefDates": [
+    "2026-10-22"
+  ],
+  "title": "PdfCraft documentation clarification; no newer release found",
+  "seoTitle": "ArtCraft Updates: PdfCraft Documentation — Oct 23, 2026",
+  "description": "As of the early October 23 Beijing check, published app versions are unchanged. PdfCraft development docs clarify hidden-information removal; access limits remain.",
+  "introduction": "As of 03:03 Beijing time on October 23, this check found no newer published release among the thirteen Crafting Apps, Launcher and the separate AI studio. We read the official homepage, Apps directory, thirteen product pages, News index, release assets and selected important documentation. PdfCraft’s development documentation clarification belongs to October 23 by its commit timestamp; a PhotoCraft JPEG documentation correction belongs to October 22 and was added to that brief today. News still lists January 30 as its latest article. Selected Reddit originals were readable, but the new-post listing was stale. X returned 403, YouTube channel access was throttled and the direct Google search page was inaccessible; indexed searches did not establish a new relevant post or video. This is a partial early-morning check, not a conclusion about the rest of the day.",
+  "entries": [
+    {
+      "id": "pdfcraft-hidden-information-docs-oct23",
+      "appSlug": "pdfcraft",
+      "appName": "PdfCraft",
+      "kind": "Documentation update",
+      "eventDate": "2026-10-22",
+      "eventPublishedAt": "2026-10-22T17:28:40Z",
+      "title": "PdfCraft development docs clarify hidden-information removal",
+      "summary": "A development README clarification describes hidden-information removal across catalog-reachable objects that own metadata, associated files or additional actions. It also says incompletely readable page content must cause refusal rather than partial cleaning. This describes development documentation, not a new 0.11.0 installer or a security audit.",
+      "impact": "Do not assume the latest published package contains later main-branch changes. Keep an established validation process for confidential documents. The source commit timestamp is October 23 at 01:28:40 Beijing time, while its UTC date is October 22.",
+      "sourceTitle": "PdfCraft commit: scope and strict reading of hidden-information removal",
+      "sourceUrl": "https://github.com/storytold/pdfcraft/commit/4d64ca8e2da819dff1d0e08c63939560d3b62a78",
+      "relatedPath": "/apps/pdfcraft/",
+      "relatedLabel": "Read the PdfCraft guide and limitations"
+    }
+  ]
+},
+{
   "date": "2026-10-22",
+  "modifiedDate": "2026-10-23",
   "title": "PhotoCraft 0.12.0, PdfCraft 0.11.0 and the latest Crafting Apps releases",
   "seoTitle": "ArtCraft Updates: PhotoCraft 0.12.0 & Releases — Oct 22, 2026",
   "description": "Eight official releases published October 22 in Beijing, including PhotoCraft 0.12.0 and PdfCraft 0.11.0, plus community reports and a documentation clarification.",
-  "introduction": "Checked October 22 (Beijing date): this brief covers eight official releases published after midnight in Beijing, including PhotoCraft 0.12.0 and PdfCraft 0.11.0. Their original GitHub publication dates are October 21 UTC. The six releases published earlier on October 21 in Beijing are now in the separate October 21 brief, verified and published here October 22. Community reports remain under their October 22 source check because precise publication times were not established. The official News index still lists January 30 as its latest article. Direct X, YouTube uploads and Google search-page access were limited; coverage is incomplete.",
+  "introduction": "Updated October 23: added a PhotoCraft development-documentation correction with an October 22 Beijing commit timestamp; its actual source check and publication are October 23. Earlier entries retain their October 22 source-check dates. Checked October 22 (Beijing date): this brief covers eight official releases published after midnight in Beijing, including PhotoCraft 0.12.0 and PdfCraft 0.11.0. Their original GitHub publication dates are October 21 UTC. The six releases published earlier on October 21 in Beijing are now in the separate October 21 brief, verified and published here October 22. Community reports remain under their October 22 source check because precise publication times were not established. The official News index still lists January 30 as its latest article. Direct X, YouTube uploads and Google search-page access were limited; coverage is incomplete.",
   "entries": [
+{
+    "id": "photocraft-jpeg-docs-oct22",
+    "appSlug": "photocraft",
+    "appName": "PhotoCraft",
+    "kind": "Documentation update",
+    "eventDate": "2026-10-22",
+    "eventPublishedAt": "2026-10-22T15:45:30Z",
+    "checkedDate": "2026-10-23",
+    "publishedDate": "2026-10-23",
+    "title": "PhotoCraft development docs mark JPEG Options as partial",
+    "summary": "The development documentation now explicitly lists Matte, progressive scan selection and the file-size preview as missing from JPEG Options. This is a correction to the documented scope, not a new installer release or an independent compatibility test.",
+    "impact": "Do not treat a completed checklist row as full Photoshop parity. The source commit is dated October 22 at 23:45:30 Beijing time; we checked and added this note on October 23. PhotoCraft’s latest published release remains 0.12.0.",
+    "sourceTitle": "PhotoCraft commit: JPEG Options documentation and remaining limits",
+    "sourceUrl": "https://github.com/storytold/photocraft/commit/6d3092f243509803fa55d6fb51161041733c4d22",
+    "relatedPath": "/apps/photocraft/",
+    "relatedLabel": "Read the PhotoCraft guide"
+},
     {
       "id": "photocraft-0120-oct22",
       "appSlug": "photocraft",
@@ -213,6 +262,7 @@ export const dailyUpdates: DailyUpdate[] = [
   ],
   "checkedDate": "2026-10-22",
   "relatedBriefDates": [
+    "2026-10-23",
     "2026-10-21"
   ]
 },

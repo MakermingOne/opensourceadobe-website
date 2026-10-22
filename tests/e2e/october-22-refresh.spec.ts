@@ -4,7 +4,7 @@ import {translatedLocales} from '../../src/i18n/config';
 for(const width of [390,1280]) test(`October 22 brief keeps original event dates and attributed reports at ${width}px`,async({page,request})=>{
  await page.setViewportSize({width,height:900});
  await page.goto('/updates/2026-10-22/');
- await expect(page.locator('.update-entry')).toHaveCount(12);
+ await expect(page.locator('.update-entry')).toHaveCount(13);
  await expect(page.locator('#photocraft-0120-oct22')).toContainText('Release published 2026-10-21 UTC');
  await expect(page.locator('#photocraft-print-pr-oct22')).toContainText('open and unmerged');
  await expect(page.locator('#community-creative-workspace-oct22')).toContainText('independent alpha');

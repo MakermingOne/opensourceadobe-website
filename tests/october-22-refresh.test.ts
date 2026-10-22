@@ -10,8 +10,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 const versions = {photocraft:'0.12.0',vectorcraft:'0.14.0',filmcraft:'0.10.0',lightcraft:'0.11.0',pdfcraft:'0.11.0',effectcraft:'0.14.0',designcraft:'0.11.0',figcraft:'0.9.0',wordcraft:'0.9.0',soundcraft:'0.11.0',deckcraft:'0.9.0',cadcraft:'0.10.0',gridcraft:'0.10.0','craft-launcher':'0.6.1'};
 it('aligns all current versions, original publication dates, packages and the brief',()=>{
- expect(latestUpdateDate).toBe('2026-10-22');
- const issue=dailyUpdates.find(x=>x.date===latestUpdateDate)!;
+ expect(latestUpdateDate >= '2026-10-22').toBe(true);
+ const issue=dailyUpdates.find(x=>x.date==='2026-10-22')!;
  expect(issue.entries.filter(e=>e.kind==='Official release')).toHaveLength(8);
  const previous=dailyUpdates.find(x=>x.date==='2026-10-21')!;
  expect(previous.entries).toHaveLength(6);
@@ -42,7 +42,7 @@ it('updates every existing translation with a localized summary and an explicitl
   expect(digest?.paragraphs.join(' ')).toContain('0.12.0');
   expect(digest?.paragraphs.join(' ')).toContain('0.6.1');
   expect(digest?.links?.[0].href).toBe('https://opensourceadobe.com/updates/2026-10-22/');
-  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-22');
+  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-23');
  }
 });
 it('splits the prior day without fabricating a source check or backdating publication',async()=>{

@@ -50,7 +50,7 @@ describe("October 17 evening source-qualified additions", () => {
     expect(enPages.photocraft.faqs.some((faq) => faq.answer.includes("Spacing"))).toBe(true);
     expect(guideBySlug.pdfcraft.faqs.some((faq) => faq.question.includes("cursor"))).toBe(true);
     expect(pageUpdatedAt("/apps/photocraft/")).toBe("2026-10-22");
-    expect(pageUpdatedAt("/apps/pdfcraft/")).toBe("2026-10-22");
+    expect(pageUpdatedAt("/apps/pdfcraft/")).toBe("2026-10-23");
     expect(pageUpdatedAt("/apps/filmcraft/")).toBe("2026-10-22");
   });
 });
