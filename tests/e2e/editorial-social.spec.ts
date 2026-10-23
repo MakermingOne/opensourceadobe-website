@@ -27,7 +27,7 @@ for (const route of publishedRoutes) {
 
 test("the footer updates on client navigation and retains dates without JavaScript", async ({ page, browser, baseURL }) => {
   await page.goto("/apps/");
-  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-22");
+  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-24");
   await page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true }).click();
   await expect(page).toHaveURL(/\/about\/$/);
   await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");
@@ -45,8 +45,8 @@ test("GitHub FAQ and license evidence agree with visible release data", async ({
   const faqs = page.locator('.content-section[aria-labelledby="faq-heading"] details');
   await expect(faqs).toHaveCount(3);
   await faqs.nth(1).locator("summary").click();
-  await expect(faqs.nth(1)).toContainText("PhotoCraft 0.12.0");
-  await expect(faqs.nth(1)).toContainText("2026-10-21");
+  await expect(faqs.nth(1)).toContainText("PhotoCraft 0.14.0");
+  await expect(faqs.nth(1)).toContainText("2026-10-23");
   const table = page.getByRole("table", { name: /The 13 Crafting Apps/ });
   await expect(table.locator("tbody tr")).toHaveCount(13);
   await expect(table.locator('a[href$="LICENSE-MIT"]')).toHaveCount(13);

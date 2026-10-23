@@ -7,11 +7,11 @@ import { sourcesById } from "@/content/sources";
 import { pageUpdatedAt } from "@/content/page-dates";
 
 describe("dated development journal", () => {
-  it("keeps exactly one brief for every calendar day, through October 23", () => {
-    expect(latestUpdateDate).toBe("2026-10-23");
+  it("keeps exactly one brief for every calendar day, through October 24", () => {
+    expect(latestUpdateDate).toBe("2026-10-24");
     const dates = dailyUpdates.map((issue) => issue.date);
     expect(new Set(dates).size).toBe(dates.length);
-    for (let day = 13; day <= 23; day++) expect(dates).toContain(`2026-10-${day}`);
+    for (let day = 13; day <= 24; day++) expect(dates).toContain(`2026-10-${day}`);
     expect(publishedRoutes).toContain("/updates/2026-10-18/");
     expect(publishedRoutes).toContain("/updates/2026-10-19/");
   });
@@ -46,6 +46,6 @@ describe("dated development journal", () => {
     expect(source?.accessedAt).toBe("2026-10-16");
     expect(appsBySlug.get("vectorcraft")?.sourceIds).toContain("vectorcraft-rpm-runtime-limits");
     expect(guideBySlug.vectorcraft.platformNotes.find(([platform]) => platform === "Linux")?.[1]).toContain("libm GLIBC_2.35");
-    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-22");
+    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-24");
   });
 });

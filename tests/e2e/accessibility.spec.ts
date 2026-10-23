@@ -149,7 +149,7 @@ test("primary navigation exposes the complete information architecture in order"
 test("PdfCraft guide answers download intent with official assets and alpha limits", async ({ page }) => {
   await page.goto("/apps/pdfcraft/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Download PdfCraft: ArtCraft’s PDF workbench");
-  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.11\.0\/pdfcraft-0\.11\.0-windows-x64\.msi$/);
+  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.13\.0\/pdfcraft-0\.13\.0-windows-x64\.msi$/);
   await expect(page.getByText(/not a complete Acrobat Pro replacement/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PdfCraft", exact: true })).toHaveAttribute("href", "#download-heading");
   expect(await page.locator('script[type="application/ld+json"]').allTextContents()).toEqual(expect.arrayContaining([expect.stringContaining('"@type":"FAQPage"')]));
@@ -183,7 +183,7 @@ test("PhotoCraft landing page answers the switching questions before methodology
   await expect(page.getByRole("heading", { name: "What can you do with PhotoCraft?" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Who should try PhotoCraft now?" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PhotoCraft", exact: true })).toHaveAttribute("href", "#download-heading");
-  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.12\.0\/photocraft-0\.12\.0-macos-universal\.dmg$/);
+  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.14\.0\/photocraft-0\.14\.0-macos-universal\.dmg$/);
   await expect(page.getByText("Early alpha", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("CLAIM 01", { exact: true })).toHaveCount(0);
   await expect(page.getByText("Evidence ledger", { exact: true })).toHaveCount(0);

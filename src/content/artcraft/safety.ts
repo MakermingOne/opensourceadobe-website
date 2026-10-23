@@ -24,11 +24,11 @@ export const artCraftSafetyGuide: ArticleGuide = {
       id: "checksums",
       heading: "Compare the file with its checksum",
       paragraphs: [
-        "PhotoCraft 0.12.0, published on 21 October 2026 UTC, includes a SHA256SUMS.txt file, and GitHub shows a sha256 digest next to every file in the release. ArtCraft studio 0.41.0, published on 26 September 2026, has no SHA256SUMS.txt among its release files, but GitHub still shows a sha256 digest for each installer.",
+        "PhotoCraft 0.14.0, published on 23 October 2026 UTC, includes a SHA256SUMS.txt file, and GitHub shows a sha256 digest next to every file in the release. ArtCraft studio 0.41.0, published on 26 September 2026, has no SHA256SUMS.txt among its release files, but GitHub still shows a sha256 digest for each installer.",
       ],
       table: {
         caption: "What the two releases provide",
-        columns: ["Check", "PhotoCraft 0.12.0", "ArtCraft studio 0.41.0"],
+        columns: ["Check", "PhotoCraft 0.14.0", "ArtCraft studio 0.41.0"],
         rows: [
           { label: "Checksum file", cells: ["Checksum file", "SHA256SUMS.txt in the release", "None among the release files"] },
           { label: "Digest per file", cells: ["Digest per file", "sha256 shown by GitHub", "sha256 shown by GitHub"] },
@@ -107,5 +107,5 @@ export const artCraftSafetyGuide: ArticleGuide = {
     { question: "Is the browser version safer than an installer?", answer: "This page cannot say that. The browser version runs on remote servers, so it avoids a local install but sends your inputs to a service. Read its terms before you use private material." },
     { question: "Why does the studio release have no checksum file?", answer: "The release we checked includes no SHA256SUMS.txt. Use the sha256 digest GitHub shows for each file, and read the release notes for any update before you install." },
   ],
-  sourceIds: ["artcraft-home", "artcraft-apps", "artcraft-repository", "artcraft-release-0410", "photocraft-repository", "photocraft-release-0120", "photocraft-checksums-0120", "photocraft-user-install", "photocraft-security", "artcraft-dev-setup", "artcraft-pricing-official", "photocraft-user-select-mask"],
+  sourceIds: ["artcraft-home", "artcraft-apps", "artcraft-repository", "artcraft-release-0410", "photocraft-repository", "photocraft-release-0140", "photocraft-checksums-0140", "photocraft-user-install", "photocraft-security", "artcraft-dev-setup", "artcraft-pricing-official", "photocraft-user-select-mask"],
 };

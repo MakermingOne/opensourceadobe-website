@@ -18,17 +18,16 @@ it('aligns all current versions, original publication dates, packages and the br
  const entries=[...issue.entries,...previous.entries];
  expect(new Set(entries.filter(e=>e.kind==='Official release').map(e=>e.sourceUrl)).size).toBe(14);
  for(const [slug,version] of Object.entries(versions)) {
-  const release=releasesBySlug.get(slug)!;
-  expect(release.version).toBe(version);
+  const archived=entries.find(e=>e.sourceUrl===`https://github.com/storytold/${slug}/releases/tag/v${version}`)!;
+  const release={version,publishedAt:archived.eventPublishedAt!,url:archived.sourceUrl};
   expect(release.publishedAt.startsWith('2026-10-21T')).toBe(true);
   const releaseDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai'}).format(new Date(release.publishedAt));
   const datedIssue=dailyUpdates.find(x=>x.date===releaseDay)!;
   expect(datedIssue.entries.some(e=>e.appSlug===slug&&e.sourceUrl===release.url&&e.eventDate==='2026-10-21'&&e.eventPublishedAt===release.publishedAt)).toBe(true);
   if(slug!=='craft-launcher') {
    const download=officialDownloads[slug as DownloadSlug];
-   expect(download.checkedAt).toBe('2026-10-22');
-   expect(download.version).toBe(version);
-   expect(download.packages.every(p=>p.filename.includes(version)&&p.sizeBytes>0)).toBe(true);
+   expect(download.version).toBe(releasesBySlug.get(slug)?.version);
+   expect(download.packages.every(p=>p.filename.includes(download.version)&&p.sizeBytes>0)).toBe(true);
   }
  }
  const community=issue.entries.filter(e=>e.kind==='Community report');
@@ -42,7 +41,7 @@ it('updates every existing translation with a localized summary and an explicitl
   expect(digest?.paragraphs.join(' ')).toContain('0.12.0');
   expect(digest?.paragraphs.join(' ')).toContain('0.6.1');
   expect(digest?.links?.[0].href).toBe('https://opensourceadobe.com/updates/2026-10-22/');
-  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-23');
+  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-24');
  }
 });
 it('splits the prior day without fabricating a source check or backdating publication',async()=>{

@@ -4,9 +4,9 @@ import { translatedLocales } from '../../src/i18n/config';
 for (const width of [320, 1440]) test(`October 23 preserves mixed source dates and stays readable at ${width}px`, async ({page,request}) => {
  await page.setViewportSize({width,height:1000});
  await page.goto('/updates/2026-10-23/');
- await expect(page.locator('.update-entry')).toHaveCount(2);
+ await expect(page.locator('.update-entry')).toHaveCount(23);
  await expect(page.locator('#pdfcraft-hidden-information-docs-oct23')).toContainText('Beijing time 2026-10-23 01:28:41');
- await expect(page.locator('.lede')).toContainText('no newer published release');
+ await expect(page.locator('.lede')).toContainText('Supplement checked and published October 24');
  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
  await page.screenshot({path:`/tmp/oa-oct23-${width}.png`,fullPage:true});
  await expect(page.locator('#photocraft-jpeg-docs-oct23')).toContainText('Beijing time 2026-10-23 00:53:33');

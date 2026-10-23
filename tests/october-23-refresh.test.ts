@@ -18,7 +18,7 @@ it('uses the official merge date and preserves earlier source checks', async () 
 
 it('puts the after-midnight documentation in the next Beijing brief without inventing a release', () => {
  const issue = dailyUpdates.find(i => i.date === '2026-10-23')!;
- expect(issue.entries.map(e => e.kind)).toEqual(['Documentation update', 'Documentation update']);
+ expect(issue.entries.filter(e => e.kind === 'Documentation update').map(e => e.kind)).toEqual(['Documentation update', 'Documentation update']);
  expect(issue.entries[1].eventPublishedAt).toBe('2026-10-22T17:28:41Z');
  expect(issue.entries[0].summary).toContain('development');
  expect(issue.introduction).toContain('Beijing time');

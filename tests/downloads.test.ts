@@ -21,8 +21,8 @@ describe("official keyword landing pages", () => {
     });
   }
   it("updates rechecked sources without changing unrelated source dates", () => {
-    expect(releaseCheckedOn("vectorcraft")).toBe("2026-10-22");
-    expect(sourcesById.get("vectorcraft-official")?.accessedAt).toBe("2026-10-22");
+    expect(releaseCheckedOn("vectorcraft")).toBe("2026-10-24");
+    expect(sourcesById.get("vectorcraft-official")?.accessedAt).toBe("2026-10-24");
     expect(sourcesById.get("artcraft-repository")?.accessedAt).toBe("2026-10-14");
   });
   it("publishes a bounded PdfCraft guide instead of an untested review", () => {
