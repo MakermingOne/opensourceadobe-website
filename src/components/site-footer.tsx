@@ -14,6 +14,11 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         <div className="footer-brand">
           <p className="wordmark wordmark--footer">OpenSource<span>Adobe</span></p>
           <p className="footer-note">{copy.footerNote}</p>
+          <a className="footer-findly" href="https://findly.tools/open-source-adobe?utm_source=open-source-adobe" target="_blank" rel="noopener noreferrer">
+            {/* Official Findly embed: the badge URL must stay on findly.tools so listing verification can see it. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" width="175" height="55" />
+          </a>
         </div>
         <nav aria-label={copy.footerNav} className="footer-links">
           {footerGroups.map((group, index) => <div className="footer-link-group" key={group.title}>

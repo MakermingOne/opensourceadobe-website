@@ -515,6 +515,8 @@ article.updates-shell .page-intro h1 { font-size: clamp(2.125rem, 3.7vw, 3.25rem
 .footer-grid { display: grid; grid-template-columns: minmax(220px, 4fr) minmax(0, 8fr); gap: 32px 56px; padding-block: 44px 24px; }
 .wordmark--footer { color: var(--invert-fg); }
 .footer-note { max-width: 34ch; margin: 12px 0 0; color: var(--invert-fg); opacity: 0.7; font-size: 0.8rem; }
+.footer-findly { display: inline-block; margin-top: 18px; line-height: 0; }
+.footer-findly img { display: block; width: 175px; height: 55px; }
 .footer-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: start; gap: 28px; }
 .footer-link-group { min-width: 0; }
 .footer-link-group h2 { margin-bottom: 14px; color: var(--accent-on-dark); font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; letter-spacing: 0.04em; }

@@ -53,4 +53,14 @@ describe("requested editorial corrections", () => {
     expect(footer).not.toContain("Latest brief:");
     expect(footer).toContain("FooterUpdatedDate");
   });
+  it("embeds the free Findly badge with the official listing attributes", () => {
+    const footer = readFileSync("src/components/site-footer.tsx", "utf8");
+    expect(footer).toContain('href="https://findly.tools/open-source-adobe?utm_source=open-source-adobe"');
+    expect(footer).toContain('target="_blank"');
+    expect(footer).toContain('rel="noopener noreferrer"');
+    expect(footer).toContain('src="https://findly.tools/badges/findly-tools-badge-light.svg"');
+    expect(footer).toContain('alt="Featured on Findly.tools"');
+    expect(footer).toContain('width="175"');
+    expect(footer).toContain('height="55"');
+  });
 });
