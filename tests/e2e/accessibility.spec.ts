@@ -183,7 +183,7 @@ test("PhotoCraft landing page answers the switching questions before methodology
   await expect(page.getByRole("heading", { name: "What can you do with PhotoCraft?" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Who should try PhotoCraft now?" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PhotoCraft", exact: true })).toHaveAttribute("href", "#download-heading");
-  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.14\.0\/photocraft-0\.14\.0-macos-universal\.dmg$/);
+  await expect(page.getByRole("link", { name: "Download PhotoCraft for macOS" })).toHaveAttribute("href", /github\.com\/storytold\/photocraft\/releases\/download\/v0\.15\.1\/photocraft-0\.15\.1-macos-universal\.dmg$/);
   await expect(page.getByText("Early alpha", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("CLAIM 01", { exact: true })).toHaveCount(0);
   await expect(page.getByText("Evidence ledger", { exact: true })).toHaveCount(0);

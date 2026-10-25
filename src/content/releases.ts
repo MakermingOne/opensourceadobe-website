@@ -1,16 +1,16 @@
 // Baseline checked October 15; subsequent app-specific refreshes are dated below.
 // This is an editorial snapshot, not a runtime API.
 export const releaseCheckedAt = "2026-10-15";
-const releaseCheckDates: Record<string, string> = {"photocraft": "2026-10-24", "vectorcraft": "2026-10-24", "filmcraft": "2026-10-24", "lightcraft": "2026-10-24", "pdfcraft": "2026-10-24", "effectcraft": "2026-10-24", "designcraft": "2026-10-24", "figcraft": "2026-10-24", "wordcraft": "2026-10-24", "soundcraft": "2026-10-24", "deckcraft": "2026-10-24", "cadcraft": "2026-10-24", "gridcraft": "2026-10-24", "craft-launcher": "2026-10-24"};
+const releaseCheckDates: Record<string, string> = {"photocraft": "2026-10-25", "vectorcraft": "2026-10-24", "filmcraft": "2026-10-24", "lightcraft": "2026-10-24", "pdfcraft": "2026-10-24", "effectcraft": "2026-10-24", "designcraft": "2026-10-24", "figcraft": "2026-10-24", "wordcraft": "2026-10-24", "soundcraft": "2026-10-24", "deckcraft": "2026-10-24", "cadcraft": "2026-10-24", "gridcraft": "2026-10-24", "craft-launcher": "2026-10-24"};
 export function releaseCheckedOn(slug: string) {
   return releases.some((release) => release.slug === slug) ? releaseCheckDates[slug] ?? releaseCheckedAt : "Not verified";
 }
 export const releases = [
   {
     "slug": "photocraft",
-    "version": "0.14.0",
-    "publishedAt": "2026-10-23T00:43:42Z",
-    "url": "https://github.com/storytold/photocraft/releases/tag/v0.14.0"
+    "version": "0.15.1",
+    "publishedAt": "2026-10-23T22:44:33Z",
+    "url": "https://github.com/storytold/photocraft/releases/tag/v0.15.1"
   },
   {
     "slug": "vectorcraft",

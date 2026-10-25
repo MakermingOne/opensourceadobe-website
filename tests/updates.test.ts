@@ -7,11 +7,11 @@ import { sourcesById } from "@/content/sources";
 import { pageUpdatedAt } from "@/content/page-dates";
 
 describe("dated development journal", () => {
-  it("keeps exactly one brief for every calendar day, through October 24", () => {
-    expect(latestUpdateDate).toBe("2026-10-24");
+  it("keeps exactly one brief for every calendar day, through October 25", () => {
+    expect(latestUpdateDate).toBe("2026-10-25");
     const dates = dailyUpdates.map((issue) => issue.date);
     expect(new Set(dates).size).toBe(dates.length);
-    for (let day = 13; day <= 24; day++) expect(dates).toContain(`2026-10-${day}`);
+    for (let day = 13; day <= 25; day++) expect(dates).toContain(`2026-10-${day}`);
     expect(publishedRoutes).toContain("/updates/2026-10-18/");
     expect(publishedRoutes).toContain("/updates/2026-10-19/");
   });

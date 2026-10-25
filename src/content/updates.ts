@@ -31,16 +31,44 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-10-25",
+  "publishedDate": "2026-10-25",
+  "checkedDate": "2026-10-25",
+  "relatedBriefDates": [
+    "2026-10-24"
+  ],
+  "title": "October 25 early check: release status and community automation report",
+  "seoTitle": "ArtCraft Updates: October 25, 2026 Early Check",
+  "description": "No October 25 release found by the early check; October 24 release and documentation events are archived separately, with access limits recorded.",
+  "introduction": "As of 03:09 Beijing time on October 25, the checked release histories for thirteen Crafting Apps, Launcher and the separate AI studio showed no October 25 release. PhotoCraft 0.15.1 and four later official documentation events belong to October 24 Beijing time and are supplemented there, with actual October 25 check and publication dates. We read the official homepage, Apps, all thirteen product pages, News, fifteen release histories with uploaded assets, recent README histories and selected important documentation patches and tagged PhotoCraft docs. News still lists January 30 as its latest article. Selected Reddit originals were readable, but its new-post listing was cached. X returned 403; YouTube channel and selected video access were throttled; direct Google search was inaccessible. Indexed searches were also reviewed, without treating indexing dates as event dates. Coverage is incomplete; this is an early check, not a conclusion about the rest of the day.",
+  "entries": [
+    {
+      "id": "community-photocraft-local-models-oct25",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Community report",
+      "title": "A local-model automation report does not establish editing quality",
+      "summary": "Reddit user u/ScaleAdventurous9211 reported disappointing text-removal and tree-removal results when controlling PhotoCraft through LM Studio with Qwen and Gemma. A commenter described better results with Codex. Exact model variants, app version and repeatable test files were not established.",
+      "impact": "These are individual reports, not our model comparison, performance test or verified configuration guide. No precise original publication timestamp was established, so the report stays on the actual October 25 check date rather than inferring a Beijing event date from relative labels or search results.",
+      "sourceTitle": "Reddit: Best model or config to use for controlling Photocraft?",
+      "sourceUrl": "https://www.reddit.com/r/ArtCraftAI/comments/1xefkjq/best_model_or_config_to_use_for_controlling/",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read PhotoCraft workflow limits"
+    }
+  ]
+},
+{
   "date": "2026-10-24",
   "publishedDate": "2026-10-24",
   "checkedDate": "2026-10-24",
   "relatedBriefDates": [
-    "2026-10-23"
+    "2026-10-23",
+    "2026-10-25"
   ],
-  "title": "October 24 early check: releases archived, community progress note",
-  "seoTitle": "ArtCraft Updates: October 24, 2026 Early Check",
-  "description": "The early Beijing check adds October 23 releases to their event date and records a community repository visualization with incomplete timing.",
-  "introduction": "As of 01:19 Beijing time on October 24, the checked official release histories and uploaded assets showed no October 24 release among thirteen Crafting Apps, Launcher and the separate AI studio. Twenty-one releases since the previous successful check belong to October 23 Beijing time and are recorded there, checked and published here October 24. We read the official homepage, Apps, thirteen product pages, News, release histories/assets and selected tagged documentation. News still lists January 30 as its latest article. Selected Reddit originals were readable, but its new-post feed was cached. X returned 403, YouTube channel access was throttled and the direct Google search page was inaccessible; indexed X/YouTube searches did not establish a new accessible relevant item. Coverage is incomplete and this early check is not a conclusion about the rest of the day.",
+  "title": "PhotoCraft 0.15.1 and October 24 development documentation",
+  "seoTitle": "ArtCraft Updates: October 24, 2026 Releases & Docs",
+  "description": "PhotoCraft 0.15.1 and four official development-documentation changes, supplemented on October 25 with exact event times.",
+  "introduction": "Supplement checked and published October 25: PhotoCraft 0.15.1 was published at October 24 06:44:33 Beijing time (October 23 22:44:33 UTC). Four documentation changes also reached official main branches on October 24 Beijing time; their exact PR merge times are retained below. These later events do not change what the original early check had observed. As of 01:19 Beijing time on October 24, the checked official release histories and uploaded assets showed no October 24 release among thirteen Crafting Apps, Launcher and the separate AI studio. Twenty-one releases since the previous successful check belong to October 23 Beijing time and are recorded there, checked and published here October 24. We read the official homepage, Apps, thirteen product pages, News, release histories/assets and selected tagged documentation. News still lists January 30 as its latest article. Selected Reddit originals were readable, but its new-post feed was cached. X returned 403, YouTube channel access was throttled and the direct Google search page was inaccessible; indexed X/YouTube searches did not establish a new accessible relevant item. Coverage is incomplete and this early check is not a conclusion about the rest of the day.",
   "entries": [
     {
       "id": "community-photocraft-repo-progress-oct24",
@@ -54,8 +82,94 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceUrl": "https://www.reddit.com/r/ArtCraftAI/comments/1xcxxnk/photocraft_repo_progress_video/",
       "relatedPath": "/apps/photocraft/",
       "relatedLabel": "Read the PhotoCraft guide"
+    },
+    {
+      "id": "photocraft-0151-oct24",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Official release",
+      "title": "PhotoCraft 0.15.1: bounded input processing and linked-file paths",
+      "summary": "The release notes describe limits for PSD text, font, raster, vector and codec processing, ICC profile identity checks, stored linked-file path resolution and macOS packaging retries. Select and Mask engine work is explicitly part 1 of 2; it does not establish a completed interface workflow.",
+      "impact": "All 28 uploaded assets were checked on October 25, including the Windows x64 MSI, universal macOS DMG, Linux x86_64 AppImage and SHA256SUMS.txt. Tagged documentation still calls PhotoCraft early alpha and lists Generative Fill and Expand as missing. These are project-reported changes, not our security audit or compatibility test.",
+      "sourceTitle": "PhotoCraft v0.15.1 official release and uploaded assets",
+      "sourceUrl": "https://github.com/storytold/photocraft/releases/tag/v0.15.1",
+      "eventDate": "2026-10-23",
+      "eventPublishedAt": "2026-10-23T22:44:33Z",
+      "checkedDate": "2026-10-25",
+      "publishedDate": "2026-10-25",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read the PhotoCraft guide"
+    },
+    {
+      "id": "deckcraft-docs-oct24",
+      "appSlug": "deckcraft",
+      "appName": "DeckCraft",
+      "kind": "Documentation update",
+      "title": "Alpine runtime documentation corrects AMD drivers and file dialogs",
+      "summary": "The development README names mesa-vulkan-ati for Alpine AMD GPUs and explains that the wlr portal has no file chooser; it describes zenity for wlroots compositors.",
+      "impact": "This is official main-branch documentation, checked and published here October 25. The latest published installer remains 0.10.0; do not assume this later development change is in that package. The event time is the official PR merge time, not an earlier internal commit timestamp.",
+      "sourceTitle": "DeckCraft PR 1037: merged documentation and exact time",
+      "sourceUrl": "https://github.com/storytold/deckcraft/pull/1037",
+      "eventDate": "2026-10-23",
+      "eventPublishedAt": "2026-10-23T21:28:29Z",
+      "checkedDate": "2026-10-25",
+      "publishedDate": "2026-10-25",
+      "relatedPath": "/apps/deckcraft/",
+      "relatedLabel": "Read the DeckCraft guide"
+    },
+    {
+      "id": "cadcraft-docs-oct24",
+      "appSlug": "cadcraft",
+      "appName": "CADCraft",
+      "kind": "Documentation update",
+      "title": "Development CLI docs explain references to earlier command handles",
+      "summary": "The development README and customization guide describe substituting the exact {last} parameter value with the last object handle returned by an earlier --cmd in the same run.",
+      "impact": "This is official main-branch documentation, checked and published here October 25. The latest published installer remains 0.12.0; do not assume this later development change is in that package. The event time is the official PR merge time, not an earlier internal commit timestamp.",
+      "sourceTitle": "CADCraft PR 1871: merged documentation and exact time",
+      "sourceUrl": "https://github.com/storytold/cadcraft/pull/1871",
+      "eventDate": "2026-10-24",
+      "eventPublishedAt": "2026-10-24T05:50:41Z",
+      "checkedDate": "2026-10-25",
+      "publishedDate": "2026-10-25",
+      "relatedPath": "/apps/cadcraft/",
+      "relatedLabel": "Read the CADCraft guide"
+    },
+    {
+      "id": "soundcraft-docs-oct24",
+      "appSlug": "soundcraft",
+      "appName": "SoundCraft",
+      "kind": "Documentation update",
+      "title": "Development bounce documentation makes dither optional",
+      "summary": "The official development README now describes optional dither for bounce output; the merged PR concerns the dialog and stems.",
+      "impact": "This is official main-branch documentation, checked and published here October 25. The latest published installer remains 0.12.1; do not assume this later development change is in that package. The event time is the official PR merge time, not an earlier internal commit timestamp.",
+      "sourceTitle": "SoundCraft PR 551: merged documentation and exact time",
+      "sourceUrl": "https://github.com/storytold/soundcraft/pull/551",
+      "eventDate": "2026-10-24",
+      "eventPublishedAt": "2026-10-24T12:38:40Z",
+      "checkedDate": "2026-10-25",
+      "publishedDate": "2026-10-25",
+      "relatedPath": "/apps/soundcraft/",
+      "relatedLabel": "Read the SoundCraft guide"
+    },
+    {
+      "id": "filmcraft-docs-oct24",
+      "appSlug": "filmcraft",
+      "appName": "FilmCraft",
+      "kind": "Documentation update",
+      "title": "Development format documentation adds animated WebP clips",
+      "summary": "The official development README adds animated WebP alongside GIF and APNG as imported clips with transparency.",
+      "impact": "This is official main-branch documentation, checked and published here October 25. The latest published installer remains 0.12.0; do not assume this later development change is in that package. The event time is the official PR merge time, not an earlier internal commit timestamp.",
+      "sourceTitle": "FilmCraft PR 3038: merged documentation and exact time",
+      "sourceUrl": "https://github.com/storytold/filmcraft/pull/3038",
+      "eventDate": "2026-10-24",
+      "eventPublishedAt": "2026-10-24T14:24:31Z",
+      "checkedDate": "2026-10-25",
+      "publishedDate": "2026-10-25",
+      "relatedPath": "/apps/filmcraft/",
+      "relatedLabel": "Read the FilmCraft guide"
     }
-  ]
+  ],
+  "modifiedDate": "2026-10-25"
 },
 {
   "date": "2026-10-23",

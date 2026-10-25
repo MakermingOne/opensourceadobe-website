@@ -26,8 +26,8 @@ describe("October 15 morning source refresh", () => {
     expect(ids).toEqual(expect.arrayContaining(["launcher-041", "pdfcraft-080", "pdfcraft-current-limits", "community-android-ports", "community-pdfcraft-printing", "pdfcraft-web-printing"]));
   });
   it("keeps current packages aligned with the current verified release", () => {
-    expect(officialDownloads.photocraft.version).toBe("0.14.0");
-    expect(officialDownloads.photocraft.packages.every((item) => item.filename.includes("0.14.0"))).toBe(true);
+    expect(officialDownloads.photocraft.version).toBe("0.15.1");
+    expect(officialDownloads.photocraft.packages.every((item) => item.filename.includes("0.15.1"))).toBe(true);
     expect(officialDownloads.pdfcraft.version).toBe("0.13.0");
   });
   it("uses published version documentation instead of the stale web-printing claim", () => {

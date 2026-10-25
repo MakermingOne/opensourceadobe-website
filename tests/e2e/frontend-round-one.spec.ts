@@ -82,7 +82,7 @@ test("mobile menu and direct package links remain usable without JavaScript", as
   try {
     const page = await context.newPage();
     await page.goto(`${baseURL}/download/`);
-    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /photocraft-0\.14\.0-windows-x64\.msi$/);
+    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /photocraft-0\.15\.1-windows-x64\.msi$/);
     await page.locator(".mobile-menu > summary").click();
     await page.locator(".mobile-primary-nav").getByRole("link", { name: "Apps", exact: true }).click();
     await expect(page).toHaveURL(/\/apps\/$/);

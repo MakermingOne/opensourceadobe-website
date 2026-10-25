@@ -18,17 +18,17 @@ it('archives all 21 releases by exact Beijing time without backdating checks', (
  }
  expect(issue.entries.filter(e => e.kind === 'Documentation update').every(e => e.checkedDate === '2026-10-23' && e.publishedDate === '2026-10-23')).toBe(true);
  const today = dailyUpdates.find(i => i.date === '2026-10-24')!;
- expect(today.entries.every(e => e.kind !== 'Official release')).toBe(true);
+ expect(today.entries.filter(e => e.kind === 'Official release')).toHaveLength(1);
  expect(today.introduction).toContain('not a conclusion about the rest of the day');
  expect(today.entries[0].eventPublishedAt).toBeUndefined();
  expect(today.entries[0].impact).toContain('No precise source publication time');
 });
 
 it('connects current packages to an exact published release in the historical brief', () => {
- const entries = dailyUpdates.find(i => i.date === '2026-10-23')!.entries;
+ const entries = dailyUpdates.flatMap(i => i.entries);
  for (const release of releases) {
   expect(entries.some(e => e.sourceUrl === release.url && e.eventPublishedAt === release.publishedAt)).toBe(true);
-  expect(releaseCheckedOn(release.slug)).toBe('2026-10-24');
+  expect(releaseCheckedOn(release.slug)).toBe(release.slug === 'photocraft' ? '2026-10-25' : '2026-10-24');
   if (release.slug === 'craft-launcher') continue;
   const download = officialDownloads[release.slug as DownloadSlug];
   expect(download.version).toBe(release.version);

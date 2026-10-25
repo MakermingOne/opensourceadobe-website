@@ -41,7 +41,7 @@ describe.each(guides)("$name guide", ({ guide, minWords }) => {
   it("is published with metadata, a dated editorial record and a social card", () => {
     expect(publishedRoutes).toContain(guide.path);
     expect(socialImages[guide.path]).toMatch(/^[a-z0-9-]+$/);
-    expect(pageUpdatedAt(guide.path)).toBe(["/artcraft/safety/", "/artcraft/photocraft-how-to-use/"].includes(guide.path) ? "2026-10-24" : "2026-10-20");
+    expect(pageUpdatedAt(guide.path)).toBe(["/artcraft/safety/", "/artcraft/photocraft-how-to-use/"].includes(guide.path) ? "2026-10-25" : "2026-10-20");
     expect(guide.title.length).toBeLessThanOrEqual(65);
     expect(guide.description.length).toBeGreaterThanOrEqual(120);
     expect(guide.description.length).toBeLessThanOrEqual(165);
@@ -91,7 +91,7 @@ describe("ArtCraft cluster facts", () => {
   it("separates the PhotoCraft checksum file from the studio release", () => {
     const text = guideText(artCraftSafetyGuide);
     expect(text).toContain("SHA256SUMS.txt");
-    expect(text).toContain("0.14.0");
+    expect(text).toContain("0.15.1");
     expect(text).toContain("0.41.0");
     expect(text).toContain("Get-FileHash");
     expect(text).toContain("shasum -a 256");
@@ -113,6 +113,6 @@ describe("ArtCraft cluster facts", () => {
     const text = guideText(photoCraftHowToUseGuide);
     expect(text).toContain("We have not completed this walkthrough on our own machine");
     expect(text).toContain("0.8.2");
-    expect(text).toContain("0.14.0");
+    expect(text).toContain("0.15.1");
   });
 });

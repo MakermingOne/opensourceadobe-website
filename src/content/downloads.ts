@@ -2,27 +2,27 @@
 // Do not construct filenames for packages that have not been checked.
 export const officialDownloads = {
   "photocraft": {
-    "version": "0.14.0",
-    "publishedAt": "2026-10-23T00:43:42Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.15.1",
+    "publishedAt": "2026-10-23T22:44:33Z",
+    "checkedAt": "2026-10-25",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "photocraft-0.14.0-windows-x64.msi",
-        "sizeBytes": 72843264
+        "filename": "photocraft-0.15.1-windows-x64.msi",
+        "sizeBytes": 73039872
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "photocraft-0.14.0-macos-universal.dmg",
-        "sizeBytes": 95578705
+        "filename": "photocraft-0.15.1-macos-universal.dmg",
+        "sizeBytes": 95834266
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "photocraft-0.14.0-linux-x86_64.AppImage",
-        "sizeBytes": 81168888
+        "filename": "photocraft-0.15.1-linux-x86_64.AppImage",
+        "sizeBytes": 81381880
       }
     ]
   },

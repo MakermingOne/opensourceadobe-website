@@ -18,7 +18,7 @@ describe("October 17 verified increments", () => {
     expect(entry?.sourceUrl).toBe("https://github.com/storytold/vectorcraft/releases/tag/v0.12.0");
     expect(releasesBySlug.get("vectorcraft")?.version).toBe("0.16.0");
     expect(releaseCheckedOn("vectorcraft")).toBe("2026-10-24");
-    expect(releaseCheckedOn("photocraft")).toBe("2026-10-24");
+    expect(releaseCheckedOn("photocraft")).toBe("2026-10-25");
     expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-10-24");
   });
   it("keeps legacy Illustrator export limits visible", () => {

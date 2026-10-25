@@ -2,7 +2,7 @@ import { expect, test } from "./fixtures";
 
 test("updates can be filtered and followed to the dated brief", async ({ page }) => {
   await page.goto("/updates/");
-  await expect(page.locator(".update-entry")).toHaveCount(95);
+  await expect(page.locator(".update-entry")).toHaveCount(101);
   await page.getByRole("button", { name: "LightCraft", exact: true }).click();
   await expect(page.locator(".update-entry")).toHaveCount(8);
   await expect(page.getByRole("button", { name: "LightCraft", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -71,7 +71,7 @@ test("RSS is valid XML and links to the published daily brief", async ({ request
   }, xml);
   expect(result.errors).toBe(0);
   expect(result.links).toContain("https://opensourceadobe.com/updates/2026-10-13/");
-  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-24/");
+  expect(result.links[0]).toBe("https://opensourceadobe.com/updates/2026-10-25/");
 });
 
 for (const route of ["/updates/", "/updates/2026-10-13/", "/updates/2026-10-15/", "/updates/2026-10-16/", "/updates/2026-10-17/"]) {
@@ -159,8 +159,8 @@ test("October 17 evening keeps development work distinct from releases and syncs
  test("daily archive retains both recent briefs and a date without a separate news item", async ({ page, request }) => {
   await page.goto("/updates/");
   const dates = await page.locator(".update-date time").allTextContents();
-  expect(dates).toHaveLength(12);
-  expect(new Set(dates).size).toBe(12);
+  expect(dates).toHaveLength(13);
+  expect(new Set(dates).size).toBe(13);
   await expect(page.locator(".daily-status").filter({ hasText: "No separate product-news item" })).toHaveCount(1);
   for (const date of ["2026-10-14", "2026-10-18", "2026-10-19"]) expect((await request.get(`/updates/${date}/`)).ok()).toBe(true);
   await page.goto("/updates/2026-10-14/");
