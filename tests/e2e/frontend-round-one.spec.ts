@@ -10,9 +10,9 @@ for (const width of [320, 390, 768, 1440]) {
     await picker.getByLabel("Choose an app", { exact: true }).selectOption("pdfcraft");
     await picker.getByLabel("Your operating system", { exact: true }).selectOption("1");
     const download = picker.getByRole("link", { name: "Download PdfCraft" });
-    await expect(download).toHaveAttribute("href", /pdfcraft-0\.13\.0-macos-universal\.dmg$/);
+    await expect(download).toHaveAttribute("href", /pdfcraft-0\.14\.0-macos-universal\.dmg$/);
     await picker.getByLabel("Choose an app", { exact: true }).selectOption("vectorcraft");
-    await expect(picker.getByRole("link", { name: "Download VectorCraft" })).toHaveAttribute("href", /vectorcraft-0\.16\.0-macos-universal\.dmg$/);
+    await expect(picker.getByRole("link", { name: "Download VectorCraft" })).toHaveAttribute("href", /vectorcraft-0\.17\.0-macos-universal\.dmg$/);
     if (width < 960) {
       await page.locator(".mobile-menu > summary").click();
       await page.locator(".mobile-menu > summary").press("Escape");
@@ -70,7 +70,7 @@ for (const locale of ["zh-Hant", "pl", "de", "ja", "ko", "fr", "hi"]) {
     await page.goto(`/${locale}/download/`);
     await page.locator("#download-app").selectOption("pdfcraft");
     await page.locator("#download-system").selectOption("2");
-    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /pdfcraft-0\.13\.0-linux-x86_64\.AppImage$/);
+    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /pdfcraft-0\.14\.0-linux-x86_64\.AppImage$/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
     await page.locator(".mobile-menu > summary").click();
     await expect(page.locator(".mobile-primary-nav a[aria-current=page]")).toHaveCount(1);
@@ -82,7 +82,7 @@ test("mobile menu and direct package links remain usable without JavaScript", as
   try {
     const page = await context.newPage();
     await page.goto(`${baseURL}/download/`);
-    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /photocraft-0\.15\.1-windows-x64\.msi$/);
+    await expect(page.locator(".download-picker__result a")).toHaveAttribute("href", /photocraft-0\.16\.0-windows-x64\.msi$/);
     await page.locator(".mobile-menu > summary").click();
     await page.locator(".mobile-primary-nav").getByRole("link", { name: "Apps", exact: true }).click();
     await expect(page).toHaveURL(/\/apps\/$/);

@@ -41,7 +41,7 @@ it('updates every existing translation with a localized summary and an explicitl
   expect(digest?.paragraphs.join(' ')).toContain('0.12.0');
   expect(digest?.paragraphs.join(' ')).toContain('0.6.1');
   expect(digest?.links?.[0].href).toBe('https://opensourceadobe.com/updates/2026-10-22/');
-  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-25');
+  expect(pageUpdatedAt(`/${locale}${path}`)).toBe('2026-10-26');
  }
 });
 it('splits the prior day without fabricating a source check or backdating publication',async()=>{

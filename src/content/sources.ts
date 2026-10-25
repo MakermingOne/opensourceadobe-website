@@ -3,6 +3,11 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "photocraft-release-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 release and uploaded assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.16.0", "accessedAt": "2026-10-26"},
+{"id": "photocraft-checksums-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 checksums", "url": "https://github.com/storytold/photocraft/releases/download/v0.16.0/SHA256SUMS.txt", "accessedAt": "2026-10-26"},
+{"id": "photocraft-gaps-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 tagged gaps", "url": "https://github.com/storytold/photocraft/blob/v0.16.0/docs/gaps.md", "accessedAt": "2026-10-26"},
+{"id": "pdfcraft-gaps-0140", "type": "official-repository", "title": "PdfCraft v0.14.0 tagged gaps", "url": "https://github.com/storytold/pdfcraft/blob/v0.14.0/docs/gaps.md", "accessedAt": "2026-10-26"},
+{"id": "pdfcraft-side-panels-oct26", "type": "official-repository", "title": "PdfCraft development side-panel documentation", "url": "https://github.com/storytold/pdfcraft/pull/4606", "accessedAt": "2026-10-26"},
 {"id": "photocraft-release-0151", "type": "official-repository", "title": "PhotoCraft v0.15.1 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.15.1", "accessedAt": "2026-10-25"},
 {"id": "photocraft-checksums-0151", "type": "official-repository", "title": "PhotoCraft v0.15.1 checksums", "url": "https://github.com/storytold/photocraft/releases/download/v0.15.1/SHA256SUMS.txt", "accessedAt": "2026-10-25"},
 {"id": "photocraft-gaps-0151", "type": "official-repository", "title": "PhotoCraft v0.15.1 tagged gaps", "url": "https://github.com/storytold/photocraft/blob/v0.15.1/docs/gaps.md", "accessedAt": "2026-10-25"},

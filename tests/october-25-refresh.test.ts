@@ -19,7 +19,7 @@ it('archives later October 24 events without backdating the check or replacing i
  }
  expect(additions.find(e => e.appSlug === 'soundcraft')?.eventPublishedAt).toBe('2026-10-24T12:38:40Z');
  expect(additions.find(e => e.kind === 'Official release')?.eventPublishedAt).toBe('2026-10-23T22:44:33Z');
- expect(officialDownloads.photocraft.packages.map(p => p.sizeBytes)).toEqual([73039872,95834266,81381880]);
+ expect(officialDownloads.photocraft.packages.map(p => p.sizeBytes)).toEqual([74760192,98985128,83327480]);
  const today = dailyUpdates.find(i => i.date === '2026-10-25')!;
  expect(today.introduction).toContain('03:09 Beijing time');
  expect(today.introduction).toContain('not a conclusion about the rest of the day');
@@ -27,7 +27,7 @@ it('archives later October 24 events without backdating the check or replacing i
 });
 it('adds a localized current digest with real English date links to all published translations', () => {
  for (const locale of translatedLocales) for (const path of localizedPaths(locale)) {
-  const digest = getPageContent(locale,path)?.sections[0];
+  const digest = getPageContent(locale,path)?.sections.find(s => s.id === 'update-2026-10-25');
   expect(digest?.id).toBe('update-2026-10-25');
   expect(digest?.paragraphs.join(' ')).toContain('PhotoCraft 0.15.1');
   expect(digest?.links?.map(l => l.href)).toEqual(['https://opensourceadobe.com/updates/2026-10-24/','https://opensourceadobe.com/updates/2026-10-25/']);

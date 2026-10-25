@@ -1,328 +1,328 @@
-// Asset names and sizes verified against official GitHub releases on 2026-10-24.
+// Asset names and sizes verified against official GitHub releases on 2026-10-26.
 // Do not construct filenames for packages that have not been checked.
 export const officialDownloads = {
   "photocraft": {
-    "version": "0.15.1",
-    "publishedAt": "2026-10-23T22:44:33Z",
-    "checkedAt": "2026-10-25",
+    "version": "0.16.0",
+    "publishedAt": "2026-10-25T14:17:53Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "photocraft-0.15.1-windows-x64.msi",
-        "sizeBytes": 73039872
+        "filename": "photocraft-0.16.0-windows-x64.msi",
+        "sizeBytes": 74760192
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "photocraft-0.15.1-macos-universal.dmg",
-        "sizeBytes": 95834266
+        "filename": "photocraft-0.16.0-macos-universal.dmg",
+        "sizeBytes": 98985128
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "photocraft-0.15.1-linux-x86_64.AppImage",
-        "sizeBytes": 81381880
+        "filename": "photocraft-0.16.0-linux-x86_64.AppImage",
+        "sizeBytes": 83327480
       }
     ]
   },
   "vectorcraft": {
-    "version": "0.16.0",
-    "publishedAt": "2026-10-23T01:01:59Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.17.0",
+    "publishedAt": "2026-10-25T14:01:11Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "vectorcraft-0.16.0-windows-x64.msi",
-        "sizeBytes": 104898560
+        "filename": "vectorcraft-0.17.0-windows-x64.msi",
+        "sizeBytes": 106770432
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "vectorcraft-0.16.0-macos-universal.dmg",
-        "sizeBytes": 142274867
+        "filename": "vectorcraft-0.17.0-macos-universal.dmg",
+        "sizeBytes": 144749321
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "vectorcraft-0.16.0-linux-x86_64.AppImage",
-        "sizeBytes": 120429048
+        "filename": "vectorcraft-0.17.0-linux-x86_64.AppImage",
+        "sizeBytes": 122190328
       }
     ]
   },
   "filmcraft": {
-    "version": "0.12.0",
-    "publishedAt": "2026-10-23T00:35:04Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.13.0",
+    "publishedAt": "2026-10-25T13:48:40Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "filmcraft-0.12.0-windows-x64.msi",
-        "sizeBytes": 57393152
+        "filename": "filmcraft-0.13.0-windows-x64.msi",
+        "sizeBytes": 83537920
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "filmcraft-0.12.0-macos-universal.dmg",
-        "sizeBytes": 73991251
+        "filename": "filmcraft-0.13.0-macos-universal.dmg",
+        "sizeBytes": 103684923
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "filmcraft-0.12.0-linux-x86_64.AppImage",
-        "sizeBytes": 66132472
+        "filename": "filmcraft-0.13.0-linux-x86_64.AppImage",
+        "sizeBytes": 94710264
       }
     ]
   },
   "lightcraft": {
-    "version": "0.13.0",
-    "publishedAt": "2026-10-23T00:35:08Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.14.0",
+    "publishedAt": "2026-10-25T13:52:07Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "lightcraft-0.13.0-windows-x64.msi",
-        "sizeBytes": 90947584
+        "filename": "lightcraft-0.14.0-windows-x64.msi",
+        "sizeBytes": 91385856
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "lightcraft-0.13.0-macos-universal.dmg",
-        "sizeBytes": 114324255
+        "filename": "lightcraft-0.14.0-macos-universal.dmg",
+        "sizeBytes": 114839456
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "lightcraft-0.13.0-linux-x86_64.AppImage",
-        "sizeBytes": 104401400
+        "filename": "lightcraft-0.14.0-linux-x86_64.AppImage",
+        "sizeBytes": 104929784
       }
     ]
   },
   "pdfcraft": {
-    "version": "0.13.0",
-    "publishedAt": "2026-10-23T00:43:39Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.14.0",
+    "publishedAt": "2026-10-25T13:56:05Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "pdfcraft-0.13.0-windows-x64.msi",
-        "sizeBytes": 73175040
+        "filename": "pdfcraft-0.14.0-windows-x64.msi",
+        "sizeBytes": 73740288
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "pdfcraft-0.13.0-macos-universal.dmg",
-        "sizeBytes": 98055876
+        "filename": "pdfcraft-0.14.0-macos-universal.dmg",
+        "sizeBytes": 98841931
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "pdfcraft-0.13.0-linux-x86_64.AppImage",
-        "sizeBytes": 83487224
+        "filename": "pdfcraft-0.14.0-linux-x86_64.AppImage",
+        "sizeBytes": 84122104
       }
     ]
   },
   "effectcraft": {
-    "version": "0.16.0",
-    "publishedAt": "2026-10-23T00:35:00Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.17.0",
+    "publishedAt": "2026-10-25T14:01:25Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "effectcraft-0.16.0-windows-x64.msi",
-        "sizeBytes": 51109888
+        "filename": "effectcraft-0.17.0-windows-x64.msi",
+        "sizeBytes": 51462144
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "effectcraft-0.16.0-macos-universal.dmg",
-        "sizeBytes": 65899610
+        "filename": "effectcraft-0.17.0-macos-universal.dmg",
+        "sizeBytes": 66357060
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "effectcraft-0.16.0-linux-x86_64.AppImage",
-        "sizeBytes": 59460088
+        "filename": "effectcraft-0.17.0-linux-x86_64.AppImage",
+        "sizeBytes": 59898360
       }
     ]
   },
   "designcraft": {
-    "version": "0.12.0",
-    "publishedAt": "2026-10-22T20:50:19Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.13.0",
+    "publishedAt": "2026-10-25T13:30:37Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "designcraft-0.12.0-windows-x64.msi",
-        "sizeBytes": 63766528
+        "filename": "designcraft-0.13.0-windows-x64.msi",
+        "sizeBytes": 89624576
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "designcraft-0.12.0-macos-universal.dmg",
-        "sizeBytes": 91174073
+        "filename": "designcraft-0.13.0-macos-universal.dmg",
+        "sizeBytes": 120766273
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "designcraft-0.12.0-linux-x86_64.AppImage",
-        "sizeBytes": 76868088
+        "filename": "designcraft-0.13.0-linux-x86_64.AppImage",
+        "sizeBytes": 105282040
       }
     ]
   },
   "figcraft": {
-    "version": "0.10.0",
-    "publishedAt": "2026-10-22T20:44:45Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.11.2",
+    "publishedAt": "2026-10-25T14:02:25Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "figcraft-0.10.0-windows-x64.msi",
-        "sizeBytes": 70758400
+        "filename": "figcraft-0.11.2-windows-x64.msi",
+        "sizeBytes": 71077888
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "figcraft-0.10.0-macos-universal.dmg",
-        "sizeBytes": 96860708
+        "filename": "figcraft-0.11.2-macos-universal.dmg",
+        "sizeBytes": 97550182
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "figcraft-0.10.0-linux-x86_64.AppImage",
-        "sizeBytes": 83626488
+        "filename": "figcraft-0.11.2-linux-x86_64.AppImage",
+        "sizeBytes": 84146680
       }
     ]
   },
   "wordcraft": {
-    "version": "0.10.0",
-    "publishedAt": "2026-10-22T20:44:31Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.11.0",
+    "publishedAt": "2026-10-25T13:30:52Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "wordcraft-0.10.0-windows-x64.msi",
-        "sizeBytes": 83255296
+        "filename": "wordcraft-0.11.0-windows-x64.msi",
+        "sizeBytes": 84500480
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "wordcraft-0.10.0-macos-universal.dmg",
-        "sizeBytes": 112357462
+        "filename": "wordcraft-0.11.0-macos-universal.dmg",
+        "sizeBytes": 114368425
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "wordcraft-0.10.0-linux-x86_64.AppImage",
-        "sizeBytes": 97229304
+        "filename": "wordcraft-0.11.0-linux-x86_64.AppImage",
+        "sizeBytes": 98503160
       }
     ]
   },
   "soundcraft": {
-    "version": "0.12.1",
-    "publishedAt": "2026-10-22T20:30:32Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.13.1",
+    "publishedAt": "2026-10-25T13:44:38Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "soundcraft-0.12.1-windows-x64.msi",
-        "sizeBytes": 11526144
+        "filename": "soundcraft-0.13.1-windows-x64.msi",
+        "sizeBytes": 12304384
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "soundcraft-0.12.1-macos-universal.dmg",
-        "sizeBytes": 23429573
+        "filename": "soundcraft-0.13.1-macos-universal.dmg",
+        "sizeBytes": 25189549
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "soundcraft-0.12.1-linux-x86_64.AppImage",
-        "sizeBytes": 15915512
+        "filename": "soundcraft-0.13.1-linux-x86_64.AppImage",
+        "sizeBytes": 17123832
       }
     ]
   },
   "deckcraft": {
-    "version": "0.10.0",
-    "publishedAt": "2026-10-22T20:44:35Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.11.1",
+    "publishedAt": "2026-10-25T13:36:43Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "deckcraft-0.10.0-windows-x64.msi",
-        "sizeBytes": 63791104
+        "filename": "deckcraft-0.11.1-windows-x64.msi",
+        "sizeBytes": 64397312
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "deckcraft-0.10.0-macos-universal.dmg",
-        "sizeBytes": 87004135
+        "filename": "deckcraft-0.11.1-macos-universal.dmg",
+        "sizeBytes": 87374766
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "deckcraft-0.10.0-linux-x86_64.AppImage",
-        "sizeBytes": 76696056
+        "filename": "deckcraft-0.11.1-linux-x86_64.AppImage",
+        "sizeBytes": 77003256
       }
     ]
   },
   "cadcraft": {
-    "version": "0.12.0",
-    "publishedAt": "2026-10-23T00:34:58Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.13.0",
+    "publishedAt": "2026-10-25T13:48:56Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "cadcraft-0.12.0-windows-x64.msi",
-        "sizeBytes": 49221632
+        "filename": "cadcraft-0.13.0-windows-x64.msi",
+        "sizeBytes": 51941376
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "cadcraft-0.12.0-macos-universal.dmg",
-        "sizeBytes": 67635901
+        "filename": "cadcraft-0.13.0-macos-universal.dmg",
+        "sizeBytes": 72477065
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "cadcraft-0.12.0-linux-x86_64.AppImage",
-        "sizeBytes": 58202616
+        "filename": "cadcraft-0.13.0-linux-x86_64.AppImage",
+        "sizeBytes": 61794808
       }
     ]
   },
   "gridcraft": {
-    "version": "0.11.1",
-    "publishedAt": "2026-10-22T20:44:41Z",
-    "checkedAt": "2026-10-24",
+    "version": "0.12.1",
+    "publishedAt": "2026-10-25T13:27:32Z",
+    "checkedAt": "2026-10-26",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "gridcraft-0.11.1-windows-x64.msi",
-        "sizeBytes": 14704640
+        "filename": "gridcraft-0.12.1-windows-x64.msi",
+        "sizeBytes": 14905344
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "gridcraft-0.11.1-macos-universal.dmg",
-        "sizeBytes": 25741891
+        "filename": "gridcraft-0.12.1-macos-universal.dmg",
+        "sizeBytes": 26159221
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "gridcraft-0.11.1-linux-x86_64.AppImage",
-        "sizeBytes": 19589624
+        "filename": "gridcraft-0.12.1-linux-x86_64.AppImage",
+        "sizeBytes": 19864056
       }
     ]
   }

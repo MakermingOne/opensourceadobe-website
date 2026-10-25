@@ -28,7 +28,7 @@ it('connects current packages to an exact published release in the historical br
  const entries = dailyUpdates.flatMap(i => i.entries);
  for (const release of releases) {
   expect(entries.some(e => e.sourceUrl === release.url && e.eventPublishedAt === release.publishedAt)).toBe(true);
-  expect(releaseCheckedOn(release.slug)).toBe(release.slug === 'photocraft' ? '2026-10-25' : '2026-10-24');
+  expect(releaseCheckedOn(release.slug)).toBe("2026-10-26");
   if (release.slug === 'craft-launcher') continue;
   const download = officialDownloads[release.slug as DownloadSlug];
   expect(download.version).toBe(release.version);
