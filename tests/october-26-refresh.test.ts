@@ -23,7 +23,7 @@ it('groups October 25 releases by event time while preserving actual October 26 
 });
 it('links every published translation to real English event and check pages', () => {
  for(const locale of translatedLocales) for(const path of localizedPaths(locale)) {
-  const digest=getPageContent(locale,path)?.sections[0];
+  const digest=getPageContent(locale,path)?.sections.find(s => s.id === 'update-2026-10-26');
   expect(digest?.id).toBe('update-2026-10-26');
   expect(digest?.paragraphs.join(' ')).toContain('PhotoCraft 0.16.0');
   expect(digest?.links?.map(l => l.href)).toEqual(['https://opensourceadobe.com/updates/2026-10-25/','https://opensourceadobe.com/updates/2026-10-26/']);

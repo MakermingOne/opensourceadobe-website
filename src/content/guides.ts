@@ -258,6 +258,11 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
   },
 };
 
+// Later main-branch documentation is separate from the published installer.
+guideBySlug.lightcraft.faqs.unshift({"question": "Does the October 26 Sony profile change apply to the current installer?", "answer": "The development README adds Sony ILCE-7RM5 (α7R V) in PR 3022, merged after 0.14.0. It is not claimed for that installer. The project still lists measured calibration as a gap; test copied camera files and do not treat a documented profile as independently verified color accuracy."});
+guideBySlug.wordcraft.faqs.unshift({"question": "Is the no-admin WordCraft MSI available in the current release?", "answer": "The development README and PR 2560 describe a per-user windows-user MSI, but the checked 0.11.0 asset list does not include it. Keep using only actual official release assets. The docs also warn that installing both installer scopes creates duplicate app entries; we have not tested installation."});
+guideBySlug.figcraft.faqs.unshift({"question": "Do the latest development docs describe the 0.11.2 installer?", "answer": "October 26 Beijing docs add host-controlled plugin file saving and Boards/measurement examples; October 27 docs add Vue component output. All follow the 0.11.2 release and are not claimed for that installer. Plugin API 4 describes a save dialog with one file up to 16 MB, not direct filesystem access. Vue code generation and the illustrated workflows have not been independently tested by us."});
+
 export const workflowProfiles = {
   photocraft: {
     prompt: "I edit layered images",

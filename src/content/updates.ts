@@ -31,16 +31,48 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-10-27",
+  "publishedDate": "2026-10-27",
+  "checkedDate": "2026-10-27",
+  "relatedBriefDates": [
+    "2026-10-26"
+  ],
+  "title": "October 27 early check: FigCraft Vue development documentation",
+  "seoTitle": "ArtCraft Updates: October 27, 2026 Early Check",
+  "description": "FigCraft Vue development documentation belongs to October 27 Beijing time; four earlier documentation events are supplemented on October 26.",
+  "introduction": "As of 03:01 Beijing time on October 27, no newer official release was found in fifteen checked histories covering thirteen Crafting Apps, Launcher and the separate AI studio. FigCraft Vue documentation merged at 01:48:54 Beijing time and is recorded below; four earlier documentation events are supplemented on October 26 with actual October 27 checks and publication. We read the official homepage, Apps, all thirteen product pages, News, release histories with uploaded asset listings, recent README changes and selected PR documentation, and compared relevant tagged READMEs. News still lists January 30 as its latest article. A Reddit funding-discussion original was readable, but replies were speculative and no official funding claim was established; its JSON/new feed returned 403. X returned 403 through the web reader, and direct Google Search returned a JavaScript access page. YouTube official channel and a selected older video’s metadata/description were readable through direct fetches; the web reader throttled the video. This does not establish complete video coverage. Indexed search dates were not used as event dates. Coverage is incomplete; this is an early check, not a conclusion about the rest of the day.",
+  "entries": [
+    {
+      "id": "figcraft-vue-docs-oct27",
+      "appSlug": "figcraft",
+      "appName": "FigCraft",
+      "kind": "Documentation update",
+      "title": "Development docs add Vue single-file component output",
+      "summary": "Merged README, Dev Mode and MCP documentation now list Vue code generation, with template, script setup and scoped style output, component props and native Vue slots.",
+      "impact": "The official merge time is October 27 01:48:54 Beijing time. This follows 0.11.2; no newer FigCraft release or installer was found. Documentation coverage is not our independent code-generation test.",
+      "sourceTitle": "FigCraft PR 664: merged official development documentation",
+      "sourceUrl": "https://github.com/storytold/figcraft/pull/664",
+      "eventDate": "2026-10-26",
+      "eventPublishedAt": "2026-10-26T17:48:54Z",
+      "checkedDate": "2026-10-27",
+      "publishedDate": "2026-10-27",
+      "relatedPath": "/apps/figcraft/",
+      "relatedLabel": "Read the FigCraft guide"
+    }
+  ]
+},
+{
   "date": "2026-10-26",
   "publishedDate": "2026-10-26",
   "checkedDate": "2026-10-26",
   "relatedBriefDates": [
-    "2026-10-25"
+    "2026-10-25",
+    "2026-10-27"
   ],
-  "title": "October 26 early check: PdfCraft panel documentation and download discussion",
+  "title": "October 26: camera, installer and FigCraft development documentation",
   "seoTitle": "ArtCraft Updates: October 26, 2026 Early Check",
-  "description": "A later PdfCraft development-panel documentation change and an attributed Launcher discussion; October 25 releases are archived on their event date.",
-  "introduction": "As of 03:06 Beijing time on October 26, no October 26 release was found in the checked histories for thirteen Crafting Apps, Launcher and the separate AI studio. Fourteen new releases belong to October 25 Beijing time and are supplemented there with actual October 26 checks and publication dates. We read the official homepage, Apps, all thirteen product pages, News, fifteen release histories and uploaded asset listings, recent README changes, selected PRs and tagged documentation. News still lists January 30 as its latest article. A selected Reddit original was readable, but its JSON/new-post feed returned 403. X returned 403 through the web reader; direct Google Search returned an access interstitial. YouTube channel metadata was accessible through a direct fetch, while the web reader throttled channel/video requests; this does not establish complete video coverage. Indexed searches did not supply a verifiable newer X item. Coverage is incomplete; this is an early check, not a conclusion about the rest of the day.",
+  "description": "Supplemented October 27 with later LightCraft, WordCraft and FigCraft documentation; the original early check and its dates are preserved.",
+  "introduction": "Supplement checked and published October 27: four later official documentation events belong to October 26 Beijing time. They concern WordCraft installer scope, LightCraft’s Sony profile, and FigCraft plugin saving and README examples. Exact official PR merge times and actual October 27 check/publication dates are retained per entry; none establishes a new installer release. As of 03:06 Beijing time on October 26, no October 26 release was found in the checked histories for thirteen Crafting Apps, Launcher and the separate AI studio. Fourteen new releases belong to October 25 Beijing time and are supplemented there with actual October 26 checks and publication dates. We read the official homepage, Apps, all thirteen product pages, News, fifteen release histories and uploaded asset listings, recent README changes, selected PRs and tagged documentation. News still lists January 30 as its latest article. A selected Reddit original was readable, but its JSON/new-post feed returned 403. X returned 403 through the web reader; direct Google Search returned an access interstitial. YouTube channel metadata was accessible through a direct fetch, while the web reader throttled channel/video requests; this does not establish complete video coverage. Indexed searches did not supply a verifiable newer X item. Coverage is incomplete; this is an early check, not a conclusion about the rest of the day.",
   "entries": [
     {
       "id": "pdfcraft-side-panels-oct26",
@@ -71,8 +103,77 @@ export const dailyUpdates: DailyUpdate[] = [
       "sourceUrl": "https://www.reddit.com/r/ArtCraftAI/comments/1xe99ne/artcraft_version_releases/",
       "relatedPath": "/download/",
       "relatedLabel": "Compare official download options"
+    },
+    {
+      "id": "wordcraft-user-installer-docs-oct26",
+      "appSlug": "wordcraft",
+      "appName": "WordCraft",
+      "kind": "Documentation update",
+      "title": "Windows docs distinguish per-user and all-users installers",
+      "summary": "The main-branch README and releasing guide describe a just-me MSI alongside the all-users MSI, and warn that installing both creates separate app entries.",
+      "impact": "This merged documentation follows 0.11.0. Its uploaded assets do not include a windows-user MSI. No new download is recommended, and no installation was tested by us.",
+      "sourceTitle": "WordCraft PR 2560: merged official development documentation",
+      "sourceUrl": "https://github.com/storytold/wordcraft/pull/2560",
+      "eventDate": "2026-10-26",
+      "eventPublishedAt": "2026-10-26T00:37:36Z",
+      "checkedDate": "2026-10-27",
+      "publishedDate": "2026-10-27",
+      "relatedPath": "/apps/wordcraft/",
+      "relatedLabel": "Read the WordCraft guide"
+    },
+    {
+      "id": "lightcraft-sony-profile-docs-oct26",
+      "appSlug": "lightcraft",
+      "appName": "LightCraft",
+      "kind": "Documentation update",
+      "title": "Development README adds the Sony ILCE-7RM5 profile",
+      "summary": "The official README now lists a bundled Sony α7R V (ILCE-7RM5) camera profile. Attribution describes a fit against the contributor’s camera photographs and JPEGs.",
+      "impact": "The change merged after 0.14.0 and is not claimed for that installer. The README still identifies measured calibration as a gap; this is not an independent color-accuracy test.",
+      "sourceTitle": "LightCraft PR 3022: merged official development documentation",
+      "sourceUrl": "https://github.com/storytold/lightcraft/pull/3022",
+      "eventDate": "2026-10-26",
+      "eventPublishedAt": "2026-10-26T02:04:20Z",
+      "checkedDate": "2026-10-27",
+      "publishedDate": "2026-10-27",
+      "relatedPath": "/apps/lightcraft/",
+      "relatedLabel": "Read the LightCraft guide"
+    },
+    {
+      "id": "figcraft-savefile-docs-oct26",
+      "appSlug": "figcraft",
+      "appName": "FigCraft",
+      "kind": "Documentation update",
+      "title": "Plugin documentation adds a host-controlled save-file permission",
+      "summary": "The merged plugin guide describes API 4 permissions.saveFile: a plugin may offer one file up to 16 MB through FigCraft’s save dialog or a browser download, without receiving a filesystem path.",
+      "impact": "This is development documentation after 0.11.2, not a newly published installer. It documents a bounded export permission, not unrestricted filesystem access or a security audit.",
+      "sourceTitle": "FigCraft PR 698: merged official development documentation",
+      "sourceUrl": "https://github.com/storytold/figcraft/pull/698",
+      "eventDate": "2026-10-26",
+      "eventPublishedAt": "2026-10-26T03:55:11Z",
+      "checkedDate": "2026-10-27",
+      "publishedDate": "2026-10-27",
+      "relatedPath": "/apps/figcraft/",
+      "relatedLabel": "Read the FigCraft guide"
+    },
+    {
+      "id": "figcraft-screenshot-docs-oct26",
+      "appSlug": "figcraft",
+      "appName": "FigCraft",
+      "kind": "Documentation update",
+      "title": "README adds Boards and Dev Mode measurement examples",
+      "summary": "New official README screenshots illustrate a retrospective board with sticky notes, voting and a timer, plus stored measurement redlines in Dev Mode.",
+      "impact": "These are project-supplied examples added after 0.11.2, not our test or evidence that a new version shipped. Existing release links and early-alpha status remain unchanged.",
+      "sourceTitle": "FigCraft PR 1252: merged official development documentation",
+      "sourceUrl": "https://github.com/storytold/figcraft/pull/1252",
+      "eventDate": "2026-10-26",
+      "eventPublishedAt": "2026-10-26T06:09:03Z",
+      "checkedDate": "2026-10-27",
+      "publishedDate": "2026-10-27",
+      "relatedPath": "/apps/figcraft/",
+      "relatedLabel": "Read the FigCraft guide"
     }
-  ]
+  ],
+  "modifiedDate": "2026-10-27"
 },
 {
   "date": "2026-10-25",

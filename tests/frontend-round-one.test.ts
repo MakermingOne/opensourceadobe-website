@@ -27,7 +27,7 @@ describe("first-round navigation and selection", () => {
   it("labels mobile table fields and supplies a next step for every covered app", () => {
     const html = renderToStaticMarkup(createElement(AlternativesPage));
     expect(html).toContain('data-label="Adobe product"');
-    expect(html).toMatch(/href="\/apps\/filmcraft\/?"/);
+    expect(html).toMatch(/href="\/alternatives\/premiere\/?"/);
     expect(html).toMatch(/href="\/alternatives\/acrobat\/?"/);
     expect(html).toContain("App guide only");
     expect(html).toContain("Covered here only");

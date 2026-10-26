@@ -28,7 +28,7 @@ const coverageRows: CoverageRow[] = [
   { adobe: "After Effects", app: "EffectCraft", status: "published", guide: "after-effects" },
   { adobe: "InDesign", app: "DesignCraft", status: "published", guide: "indesign" },
   { adobe: "Substance Painter", app: "ArmorPaint", status: "published", guide: "substance-painter" },
-  { adobe: "Premiere Pro", app: "FilmCraft", status: "app-only", appSlug: "filmcraft" },
+  { adobe: "Premiere Pro", app: "FilmCraft", status: "published", guide: "premiere" },
   { adobe: "Dreamweaver", app: "—", status: "hub-only" },
   { adobe: "Adobe Express", app: "—", status: "hub-only" },
   { adobe: "Adobe XD", app: "FigCraft", status: "hub-only", appSlug: "figcraft" },
@@ -63,6 +63,7 @@ const honestyRows: Array<{ adobe: string; verdict: string; ceiling: "High" | "Pa
 ];
 
 const guides = [
+  { href: "/alternatives/premiere/", category: "Video editing", title: "Premiere Pro alternatives", copy: "Compare OpenShot, Kdenlive, Shotcut, DaVinci Resolve, Flowblade and Pitivi on licensing, platforms and timeline workflows." },
   { href: "/alternatives/photoshop/", category: "Image editing", title: "Photoshop alternatives", copy: "Compare GIMP, PhotoCraft, Photopea, Krita, Paint.NET, and Glimpse for layers, PSD files, plug-ins, and production boundaries." },
   { href: "/alternatives/lightroom/", category: "Photography workflow", title: "Lightroom alternatives", copy: "Separate RAW development from catalog management, then compare darktable, RawTherapee, ART, LightCraft, digiKam, and Shotwell." },
   { href: "/alternatives/illustrator/", category: "Vector illustration", title: "Illustrator alternatives", copy: "Compare Inkscape, VectorCraft, Scribus, LibreOffice Draw, Penpot, and Vectr on SVG editing, .ai interchange, and print output." },
@@ -89,6 +90,11 @@ export default function AlternativesPage() {
         <p className="lede">A free editor is not automatically open source, and a tool that opens an Adobe file is not automatically a drop-in replacement. Start with the workflow you need, then compare the license, platform, editable file handoff, and the specific point where each option breaks.</p>
         <p className="updated">Last updated: <PageUpdated path="/alternatives/" /></p>
       </header>
+
+      <nav className="comparison-jumps" aria-label="Photoshop comparisons">
+        <Link href="/vs/gimp-vs-photoshop/">GIMP vs Photoshop →</Link>
+        <Link href="/vs/photopea-vs-photoshop/">Photopea vs Photoshop →</Link>
+      </nav>
 
       <section className="content-section" aria-labelledby="coverage-heading">
         <div className="section-heading"><p className="section-number">01</p><div><h2 id="coverage-heading">Coverage map</h2><p>Every Adobe product we track, the closest open source app, and whether a full comparison guide is published yet.</p></div></div>
@@ -157,7 +163,7 @@ export default function AlternativesPage() {
       </section>
 
       <section className="content-section" aria-labelledby="deep-dive-heading">
-        <div className="section-heading"><p className="section-number">05</p><div><h2 id="deep-dive-heading">Deep-dive guides</h2><p>The seven complete guides currently published.</p></div></div>
+        <div className="section-heading"><p className="section-number">05</p><div><h2 id="deep-dive-heading">Deep-dive guides</h2><p>The {guides.length} complete guides currently published.</p></div></div>
         <div className="alternatives-grid">
           {guides.map((guide) => <Link className="alternatives-card" href={guide.href} key={guide.href}><span>{guide.category}</span><div><h2>{guide.title}</h2><p>{guide.copy}</p></div><strong>Open the guide →</strong></Link>)}
         </div>

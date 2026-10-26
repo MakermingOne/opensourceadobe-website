@@ -14,7 +14,7 @@ describe("one source for substantive editorial dates", () => {
   it("preserves untouched page dates and records the brief cleanup date", () => {
     expect(pageUpdatedAt("/about/")).toBe("2026-10-11");
     expect(pageUpdatedAt("/updates/2026-10-13/")).toBe("2026-10-19");
-    expect(pageUpdatedAt("/alternatives/")).toBe("2026-10-20");
+    expect(pageUpdatedAt("/alternatives/")).toBe("2026-10-26");
   });
   it("normalizes trailing slashes and rejects unknown editorial dates", () => {
     expect(pageUpdatedAt("about")).toBe(pageUpdatedAt("/about/"));

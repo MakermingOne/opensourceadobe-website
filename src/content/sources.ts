@@ -3,6 +3,11 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "wordcraft-user-installer-docs-oct26", "type": "official-repository", "title": "WordCraft PR 2560: merged official development documentation", "url": "https://github.com/storytold/wordcraft/pull/2560", "accessedAt": "2026-10-27"},
+{"id": "lightcraft-sony-profile-docs-oct26", "type": "official-repository", "title": "LightCraft PR 3022: merged official development documentation", "url": "https://github.com/storytold/lightcraft/pull/3022", "accessedAt": "2026-10-27"},
+{"id": "figcraft-savefile-docs-oct26", "type": "official-repository", "title": "FigCraft PR 698: merged official development documentation", "url": "https://github.com/storytold/figcraft/pull/698", "accessedAt": "2026-10-27"},
+{"id": "figcraft-screenshot-docs-oct26", "type": "official-repository", "title": "FigCraft PR 1252: merged official development documentation", "url": "https://github.com/storytold/figcraft/pull/1252", "accessedAt": "2026-10-27"},
+{"id": "figcraft-vue-docs-oct27", "type": "official-repository", "title": "FigCraft PR 664: merged official development documentation", "url": "https://github.com/storytold/figcraft/pull/664", "accessedAt": "2026-10-27"},
 {"id": "photocraft-release-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 release and uploaded assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.16.0", "accessedAt": "2026-10-26"},
 {"id": "photocraft-checksums-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 checksums", "url": "https://github.com/storytold/photocraft/releases/download/v0.16.0/SHA256SUMS.txt", "accessedAt": "2026-10-26"},
 {"id": "photocraft-gaps-0160", "type": "official-repository", "title": "PhotoCraft v0.16.0 tagged gaps", "url": "https://github.com/storytold/photocraft/blob/v0.16.0/docs/gaps.md", "accessedAt": "2026-10-26"},

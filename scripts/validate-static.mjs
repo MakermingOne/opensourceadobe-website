@@ -7,6 +7,8 @@ const routes = [
   "/",
   "/apps/",
   "/vs-adobe/",
+  "/vs/gimp-vs-photoshop/",
+  "/vs/photopea-vs-photoshop/",
   "/download/",
   "/tutorials/",
   "/faq/",
@@ -41,9 +43,23 @@ const routes = [
   "/alternatives/after-effects/",
   "/alternatives/indesign/",
   "/alternatives/substance-painter/",
+  "/alternatives/premiere/",
   "/github/",
   "/updates/",
 ];
+// Discover new static English entries as well as the legacy/dynamic inventory.
+// This keeps new page files inside metadata, sitemap and analytics validation.
+async function discoverPageRoutes(directory, segments = []) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    if (entry.isDirectory() && !entry.name.includes("[")) {
+      await discoverPageRoutes(join(directory, entry.name), [...segments, entry.name]);
+    } else if (entry.name === "page.tsx") {
+      const route = segments.length ? `/${segments.join("/")}/` : "/";
+      if (!routes.includes(route)) routes.push(route);
+    }
+  }
+}
+await discoverPageRoutes(join(process.cwd(), "src/app/(en)"));
 for (const entry of await readdir(join(outputDirectory, "updates"), { withFileTypes: true })) {
   if (entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name)) routes.push(`/updates/${entry.name}/`);
 }
@@ -119,7 +135,7 @@ for (const route of routes) {
   canonicals.add(canonical);
 }
 
-for (const route of ["/alternatives/photoshop/", "/alternatives/lightroom/", "/alternatives/illustrator/", "/alternatives/acrobat/", "/alternatives/after-effects/", "/alternatives/indesign/", "/alternatives/substance-painter/", "/artcraft/", "/artcraft/pricing/", "/artcraft/safety/", "/artcraft/alternatives/", "/artcraft/photocraft-how-to-use/", "/apps/pdfcraft/", "/apps/photocraft/"]) {
+for (const route of routes.filter((route) => (route.startsWith("/alternatives/") && route !== "/alternatives/") || route.startsWith("/vs/") || ["/artcraft/", "/artcraft/pricing/", "/artcraft/safety/", "/artcraft/alternatives/", "/artcraft/photocraft-how-to-use/", "/apps/pdfcraft/", "/apps/photocraft/"].includes(route))) {
   const html = await readFile(routeFile(route), "utf8");
   if (!/FAQPage/.test(html)) failures.push(`${route}: missing FAQPage structured data`);
   if (!/property="og:image"/.test(html)) failures.push(`${route}: missing og:image`);

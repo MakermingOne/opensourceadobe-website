@@ -142,7 +142,7 @@ const appInput: AppRecord[] = [
       "Lightroom catalog, metadata, or XMP migration fidelity",
       "Large-library indexing performance",
     ],
-    sourceIds: ["artcraft-apps", "lightcraft-official", "lightcraft-repository"],
+    sourceIds: ["artcraft-apps", "lightcraft-official", "lightcraft-repository", "lightcraft-sony-profile-docs-oct26"],
     lastVerified: "2026-10-11",
   },
   {
@@ -228,7 +228,7 @@ const appInput: AppRecord[] = [
     ],
     limitations: ["The official directory labels FigCraft as early alpha.", ...sharedLimitations],
     unknowns: ["Independent Figma file interchange and collaborative-session reliability"],
-    sourceIds: ["artcraft-apps", "figcraft-official", "figcraft-repository", "figcraft-mcp-070"],
+    sourceIds: ["artcraft-apps", "figcraft-official", "figcraft-repository", "figcraft-savefile-docs-oct26", "figcraft-screenshot-docs-oct26", "figcraft-vue-docs-oct27", "figcraft-mcp-070"],
     lastVerified: "2026-10-13",
   },
   {
@@ -257,7 +257,7 @@ const appInput: AppRecord[] = [
       ...sharedBeyondAdobeNotes,
     ],
     unknowns: ["Compatibility with .docx files and Word document interchange fidelity"],
-    sourceIds: ["artcraft-apps", "wordcraft-official", "wordcraft-repository"],
+    sourceIds: ["artcraft-apps", "wordcraft-official", "wordcraft-repository", "wordcraft-user-installer-docs-oct26"],
     lastVerified: "2026-10-12",
   },
   {
