@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isProductionDeployment } from "@/lib/deployment";
@@ -67,20 +66,17 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
 
   return (
     <html lang={locale} dir={locales[locale].dir} className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
+      <head>
+        {isProduction ? (
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5205804952457245" crossOrigin="anonymous" />
+        ) : null}
+      </head>
       <body>
         <a className="skip-link" href="#main-content">{copy.skip}</a>
         <SiteHeader locale={locale} />
         <main id="main-content">{children}</main>
         <SiteFooter locale={locale} />
         {loadAnalytics ? <GoogleAnalytics gaId={siteConfig.analyticsId} /> : null}
-        {isProduction ? (
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5205804952457245"
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        ) : null}
       </body>
     </html>
   );
