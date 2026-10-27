@@ -21,7 +21,7 @@ it('archives documentation by official merge time while retaining actual check a
 });
 it('provides each registered translation with a digest and real English date links', () => {
  for(const locale of translatedLocales) for(const path of localizedPaths(locale)) {
-  const digest=getPageContent(locale,path)?.sections[0];
+  const digest=getPageContent(locale,path)?.sections.find(s => s.id === 'update-2026-10-27');
   expect(digest?.id).toBe('update-2026-10-27');
   expect(digest?.paragraphs.join(' ')).toContain('01:48:54');
   expect(digest?.links?.map(l=>l.href)).toEqual(['https://opensourceadobe.com/updates/2026-10-26/','https://opensourceadobe.com/updates/2026-10-27/']);

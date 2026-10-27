@@ -42,7 +42,7 @@ const appInput: AppRecord[] = [
       "Production stability on each supported platform",
       "Performance on large professional documents",
     ],
-    sourceIds: ["artcraft-apps", "photocraft-official", "photocraft-repository", "photocraft-brush-090", "community-photocraft-brush-spacing", "community-photocraft-brush-cursor-oct20"],
+    sourceIds: ["artcraft-apps", "photocraft-official", "photocraft-repository", "photocraft-mcp-write-docs-oct28", "photocraft-brush-090", "community-photocraft-brush-spacing", "community-photocraft-brush-cursor-oct20"],
     lastVerified: "2026-10-11",
   },
   {
@@ -75,7 +75,7 @@ const appInput: AppRecord[] = [
       "Typography and print-production behavior on real client files",
       "Performance on complex professional artwork",
     ],
-    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository", "community-vectorcraft-pencil-oct20", "vectorcraft-rpm-runtime-limits", "vectorcraft-parity-0120", "vectorcraft-packaging-0120"],
+    sourceIds: ["artcraft-apps", "vectorcraft-official", "vectorcraft-repository", "vectorcraft-taskbar-docs-oct27", "community-vectorcraft-pencil-oct20", "vectorcraft-rpm-runtime-limits", "vectorcraft-parity-0120", "vectorcraft-packaging-0120"],
     lastVerified: "2026-10-11",
   },
   {
@@ -109,7 +109,7 @@ const appInput: AppRecord[] = [
       "Hardware acceleration and codec behavior across supported systems",
       "Timeline stability on long-form projects",
     ],
-    sourceIds: ["artcraft-apps", "filmcraft-official", "filmcraft-repository"],
+    sourceIds: ["artcraft-apps", "filmcraft-official", "filmcraft-repository", "filmcraft-export-benchmark-docs-oct28"],
     lastVerified: "2026-10-11",
   },
   {
@@ -205,7 +205,7 @@ const appInput: AppRecord[] = [
     supportedTasks: ["Page layout and publishing workflows described by the official project"],
     limitations: ["The official lineup labels DesignCraft as in development.", ...sharedLimitations],
     unknowns: ["InDesign interchange, print preflight, long-document tools, and typography coverage"],
-    sourceIds: ["artcraft-apps", "designcraft-official", "designcraft-repository"],
+    sourceIds: ["artcraft-apps", "designcraft-official", "designcraft-repository", "designcraft-flyout-docs-oct27", "designcraft-depth-ruler-docs-oct28", "designcraft-column-rules-docs-oct28"],
     lastVerified: "2026-10-11",
   },
   {
@@ -257,7 +257,7 @@ const appInput: AppRecord[] = [
       ...sharedBeyondAdobeNotes,
     ],
     unknowns: ["Compatibility with .docx files and Word document interchange fidelity"],
-    sourceIds: ["artcraft-apps", "wordcraft-official", "wordcraft-repository", "wordcraft-user-installer-docs-oct26"],
+    sourceIds: ["artcraft-apps", "wordcraft-official", "wordcraft-repository", "wordcraft-sections-docs-oct28", "wordcraft-user-installer-docs-oct26"],
     lastVerified: "2026-10-12",
   },
   {
@@ -344,7 +344,7 @@ const appInput: AppRecord[] = [
       ...sharedBeyondAdobeNotes,
     ],
     unknowns: ["DWG/DXF interchange, parametric modeling depth, and precision drawing tools"],
-    sourceIds: ["artcraft-apps", "cadcraft-official", "cadcraft-repository"],
+    sourceIds: ["artcraft-apps", "cadcraft-official", "cadcraft-repository", "cadcraft-named-viewports-docs-oct28", "cadcraft-layout-template-docs-oct28"],
     lastVerified: "2026-10-12",
   },
   {

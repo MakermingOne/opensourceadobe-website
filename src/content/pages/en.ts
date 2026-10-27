@@ -33,6 +33,7 @@ const photoFeatures = [
 ] as const;
 
 const photoFaqs = [
+  {"question": "What do the October 28 MCP write-boundary docs establish?", "answer": "PR 9445 recommends a dedicated output folder as the automation write root and documents restrictions on replacing non-image files. It merged after 0.16.0, so do not assume the current installer has that behavior. Clients still have the rights of their roots and may replace supported images; narrow the granted folders and keep backups. We reviewed documentation, not the runtime security of the package."},
   {
     question: "Why do PhotoCraft brush strokes look delayed or spaced apart?",
     answer: "Check the brush Spacing setting on a small canvas. In a community report checked October 17, the author attributed their apparent lag to spacing, not an app slowdown. Their version and operating system were not specified, and we have not reproduced the result. This is not a universal latency fix; record your build, input device and brush settings if it persists.",

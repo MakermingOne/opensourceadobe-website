@@ -3,6 +3,15 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "designcraft-flyout-docs-oct27", "type": "official-repository", "title": "DesignCraft PR 1902: merged development documentation", "url": "https://github.com/storytold/designcraft/pull/1902", "accessedAt": "2026-10-28"},
+{"id": "vectorcraft-taskbar-docs-oct27", "type": "official-repository", "title": "VectorCraft PR 4282: merged development documentation", "url": "https://github.com/storytold/vectorcraft/pull/4282", "accessedAt": "2026-10-28"},
+{"id": "wordcraft-sections-docs-oct28", "type": "official-repository", "title": "WordCraft PR 3936: merged development documentation", "url": "https://github.com/storytold/wordcraft/pull/3936", "accessedAt": "2026-10-28"},
+{"id": "filmcraft-export-benchmark-docs-oct28", "type": "official-repository", "title": "FilmCraft PR 3456: merged development documentation", "url": "https://github.com/storytold/filmcraft/pull/3456", "accessedAt": "2026-10-28"},
+{"id": "cadcraft-named-viewports-docs-oct28", "type": "official-repository", "title": "CADCraft PR 2175: merged development documentation", "url": "https://github.com/storytold/cadcraft/pull/2175", "accessedAt": "2026-10-28"},
+{"id": "cadcraft-layout-template-docs-oct28", "type": "official-repository", "title": "CADCraft PR 2177: merged development documentation", "url": "https://github.com/storytold/cadcraft/pull/2177", "accessedAt": "2026-10-28"},
+{"id": "designcraft-depth-ruler-docs-oct28", "type": "official-repository", "title": "DesignCraft PR 1795: merged development documentation", "url": "https://github.com/storytold/designcraft/pull/1795", "accessedAt": "2026-10-28"},
+{"id": "designcraft-column-rules-docs-oct28", "type": "official-repository", "title": "DesignCraft PR 1802: merged development documentation", "url": "https://github.com/storytold/designcraft/pull/1802", "accessedAt": "2026-10-28"},
+{"id": "photocraft-mcp-write-docs-oct28", "type": "official-repository", "title": "PhotoCraft PR 9445: merged development documentation", "url": "https://github.com/storytold/photocraft/pull/9445", "accessedAt": "2026-10-28"},
 {"id": "wordcraft-user-installer-docs-oct26", "type": "official-repository", "title": "WordCraft PR 2560: merged official development documentation", "url": "https://github.com/storytold/wordcraft/pull/2560", "accessedAt": "2026-10-27"},
 {"id": "lightcraft-sony-profile-docs-oct26", "type": "official-repository", "title": "LightCraft PR 3022: merged official development documentation", "url": "https://github.com/storytold/lightcraft/pull/3022", "accessedAt": "2026-10-27"},
 {"id": "figcraft-savefile-docs-oct26", "type": "official-repository", "title": "FigCraft PR 698: merged official development documentation", "url": "https://github.com/storytold/figcraft/pull/698", "accessedAt": "2026-10-27"},
