@@ -19,7 +19,7 @@ describe("October 17 evening source-qualified additions", () => {
     expect(fig?.sourceUrl).toContain("ac4b98dbd72cea838447bd34621a47f1d40f0801");
     expect(fig?.impact).toContain("not a new release");
     expect(fig?.summary).toContain("opt-in");
-    expect(releasesBySlug.get("figcraft")?.version).toBe("0.11.2");
+    expect(releasesBySlug.get("figcraft")?.version).toBe("0.12.1");
   });
   it("qualifies individual community experiences and preserves missing details", () => {
     for (const id of ["community-photocraft-brush-spacing", "community-pdfcraft-white-cursor", "community-effectcraft-rotoscoping"]) {
@@ -49,8 +49,8 @@ describe("October 17 evening source-qualified additions", () => {
   it("preserves the community advice dates alongside the catalog download revision", () => {
     expect(enPages.photocraft.faqs.some((faq) => faq.answer.includes("Spacing"))).toBe(true);
     expect(guideBySlug.pdfcraft.faqs.some((faq) => faq.question.includes("cursor"))).toBe(true);
-    expect(pageUpdatedAt("/apps/photocraft/")).toBe("2026-10-28");
-    expect(pageUpdatedAt("/apps/pdfcraft/")).toBe("2026-10-26");
-    expect(pageUpdatedAt("/apps/filmcraft/")).toBe("2026-10-28");
+    expect(pageUpdatedAt("/apps/photocraft/")).toBe("2026-10-30");
+    expect(pageUpdatedAt("/apps/pdfcraft/")).toBe("2026-10-30");
+    expect(pageUpdatedAt("/apps/filmcraft/")).toBe("2026-10-30");
   });
 });

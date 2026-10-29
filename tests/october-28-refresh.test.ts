@@ -22,7 +22,7 @@ it('uses official publication times instead of internal commit and progress date
 });
 it('links every published translation to the actual English date pages',()=>{
  for(const locale of translatedLocales) for(const path of localizedPaths(locale)) {
-  const digest=getPageContent(locale,path)?.sections[0];
+  const digest=getPageContent(locale,path)?.sections.find(s=>s.id==='update-2026-10-28');
   expect(digest?.id).toBe('update-2026-10-28');
   expect(digest?.links?.map(l=>l.href)).toEqual(['https://opensourceadobe.com/updates/2026-10-27/','https://opensourceadobe.com/updates/2026-10-28/']);
  }

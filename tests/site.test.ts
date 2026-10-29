@@ -51,7 +51,7 @@ describe("site URL contract", () => {
     expect(publishedRoutes).toContain("/artcraft/alternatives/");
     expect(publishedRoutes).toContain("/artcraft/photocraft-how-to-use/");
     expect(publishedRoutes).not.toContain("/learn/ai-history-1955/");
-    expect(publishedRoutes).toHaveLength(58);
+    expect(publishedRoutes).toHaveLength(60);
   });
 
   it("redirects the www host to the canonical host with an exact 301", () => {

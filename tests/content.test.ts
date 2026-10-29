@@ -59,9 +59,9 @@ describe("app content contract", () => {
         .filter((app) => ["vectorcraft", "filmcraft", "lightcraft"].includes(app.slug))
         .map(({ slug, status, version }) => ({ slug, status, version })),
     ).toEqual([
-      { slug: "vectorcraft", status: "in-development", version: "0.17.0" },
-      { slug: "filmcraft", status: "in-development", version: "0.13.0" },
-      { slug: "lightcraft", status: "in-development", version: "0.14.0" },
+      { slug: "vectorcraft", status: "in-development", version: "0.18.0" },
+      { slug: "filmcraft", status: "in-development", version: "0.14.0" },
+      { slug: "lightcraft", status: "in-development", version: "0.15.0" },
     ]);
   });
 

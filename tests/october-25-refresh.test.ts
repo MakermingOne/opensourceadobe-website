@@ -19,7 +19,7 @@ it('archives later October 24 events without backdating the check or replacing i
  }
  expect(additions.find(e => e.appSlug === 'soundcraft')?.eventPublishedAt).toBe('2026-10-24T12:38:40Z');
  expect(additions.find(e => e.kind === 'Official release')?.eventPublishedAt).toBe('2026-10-23T22:44:33Z');
- expect(officialDownloads.photocraft.packages.map(p => p.sizeBytes)).toEqual([74760192,98985128,83327480]);
+ expect(officialDownloads.photocraft.packages.map(p => p.sizeBytes)).toEqual([105615360,136121117,117254648]);
  const today = dailyUpdates.find(i => i.date === '2026-10-25')!;
  expect(today.introduction).toContain('03:09 Beijing time');
  expect(today.introduction).toContain('not a conclusion about the rest of the day');

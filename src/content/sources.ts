@@ -3,6 +3,9 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "photocraft-release-0170", "type": "official-repository", "title": "PhotoCraft v0.17.0 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.17.0", "accessedAt": "2026-10-30"},
+{"id": "photocraft-checksums-0170", "type": "official-repository", "title": "PhotoCraft v0.17.0 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.17.0/SHA256SUMS.txt", "accessedAt": "2026-10-30"},
+{"id": "photocraft-gaps-0170", "type": "official-repository", "title": "PhotoCraft v0.17.0 tagged gaps", "url": "https://github.com/storytold/photocraft/blob/v0.17.0/docs/gaps.md", "accessedAt": "2026-10-30"},
 {"id": "designcraft-flyout-docs-oct27", "type": "official-repository", "title": "DesignCraft PR 1902: merged development documentation", "url": "https://github.com/storytold/designcraft/pull/1902", "accessedAt": "2026-10-28"},
 {"id": "vectorcraft-taskbar-docs-oct27", "type": "official-repository", "title": "VectorCraft PR 4282: merged development documentation", "url": "https://github.com/storytold/vectorcraft/pull/4282", "accessedAt": "2026-10-28"},
 {"id": "wordcraft-sections-docs-oct28", "type": "official-repository", "title": "WordCraft PR 3936: merged development documentation", "url": "https://github.com/storytold/wordcraft/pull/3936", "accessedAt": "2026-10-28"},
@@ -112,7 +115,7 @@ const sourceInput: SourceRecord[] = [
     type: "official-repository",
     title: "storytold/craft-launcher — official Crafting Apps installer",
     url: "https://github.com/storytold/craft-launcher",
-    accessedAt: "2026-10-14",
+    accessedAt: "2026-10-30",
   },
   {
     id: "artcraft-apps",
