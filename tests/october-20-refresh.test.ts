@@ -5,7 +5,7 @@ import { officialDownloads, type DownloadSlug } from '@/content/downloads';
 import { translatedLocales } from '@/i18n/config';
 import { getPageContent } from '@/content/pages';
 
-const versions = {"filmcraft": "0.14.0", "vectorcraft": "0.18.0", "photocraft": "0.17.0", "lightcraft": "0.15.0", "pdfcraft": "0.15.0", "effectcraft": "0.18.0", "designcraft": "0.14.0", "figcraft": "0.12.1", "wordcraft": "0.12.0", "soundcraft": "0.14.0", "deckcraft": "0.12.0", "cadcraft": "0.14.0", "gridcraft": "0.13.0", "craft-launcher": "0.9.0"};
+const versions = {"filmcraft": "0.14.0", "vectorcraft": "0.18.0", "photocraft": "0.17.0", "lightcraft": "0.15.0", "pdfcraft": "0.15.0", "effectcraft": "0.18.0", "designcraft": "0.14.0", "figcraft": "0.12.1", "wordcraft": "0.12.0", "soundcraft": "0.14.0", "deckcraft": "0.12.0", "cadcraft": "0.14.0", "gridcraft": "0.13.0", "craft-launcher": "0.10.0"};
 describe('October 20 verified release and community refresh', () => {
  it('records published assets instead of newer release-named development commits', () => {
   for (const [slug, version] of Object.entries(versions)) {

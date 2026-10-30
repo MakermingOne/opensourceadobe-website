@@ -31,17 +31,84 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-10-31",
+  "publishedDate": "2026-10-31",
+  "checkedDate": "2026-10-31",
+  "relatedBriefDates": [
+    "2026-10-30"
+  ],
+  "title": "October 31 early check: Launcher release backfilled",
+  "seoTitle": "ArtCraft Updates: October 31, 2026 Early Check",
+  "description": "No later official release found; Launcher 0.10.0 and selected documentation changes are archived on October 30.",
+  "introduction": "As of 03:03 Beijing time on October 31, no official release later than Craft Launcher 0.10.0 was found. That release belongs to October 30 Beijing time and is backfilled there with two verified documentation updates. We checked the official homepage, Apps, thirteen product pages (GridCraft succeeded on retry), News and fifteen GitHub release histories with uploaded asset metadata, plus README histories and selected docs/ and ROADMAP histories. News still lists January 30 as its newest article. Detailed development-document review is partial: FilmCraft docs returned an empty response and some other detailed requests failed; numerous VectorCraft and PhotoCraft development commits are not represented as shipped features. Selected Reddit originals were readable but showed inconsistent relative timestamps; the new JSON feed returned 403, so no new community item is assigned an event date. X returned 403 through the reader and direct access supplied a JavaScript shell. YouTube reader access was throttled; direct channel/watch metadata was readable, without video or transcript review. Google Search reader access failed; its direct response requires JavaScript. No complete search-channel coverage is claimed. This describes the early check only, not the rest of the day.",
+  "entries": []
+},
+{
   "date": "2026-10-30",
   "publishedDate": "2026-10-30",
   "checkedDate": "2026-10-30",
   "relatedBriefDates": [
-    "2026-10-29"
+    "2026-10-29",
+    "2026-10-31"
   ],
-  "title": "October 30 early check: October 29 releases backfilled",
+  "title": "October 30: Launcher version selection and documentation updates",
   "seoTitle": "ArtCraft Updates: October 30, 2026 Early Check",
-  "description": "No later official release found as of this early check; fourteen October 29 releases are backfilled on their Beijing event date.",
-  "introduction": "As of 03:08 Beijing time on October 30, no official release later than the October 29 batch was found. Fourteen releases are recorded on October 29, with actual site publication and checks on October 30. We checked the official homepage, Apps directory, thirteen product pages, News, fifteen GitHub release histories and uploaded asset metadata, plus README, docs/ and ROADMAP histories. Some detailed documentation requests failed TLS or returned empty responses, so this run does not claim a complete documentation diff review. News still lists January 30 as its newest article. Selected Reddit originals were readable but the new JSON feed returned 403; search dates were not treated as event dates. X returned 403 through the web reader; YouTube channel access was throttled there, with direct channel metadata only, not video or transcript coverage. Google Search could not be read through the web reader; the direct response requires JavaScript. No new community claim is recorded. Development branches and documentation do not establish released installer capabilities. This is an early check, not a conclusion about the rest of the day.",
-  "entries": []
+  "description": "Craft Launcher 0.10.0 plus EffectCraft command-dispatch and FigCraft screenshot documentation, backfilled on October 31.",
+  "introduction": "As of 03:08 Beijing time on October 30, no official release later than the October 29 batch was found. Fourteen releases are recorded on October 29, with actual site publication and checks on October 30. We checked the official homepage, Apps directory, thirteen product pages, News, fifteen GitHub release histories and uploaded asset metadata, plus README, docs/ and ROADMAP histories. Some detailed documentation requests failed TLS or returned empty responses, so this run does not claim a complete documentation diff review. News still lists January 30 as its newest article. Selected Reddit originals were readable but the new JSON feed returned 403; search dates were not treated as event dates. X returned 403 through the web reader; YouTube channel access was throttled there, with direct channel metadata only, not video or transcript coverage. Google Search could not be read through the web reader; the direct response requires JavaScript. No new community claim is recorded. Development branches and documentation do not establish released installer capabilities. This is an early check, not a conclusion about the rest of the day. Follow-up published October 31: the early October 30 check above is retained as originally recorded. Launcher 0.10.0 appeared later that morning, and two official documentation changes are now backfilled by exact publication times. Entries below were first checked and published here on October 31.",
+  "entries": [
+    {
+      "id": "launcher-0100",
+      "appSlug": "craft-launcher",
+      "appName": "Craft Launcher",
+      "kind": "Official release",
+      "title": "Craft Launcher 0.10.0 adds version selection",
+      "summary": "The official release adds stable, eligible nightly and pinned version selection. Windows MSI downgrades verify chosen and recovery packages. Older-version installation on macOS and Linux remains unsupported. SolidCraft is labelled a community app; macOS installation remains unavailable pending Developer ID signing. FreeBSD x86_64 is included, but no ARM64 update ships. RISC-V deb/RPM packages require glibc 2.39; other Linux builds retain 2.35.",
+      "impact": "Official publication: 2026-10-29T19:47:08Z (UTC); archived on October 30 Beijing time. Checked and published here on October 31. Uploaded package metadata was checked; no independent installation or compatibility test was performed. Version increments do not change our maturity assessment.",
+      "sourceTitle": "Craft Launcher official release and assets",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/releases/tag/v0.10.0",
+      "eventDate": "2026-10-29",
+      "eventPublishedAt": "2026-10-29T19:47:08Z",
+      "checkedDate": "2026-10-31",
+      "publishedDate": "2026-10-31",
+      "relatedPath": "/download/",
+      "relatedLabel": "Read the download guide"
+    },
+    {
+      "id": "effectcraft-command-dispatch",
+      "appSlug": "effectcraft",
+      "appName": "EffectCraft",
+      "kind": "Documentation update",
+      "title": "EffectCraft clarifies automation access",
+      "summary": "The README distinguishes engine commands exposed through CLI, JSON control and MCP from UI-only commands requiring the running frontend dispatcher or an attached MCP bridge. Headless MCP does not imply complete menu or bridge-only tool access.",
+      "impact": "Official publication: 2026-10-29T22:09:23Z (UTC); archived on October 30 Beijing time. Checked and published here on October 31. These are development documentation changes, not confirmation of capabilities in a released installer.",
+      "sourceTitle": "EffectCraft official documentation pull request",
+      "sourceUrl": "https://github.com/storytold/effectcraft/pull/2569",
+      "eventDate": "2026-10-29",
+      "eventPublishedAt": "2026-10-29T22:09:23Z",
+      "checkedDate": "2026-10-31",
+      "publishedDate": "2026-10-31",
+      "relatedPath": "/apps/effectcraft/",
+      "relatedLabel": "Read the product guide"
+    },
+    {
+      "id": "figcraft-screenshot-refresh",
+      "appSlug": "figcraft",
+      "appName": "FigCraft",
+      "kind": "Documentation update",
+      "title": "FigCraft refreshes its documented interface screenshots",
+      "summary": "The official README refreshes screenshots from development main and updates two image descriptions. This illustrates the development interface and does not establish new features in the current 0.12.1 installer.",
+      "impact": "Official publication: 2026-10-30T04:45:54Z (UTC); archived on October 30 Beijing time. Checked and published here on October 31. These are development documentation changes, not confirmation of capabilities in a released installer.",
+      "sourceTitle": "FigCraft official documentation pull request",
+      "sourceUrl": "https://github.com/storytold/figcraft/pull/1623",
+      "eventDate": "2026-10-30",
+      "eventPublishedAt": "2026-10-30T04:45:54Z",
+      "checkedDate": "2026-10-31",
+      "publishedDate": "2026-10-31",
+      "relatedPath": "/apps/figcraft/",
+      "relatedLabel": "Read the product guide"
+    }
+  ],
+  "modifiedDate": "2026-10-31"
 },
 {
   "date": "2026-10-29",

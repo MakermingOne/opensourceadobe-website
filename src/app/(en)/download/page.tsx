@@ -86,7 +86,7 @@ export default function DownloadPage() {
           </div>
         </section>
 
-          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Check its app list before installing newly added projects such as FigCraft. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
+          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. It adds stable, eligible nightly and pinned version selection. Older-version installation on macOS and Linux is not supported; Windows MSI downgrades have package verification and recovery safeguards. SolidCraft is labelled a community app, with macOS installation unavailable pending signing. No FreeBSD ARM64 update ships in 0.10.0; RISC-V deb/RPM packages require glibc 2.39. We checked uploaded package metadata on October 31 without an independent installation test. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
         <aside className="safety-note" aria-labelledby="download-safety-heading">
           <Eyebrow>Before installing</Eyebrow>
           <h2 id="download-safety-heading">{enPages.download.heading3}</h2>

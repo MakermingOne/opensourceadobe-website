@@ -1,3 +1,4 @@
+import { october31Digest } from "./october-31-notes";
 import { october30Digest } from "./october-30-notes";
 import { october28Digest } from "./october-28-notes";
 import { october27Digest } from "./october-27-notes";
@@ -22,6 +23,6 @@ import type { Locale } from "@/i18n/config";
 export const pageContent: Partial<Record<Locale, Record<string, LocalizedPage>>> = { "zh-Hant": zhHantPages, pl: plPages, de: dePages, hi: hiPages, ja: jaPages, ko: koPages, fr: frPages, "en-AU": enAUPages };
 export function getPageContent(locale: Locale, path: string): LocalizedPage | undefined {
   const page = pageContent[locale]?.[path];
-  const digests = [october30Digest(locale), october28Digest(locale), october27Digest(locale), october26Digest(locale), october25Digest(locale), october24Digest(locale), october23Digest(locale), october22Digest(locale), october20Digest(locale)].filter((digest): digest is NonNullable<typeof digest> => !!digest);
+  const digests = [october31Digest(locale), october30Digest(locale), october28Digest(locale), october27Digest(locale), october26Digest(locale), october25Digest(locale), october24Digest(locale), october23Digest(locale), october22Digest(locale), october20Digest(locale)].filter((digest): digest is NonNullable<typeof digest> => !!digest);
   return page && digests.length ? { ...page, sections: [...digests, ...page.sections] } : page;
 }

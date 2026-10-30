@@ -63,7 +63,7 @@ describe.each(guides)("$name guide", ({ guide, minWords }) => {
     for (const id of guide.sourceIds) {
       const source = sourcesById.get(id);
       expect(source, id).toBeDefined();
-      expect(source!.accessedAt).toMatch(/^2026-10-(1[4-9]|2[0-9]|30)$/);
+      expect(source!.accessedAt).toMatch(/^2026-10-(1[4-9]|2[0-9]|3[01])$/);
     }
   });
 
