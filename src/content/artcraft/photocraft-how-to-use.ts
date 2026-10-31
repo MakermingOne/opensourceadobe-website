@@ -12,7 +12,7 @@ export const photoCraftHowToUseGuide: ArticleGuide = {
       id: "version",
       heading: "Check your version first",
       paragraphs: [
-        "The official user guides we followed are labelled version 0.8.2, and one FAQ page is labelled 0.9.0. The latest GitHub release checked on 30 October 2026 is PhotoCraft 0.17.0, originally published on 28 October UTC. Open Help › System Info… to see your version. If a menu name below does not match, read the release notes for your version.",
+        "The official user guides we followed are labelled version 0.8.2, and one FAQ page is labelled 0.9.0. The latest GitHub release checked on 1 November 2026 is PhotoCraft 0.18.0, originally published on 31 October UTC. Open Help › System Info… to see your version. If a menu name below does not match, read the release notes for your version.",
       ],
     },
     {
