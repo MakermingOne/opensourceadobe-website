@@ -118,7 +118,7 @@ const sourceInput: SourceRecord[] = [
     type: "official-repository",
     title: "storytold/craft-launcher — official Crafting Apps installer",
     url: "https://github.com/storytold/craft-launcher",
-    accessedAt: "2026-11-01",
+    accessedAt: "2026-11-02",
   },
   {
     id: "artcraft-apps",

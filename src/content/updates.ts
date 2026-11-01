@@ -31,17 +31,85 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-11-02",
+  "checkedDate": "2026-11-02",
+  "publishedDate": "2026-11-02",
+  "relatedBriefDates": [
+    "2026-11-01"
+  ],
+  "title": "November 2: Launcher 0.13.0 and suite documentation",
+  "seoTitle": "ArtCraft Updates: November 2, 2026",
+  "description": "Launcher 0.13.0 adds TextureCraft and community-app visibility settings; November 1 release backfilled separately.",
+  "introduction": "As of 03:05 Beijing time on November 2, Launcher 0.13.0 is the new verified release. Launcher 0.12.0 belongs to November 1 and is recorded there, with actual checks and publication on November 2. We read the official homepage, Apps, thirteen product pages, News, fifteen release histories and uploaded asset metadata, README changes and selected tagged documentation. Important docs/ and ROADMAP histories were inspected; detailed development changes were not exhaustively reviewed and are not treated as shipped features. Reddit originals were readable but relative timestamps conflict with search dates; no new event is inferred. X reader returned 403 and direct access a JavaScript shell. YouTube reader was throttled; direct channel and watch metadata were readable, without video or transcript review. Google search results were searched and read where accessible; direct Google HTML needs JavaScript. Community coverage remains partial. This early check does not describe the rest of the day.",
+  "entries": [
+    {
+      "id": "launcher-v0-13-0",
+      "appSlug": "craft-launcher",
+      "appName": "Craft Launcher",
+      "kind": "Official release",
+      "title": "Craft Launcher v0.13.0 is published",
+      "summary": "Adds TextureCraft to the suite and a setting to hide community apps; notes include MSI detection ordering and interface placeholder fixes.",
+      "impact": "Official publication: 2026-11-01T17:42:38Z (UTC). Checked and published here November 2. All 28 listed assets are uploaded with positive sizes; no independent installer or antivirus test was performed. Inclusion in Launcher does not establish a new app’s maturity or platform compatibility.",
+      "sourceTitle": "Official release notes and assets",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/releases/tag/v0.13.0",
+      "eventDate": "2026-11-01",
+      "eventPublishedAt": "2026-11-01T17:42:38Z",
+      "checkedDate": "2026-11-02",
+      "publishedDate": "2026-11-02",
+      "relatedPath": "/download/",
+      "relatedLabel": "Read the download guide"
+    },
+    {
+      "id": "suite-readme-nov2",
+      "appSlug": "photocraft",
+      "appName": "Craft App Suite",
+      "kind": "Documentation update",
+      "title": "Suite README directory is synchronized with Launcher",
+      "summary": "The PhotoCraft README suite table adds links including Craft Anything and TextureCraft. Equivalent directory synchronization appears in the other application README histories.",
+      "impact": "Documentation scope only: this does not establish release versions, licenses, supported platforms or production readiness for the linked projects.",
+      "sourceTitle": "PhotoCraft official README commit",
+      "sourceUrl": "https://github.com/storytold/photocraft/commit/cf8e3d352bca48f7d35d2444cbc831d9276435b1",
+      "eventDate": "2026-11-01",
+      "eventPublishedAt": "2026-11-01T17:29:54Z",
+      "checkedDate": "2026-11-02",
+      "publishedDate": "2026-11-02",
+      "relatedPath": "/apps/",
+      "relatedLabel": "Read the app directory"
+    }
+  ]
+},
+{
   "date": "2026-11-01",
   "checkedDate": "2026-11-01",
   "publishedDate": "2026-11-01",
   "relatedBriefDates": [
-    "2026-10-31"
+    "2026-10-31",
+    "2026-11-02"
   ],
   "title": "November 1 early check: October 31 releases backfilled",
   "seoTitle": "ArtCraft Updates: November 1, 2026 Early Check",
-  "description": "No later release found at this early check; fourteen October 31 releases are archived by their event date.",
-  "introduction": "As of 03:03 Beijing time on November 1, no later official release was found beyond the October 31 batch recorded on its own date page. We read the official homepage, Apps, thirteen product pages, News, fifteen release histories and uploaded asset metadata. README histories and selected tagged README/gaps documents were read; docs/ and ROADMAP history coverage is partial because some GitHub requests returned 403. Development changes are not treated as shipped features. Reddit\u2019s accessible new-post listing is stale; direct JSON and selected original requests failed. X returned 403 through the reader, YouTube was throttled there and direct requests failed TLS. Google Search could not be read through the reader and its direct response needs JavaScript; search results did not supply a verified new community event. No complete community-channel coverage is claimed. This is an early check, not a conclusion about the rest of November 1.",
-  "entries": []
+  "description": "Early check preserved; Launcher v0.12.0 backfilled with actual November 2 verification.",
+  "introduction": "As of 03:03 Beijing time on November 1, no later official release was found beyond the October 31 batch recorded on its own date page. We read the official homepage, Apps, thirteen product pages, News, fifteen release histories and uploaded asset metadata. README histories and selected tagged README/gaps documents were read; docs/ and ROADMAP history coverage is partial because some GitHub requests returned 403. Development changes are not treated as shipped features. Reddit’s accessible new-post listing is stale; direct JSON and selected original requests failed. X returned 403 through the reader, YouTube was throttled there and direct requests failed TLS. Google Search could not be read through the reader and its direct response needs JavaScript; search results did not supply a verified new community event. No complete community-channel coverage is claimed. This is an early check, not a conclusion about the rest of November 1. Follow-up checked and published November 2: Launcher v0.12.0 was released at 2026-11-01T04:17:15Z (12:17:15 Beijing time), after the original early check. It is backfilled below; the original check is preserved.",
+  "entries": [
+    {
+      "id": "launcher-v0-12-0",
+      "appSlug": "craft-launcher",
+      "appName": "Craft Launcher",
+      "kind": "Official release",
+      "title": "Craft Launcher v0.12.0 is published",
+      "summary": "Adds Craft Anything to the suite; notes also document a Windows antivirus incident involving Update all. Packaging automation is not proof of a newly available Flatpak download.",
+      "impact": "Official publication: 2026-11-01T04:17:15Z (UTC). Checked and published here November 2. All 28 listed assets are uploaded with positive sizes; no independent installer or antivirus test was performed. Inclusion in Launcher does not establish a new app’s maturity or platform compatibility.",
+      "sourceTitle": "Official release notes and assets",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/releases/tag/v0.12.0",
+      "eventDate": "2026-11-01",
+      "eventPublishedAt": "2026-11-01T04:17:15Z",
+      "checkedDate": "2026-11-02",
+      "publishedDate": "2026-11-02",
+      "relatedPath": "/download/",
+      "relatedLabel": "Read the download guide"
+    }
+  ],
+  "modifiedDate": "2026-11-02"
 },
 {
   "date": "2026-10-31",

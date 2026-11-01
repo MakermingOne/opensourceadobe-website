@@ -1,7 +1,7 @@
 // Baseline checked October 15; subsequent app-specific refreshes are dated below.
 // This is an editorial snapshot, not a runtime API.
 export const releaseCheckedAt = "2026-10-15";
-const releaseCheckDates: Record<string, string> = {"filmcraft": "2026-11-01", "vectorcraft": "2026-11-01", "photocraft": "2026-11-01", "lightcraft": "2026-11-01", "pdfcraft": "2026-11-01", "effectcraft": "2026-11-01", "designcraft": "2026-11-01", "figcraft": "2026-11-01", "wordcraft": "2026-11-01", "soundcraft": "2026-11-01", "deckcraft": "2026-11-01", "cadcraft": "2026-11-01", "gridcraft": "2026-11-01", "craft-launcher": "2026-11-01"};
+const releaseCheckDates: Record<string, string> = {"filmcraft": "2026-11-01", "vectorcraft": "2026-11-01", "photocraft": "2026-11-01", "lightcraft": "2026-11-01", "pdfcraft": "2026-11-01", "effectcraft": "2026-11-01", "designcraft": "2026-11-01", "figcraft": "2026-11-01", "wordcraft": "2026-11-01", "soundcraft": "2026-11-01", "deckcraft": "2026-11-01", "cadcraft": "2026-11-01", "gridcraft": "2026-11-01", "craft-launcher": "2026-11-02"};
 export function releaseCheckedOn(slug: string) {
   return releases.some((release) => release.slug === slug) ? releaseCheckDates[slug] ?? releaseCheckedAt : "Not verified";
 }
@@ -86,9 +86,9 @@ export const releases = [
   },
   {
     "slug": "craft-launcher",
-    "version": "0.11.1",
-    "publishedAt": "2026-10-31T06:25:28Z",
-    "url": "https://github.com/storytold/craft-launcher/releases/tag/v0.11.1"
+    "version": "0.13.0",
+    "publishedAt": "2026-11-01T17:42:38Z",
+    "url": "https://github.com/storytold/craft-launcher/releases/tag/v0.13.0"
   }
 ] as const;
 export const releasesBySlug = new Map<string, (typeof releases)[number]>(releases.map((release) => [release.slug, release]));

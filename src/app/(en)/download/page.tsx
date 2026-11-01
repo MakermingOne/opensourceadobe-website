@@ -86,7 +86,7 @@ export default function DownloadPage() {
           </div>
         </section>
 
-          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Version 0.11.1 reverts the single-permission-prompt change for updating all all-users Windows apps. See the release notes for current platform limits. Uploaded package metadata was checked November 1; no independent installation test was performed. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
+          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Version 0.13.0 adds TextureCraft and a setting to hide community apps. Version 0.12.0 notes document a Windows antivirus incident involving Update all; read the official notes before updating. See the release notes for current platform limits. Uploaded package metadata was checked November 2; no independent installation test was performed. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
         <aside className="safety-note" aria-labelledby="download-safety-heading">
           <Eyebrow>Before installing</Eyebrow>
           <h2 id="download-safety-heading">{enPages.download.heading3}</h2>
