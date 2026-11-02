@@ -15,7 +15,7 @@ import { apps, publishedApps } from "@/content/apps";
 import { sourcesById } from "@/content/sources";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
-import { releasesBySlug } from "@/content/releases";
+import { additionalOfficialReleases, releasesBySlug } from "@/content/releases";
 
 export const metadata: Metadata = pageMetadata({
   title: enPages.download.title,
@@ -84,6 +84,12 @@ export default function DownloadPage() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="content-section" aria-labelledby="additional-tools-heading">
+          <h2 id="additional-tools-heading">Two more official tools</h2>
+          <p>TextureCraft and Craft Anything also appear in the official suite. Full guides are not published here yet. Their GitHub releases below were checked November 3; product-page download versions can lag behind GitHub. No independent installation or compatibility test is implied.</p>
+          <ul>{additionalOfficialReleases.map((release) => <li key={release.slug}><a href={release.url} target="_blank" rel="noreferrer">{release.name} {release.version}: official release and uploaded packages</a> · <a href={release.officialPage} target="_blank" rel="noreferrer">Official product page</a></li>)}</ul>
         </section>
 
           <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Version 0.13.0 adds TextureCraft and a setting to hide community apps. Version 0.12.0 notes document a Windows antivirus incident involving Update all; read the official notes before updating. See the release notes for current platform limits. Uploaded package metadata was checked November 2; no independent installation test was performed. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>

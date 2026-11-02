@@ -6,8 +6,8 @@ it('groups October 25 releases by event time while preserving actual October 26 
  const issue = dailyUpdates.find(i => i.date === '2026-10-25')!;
  expect(issue.checkedDate).toBe('2026-10-25');
  expect(issue.publishedDate).toBe('2026-10-25');
- expect(issue.modifiedDate).toBe('2026-10-26');
- const releases = issue.entries.filter(e => e.kind === 'Official release');
+ expect(issue.modifiedDate).toBe('2026-11-03');
+ const releases = issue.entries.filter(e => e.kind === 'Official release' && e.checkedDate === '2026-10-26');
  expect(releases).toHaveLength(14);
  expect(new Set(releases.map(e => e.sourceUrl)).size).toBe(14);
  for (const entry of releases) {

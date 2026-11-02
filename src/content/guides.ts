@@ -1,3 +1,4 @@
+import { releases, releaseCheckedOn } from "./releases";
 import { additionalGuides, type AdditionalGuideSlug } from "@/content/additional-guides";
 
 export type GuideFeature = {
@@ -259,9 +260,9 @@ export const guideBySlug: Record<AppGuide["slug"], AppGuide> = {
 };
 
 // Later main-branch documentation is separate from the published installer.
-for (const [slug, version] of Object.entries({"filmcraft": "0.14.0", "vectorcraft": "0.18.0", "photocraft": "0.17.0", "lightcraft": "0.15.0", "pdfcraft": "0.15.0", "effectcraft": "0.18.0", "designcraft": "0.14.0", "figcraft": "0.12.1", "wordcraft": "0.12.0", "soundcraft": "0.14.0", "deckcraft": "0.12.0", "cadcraft": "0.14.0", "gridcraft": "0.13.0", "craft-launcher": "0.9.0"})) {
- const guide = guideBySlug[slug as keyof typeof guideBySlug];
- if (guide) guide.intro += ` The current official release is ${version}, published on October 29 Beijing time. Release and uploaded package metadata were checked on October 30. Earlier dated documentation notes below describe their original evidence; inclusion in this installer needs the corresponding release notes or tagged documentation. We have not performed an independent installation or compatibility test.`;
+for (const release of releases) {
+ const guide = guideBySlug[release.slug as keyof typeof guideBySlug];
+ if (guide) guide.intro += ` The current official release is ${release.version}; original UTC publication: ${release.publishedAt}. Release and uploaded package metadata were checked on ${releaseCheckedOn(release.slug)}. Earlier dated documentation notes below describe their original evidence; inclusion in this installer needs the corresponding release notes or tagged documentation. We have not performed an independent installation or compatibility test.`;
 }
 guideBySlug.lightcraft.faqs.unshift({"question": "Does the October 26 Sony profile change apply to the current installer?", "answer": "The development README adds Sony ILCE-7RM5 (α7R V) in PR 3022, merged after 0.14.0. It is not claimed for that installer. The project still lists measured calibration as a gap; test copied camera files and do not treat a documented profile as independently verified color accuracy."});
 guideBySlug.wordcraft.faqs.unshift({"question": "Is the no-admin WordCraft MSI available in the current release?", "answer": "The development README and PR 2560 describe a per-user windows-user MSI, but the checked 0.11.0 asset list does not include it. Keep using only actual official release assets. The docs also warn that installing both installer scopes creates duplicate app entries; we have not tested installation."});
@@ -341,3 +342,5 @@ export const workflowProfiles = {
     checkFirst: "Compatibility with .xlsx files and Excel formula coverage.",
   },
 } as const;
+
+guideBySlug.soundcraft.faqs.unshift({question:"Are the November 3 New Tracks instructions verified in 0.16.0?",answer:"The later main-branch README explains per-row settings and keyboard navigation. It was updated after 0.16.0 and is development documentation; we have not verified that workflow in the installer."});
