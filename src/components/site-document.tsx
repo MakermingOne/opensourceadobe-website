@@ -68,6 +68,12 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
     <html lang={locale} dir={locales[locale].dir} className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
       <head>
         {isProduction ? (
+          <>
+            <script defer src="/pvuv-privacy.js" />
+            <script defer src="https://www.pvuv.ai/f.js" data-site="tJJtJ9Vo" data-api="https://in.pvuv.ai" data-downloads="off" />
+          </>
+        ) : null}
+        {isProduction ? (
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5205804952457245" crossOrigin="anonymous" />
         ) : null}
       </head>

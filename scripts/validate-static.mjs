@@ -183,6 +183,24 @@ for (const route of routes) {
 const notFoundHtml = await readFile(join(outputDirectory, "404.html"), "utf8");
 if (!notFoundHtml.includes("This route is not in the ledger.")) failures.push("404.html does not contain the custom not-found page");
 
+// Inspect every exported HTML entry, including locale and error fallbacks.
+let htmlCount = 0;
+async function checkTracking(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const file = join(directory, entry.name);
+    if (entry.isDirectory()) await checkTracking(file);
+    else if (entry.name.endsWith(".html")) {
+      htmlCount++;
+      const html = await readFile(file, "utf8");
+      const head = html.match(/<head>([\s\S]*?)<\/head>/i)?.[1] ?? "";
+      const tags = [...html.matchAll(/<script\b[^>]*src="https:\/\/www\.pvuv\.ai\/f\.js"[^>]*>/g)];
+      if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong PVUV loader count`);
+      if (expectAnalytics && (!head.includes(tags[0]?.[0]) || !tags[0]?.[0].includes('data-site="tJJtJ9Vo"') || !tags[0]?.[0].includes('data-api="https://in.pvuv.ai"') || head.indexOf('/pvuv-privacy.js') < 0 || head.indexOf('/pvuv-privacy.js') > head.indexOf('https://www.pvuv.ai/f.js'))) failures.push(`${file}: invalid PVUV head configuration`);
+    }
+  }
+}
+await checkTracking(outputDirectory);
+
 if (failures.length > 0) {
   console.error(`Static validation failed (${failures.length}):`);
   for (const failure of failures) console.error(`- ${failure}`);
@@ -190,3 +208,4 @@ if (failures.length > 0) {
 }
 
 console.log(`Static validation passed for ${routes.length} routes (${expectAnalytics ? "GA enabled" : "GA disabled"}, ${expectIndexing ? "indexable" : "noindex"}).`);
+console.log(`PVUV checked across all ${htmlCount} exported HTML files.`);

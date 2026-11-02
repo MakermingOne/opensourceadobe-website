@@ -26,6 +26,8 @@ export default function PrivacyPage() {
         <p>Google Analytics may process information such as visited pages, approximate location derived from network information, device and browser characteristics, referral information, and interaction events. OpenSourceAdobe does not ask you to create an account or submit personal profile information.</p>
         <h2>Google as a service provider</h2>
         <p>Analytics data is processed by Google under its own terms and privacy practices. Read <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google’s Privacy Policy ↗</a> and its explanation of <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">how Google uses information from sites and apps ↗</a>.</p>
+        <h2>PVUV analytics</h2>
+        <p>The production site also uses PVUV to measure page visits, referrals, browser and device characteristics, time on page, scroll depth and outbound links. PVUV uses first-party cookies and local storage to recognize visitors and sessions. Requests to PVUV omit URL query strings and fragments, campaign values, click text and error messages. File download tracking is disabled. This site has no accounts or checkout and sends no signup or purchase events.</p>
         <h2>Your choices</h2>
         <p>You can block analytics requests with browser privacy controls, content blockers, network filtering, or Google’s opt-out tools. Blocking analytics does not prevent access to the site’s editorial content.</p>
         <h2>Retention and changes</h2>

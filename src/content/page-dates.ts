@@ -65,7 +65,7 @@ const editorialDates: Record<string, string> = {
   "/about/": "2026-10-11",
   "/contact/": "2026-10-13",
   "/disclaimer/": "2026-10-11",
-  "/privacy/": "2026-10-11",
+  "/privacy/": "2026-11-03",
   "/alternatives/": "2026-10-26",
   "/alternatives/premiere/": "2026-10-26",
   "/alternatives/photoshop/": "2026-10-15",
