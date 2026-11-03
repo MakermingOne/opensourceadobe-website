@@ -87,12 +87,12 @@ export default function DownloadPage() {
         </section>
 
         <section className="content-section" aria-labelledby="additional-tools-heading">
-          <h2 id="additional-tools-heading">Two more official tools</h2>
-          <p>TextureCraft and Craft Anything also appear in the official suite. Full guides are not published here yet. Their GitHub releases below were checked November 3; product-page download versions can lag behind GitHub. No independent installation or compatibility test is implied.</p>
+          <h2 id="additional-tools-heading">Additional official tools</h2>
+          <p>MaterialCraft, TextureCraft and Craft Anything also appear in the official suite. Full guides are not published here yet. MaterialCraft remains in development. Their GitHub releases below were checked November 4; product-page download versions can lag behind GitHub. No independent installation or compatibility test is implied.</p>
           <ul>{additionalOfficialReleases.map((release) => <li key={release.slug}><a href={release.url} target="_blank" rel="noreferrer">{release.name} {release.version}: official release and uploaded packages</a> · <a href={release.officialPage} target="_blank" rel="noreferrer">Official product page</a></li>)}</ul>
         </section>
 
-          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Version 0.13.0 adds TextureCraft and a setting to hide community apps. Version 0.12.0 notes document a Windows antivirus incident involving Update all; read the official notes before updating. See the release notes for current platform limits. Uploaded package metadata was checked November 2; no independent installation test was performed. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
+          <p>ArtCraft Launcher {releasesBySlug.get("craft-launcher")?.version} is the current GitHub release. Version 0.14.0 adds MaterialCraft. Version 0.13.0 adds TextureCraft and a setting to hide community apps. Version 0.12.0 notes document a Windows antivirus incident involving Update all; read the official notes before updating. See the release notes for current platform limits. Uploaded package metadata was checked November 4; no independent installation test was performed. <a href={releasesBySlug.get("craft-launcher")?.url} target="_blank" rel="noreferrer">Launcher release notes →</a></p>
         <aside className="safety-note" aria-labelledby="download-safety-heading">
           <Eyebrow>Before installing</Eyebrow>
           <h2 id="download-safety-heading">{enPages.download.heading3}</h2>

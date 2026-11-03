@@ -343,4 +343,10 @@ export const workflowProfiles = {
   },
 } as const;
 
-guideBySlug.soundcraft.faqs.unshift({question:"Are the November 3 New Tracks instructions verified in 0.16.0?",answer:"The later main-branch README explains per-row settings and keyboard navigation. It was updated after 0.16.0 and is development documentation; we have not verified that workflow in the installer."});
+guideBySlug.soundcraft.faqs.unshift({question:"Are the November 3 New Tracks instructions verified in 0.16.0?",answer:"The original main-branch README followed 0.16.0. SoundCraft 0.17.0 now lists the improved New Tracks workflow in its release notes, and its tagged README documents the per-row settings and keyboard navigation. We have not independently tested that workflow in an installer."});
+
+guideBySlug.lightcraft.intro += " November 4 documentation check: The README adds Canon CRW estimates and chart-measured matrices for the Canon EOS D60, while retaining limits for other cameras. It follows 0.18.0; this is development documentation, not a verified installer capability.";
+
+guideBySlug.wordcraft.intro += " November 4 documentation check: The main-branch README adds Arabic with a mirrored interface and additional language names. The commit follows 0.15.0; these changes are not verified in that installer.";
+
+guideBySlug.cadcraft.intro += " November 4 documentation check: The README says info exposes skipped records and readNotes, convert warns on stderr, and MCP open returns warnings; a zero exit code can still accompany omitted data. This is documentation evidence, not an independent file-recovery test.";

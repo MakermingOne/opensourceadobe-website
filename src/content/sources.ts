@@ -3,6 +3,8 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+{"id": "photocraft-release-0201", "type": "official-repository", "title": "PhotoCraft v0.20.1 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.20.1", "accessedAt": "2026-11-04"},
+{"id": "photocraft-checksums-0201", "type": "official-repository", "title": "PhotoCraft v0.20.1 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.20.1/SHA256SUMS.txt", "accessedAt": "2026-11-04"},
 {"id": "photocraft-release-0190", "type": "official-repository", "title": "PhotoCraft v0.19.0 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.19.0", "accessedAt": "2026-11-03"},
 {"id": "photocraft-checksums-0190", "type": "official-repository", "title": "PhotoCraft v0.19.0 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.19.0/SHA256SUMS.txt", "accessedAt": "2026-11-03"},
 {"id": "photocraft-release-0180", "type": "official-repository", "title": "PhotoCraft v0.18.0 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.18.0", "accessedAt": "2026-11-01"},
