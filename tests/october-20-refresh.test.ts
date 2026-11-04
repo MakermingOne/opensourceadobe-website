@@ -5,7 +5,7 @@ import { officialDownloads, type DownloadSlug } from '@/content/downloads';
 import { translatedLocales } from '@/i18n/config';
 import { getPageContent } from '@/content/pages';
 
-const versions = {"filmcraft": "0.17.0", "vectorcraft": "0.21.0", "photocraft": "0.20.1", "lightcraft": "0.18.0", "pdfcraft": "0.18.0", "effectcraft": "0.21.0", "designcraft": "0.17.0", "figcraft": "0.15.0", "wordcraft": "0.15.0", "soundcraft": "0.17.0", "deckcraft": "0.15.0", "cadcraft": "0.17.0", "gridcraft": "0.16.0", "craft-launcher": "0.14.0"};
+const versions = {"filmcraft": "0.17.0", "vectorcraft": "0.21.0", "photocraft": "0.20.1", "lightcraft": "0.18.0", "pdfcraft": "0.18.1", "effectcraft": "0.21.0", "designcraft": "0.17.0", "figcraft": "0.15.0", "wordcraft": "0.15.1", "soundcraft": "0.17.0", "deckcraft": "0.15.0", "cadcraft": "0.17.0", "gridcraft": "0.16.0", "craft-launcher": "0.14.0"};
 describe('October 20 verified release and community refresh', () => {
  it('records published assets instead of newer release-named development commits', () => {
   for (const [slug, version] of Object.entries(versions)) {
@@ -13,7 +13,7 @@ describe('October 20 verified release and community refresh', () => {
    if (slug !== 'craft-launcher') {
     const snapshot = officialDownloads[slug as DownloadSlug];
     expect(snapshot.version).toBe(version);
-    expect(snapshot.checkedAt).toBe("2026-11-04");
+    expect(snapshot.checkedAt).toBe(["pdfcraft", "wordcraft"].includes(slug) ? "2026-11-05" : "2026-11-04");
     expect(snapshot.packages.every(p => p.filename.includes(version) && p.sizeBytes > 0)).toBe(true);
    }
   }

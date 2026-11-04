@@ -102,27 +102,27 @@ export const officialDownloads = {
     ]
   },
   "pdfcraft": {
-    "version": "0.18.0",
-    "publishedAt": "2026-11-03T00:59:28Z",
-    "checkedAt": "2026-11-04",
+    "version": "0.18.1",
+    "publishedAt": "2026-11-04T03:51:06Z",
+    "checkedAt": "2026-11-05",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "pdfcraft-0.18.0-windows-x64.msi",
-        "sizeBytes": 92430336
+        "filename": "pdfcraft-0.18.1-windows-x64.msi",
+        "sizeBytes": 93761536
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "pdfcraft-0.18.0-macos-universal.dmg",
-        "sizeBytes": 123491344
+        "filename": "pdfcraft-0.18.1-macos-universal.dmg",
+        "sizeBytes": 128005424
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "pdfcraft-0.18.0-linux-x86_64.AppImage",
-        "sizeBytes": 105986552
+        "filename": "pdfcraft-0.18.1-linux-x86_64.AppImage",
+        "sizeBytes": 108083704
       }
     ]
   },
@@ -202,27 +202,27 @@ export const officialDownloads = {
     ]
   },
   "wordcraft": {
-    "version": "0.15.0",
-    "publishedAt": "2026-11-03T00:53:40Z",
-    "checkedAt": "2026-11-04",
+    "version": "0.15.1",
+    "publishedAt": "2026-11-04T03:51:07Z",
+    "checkedAt": "2026-11-05",
     "packages": [
       {
         "platform": "Windows x64",
         "description": "MSI installer \u00b7 64-bit Intel / AMD PCs",
-        "filename": "wordcraft-0.15.0-windows-x64.msi",
-        "sizeBytes": 91947008
+        "filename": "wordcraft-0.15.1-windows-x64.msi",
+        "sizeBytes": 92377088
       },
       {
         "platform": "macOS",
         "description": "Universal DMG \u00b7 Apple silicon and Intel Macs",
-        "filename": "wordcraft-0.15.0-macos-universal.dmg",
-        "sizeBytes": 127102949
+        "filename": "wordcraft-0.15.1-macos-universal.dmg",
+        "sizeBytes": 128335727
       },
       {
         "platform": "Linux x86_64",
         "description": "AppImage \u00b7 64-bit Intel / AMD systems",
-        "filename": "wordcraft-0.15.0-linux-x86_64.AppImage",
-        "sizeBytes": 108354040
+        "filename": "wordcraft-0.15.1-linux-x86_64.AppImage",
+        "sizeBytes": 109246968
       }
     ]
   },

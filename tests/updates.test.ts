@@ -8,7 +8,7 @@ import { pageUpdatedAt } from "@/content/page-dates";
 
 describe("dated development journal", () => {
   it("keeps exactly one brief for every calendar day, through October 31", () => {
-    expect(latestUpdateDate).toBe("2026-11-04");
+    expect(latestUpdateDate).toBe("2026-11-05");
     const dates = dailyUpdates.map((issue) => issue.date);
     expect(new Set(dates).size).toBe(dates.length);
     for (let day = 13; day <= 31; day++) expect(dates).toContain(`2026-10-${day}`);

@@ -21,7 +21,7 @@ it("archives November 3 follow-ups without backdating their checks or replacing 
 
 it("keeps the after-midnight Copilot documentation on November 4 with its release boundary", () => {
  const today = dailyUpdates.find(b => b.date === "2026-11-04")!;
- expect(today.entries).toHaveLength(1);
+ expect(today.entries.filter(e => e.checkedDate === "2026-11-04")).toHaveLength(1);
  const entry = today.entries[0];
  expect(entry.kind).toBe("Documentation update");
  expect(entry.eventPublishedAt).toBe("2026-11-03T17:29:11Z");

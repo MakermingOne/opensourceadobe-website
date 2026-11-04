@@ -1,7 +1,7 @@
 // Baseline checked October 15; subsequent app-specific refreshes are dated below.
 // This is an editorial snapshot, not a runtime API.
 export const releaseCheckedAt = "2026-10-15";
-const releaseCheckDates: Record<string, string> = {"filmcraft": "2026-11-04", "vectorcraft": "2026-11-04", "photocraft": "2026-11-04", "lightcraft": "2026-11-04", "pdfcraft": "2026-11-04", "effectcraft": "2026-11-04", "designcraft": "2026-11-04", "figcraft": "2026-11-04", "wordcraft": "2026-11-04", "soundcraft": "2026-11-04", "deckcraft": "2026-11-04", "cadcraft": "2026-11-04", "gridcraft": "2026-11-04", "craft-launcher": "2026-11-04"};
+const releaseCheckDates: Record<string, string> = {"filmcraft": "2026-11-04", "vectorcraft": "2026-11-04", "photocraft": "2026-11-04", "lightcraft": "2026-11-04", "pdfcraft": "2026-11-05", "effectcraft": "2026-11-04", "designcraft": "2026-11-04", "figcraft": "2026-11-04", "wordcraft": "2026-11-05", "soundcraft": "2026-11-04", "deckcraft": "2026-11-04", "cadcraft": "2026-11-04", "gridcraft": "2026-11-04", "craft-launcher": "2026-11-04"};
 export function releaseCheckedOn(slug: string) {
   return releases.some((release) => release.slug === slug) ? releaseCheckDates[slug] ?? releaseCheckedAt : "Not verified";
 }
@@ -32,9 +32,9 @@ export const releases = [
   },
   {
     "slug": "pdfcraft",
-    "version": "0.18.0",
-    "publishedAt": "2026-11-03T00:59:28Z",
-    "url": "https://github.com/storytold/pdfcraft/releases/tag/v0.18.0"
+    "version": "0.18.1",
+    "publishedAt": "2026-11-04T03:51:06Z",
+    "url": "https://github.com/storytold/pdfcraft/releases/tag/v0.18.1"
   },
   {
     "slug": "effectcraft",
@@ -56,9 +56,9 @@ export const releases = [
   },
   {
     "slug": "wordcraft",
-    "version": "0.15.0",
-    "publishedAt": "2026-11-03T00:53:40Z",
-    "url": "https://github.com/storytold/wordcraft/releases/tag/v0.15.0"
+    "version": "0.15.1",
+    "publishedAt": "2026-11-04T03:51:07Z",
+    "url": "https://github.com/storytold/wordcraft/releases/tag/v0.15.1"
   },
   {
     "slug": "soundcraft",
@@ -95,7 +95,7 @@ export const releasesBySlug = new Map<string, (typeof releases)[number]>(release
 
 // Official tools with checked releases and product pages; local full guides are not published yet.
 export const additionalOfficialReleases = [
- {"slug": "materialcraft", "name": "MaterialCraft", "version": "0.1.0", "publishedAt": "2026-11-03T00:09:14Z", "checkedAt": "2026-11-04", "url": "https://github.com/storytold/materialcraft/releases/tag/v0.1.0", "officialPage": "https://getartcraft.com/apps/materialcraft"},
- {slug:"texturecraft", name:"TextureCraft", version:"0.3.0", publishedAt:"2026-11-03T00:45:34Z", checkedAt:"2026-11-04", url:"https://github.com/storytold/texturecraft/releases/tag/v0.3.0", officialPage:"https://getartcraft.com/apps/texturecraft"},
+ {"slug": "materialcraft", "name": "MaterialCraft", "version": "0.1.1", "publishedAt": "2026-11-04T18:08:56Z", "checkedAt": "2026-11-05", "url": "https://github.com/storytold/materialcraft/releases/tag/v0.1.1", "officialPage": "https://getartcraft.com/apps/materialcraft"},
+ {"slug": "texturecraft", "name": "TextureCraft", "version": "0.3.1", "publishedAt": "2026-11-04T18:09:10Z", "checkedAt": "2026-11-05", "url": "https://github.com/storytold/texturecraft/releases/tag/v0.3.1", "officialPage": "https://getartcraft.com/apps/texturecraft"},
  {slug:"craft-anything", name:"Craft Anything", version:"0.3.0", publishedAt:"2026-11-02T17:58:25Z", checkedAt:"2026-11-04", url:"https://github.com/storytold/craft-anything/releases/tag/v0.3.0", officialPage:"https://getartcraft.com/apps/craft-anything"},
 ] as const;

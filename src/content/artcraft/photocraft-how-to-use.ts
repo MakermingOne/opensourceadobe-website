@@ -12,6 +12,7 @@ export const photoCraftHowToUseGuide: ArticleGuide = {
       id: "version",
       heading: "Check your version first",
       paragraphs: [
+        "November 5 documentation check: PR 10965 describes grouping action playback into one history state, with an option for per-step history. It merged after PhotoCraft 0.20.1; this does not establish that installer behavior or complete Photoshop Actions compatibility.",
         "The official user guides we followed are labelled version 0.8.2, and one FAQ page is labelled 0.9.0. The latest GitHub release checked on 4 November 2026 is PhotoCraft 0.20.1, originally published on 3 November UTC. Open Help › System Info… to see your version. If a menu name below does not match, read the release notes for your version.",
       ],
     },
@@ -99,5 +100,5 @@ export const photoCraftHowToUseGuide: ArticleGuide = {
     { question: "Where can I get help?", answer: "Ask in the ArtCraft Discord, or choose Help › Report an Issue… to open the issue tracker. Include your version and system details from Help › System Info…." },
     { question: "Does PhotoCraft use Photoshop’s shortcuts?", answer: "The README says its menus, panels, tools and shortcuts follow Photoshop’s layout. Check individual shortcuts in your version, because they can change between releases." },
   ],
-  sourceIds: ["photocraft-user-index", "photocraft-user-start", "photocraft-user-install", "photocraft-user-open-save", "photocraft-user-adjustments", "photocraft-user-select-mask", "photocraft-user-text", "photocraft-user-export", "photocraft-user-troubleshooting-start", "photocraft-user-troubleshooting-text", "photocraft-user-get-help", "photocraft-user-faq-replace", "photocraft-release-0170", "photocraft-gaps-0170", "photocraft-repository"],
+  sourceIds: ["photocraft-action-history-nov5","photocraft-user-index", "photocraft-user-start", "photocraft-user-install", "photocraft-user-open-save", "photocraft-user-adjustments", "photocraft-user-select-mask", "photocraft-user-text", "photocraft-user-export", "photocraft-user-troubleshooting-start", "photocraft-user-troubleshooting-text", "photocraft-user-get-help", "photocraft-user-faq-replace", "photocraft-release-0170", "photocraft-gaps-0170", "photocraft-repository"],
 };

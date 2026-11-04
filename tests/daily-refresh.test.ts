@@ -28,7 +28,7 @@ describe("October 15 morning source refresh", () => {
   it("keeps current packages aligned with the current verified release", () => {
     expect(officialDownloads.photocraft.version).toBe("0.20.1");
     expect(officialDownloads.photocraft.packages.every((item) => item.filename.includes("0.20.1"))).toBe(true);
-    expect(officialDownloads.pdfcraft.version).toBe("0.18.0");
+    expect(officialDownloads.pdfcraft.version).toBe("0.18.1");
   });
   it("uses published version documentation instead of the stale web-printing claim", () => {
     expect(guideBySlug.pdfcraft.platformNotes.find(([platform]) => platform === "Web")?.[1]).toContain("browser print dialog");

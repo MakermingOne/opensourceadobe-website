@@ -347,6 +347,12 @@ guideBySlug.soundcraft.faqs.unshift({question:"Are the November 3 New Tracks ins
 
 guideBySlug.lightcraft.intro += " November 4 documentation check: The README adds Canon CRW estimates and chart-measured matrices for the Canon EOS D60, while retaining limits for other cameras. It follows 0.18.0; this is development documentation, not a verified installer capability.";
 
-guideBySlug.wordcraft.intro += " November 4 documentation check: The main-branch README adds Arabic with a mirrored interface and additional language names. The commit follows 0.15.0; these changes are not verified in that installer.";
+guideBySlug.wordcraft.intro += " November 5 release check: WordCraft 0.15.1 now lists Arabic with a mirrored interface and language-pack controls in its release notes. Alpha status remains; no independent installer or language-coverage test was performed.";
 
 guideBySlug.cadcraft.intro += " November 4 documentation check: The README says info exposes skipped records and readNotes, convert warns on stderr, and MCP open returns warnings; a zero exit code can still accompany omitted data. This is documentation evidence, not an independent file-recovery test.";
+
+guideBySlug.designcraft.intro += " November 5 documentation check: The README labels the macOS app DMG as including the CLI. This merge follows DesignCraft 0.17.0; a bundled CLI has not been verified in that installer.";
+
+guideBySlug.designcraft.intro += " November 5 documentation check: The sample magazine instructions now point to Help \u2192 Sample Document. This documentation correction follows 0.17.0; it is not a new installer release.";
+
+guideBySlug.effectcraft.intro += " November 5 documentation check: The merged guide describes .aep/.aepx import with a loss report, refusing lossy import unless explicitly allowed. Export is not established by this import guide. This follows EffectCraft 0.21.0; installer support and rendering fidelity were not independently verified.";

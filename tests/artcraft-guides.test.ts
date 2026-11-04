@@ -41,7 +41,7 @@ describe.each(guides)("$name guide", ({ guide, minWords }) => {
   it("is published with metadata, a dated editorial record and a social card", () => {
     expect(publishedRoutes).toContain(guide.path);
     expect(socialImages[guide.path]).toMatch(/^[a-z0-9-]+$/);
-    expect(pageUpdatedAt(guide.path)).toBe(["/artcraft/safety/", "/artcraft/photocraft-how-to-use/"].includes(guide.path) ? "2026-11-04" : "2026-10-20");
+    expect(pageUpdatedAt(guide.path)).toBe(guide.path === "/artcraft/photocraft-how-to-use/" ? "2026-11-05" : guide.path === "/artcraft/safety/" ? "2026-11-04" : "2026-10-20");
     expect(guide.title.length).toBeLessThanOrEqual(65);
     expect(guide.description.length).toBeGreaterThanOrEqual(120);
     expect(guide.description.length).toBeLessThanOrEqual(165);
@@ -63,7 +63,7 @@ describe.each(guides)("$name guide", ({ guide, minWords }) => {
     for (const id of guide.sourceIds) {
       const source = sourcesById.get(id);
       expect(source, id).toBeDefined();
-      expect(source!.accessedAt).toMatch(/^2026-(10-(1[4-9]|2[0-9]|3[01])|11-0[1234])$/);
+      expect(source!.accessedAt).toMatch(/^2026-(10-(1[4-9]|2[0-9]|3[01])|11-0[12345])$/);
     }
   });
 

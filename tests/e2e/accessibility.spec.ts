@@ -149,7 +149,7 @@ test("primary navigation exposes the complete information architecture in order"
 test("PdfCraft guide answers download intent with official assets and alpha limits", async ({ page }) => {
   await page.goto("/apps/pdfcraft/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Download PdfCraft: ArtCraft’s PDF workbench");
-  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.18\.0\/pdfcraft-0\.18\.0-windows-x64\.msi$/);
+  await expect(page.getByRole("link", { name: "Download PdfCraft for Windows x64" })).toHaveAttribute("href", /github\.com\/storytold\/pdfcraft\/releases\/download\/v0\.18\.1\/pdfcraft-0\.18\.1-windows-x64\.msi$/);
   await expect(page.getByText(/not a complete Acrobat Pro replacement/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PdfCraft", exact: true })).toHaveAttribute("href", "#download-heading");
   expect(await page.locator('script[type="application/ld+json"]').allTextContents()).toEqual(expect.arrayContaining([expect.stringContaining('"@type":"FAQPage"')]));

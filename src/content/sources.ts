@@ -3,6 +3,11 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+ {id:"photocraft-action-history-nov5",type:"official-repository",title:"PhotoCraft action history development documentation",url:"https://github.com/storytold/photocraft/pull/10965",accessedAt:"2026-11-05"},
+{"id": "pdfcraft-release-v0-18-1", "type": "official-repository", "title": "pdfcraft v0.18.1 release and assets", "url": "https://github.com/storytold/pdfcraft/releases/tag/v0.18.1", "accessedAt": "2026-11-05"},
+{"id": "wordcraft-release-v0-15-1", "type": "official-repository", "title": "wordcraft v0.15.1 release and assets", "url": "https://github.com/storytold/wordcraft/releases/tag/v0.15.1", "accessedAt": "2026-11-05"},
+{"id": "texturecraft-release-v0-3-1", "type": "official-repository", "title": "texturecraft v0.3.1 release and assets", "url": "https://github.com/storytold/texturecraft/releases/tag/v0.3.1", "accessedAt": "2026-11-05"},
+{"id": "materialcraft-release-v0-1-1", "type": "official-repository", "title": "materialcraft v0.1.1 release and assets", "url": "https://github.com/storytold/materialcraft/releases/tag/v0.1.1", "accessedAt": "2026-11-05"},
 {"id": "photocraft-release-0201", "type": "official-repository", "title": "PhotoCraft v0.20.1 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.20.1", "accessedAt": "2026-11-04"},
 {"id": "photocraft-checksums-0201", "type": "official-repository", "title": "PhotoCraft v0.20.1 checksum file", "url": "https://github.com/storytold/photocraft/releases/download/v0.20.1/SHA256SUMS.txt", "accessedAt": "2026-11-04"},
 {"id": "photocraft-release-0190", "type": "official-repository", "title": "PhotoCraft v0.19.0 release and assets", "url": "https://github.com/storytold/photocraft/releases/tag/v0.19.0", "accessedAt": "2026-11-03"},
