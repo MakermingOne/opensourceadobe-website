@@ -356,3 +356,5 @@ guideBySlug.designcraft.intro += " November 5 documentation check: The README la
 guideBySlug.designcraft.intro += " November 5 documentation check: The sample magazine instructions now point to Help \u2192 Sample Document. This documentation correction follows 0.17.0; it is not a new installer release.";
 
 guideBySlug.effectcraft.intro += " November 5 documentation check: The merged guide describes .aep/.aepx import with a loss report, refusing lossy import unless explicitly allowed. Export is not established by this import guide. This follows EffectCraft 0.21.0; installer support and rendering fidelity were not independently verified.";
+
+guideBySlug.designcraft.intro += " November 6 release check: DesignCraft 0.17.1 release notes now list macOS CLI bundling and the sample-menu documentation correction; 0.17.2 is the newer patch. Installer contents have not been independently tested.";

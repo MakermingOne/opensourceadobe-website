@@ -28,7 +28,7 @@ it('connects current packages to an exact published release in the historical br
  const entries = dailyUpdates.flatMap(i => i.entries);
  for (const release of releases) {
   expect(entries.some(e => e.sourceUrl === release.url && e.eventPublishedAt === release.publishedAt)).toBe(true);
-  expect(releaseCheckedOn(release.slug)).toBe(["pdfcraft", "wordcraft"].includes(release.slug) ? "2026-11-05" : "2026-11-04");
+  expect(releaseCheckedOn(release.slug)).toBe(["pdfcraft", "wordcraft"].includes(release.slug) ? "2026-11-06" : "2026-11-06");
   if (release.slug === 'craft-launcher') continue;
   const download = officialDownloads[release.slug as DownloadSlug];
   expect(download.version).toBe(release.version);
