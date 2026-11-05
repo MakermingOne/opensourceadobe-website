@@ -195,7 +195,7 @@ async function checkTracking(directory) {
       const head = html.match(/<head>([\s\S]*?)<\/head>/i)?.[1] ?? "";
       const tags = [...html.matchAll(/<script\b[^>]*src="https:\/\/www\.pvuv\.ai\/f\.js"[^>]*>/g)];
       if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong PVUV loader count`);
-      if (expectAnalytics && (!head.includes(tags[0]?.[0]) || !tags[0]?.[0].includes('data-site="tJJtJ9Vo"') || !tags[0]?.[0].includes('data-api="https://in.pvuv.ai"') || head.indexOf('/pvuv-privacy.js') < 0 || head.indexOf('/pvuv-privacy.js') > head.indexOf('https://www.pvuv.ai/f.js'))) failures.push(`${file}: invalid PVUV head configuration`);
+      if (expectAnalytics && (!head.includes(tags[0]?.[0]) || !tags[0]?.[0].includes('data-site="XZ339XbH"') || !tags[0]?.[0].includes('data-api="https://in.pvuv.ai"') || head.indexOf('/pvuv-privacy.js') < 0 || head.indexOf('/pvuv-privacy.js') > head.indexOf('https://www.pvuv.ai/f.js'))) failures.push(`${file}: invalid PVUV head configuration`);
     }
   }
 }

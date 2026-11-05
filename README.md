@@ -76,4 +76,4 @@ English URLs stay unprefixed. Traditional Chinese, Polish, German, Hindi, Japane
 
 ## Analytics
 
-Production pages, translations and error pages load PVUV once in the shared head (site `tJJtJ9Vo`), alongside GA4. The SDK tracks path navigation. `public/pvuv-privacy.js` strips query strings, fragments and free-text properties from PVUV collection requests and suppresses iframe visits. File download tracking is disabled. Local and preview builds omit both analytics loaders. Static validation checks every exported HTML file.
+Production pages, translations and error pages load PVUV once in the shared head (site `XZ339XbH`), alongside GA4. The SDK tracks path navigation. `public/pvuv-privacy.js` strips query strings, fragments and free-text properties from PVUV collection requests and suppresses iframe visits. File download tracking is disabled. Local and preview builds omit both analytics loaders. Static validation checks every exported HTML file.

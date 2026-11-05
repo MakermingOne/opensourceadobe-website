@@ -70,7 +70,7 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
         {isProduction ? (
           <>
             <script defer src="/pvuv-privacy.js" />
-            <script defer src="https://www.pvuv.ai/f.js" data-site="tJJtJ9Vo" data-api="https://in.pvuv.ai" data-downloads="off" />
+            <script defer src="https://www.pvuv.ai/f.js" data-site="XZ339XbH" data-api="https://in.pvuv.ai" data-downloads="off" />
           </>
         ) : null}
         {isProduction ? (
