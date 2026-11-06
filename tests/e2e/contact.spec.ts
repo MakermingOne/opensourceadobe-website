@@ -15,13 +15,14 @@ for (const width of [320, 390, 1280]) test(`contact email template and layout at
  }
 });
 
-test('email clicks record intent once without sending template content to GA', async ({page}) => {
+test('email clicks respect analytics availability without sending template content to GA', async ({page}) => {
  await page.goto('/contact/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>Array.isArray((window as Window & {dataLayer?:unknown[]}).dataLayer));
+ const analytics=await page.locator('script[src*="googletagmanager.com/gtag/js"]').count()>0;
+ if(analytics) await page.waitForFunction(()=>Array.isArray((window as Window & {dataLayer?:unknown[]}).dataLayer));
  await page.evaluate(()=>document.addEventListener('click',event=>{
   if((event.target as Element).closest('a[href^="mailto:"]'))event.preventDefault();
  },true));
  await page.getByRole('link',{name:'Submit a tool by email →',exact:true}).click();
  const events=await page.evaluate(()=>((window as unknown as {dataLayer?:ArrayLike<unknown>[]}).dataLayer??[]).filter(e=>e[0]==='event'&&e[1]==='contact_email_click').map(e=>Array.from(e)));
- expect(events).toEqual([['event','contact_email_click',{contact_type:'tool_submission',entry_point:'contact_page'}]]);
+ expect(events).toEqual(analytics ? [['event','contact_email_click',{contact_type:'tool_submission',entry_point:'contact_page'}]] : []);
 });
