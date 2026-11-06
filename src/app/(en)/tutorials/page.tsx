@@ -12,24 +12,26 @@ import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "ArtCraft Tutorials: Official Studio Lessons & App Install Guides",
-  description: "Official ArtCraft AI studio lessons, clearly credited community CraftApps installation videos, and starter paths for PhotoCraft, VectorCraft, FilmCraft and LightCraft.",
+  title: "ArtCraft Tutorials: PhotoCraft, FilmCraft & Creative Workflows",
+  description: "Follow PhotoCraft, VectorCraft, FilmCraft, LightCraft and EffectCraft tutorials from YouTube and Bilibili. Filter by task, language and platform, with Reddit discussions and written guides.",
   path: "/tutorials/",
 });
 
 const paths = [
   {
     label: "Image editing",
-    title: "Test a layered PSD in PhotoCraft",
+    title: "Make your first PhotoCraft thumbnail",
     app: "PhotoCraft",
     href: "/apps/photocraft/",
-    steps: ["Duplicate a non-critical PSD", "Check layers, masks and type", "Make one reversible edit", "Save a new copy and reopen it"],
+    lesson: "https://www.youtube.com/watch?v=FWeBQ2HChc0",
+    steps: ["Create a small thumbnail canvas", "Add an image, gradient and text", "Try a mask and one layer effect", "Save the layers and export an image"],
   },
   {
     label: "Vector drawing",
     title: "Build and export a simple SVG",
     app: "VectorCraft",
     href: "/apps/vectorcraft/",
+    lesson: "https://www.youtube.com/watch?v=HdWglcQ2o08",
     steps: ["Start with a small SVG or blank file", "Draw paths and combine shapes", "Add one editable effect", "Export SVG and PDF copies"],
   },
   {
@@ -37,6 +39,7 @@ const paths = [
     title: "Cut a short FilmCraft test sequence",
     app: "FilmCraft",
     href: "/apps/filmcraft/",
+    lesson: "https://www.youtube.com/watch?v=Z5RR1I-DGrQ",
     steps: ["Use copied source media", "Create a short multitrack timeline", "Try a trim, title and color change", "Export and inspect the result"],
   },
   {
@@ -44,7 +47,13 @@ const paths = [
     title: "Check your camera files in LightCraft",
     app: "LightCraft",
     href: "/apps/lightcraft/",
+    lesson: "https://www.youtube.com/watch?v=O3e4LzWI_ds",
     steps: ["Copy a small mixed photo set", "Confirm RAW decoding and color", "Try ratings, adjustments and masks", "Export without moving your main catalog"],
+  },
+  {
+    label: "Motion graphics", title: "Animate a title in EffectCraft", app: "EffectCraft",
+    href: "/apps/effectcraft/", lesson: "https://www.youtube.com/watch?v=66de0oxGqZ4",
+    steps: ["Create a short composition", "Add text and two keyframes", "Adjust easing and preview the motion", "Save the project and inspect an exported video"],
   },
 ] as const;
 
@@ -68,7 +77,7 @@ export default function TutorialsPage() {
         <header className="page-intro">
           <Eyebrow>Watch · Explore · Read</Eyebrow>
           <h1>Start with the task <span>you want to complete.</span></h1>
-          <p className="lede">Find videos, illustrated guides and reading for your tool or workflow. Filter the library, then try a small project with copied files.</p>
+          <p className="lede">Learn a specific task: make a thumbnail, refine a mask, import an Illustrator file, cut a video or animate a title. Browse recent lessons by tool, language and platform.</p>
           <p className="updated">Last updated: <PageUpdated path="/tutorials/" /></p>
         </header>
 
@@ -78,7 +87,7 @@ export default function TutorialsPage() {
           <div className="section-heading section-heading--tight">
             <Eyebrow>Try it yourself</Eyebrow>
             <div>
-              <h2 id="paths-heading">Four practical first sessions.</h2>
+              <h2 id="paths-heading">Five practical first sessions.</h2>
               <p>Each path begins with copied files and ends with a result you can inspect outside the app.</p>
             </div>
           </div>
@@ -91,20 +100,10 @@ export default function TutorialsPage() {
                   <p>Using {path.app}</p>
                 </div>
                 <details className="tutorial-exercise"><summary>Show the four steps</summary><ol>{path.steps.map((step) => <li key={step}>{step}</li>)}</ol></details>
+                <a href={path.lesson} target="_blank" rel="noreferrer">Watch the {path.app} walkthrough ↗</a>
                 <Link href={path.href}>Open the {path.app} guide →</Link>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="landing-section answer-block" aria-labelledby="tutorial-scope-heading">
-          <div>
-            <Eyebrow>Current scope</Eyebrow>
-            <h2 id="tutorial-scope-heading">Starter paths now. Tested walkthroughs next.</h2>
-          </div>
-          <div className="answer-block__body">
-            <p className="answer-lead">We will only call something a full tutorial after completing the workflow and documenting its inputs, version and result.</p>
-            <p>Upcoming walkthroughs will prioritize PhotoCraft PSD basics, VectorCraft SVG export, FilmCraft timeline fundamentals and LightCraft camera compatibility. Until then, the product guides contain the verified feature and limitation details.</p>
           </div>
         </section>
 

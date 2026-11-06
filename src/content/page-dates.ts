@@ -46,7 +46,7 @@ const editorialDates: Record<string, string> = {
   "/vs/gimp-vs-photoshop/": "2026-10-26",
   "/vs/photopea-vs-photoshop/": "2026-10-26",
   "/download/": "2026-11-06",
-  "/tutorials/": "2026-10-20",
+  "/tutorials/": "2026-11-06",
   "/faq/": "2026-10-18",
   "/apps/photocraft/": "2026-11-06",
   "/apps/vectorcraft/": "2026-11-06",

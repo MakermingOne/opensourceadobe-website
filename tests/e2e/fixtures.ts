@@ -19,7 +19,7 @@ export const test = base.extend<{ telemetryIsolation: void }>({
     browser.newContext = newContext;
   }, { scope: 'worker' }],
   telemetryIsolation: [async ({ context }, use) => {
-    await context.route(/^https:\/\/(?:[^/]+\.)?(?:bauval\.org|googlesyndication\.com|doubleclick\.net|googletagmanager\.com|google-analytics\.com)\//, (route) => route.fulfill({ status: 204, body: "" }));
+    await context.route(/^https:\/\/(?:[^/]+\.)?(?:bauval\.org|pvuv\.ai|googlesyndication\.com|doubleclick\.net|googletagmanager\.com|google-analytics\.com)\//, (route) => route.fulfill({ status: 204, body: "" }));
     await use();
   }, { auto: true }],
 });

@@ -3,12 +3,12 @@
 // Public community sources refreshed 2026-10-13. Video summaries refer to older builds;
 // current YouTube playback/metrics could not be reverified during this refresh.
 
-export type ExternalResourceKind = "youtube" | "reddit" | "hn" | "article" | "official";
+export type ExternalResourceKind = "youtube" | "reddit" | "hn" | "article" | "official" | "bilibili";
 
 export interface ExternalResource {
   id: string;
   kind: ExternalResourceKind;
-  app: "ArtCraft AI studio" | "PhotoCraft" | "VectorCraft" | "FilmCraft" | "LightCraft" | "ArtCraft suite";
+  app: "ArtCraft AI studio" | "PhotoCraft" | "VectorCraft" | "FilmCraft" | "LightCraft" | "EffectCraft" | "ArtCraft suite";
   title: string;
   author: string;
   authorDetail?: string;

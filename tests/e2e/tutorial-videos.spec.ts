@@ -5,9 +5,9 @@ for(const width of [320,390,1280]) test(`learning library separates media and fi
  await page.setViewportSize({width,height:900});
  await page.route('https://i.ytimg.com/**',r=>r.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64')}));
  await page.goto('/tutorials/',{waitUntil:'domcontentloaded'});
- await expect(page.locator('.learning-video')).toHaveCount(9);
+ await expect(page.locator('.learning-video')).toHaveCount(20);
  await expect(page.locator('.learning-feature')).toHaveCount(0);
- await expect(page.locator('.learning-reading')).toHaveCount(7);
+ await expect(page.locator('.learning-reading')).toHaveCount(12);
  await expect(page.locator('#official-studio-2d-basics')).toContainText('Official');
  await expect(page.locator('#community-craftapps-windows-benja')).toContainText('Community');
  await expect(page.locator('#community-craftapps-windows-benja')).toContainText('Benja Review');
@@ -25,9 +25,9 @@ for(const width of [320,390,1280]) test(`learning library separates media and fi
  await page.getByRole('button',{name:'2D & 3D',exact:true}).click();
  await expect(page.getByRole('heading',{name:'No resources match these filters.'})).toBeVisible();
  await page.getByRole('button',{name:'Show all resources'}).click();
- await expect(page.locator('.learning-video')).toHaveCount(9);
+ await expect(page.locator('.learning-video')).toHaveCount(20);
  await page.getByLabel('Source platform').selectOption('Reddit');
- await expect(page.locator('.learning-reading')).toHaveCount(3);
+ await expect(page.locator('.learning-reading')).toHaveCount(5);
  await expect(page.locator('.learning-video')).toHaveCount(0);
  await page.getByRole('button',{name:'Clear filters',exact:true}).click();
  if(width===1280){
@@ -42,8 +42,8 @@ test('all learning resources and original links remain readable without JavaScri
   const page=await context.newPage();
   await page.goto(`${baseURL}/tutorials/`,{waitUntil:'domcontentloaded'});
   await expect(page.locator('.learning-filters')).toBeHidden();
-  await expect(page.locator('.learning-video')).toHaveCount(9);
-  await expect(page.locator('.learning-reading')).toHaveCount(7);
+  await expect(page.locator('.learning-video')).toHaveCount(20);
+  await expect(page.locator('.learning-reading')).toHaveCount(12);
   await expect(page.locator('a[href*="ai-history-1955"]')).toHaveCount(0);
   const card=page.locator('#community-craftapps-windows-benja');
   await card.locator('.learning-notes summary').click();
@@ -59,4 +59,21 @@ test('removed AI history page is absent from navigation and the sitemap', async 
  await expect(page.locator('a[href*="ai-history-1955"]')).toHaveCount(0);
  const sitemap=await page.request.get('/sitemaps/en.xml');
  expect(await sitemap.text()).not.toContain('/learn/ai-history-1955/');
+});
+
+test('filters recent tutorials by task and language, and keeps Bilibili on its source platform',async({page})=>{
+ await page.goto('/tutorials/',{waitUntil:'domcontentloaded'});
+ await expect(page.locator('.learning-video').first()).toHaveAttribute('id','vectorcraft-ai-import-john');
+ await page.locator('.learning-filter-details > summary').click();
+ await page.getByLabel('Resource type',{exact:true}).selectOption('Step-by-step');
+ await page.getByRole('button',{name:'PhotoCraft',exact:true}).click();
+ await page.getByRole('button',{name:'Automation & actions',exact:true}).click();
+ await page.getByRole('combobox',{name:'Language',exact:true}).selectOption('English');
+ await expect(page.locator('.learning-video')).toHaveCount(2);
+ await expect(page.locator('#photocraft-atn-import-john')).toBeVisible();
+ await page.getByRole('button',{name:'Clear filters',exact:true}).click();
+ await page.getByRole('combobox',{name:'Language',exact:true}).selectOption('中文');
+ await expect(page.locator('.learning-video')).toHaveCount(0);
+ await expect(page.locator('#photocraft-bilibili-zhou h3 a')).toHaveAttribute('href','https://www.bilibili.com/video/BV1mDpj6QEJ6/');
+ await expect(page.locator('#photocraft-bilibili-zhou iframe')).toHaveCount(0);
 });
