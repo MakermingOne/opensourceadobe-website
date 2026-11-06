@@ -7,7 +7,8 @@ export const siteConfig = {
   description:
     "An independent guide to ArtCraft apps, open-source creative tools, and their current Adobe workflow boundaries.",
   github: "https://github.com/MakermingOne",
-  contactEmail: "makerming1@gmail.com",
+  contactEmail: "support@opensourceadobe.com",
+  businessEmail: "business@opensourceadobe.com",
   analyticsId: resolveGoogleAnalyticsId(),
 } as const;
 

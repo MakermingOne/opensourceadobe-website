@@ -12,11 +12,19 @@ test("updates can be filtered and followed to the dated brief", async ({ page })
   await expect(page.getByRole("heading", { name: "Sources", exact: true })).toBeVisible();
 });
 
-test("Contact uses the email address without a GitHub contact destination", async ({ page }) => {
+test("Contact separates business submissions and website support", async ({ page }) => {
   await page.goto("/contact/");
   const content = page.locator("#main-content");
-  await expect(content.getByRole("link", { name: "makerming1@gmail.com", exact: true })).toHaveAttribute("href", "mailto:makerming1@gmail.com");
-  await expect(content).not.toContainText("GitHub");
+  await expect(content.getByRole("link", { name: "support@opensourceadobe.com", exact: true })).toHaveAttribute("href", /^mailto:support@opensourceadobe\.com\?subject=/);
+  await expect(content.getByRole("link", { name: "business@opensourceadobe.com", exact: true })).toHaveAttribute("href", /^mailto:business@opensourceadobe\.com\?subject=/);
+  await expect(content).not.toContainText("@gmail.com");
+  const submission = content.getByRole('link', {name:'Submit a tool by email →',exact:true});
+  const url = new URL((await submission.getAttribute('href'))!);
+  expect(url.pathname).toBe('business@opensourceadobe.com');
+  expect(url.searchParams.get('body')).toContain('Pricing and free plan:');
+  await content.getByText('View the submission template',{exact:true}).click();
+  await expect(content.locator('.contact-template pre')).toBeVisible();
+  await expect(content.locator('.contact-template pre')).toContainText('Documentation or demo URL:');
   await expect(content.locator('a[href*="github.com"]')).toHaveCount(0);
 });
 

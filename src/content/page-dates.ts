@@ -63,7 +63,7 @@ const editorialDates: Record<string, string> = {
   "/apps/gridcraft/": "2026-11-06",
   "/brandon-thomas/": "2026-10-18",
   "/about/": "2026-10-11",
-  "/contact/": "2026-10-13",
+  "/contact/": "2026-11-06",
   "/disclaimer/": "2026-10-11",
   "/privacy/": "2026-11-03",
   "/alternatives/": "2026-10-26",

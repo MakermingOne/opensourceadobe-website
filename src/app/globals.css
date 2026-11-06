@@ -965,3 +965,8 @@ html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { le
 .learning-video__body { display: flex; flex: 1; flex-direction: column; }
 .learning-video__body .learning-tags { margin-top: auto; }
 @media(max-width:700px) { .tutorials-page .page-intro h1 { font-size: 2rem; } }
+
+.contact-template { margin-block: 24px; }
+.contact-template summary { cursor: pointer; font-weight: 650; padding-block: 12px; }
+.contact-template pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-raised); font: .9rem/1.7 var(--font-mono); }
+.contact-block .button { max-width: 100%; overflow-wrap: anywhere; }
