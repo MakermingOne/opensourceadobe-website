@@ -15,6 +15,7 @@ function Notes({item}:{item:LearningResource}) {
  return <details className="learning-notes"><summary>Context & version notes</summary><p>{item.summary}</p>{item.versionNote ? <p><strong>Applies to:</strong> {item.versionNote}</p> : null}<p>{item.keyTakeaway}</p>{item.authorDetail ? <p>{item.authorDetail}</p> : null}</details>;
 }
 function VideoCard({item}:{item:LearningResource}) {
+ const [play, setPlay] = useState(false);
  return <article className="learning-video" id={item.id}>
   <a className="learning-video__cover" href={item.url} target="_blank" rel="noreferrer" aria-label={`Watch ${item.title} on YouTube`}>
    {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -26,7 +27,7 @@ function VideoCard({item}:{item:LearningResource}) {
   <div className="learning-video__body"><p className="learning-tool">{item.tool}</p><h3><a href={item.url} target="_blank" rel="noreferrer">{item.title}</a></h3><Credit item={item} />
    <p className="learning-preview">{item.summary}</p><div className="learning-tags"><span>{learningType(item)}</span>{item.topics.map(topic=><span key={topic}>{topic}</span>)}</div>
    <Notes item={item} />
-   <details className="learning-player"><summary>Watch here</summary><iframe title={`YouTube embed: ${item.title}`} src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /></details>
+   <details className="learning-player"><summary>Watch here</summary>{play ? <iframe title={`YouTube embed: ${item.title}`} src={`https://www.youtube-nocookie.com/embed/${item.youtubeId}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen referrerPolicy="no-referrer" /> : <div><p>Loading this video connects to YouTube, which processes playback and device information under its privacy policy.</p><button className="button" onClick={()=>setPlay(true)}>Load YouTube video</button></div>}</details>
   </div>
  </article>;
 }

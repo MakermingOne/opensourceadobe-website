@@ -48,7 +48,7 @@ export default function HomePage() {
               <Eyebrow>Independent directory · {apps.length} ArtCraft apps</Eyebrow>
               <p className="poster-manifesto">Free, open-source tools. Official downloads. Practical installation guides.</p>
               <h1 id="home-heading">{enPages.home.h1}<span>{enPages.home.h1Emphasis}</span></h1>
-              <p className="poster-deck">Independent reviews of Adobe alternatives and everyday tools from ArtCraft.</p>
+              <p className="poster-deck">Source-based guides to Adobe alternatives and everyday tools from ArtCraft.</p>
               <TaskShortcuts />
               <div className="button-row">
                 <Link className="button button--light" href="#app-directory">Choose your app</Link>

@@ -92,7 +92,7 @@ for (const route of routes) {
   const description = capture(html, /<meta name="description" content="([^"]+)"/i);
   const canonical = capture(html, /<link rel="canonical" href="([^"]+)"/i);
   const h1Count = (html.match(/<h1(?:\s|>)/gi) ?? []).length;
-  const gaScriptCount = (html.match(/googletagmanager\.com\/gtag\/js\?id=G-KRT8VCTFXX/g) ?? []).length;
+  const gaScriptCount = (html.match(/<script\b[^>]*src="\/site-analytics\.js"[^>]*data-ga-id="G-KRT8VCTFXX"/g) ?? []).length;
   const robots = capture(html, /<meta name="robots" content="([^"]+)"/i);
   const expectedCanonical = `${siteUrl}${route}`;
 
@@ -193,13 +193,19 @@ async function checkTracking(directory) {
       htmlCount++;
       const html = await readFile(file, "utf8");
       const head = html.match(/<head>([\s\S]*?)<\/head>/i)?.[1] ?? "";
-      const tags = [...html.matchAll(/<script\b[^>]*src="https:\/\/www\.pvuv\.ai\/f\.js"[^>]*>/g)];
-      if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong PVUV loader count`);
-      if (expectAnalytics && (!head.includes(tags[0]?.[0]) || !tags[0]?.[0].includes('data-site="XZ339XbH"') || !tags[0]?.[0].includes('data-api="https://in.pvuv.ai"') || head.indexOf('/pvuv-privacy.js') < 0 || head.indexOf('/pvuv-privacy.js') > head.indexOf('https://www.pvuv.ai/f.js'))) failures.push(`${file}: invalid PVUV head configuration`);
+      const tags = [...head.matchAll(/<script\b[^>]*src="\/site-analytics\.js"[^>]*>/g)];
+      if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong consent-gated analytics entry count`);
+      if (expectAnalytics && !tags[0]?.[0].includes('data-ga-id="G-KRT8VCTFXX"')) failures.push(`${file}: incorrect GA measurement ID`);
+      if (/<script[^>]*src="https:\/\/(?:www\.googletagmanager\.com|www\.pvuv\.ai|pagead2\.googlesyndication\.com)/.test(html)) failures.push(`${file}: third-party tracking must not load before consent`);
+      for (const path of ['/about/', '/contact/', '/privacy/']) {
+        if (!html.includes(`href="${path}"`)) failures.push(`${file}: missing public trust-page link ${path}`);
+      }
     }
   }
 }
 await checkTracking(outputDirectory);
+const ads = await readFile(join(outputDirectory, "ads.txt"), "utf8");
+if (ads.trim() !== "google.com, pub-5205804952457245, DIRECT, f08c47fec0942fa0") failures.push("Incorrect ads.txt publisher");
 
 if (failures.length > 0) {
   console.error(`Static validation failed (${failures.length}):`);
@@ -208,4 +214,4 @@ if (failures.length > 0) {
 }
 
 console.log(`Static validation passed for ${routes.length} routes (${expectAnalytics ? "GA enabled" : "GA disabled"}, ${expectIndexing ? "indexable" : "noindex"}).`);
-console.log(`PVUV checked across all ${htmlCount} exported HTML files.`);
+console.log(`Consent-gated analytics and trust links checked across all ${htmlCount} exported HTML files.`);

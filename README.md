@@ -74,6 +74,8 @@ English URLs remain unprefixed. Traditional Chinese (`/zh-Hant/`), Polish (`/pl/
 
 English URLs stay unprefixed. Traditional Chinese, Polish, German, Hindi, Japanese, Korean, French and Australian English use locale prefixes. `src/i18n/config.ts` lists published pages and generates language switches, metadata and sitemaps. Unpublished app translations link to the official project. Run `pnpm validate:i18n` after building to check reciprocal alternates and internal link destinations.
 
-## Analytics
+## Analytics and privacy
 
-Production pages, translations and error pages load PVUV once in the shared head (site `XZ339XbH`), alongside GA4. The SDK tracks path navigation. `public/pvuv-privacy.js` strips query strings, fragments and free-text properties from PVUV collection requests and suppresses iframe visits. File download tracking is disabled. Local and preview builds omit both analytics loaders. Static validation checks every exported HTML file.
+Production pages, translations and error pages include one external analytics initializer in the shared head. GA4 (`G-KRT8VCTFXX`) and PVUV (`XZ339XbH`) load only after optional analytics consent. Visitors can reject or revoke consent from the footer. Query strings and fragments are omitted from analytics page URLs; SPA page views are explicit and deduplicated, and iframe visits do not add page views. Local and preview builds omit analytics.
+
+The `ads.txt` publisher record is retained for ownership verification. Ad serving is disabled pending account review and an appropriate advertising consent implementation. Analytics consent is not advertising consent. Before activating AdSense, configure a Google-certified CMP for applicable regions and verify it in the browser; do not add an unconditional ad loader. Static validation checks every exported HTML file for consent gating and links to About, Contact and Privacy.

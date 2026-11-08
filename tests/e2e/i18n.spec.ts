@@ -92,7 +92,7 @@ for (const route of pages) {
       for (const link of await links.all()) {
         if (await link.evaluate((element) => Boolean(element.closest('[aria-label="Language"]')))) continue;
         const href = (await link.getAttribute("href"))!.split("#")[0];
-        expect(translatedPaths, `localized shell destination ${href}`).toContain(href);
+        expect([...translatedPaths, "/about/", "/contact/", "/privacy/", "/disclaimer/"], `localized shell destination ${href}`).toContain(href);
         await link.scrollIntoViewIfNeeded();
         await expect(link).toBeVisible();
       }

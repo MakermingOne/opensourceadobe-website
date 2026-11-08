@@ -970,3 +970,13 @@ html:is([lang="ja"],[lang="ko"]) :is(h1,h2,h3,p,a,span,small,th,td,summary) { le
 .contact-template summary { cursor: pointer; font-weight: 650; padding-block: 12px; }
 .contact-template pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-raised); font: .9rem/1.7 var(--font-mono); }
 .contact-block .button { max-width: 100%; overflow-wrap: anywhere; }
+
+.privacy-controls { padding: 0 5% 1.5rem; background: #101114; color: #fff; }
+.privacy-settings { color: inherit; text-decoration: underline; background: transparent; border: 0; cursor: pointer; font: inherit; }
+.privacy-panel { position: fixed; z-index: 100; bottom: 1rem; right: 1rem; width: min(30rem, calc(100vw - 2rem)); padding: 1.25rem; background: #fff; color: #101114; border: 2px solid #101114; box-shadow: 0 4px 24px #0002; max-height: 80vh; overflow-y: auto; }
+.privacy-panel h2 { font-size: 1.2rem; margin: 0 0 .6rem; }
+.privacy-panel p { font-size: .95rem; margin-bottom: .6rem; }
+.privacy-panel a { text-decoration: underline; }
+.privacy-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.privacy-actions button { flex: 1; min-height: 44px; padding: .65rem; border: 1px solid #101114; background: #f1f1ed; color: #101114; font: inherit; cursor: pointer; }
+.privacy-controls button:focus-visible { outline: 3px solid #e9a23b; outline-offset: 3px; }

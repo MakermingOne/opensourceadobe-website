@@ -3,7 +3,7 @@ import { pageUpdateDates } from "@/content/page-dates";
 import { FooterUpdatedDate } from "@/components/footer-updated-date";
 
 import { dictionaries } from "@/i18n/dictionaries";
-import { localePath, type Locale } from "@/i18n/config";
+import { localePath, localizedPaths, type Locale } from "@/i18n/config";
 
 export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
   const copy = dictionaries[locale];
@@ -24,11 +24,12 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           {footerGroups.map((group, index) => <div className="footer-link-group" key={group.title}>
             <h2 id={`footer-group-${index}`}>{group.title}</h2>
             <ul aria-labelledby={`footer-group-${index}`}>{group.links.map((link) => <li key={link.href}>
-              {link.href.endsWith(".xml") ? <a href={link.href}>{link.label}</a> : <Link href={localePath(locale, link.href)}>{link.label}</Link>}
+              {link.href.endsWith(".xml") ? <a href={link.href}>{link.label}</a> : <Link href={localizedPaths(locale).includes(link.href) ? localePath(locale, link.href) : link.href}>{link.label}</Link>}
             </li>)}</ul>
           </div>)}
         </nav>
         <div className="footer-meta">
+          {locale !== "en" ? <nav aria-label="About this site (English)"><Link href="/about/">About (English)</Link>{" · "}<Link href="/contact/">Contact (English)</Link>{" · "}<Link href="/privacy/">Privacy (English)</Link>{" · "}<Link href="/disclaimer/">Disclaimer (English)</Link></nav> : null}
           <span>{copy.evidence}</span>
           <FooterUpdatedDate dates={pageUpdateDates()} label={copy.updated} />
         </div>

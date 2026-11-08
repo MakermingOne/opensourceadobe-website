@@ -19,6 +19,9 @@ export const test = base.extend<{ telemetryIsolation: void }>({
     browser.newContext = newContext;
   }, { scope: 'worker' }],
   telemetryIsolation: [async ({ context }, use) => {
+    // Existing layout tests exercise the rejected-consent path. Privacy-specific
+    // tests use a fresh context to exercise the banner and opt-in separately.
+    await context.addInitScript(() => localStorage.setItem('osa-analytics-consent-v1', JSON.stringify({choice:'rejected', at:Date.now()})));
     await context.route(/^https:\/\/(?:[^/]+\.)?(?:bauval\.org|pvuv\.ai|googlesyndication\.com|doubleclick\.net|googletagmanager\.com|google-analytics\.com)\//, (route) => route.fulfill({ status: 204, body: "" }));
     await use();
   }, { auto: true }],

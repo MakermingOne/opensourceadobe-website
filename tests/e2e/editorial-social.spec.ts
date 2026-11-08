@@ -30,13 +30,13 @@ test("the footer updates on client navigation and retains dates without JavaScri
   await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-11-06");
   await page.getByRole("contentinfo").getByRole("link", { name: "About", exact: true }).click();
   await expect(page).toHaveURL(/\/about\/$/);
-  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");
+  await expect(page.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-11-08");
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const staticPage = await context.newPage();
     await staticPage.goto(new URL("/about/", baseURL!).href);
-    await expect(staticPage.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-10-11");
-    await expect(staticPage.locator("[data-page-updated]")).toHaveAttribute("datetime", "2026-10-11");
+    await expect(staticPage.locator("[data-footer-updated]")).toHaveAttribute("datetime", "2026-11-08");
+    await expect(staticPage.locator("[data-page-updated]")).toHaveAttribute("datetime", "2026-11-08");
   } finally { await context.close(); }
 });
 

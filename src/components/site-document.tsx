@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { PrivacyControls } from "@/components/privacy-controls";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isProductionDeployment } from "@/lib/deployment";
@@ -67,22 +67,14 @@ export function SiteDocument({ children, locale = "en" }: Readonly<{ children: R
   return (
     <html lang={locale} dir={locales[locale].dir} className={`${archivo.variable} ${inter.variable} ${geistMono.variable}`}>
       <head>
-        {isProduction ? (
-          <>
-            <script defer src="/pvuv-privacy.js" />
-            <script defer src="https://www.pvuv.ai/f.js" data-site="XZ339XbH" data-api="https://in.pvuv.ai" data-downloads="off" />
-          </>
-        ) : null}
-        {isProduction ? (
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5205804952457245" crossOrigin="anonymous" />
-        ) : null}
+        {loadAnalytics ? <script defer src="/site-analytics.js" data-ga-id={siteConfig.analyticsId} /> : null}
       </head>
       <body>
         <a className="skip-link" href="#main-content">{copy.skip}</a>
         <SiteHeader locale={locale} />
         <main id="main-content">{children}</main>
         <SiteFooter locale={locale} />
-        {loadAnalytics ? <GoogleAnalytics gaId={siteConfig.analyticsId} /> : null}
+        {loadAnalytics ? <PrivacyControls locale={locale} /> : null}
       </body>
     </html>
   );

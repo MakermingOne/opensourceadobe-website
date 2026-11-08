@@ -65,7 +65,7 @@ test("all new languages work without JavaScript and have only valid localized sh
       for(const link of await shell.all()){
         if(await link.evaluate((item)=>Boolean(item.closest('[aria-label="Language"]'))))continue;
         const href=await link.getAttribute("href");
-        expect(guides.map((path)=>`/${locale}${path}`)).toContain(href);
+        expect([...guides.map((path)=>`/${locale}${path}`), "/about/", "/contact/", "/privacy/", "/disclaimer/"]).toContain(href);
       }
       const menu=page.getByRole("navigation",{name:"Language",exact:true});
       await menu.locator("summary").click();
