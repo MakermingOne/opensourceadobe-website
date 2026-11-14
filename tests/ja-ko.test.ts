@@ -14,7 +14,7 @@ for (const code of ["ja", "ko"]) it(`${code} publishes complete guides and never
     const page = getPageContent(locale, path)!;
     expect(page).toBeDefined();
     expect(page.faq.length).toBeGreaterThanOrEqual(4);
-    expect(pageUpdatedAt(`/${code}${path}`)).toBe("2026-11-06");
+    expect(pageUpdatedAt(`/${code}${path}`)).toBe("2026-11-15");
     for (const link of page.sections.flatMap(section => section.links ?? [])) {
       if (link.href.startsWith("/")) expect(resolveLocalePath(`/${code}${link.href.split("#")[0]}`)).not.toBeNull();
     }

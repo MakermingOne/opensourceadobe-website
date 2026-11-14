@@ -13,7 +13,7 @@ export const photoCraftHowToUseGuide: ArticleGuide = {
       heading: "Check your version first",
       paragraphs: [
         "November 5 documentation check: PR 10965 describes grouping action playback into one history state, with an option for per-step history. It merged after PhotoCraft 0.20.1; this does not establish that installer behavior or complete Photoshop Actions compatibility.",
-        "The official user guides we followed are labelled version 0.8.2, and one FAQ page is labelled 0.9.0. The latest GitHub release checked on 6 November 2026 is PhotoCraft 0.20.2, originally published at 2026-11-05T01:48:22Z (UTC). Open Help › System Info… to see your version. If a menu name below does not match, read the release notes for your version.",
+        "The official user guides we followed are labelled version 0.8.2, and one FAQ page is labelled 0.9.0. The latest GitHub release checked on 15 November 2026 is PhotoCraft 0.23.1, originally published at 2026-11-12T05:07:51Z (UTC). Open Help › System Info… to see your version. If a menu name below does not match, read the release notes for your version.",
       ],
     },
     {

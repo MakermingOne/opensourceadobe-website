@@ -38,7 +38,7 @@ export default function AppsPage() {
             <p className="section-number">01</p>
             <div>
               <h2 id="choose-app-heading">Choose an app by the work you need to do.</h2>
-              <p>Every app now has a download and installation guide, including our <Link href="/apps/pdfcraft/">PdfCraft download guide</Link>. Choose your platform, check installation steps and review each tool’s compatibility limits. Find source code and release notes in the <Link href="/github/">ArtCraft GitHub directory</Link>.</p>
+              <p>Each of the thirteen apps covered here has a download and installation guide, including our <Link href="/apps/pdfcraft/">PdfCraft download guide</Link>. Choose your platform, check installation steps and review each tool’s compatibility limits. Find source code and release notes in the <Link href="/github/">ArtCraft GitHub directory</Link>.</p>
             </div>
           </div>
           <AppDirectory />
@@ -53,6 +53,7 @@ export default function AppsPage() {
             </div>
           </div>
           <AppTable apps={apps} />
+          <p>The <a href="https://getartcraft.com/apps">official directory</a> lists seventeen apps. See our <Link href="/download/#additional-tools-heading">official downloads for the four additional apps</Link>.</p>
         </section>
         {directorySource ? <SourceList sources={[directorySource]} /> : null}
       </div>

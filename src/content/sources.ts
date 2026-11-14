@@ -3,6 +3,13 @@ import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
 const sourceInput: SourceRecord[] = [
+  {
+    id: "artcraft-release-0411",
+    type: "official-repository",
+    title: "ArtCraft Studio v0.41.1 release and assets",
+    url: "https://github.com/storytold/artcraft/releases/tag/artcraft-v0.41.1",
+    accessedAt: "2026-11-15",
+  },
  {id:"photocraft-action-history-nov5",type:"official-repository",title:"PhotoCraft action history development documentation",url:"https://github.com/storytold/photocraft/pull/10965",accessedAt:"2026-11-05"},
 {"id": "pdfcraft-release-v0-18-1", "type": "official-repository", "title": "pdfcraft v0.18.1 release and assets", "url": "https://github.com/storytold/pdfcraft/releases/tag/v0.18.1", "accessedAt": "2026-11-05"},
 {"id": "wordcraft-release-v0-15-1", "type": "official-repository", "title": "wordcraft v0.15.1 release and assets", "url": "https://github.com/storytold/wordcraft/releases/tag/v0.15.1", "accessedAt": "2026-11-05"},
@@ -134,7 +141,7 @@ const sourceInput: SourceRecord[] = [
     type: "official-page",
     title: "Crafting Apps: open-source creative tools — ArtCraft",
     url: "https://getartcraft.com/apps",
-    accessedAt: "2026-10-20",
+    accessedAt: "2026-11-15",
   },
   {
     id: "artcraft-pricing-official",

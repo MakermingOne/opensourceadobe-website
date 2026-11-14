@@ -10,6 +10,6 @@ it("backfills October 30 events without changing their actual publication date",
   expect(entry.publishedDate).toBe("2026-10-31");
   expect(new Intl.DateTimeFormat("sv-SE", {timeZone:"Asia/Shanghai"}).format(new Date(entry.eventPublishedAt!))).toBe(brief.date);
  }
- expect(releasesBySlug.get("craft-launcher")?.publishedAt).toBe("2026-11-05T01:24:52Z");
+ expect(releasesBySlug.get("craft-launcher")?.publishedAt).toBe("2026-11-12T01:41:25Z");
  expect(dailyUpdates.find(i => i.date === "2026-10-31")?.entries).toHaveLength(14);
 });

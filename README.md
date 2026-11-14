@@ -35,7 +35,7 @@ pnpm validate:i18n
 pnpm test:e2e
 ```
 
-Browser tests use Google Chrome at the configured macOS path locally. On CI, install Playwright Chromium with `pnpm exec playwright install --with-deps chromium` and run with `CI=1`. The CI workflow runs the full verification suite. The separate deployment workflow is for official-site maintainers and requires their Cloudflare configuration and repository secrets.
+Browser tests use Google Chrome at the configured macOS path locally. On CI, install Playwright Chromium with `pnpm exec playwright install --with-deps chromium` and run with `CI=1`. The CI workflow runs the full verification suite. The official site is published by the maintainer project.
 
 ## Content and sources
 

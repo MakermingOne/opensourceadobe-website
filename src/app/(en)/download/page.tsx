@@ -43,7 +43,7 @@ export default function DownloadPage() {
         <header className="page-intro download-intro">
           <Eyebrow>Safe download directory</Eyebrow>
           <h1>{enPages.download.h1}<span>{enPages.download.h1Emphasis}</span></h1>
-          <p className="lede">Choose from 13 free, open-source apps. Use a checked official GitHub package below, or open the app’s guide for platform choices, installation steps and compatibility limits. We do not mirror installers.</p>
+          <p className="lede">Choose from 13 apps with installation guides or browse four additional tools below. Use a checked official GitHub package below, or open the app’s guide for platform choices, installation steps and compatibility limits. We do not mirror installers.</p>
           <p className="updated">Last updated: <PageUpdated path="/download/" /></p>
 
         </header>
@@ -88,6 +88,8 @@ export default function DownloadPage() {
 
         <section className="content-section" aria-labelledby="additional-tools-heading">
           <h2 id="additional-tools-heading">Additional official tools</h2>
+          <p>AniCraft is in early alpha. Its v0.2.1 GitHub release lists desktop packages. The official product page lists Web among its platforms.</p>
+          <p>For the separate AI image and video app, see the <a href="https://github.com/storytold/artcraft/releases/tag/artcraft-v0.41.1">ArtCraft Studio v0.41.1 release and packages</a>.</p>
           <p>MaterialCraft, TextureCraft and Craft Anything also appear in the official suite. Full guides are not published here yet. MaterialCraft remains in development. Each GitHub release’s actual check date is listed below; product-page download versions can lag behind GitHub. No independent installation or compatibility test is implied.</p>
           <ul>{additionalOfficialReleases.map((release) => <li key={release.slug}><a href={release.url} target="_blank" rel="noreferrer">{release.name} {release.version}: official release and uploaded packages</a> (checked {release.checkedAt}) · <a href={release.officialPage} target="_blank" rel="noreferrer">Official product page</a></li>)}</ul>
           <p>November 5 check: TextureCraft 0.3.1 and MaterialCraft 0.1.1 have uploaded packages. MaterialCraft remains in development. Craft Anything’s later README clarifies that Clean room is not an operating-system sandbox and dependency installation runs code; <a href="https://github.com/storytold/craft-anything/pull/765" target="_blank" rel="noreferrer">read the official clarification</a>.</p>

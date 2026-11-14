@@ -5,7 +5,7 @@ import { photocraftMedia } from "@/content/media";
 import { sources } from "@/content/sources";
 
 describe("app content contract", () => {
-  it("contains the thirteen apps in the official ArtCraft directory", () => {
+  it("contains the thirteen apps with local guides", () => {
     expect(apps.map((app) => app.name)).toEqual([
       "PhotoCraft",
       "VectorCraft",
@@ -59,9 +59,9 @@ describe("app content contract", () => {
         .filter((app) => ["vectorcraft", "filmcraft", "lightcraft"].includes(app.slug))
         .map(({ slug, status, version }) => ({ slug, status, version })),
     ).toEqual([
-      { slug: "vectorcraft", status: "in-development", version: "0.21.1" },
-      { slug: "filmcraft", status: "in-development", version: "0.17.1" },
-      { slug: "lightcraft", status: "in-development", version: "0.18.1" },
+      { slug: "vectorcraft", status: "in-development", version: "0.24.1" },
+      { slug: "filmcraft", status: "in-development", version: "0.20.1" },
+      { slug: "lightcraft", status: "in-development", version: "0.21.1" },
     ]);
   });
 
