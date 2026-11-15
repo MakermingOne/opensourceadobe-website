@@ -31,18 +31,136 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-11-16",
+  "publishedDate": "2026-11-16",
+  "checkedDate": "2026-11-16",
+  "relatedBriefDates": [
+    "2026-11-15",
+    "2026-11-12"
+  ],
+  "title": "November 16 early ArtCraft check and development notes",
+  "seoTitle": "ArtCraft Updates: November 16, 2026",
+  "description": "Early ArtCraft release check, main-branch changes in VectorCraft and GridCraft, and an attributed Reddit report.",
+  "introduction": "As of 03:04:31 Beijing time, we found no new public release across nineteen official GitHub release histories. We checked the official homepage, Apps, seventeen product pages, News, and selected repository documentation. We read accessible Reddit discussions and indexed search results. X returned a public profile but limited timeline access. We could read YouTube channel and video metadata, with video and transcript review unavailable. Direct Google results required JavaScript.",
+  "entries": [
+    {
+      "id": "vectorcraft-7744",
+      "appSlug": "vectorcraft",
+      "appName": "VectorCraft",
+      "kind": "Documentation update",
+      "title": "VectorCraft adds a Check Spelling dialog on main",
+      "summary": "The merged change adds spelling suggestions, replacements, and a custom dictionary action to the editor. The parity guide now marks the spell-check dialog as implemented.",
+      "impact": "This change is on the official main branch. Check the notes for your installed release before relying on it.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/vectorcraft/pull/7744",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T18:31:01Z",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/apps/vectorcraft/",
+      "relatedLabel": "Read the VectorCraft guide"
+    },
+    {
+      "id": "gridcraft-955",
+      "appSlug": "gridcraft",
+      "appName": "GridCraft",
+      "kind": "Documentation update",
+      "title": "GridCraft updates right-to-left PDF export on main",
+      "summary": "The merged change preserves cell reading direction and mirrors the layout of right-to-left sheets in PDF export.",
+      "impact": "This change is on the official main branch. Check the notes for your installed release before relying on it.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/gridcraft/pull/955",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T16:55:05Z",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/apps/gridcraft/",
+      "relatedLabel": "Read the GridCraft guide"
+    },
+    {
+      "id": "community-photocraft-vectorcraft-2026-11-16",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Community report",
+      "title": "A Reddit commenter reports moving work to PhotoCraft and VectorCraft",
+      "summary": "A commenter reported using both apps after losing access to their Adobe subscription and said the familiar workflows helped them switch.",
+      "impact": "The commenter did not identify versions or project files. We placed the report on the day we read it because the available thread showed only relative timestamps.",
+      "sourceTitle": "Original Reddit discussion",
+      "sourceUrl": "https://www.reddit.com/r/ArtCraftAI/comments/1xwjfqq/which_apps_do_you_use_most_and_why/",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read the PhotoCraft guide"
+    }
+  ]
+},
+{
   "date": "2026-11-15",
   "publishedDate": "2026-11-15",
   "checkedDate": "2026-11-15",
   "relatedBriefDates": [
+    "2026-11-16",
     "2026-11-14",
     "2026-11-12"
   ],
-  "title": "November 15 early ArtCraft check",
+  "title": "November 15 ArtCraft check and development follow-ups",
   "seoTitle": "ArtCraft Updates: November 15, 2026",
   "description": "Early check of ArtCraft releases, official documentation and accessible community discussions.",
-  "introduction": "As of 03:04:20 Beijing time, we found no new formal release in the nineteen GitHub release histories since the previous check. We checked the official homepage, Apps, seventeen product pages, News, selected repository changes and accessible Reddit posts. The X timeline was unavailable in the reader. We could access YouTube channel metadata, with video and transcript review unavailable. Direct Google results required JavaScript. We read indexed results and accessible originals.",
-  "entries": []
+  "introduction": "As of 03:04:20 Beijing time, we found no new formal release in the nineteen GitHub release histories since the previous check. We checked the official homepage, Apps, seventeen product pages, News, selected repository changes and accessible Reddit posts. The X timeline was unavailable in the reader. We could access YouTube channel metadata, with video and transcript review unavailable. Direct Google results required JavaScript. We read indexed results and accessible originals. A follow-up on November 16 verified three main-branch changes merged later on November 15 in Beijing.",
+  "entries": [
+    {
+      "id": "photocraft-11674",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Documentation update",
+      "title": "PhotoCraft adds three Classic Actions commands on main",
+      "summary": "The merged change adds Clear All Actions, Reset Actions and Replace Actions. It validates an ATN archive before replacing the library and supports undo for the library change.",
+      "impact": "This change is on the official main branch. Check the notes for your installed release before relying on it.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/photocraft/pull/11674",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T15:53:01Z",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read the PhotoCraft guide"
+    },
+    {
+      "id": "figcraft-1972",
+      "appSlug": "figcraft",
+      "appName": "FigCraft",
+      "kind": "Documentation update",
+      "title": "FigCraft adds a shared opening-page command on main",
+      "summary": "Set as opening page stores the page that people see when they open a shared document. Current viewers keep their own page while editing.",
+      "impact": "This change is on the official main branch. Check the notes for your installed release before relying on it.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/figcraft/pull/1972",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T06:05:49Z",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/apps/figcraft/",
+      "relatedLabel": "Read the FigCraft guide"
+    },
+    {
+      "id": "craft-launcher-403",
+      "appSlug": "craft-launcher",
+      "appName": "ArtCraft Launcher",
+      "kind": "Documentation update",
+      "title": "ArtCraft Launcher adds download queuing on main",
+      "summary": "The merged change queues app downloads in the order shown by Launcher. One download runs at a time by default, with a simultaneous-downloads setting.",
+      "impact": "This change is on the official main branch. Check the notes for your installed release before relying on it.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/pull/403",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T05:03:08Z",
+      "checkedDate": "2026-11-16",
+      "publishedDate": "2026-11-16",
+      "relatedPath": "/download/",
+      "relatedLabel": "Browse official downloads"
+    }
+  ],
+  "modifiedDate": "2026-11-16"
 },
 {
   "date": "2026-11-14",

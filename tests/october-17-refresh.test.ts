@@ -19,7 +19,7 @@ describe("October 17 verified increments", () => {
     expect(releasesBySlug.get("vectorcraft")?.version).toBe("0.24.1");
     expect(releaseCheckedOn("vectorcraft")).toBe("2026-11-15");
     expect(releaseCheckedOn("photocraft")).toBe("2026-11-15");
-    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-11-15");
+    expect(pageUpdatedAt("/apps/vectorcraft/")).toBe("2026-11-16");
   });
   it("keeps legacy Illustrator export limits visible", () => {
     const answer = guideBySlug.vectorcraft.faqs.find((faq) => faq.question === "Can VectorCraft open Illustrator files?")?.answer;
