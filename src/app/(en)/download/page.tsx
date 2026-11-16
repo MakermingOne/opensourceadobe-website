@@ -12,7 +12,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { comparedProduct } from "@/lib/workflow-labels";
 import { officialAssetUrl, officialDownloads, type DownloadSlug } from "@/content/downloads";
 import { apps, publishedApps } from "@/content/apps";
-import { sourcesById } from "@/content/sources";
+import { aniCraftBeginnerGuide, sourcesById } from "@/content/sources";
 import { pageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 import { additionalOfficialReleases, releasesBySlug } from "@/content/releases";
@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/download/",
 });
 
-const downloadSources = ["artcraft-apps", "craft-launcher-release", ...apps.flatMap((app) => [`${app.slug}-official`, `${app.slug}-release`])]
+const downloadSources = ["artcraft-apps", "craft-launcher-release", aniCraftBeginnerGuide.id, ...apps.flatMap((app) => [`${app.slug}-official`, `${app.slug}-release`])]
   .map((id) => sourcesById.get(id))
   .filter((source) => source !== undefined);
 
@@ -88,7 +88,7 @@ export default function DownloadPage() {
 
         <section className="content-section" aria-labelledby="additional-tools-heading">
           <h2 id="additional-tools-heading">Additional official tools</h2>
-          <p>AniCraft is in early alpha. Its v0.2.1 GitHub release lists desktop packages. The official product page lists Web among its platforms.</p>
+          <p>AniCraft is in early alpha. Its v0.2.1 GitHub release lists desktop packages. The official product page lists Web among its platforms. Read the <a href={aniCraftBeginnerGuide.url}>AniCraft beginner guide</a> for drawing and animation walkthroughs.</p>
           <p>For the separate AI image and video app, see the <a href="https://github.com/storytold/artcraft/releases/tag/artcraft-v0.41.1">ArtCraft Studio v0.41.1 release and packages</a>.</p>
           <p>MaterialCraft, TextureCraft and Craft Anything also appear in the official suite. Full guides are not published here yet. MaterialCraft remains in development. Each GitHub release’s actual check date is listed below; product-page download versions can lag behind GitHub. No independent installation or compatibility test is implied.</p>
           <ul>{additionalOfficialReleases.map((release) => <li key={release.slug}><a href={release.url} target="_blank" rel="noreferrer">{release.name} {release.version}: official release and uploaded packages</a> (checked {release.checkedAt}) · <a href={release.officialPage} target="_blank" rel="noreferrer">Official product page</a></li>)}</ul>

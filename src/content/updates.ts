@@ -31,18 +31,170 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-11-17",
+  "publishedDate": "2026-11-17",
+  "checkedDate": "2026-11-17",
+  "relatedBriefDates": [
+    "2026-11-16",
+    "2026-11-12"
+  ],
+  "title": "November 17 early ArtCraft check",
+  "seoTitle": "ArtCraft Updates: November 17, 2026",
+  "description": "Early release check and a DesignCraft Pages panel change on the main branch.",
+  "introduction": "As of 03:14:39 Beijing time, we found no new public release in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, all seventeen product pages, News, Craft Wiki, and selected merged changes and documentation. We read accessible Reddit discussions and indexed search results. X returned a forbidden response, YouTube throttled the channel and video, and direct Google results were unavailable.",
+  "entries": [
+    {
+      "id": "designcraft-2844",
+      "appSlug": "designcraft",
+      "appName": "DesignCraft",
+      "kind": "Documentation update",
+      "title": "DesignCraft aligns right-to-left spread labels with thumbnails on main",
+      "summary": "The Pages panel now lists the page shown on the left first in labels under right-to-left spreads. The spread thumbnails stay in their existing positions.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/designcraft/pull/2844",
+      "eventDate": "2026-11-16",
+      "eventPublishedAt": "2026-11-16T16:00:06Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/designcraft/",
+      "relatedLabel": "Read the DesignCraft guide"
+    }
+  ]
+},
+{
   "date": "2026-11-16",
   "publishedDate": "2026-11-16",
   "checkedDate": "2026-11-16",
   "relatedBriefDates": [
+    "2026-11-17",
     "2026-11-15",
     "2026-11-12"
   ],
   "title": "November 16 early ArtCraft check and development notes",
   "seoTitle": "ArtCraft Updates: November 16, 2026",
   "description": "Early ArtCraft release check, main-branch changes in VectorCraft and GridCraft, and an attributed Reddit report.",
-  "introduction": "As of 03:04:31 Beijing time, we found no new public release across nineteen official GitHub release histories. We checked the official homepage, Apps, seventeen product pages, News, and selected repository documentation. We read accessible Reddit discussions and indexed search results. X returned a public profile but limited timeline access. We could read YouTube channel and video metadata, with video and transcript review unavailable. Direct Google results required JavaScript.",
+  "introduction": "As of 03:04:31 Beijing time, we found no new public release across nineteen official GitHub release histories. We checked the official homepage, Apps, seventeen product pages, News, and selected repository documentation. We read accessible Reddit discussions and indexed search results. X returned a public profile but limited timeline access. We could read YouTube channel and video metadata, with video and transcript review unavailable. Direct Google results required JavaScript. On November 17 we added seven items from November 16 Beijing time, including the official AniCraft beginner guide.",
   "entries": [
+    {
+      "id": "wordcraft-5810",
+      "appSlug": "wordcraft",
+      "appName": "WordCraft",
+      "kind": "Documentation update",
+      "title": "WordCraft adds document-wide proofing language on main",
+      "summary": "Review › Language gains an option to apply the language or proofing setting throughout the document, including headers, footnotes, and text boxes.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/wordcraft/pull/5810",
+      "eventDate": "2026-11-16",
+      "eventPublishedAt": "2026-11-16T10:05:16Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/wordcraft/",
+      "relatedLabel": "Read the WordCraft guide"
+    },
+    {
+      "id": "lightcraft-4277",
+      "appSlug": "lightcraft",
+      "appName": "LightCraft",
+      "kind": "Documentation update",
+      "title": "LightCraft refreshes its roadmap and parity notes",
+      "summary": "The documentation now summarizes work through November 15, including Lens Blur, Lightroom backup ZIP import, and the November 12 releases. Its parity estimates were carried forward.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/lightcraft/pull/4277",
+      "eventDate": "2026-11-16",
+      "eventPublishedAt": "2026-11-16T09:23:33Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/lightcraft/",
+      "relatedLabel": "Read the LightCraft guide"
+    },
+    {
+      "id": "photocraft-13415",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Documentation update",
+      "title": "PhotoCraft documents KRA and ORA import limits on main",
+      "summary": "The format notes were revised to reflect the shared readers. The same change adds a regression test for cancellation while reading XCF layer metadata.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/photocraft/pull/13415",
+      "eventDate": "2026-11-16",
+      "eventPublishedAt": "2026-11-16T06:58:49Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read the PhotoCraft guide"
+    },
+    {
+      "id": "designcraft-1502",
+      "appSlug": "designcraft",
+      "appName": "DesignCraft",
+      "kind": "Documentation update",
+      "title": "DesignCraft applies Japanese line-breaking priorities on main",
+      "summary": "The change wires the Japanese push-in-first default and applies the configured line-breaking priorities to CJK text.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/designcraft/pull/1502",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T23:47:31Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/designcraft/",
+      "relatedLabel": "Read the DesignCraft guide"
+    },
+    {
+      "id": "photocraft-8455",
+      "appSlug": "photocraft",
+      "appName": "PhotoCraft",
+      "kind": "Documentation update",
+      "title": "PhotoCraft makes a Windows printing dependency optional at startup on main",
+      "summary": "The editor and CLI delay loading prntvpt.dll. On Windows installations without that component, the print command reports the missing dependency when invoked.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/photocraft/pull/8455",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T23:23:32Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/photocraft/",
+      "relatedLabel": "Read the PhotoCraft guide"
+    },
+    {
+      "id": "pdfcraft-5017",
+      "appSlug": "pdfcraft",
+      "appName": "PdfCraft",
+      "kind": "Documentation update",
+      "title": "PdfCraft adds cross-page text selection on main",
+      "summary": "Dragging or Shift-clicking can extend a text selection across pages. Copying joins the selected text with a line break between pages.",
+      "impact": "Check the documentation or release notes for your installed version before relying on behavior described on main.",
+      "sourceTitle": "Merged GitHub pull request",
+      "sourceUrl": "https://github.com/storytold/pdfcraft/pull/5017",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T21:55:35Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/apps/pdfcraft/",
+      "relatedLabel": "Read the PdfCraft guide"
+    },
+    {
+      "id": "anicraft-beginner-wiki-54",
+      "appSlug": "anicraft",
+      "appName": "AniCraft",
+      "kind": "Documentation update",
+      "title": "Craft Wiki adds an AniCraft beginner guide",
+      "summary": "The official guide leads new users from drawing shapes to animation, with walkthroughs for the timeline, keyframes, and frame-by-frame animation.",
+      "impact": "The timestamp records when the guide merged into the official Wiki repository. The public guide was accessible during our November 17 check.",
+      "sourceTitle": "Merged Craft Wiki guide",
+      "sourceUrl": "https://github.com/storytold/craft-wiki/pull/54",
+      "eventDate": "2026-11-15",
+      "eventPublishedAt": "2026-11-15T19:29:07Z",
+      "checkedDate": "2026-11-17",
+      "publishedDate": "2026-11-17",
+      "relatedPath": "/download/",
+      "relatedLabel": "Find the official AniCraft beginner guide"
+    },
     {
       "id": "vectorcraft-7744",
       "appSlug": "vectorcraft",
@@ -92,7 +244,8 @@ export const dailyUpdates: DailyUpdate[] = [
       "relatedPath": "/apps/photocraft/",
       "relatedLabel": "Read the PhotoCraft guide"
     }
-  ]
+  ],
+  "modifiedDate": "2026-11-17"
 },
 {
   "date": "2026-11-15",

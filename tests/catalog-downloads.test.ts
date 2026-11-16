@@ -11,7 +11,7 @@ describe("complete download journey", () => {
     const path = `/apps/${app.slug}/`;
     expect(publishedRoutes).toContain(path);
     expect(socialImagePath(path)).toMatch(/^\/images\/og\//);
-    expect(pageUpdatedAt(path)).toBe(["photocraft", "vectorcraft", "figcraft", "gridcraft"].includes(app.slug) ? "2026-11-16" : "2026-11-15");
+    expect(pageUpdatedAt(path)).toBe(["photocraft", "pdfcraft", "designcraft", "lightcraft", "wordcraft"].includes(app.slug) ? "2026-11-17" : ["vectorcraft", "figcraft", "gridcraft"].includes(app.slug) ? "2026-11-16" : "2026-11-15");
     const download = officialDownloads[app.slug as DownloadSlug];
     expect(download?.version).toBe(app.version);
     expect(download?.packages).toHaveLength(3);

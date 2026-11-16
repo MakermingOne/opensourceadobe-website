@@ -2,7 +2,16 @@ import { sourceRecordSchema, type SourceRecord } from "./types";
 import { releaseCheckedOn, releases } from "./releases";
 import { repositoryLicenses } from "./repository-licenses";
 
+export const aniCraftBeginnerGuide: SourceRecord = {
+  id: "anicraft-beginner-guide",
+  type: "official-page",
+  title: "AniCraft beginner guide on Craft Wiki",
+  url: "https://craft.wiki/apps/anicraft/anicraft-a-beginner-s-guide/",
+  accessedAt: "2026-11-17",
+};
+
 const sourceInput: SourceRecord[] = [
+  aniCraftBeginnerGuide,
   {
     id: "artcraft-release-0411",
     type: "official-repository",
