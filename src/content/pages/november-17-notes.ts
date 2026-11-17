@@ -59,7 +59,7 @@ export function november17Digest(locale: Locale): LocalizedSection | undefined {
   return {
     id: "update-2026-11-17",
     heading,
-    paragraphs: [paragraph],
+    paragraphs: [paragraph, {"en": "", "en-AU": "TextureCraft’s roadmap follow-up, checked 18 November, says .spp import is still a future goal, not an implemented reader.", "zh-Hant": "11 月 18 日補查：TextureCraft 路線圖說明，.spp 匯入仍屬未來目標，目前尚未實作讀取功能。", "de": "Nachprüfung am 18. November: Laut TextureCraft-Roadmap bleibt der .spp-Import ein Zukunftsziel; ein Reader ist nicht implementiert.", "pl": "Kontrola 18 listopada: plan TextureCraft nadal określa import .spp jako przyszły cel; czytnik nie jest zaimplementowany.", "ja": "11月18日の追加確認：TextureCraftのロードマップでは、.sppの読み込みは今後の目標で、まだ実装されていません。", "ko": "11월 18일 추가 확인: TextureCraft 로드맵에 따르면 .spp 가져오기는 향후 목표이며 아직 구현되지 않았습니다.", "fr": "Suivi du 18 novembre : la feuille de route TextureCraft indique que l’import .spp reste un objectif futur, sans lecteur implémenté.", "hi": "18 नवंबर की अतिरिक्त जाँच: TextureCraft की योजना में .spp आयात भविष्य का लक्ष्य है; रीडर अभी लागू नहीं है।"}[locale] ?? ""],
     links: [
       { label: todayLabel, href: "https://opensourceadobe.com/updates/2026-11-17/" },
       { label: priorLabel, href: "https://opensourceadobe.com/updates/2026-11-16/" },

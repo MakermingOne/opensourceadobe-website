@@ -31,6 +31,19 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-11-18",
+  "checkedDate": "2026-11-18",
+  "publishedDate": "2026-11-18",
+  "relatedBriefDates": [
+    "2026-11-17"
+  ],
+  "title": "November 18 early ArtCraft check",
+  "seoTitle": "ArtCraft Updates: November 18, 2026",
+  "description": "Early official release check and a follow-up to the November 17 TextureCraft documentation.",
+  "introduction": "As of 03:02:24 Beijing time, no new public release was found in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, product pages, News and selected main-branch documentation. The TextureCraft roadmap follow-up is archived under November 17 by its exact publication time. Accessible Reddit originals and indexed search results were read; relative and indexed dates did not establish new community news. X returned 403, YouTube was throttled and direct Google results were unavailable. This is an early check, not a report covering the entire day.",
+  "entries": []
+},
+{
   "date": "2026-11-17",
   "publishedDate": "2026-11-17",
   "checkedDate": "2026-11-17",
@@ -41,7 +54,7 @@ export const dailyUpdates: DailyUpdate[] = [
   "title": "November 17 early ArtCraft check",
   "seoTitle": "ArtCraft Updates: November 17, 2026",
   "description": "Early release check and a DesignCraft Pages panel change on the main branch.",
-  "introduction": "As of 03:14:39 Beijing time, we found no new public release in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, all seventeen product pages, News, Craft Wiki, and selected merged changes and documentation. We read accessible Reddit discussions and indexed search results. X returned a forbidden response, YouTube throttled the channel and video, and direct Google results were unavailable.",
+  "introduction": "As of 03:14:39 Beijing time, we found no new public release in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, all seventeen product pages, News, Craft Wiki, and selected merged changes and documentation. We read accessible Reddit discussions and indexed search results. X returned a forbidden response, YouTube throttled the channel and video, and direct Google results were unavailable. Follow-up checked November 18: TextureCraft published a revised readiness assessment on November 17 Beijing time; this is documentation, not a new installer.",
   "entries": [
     {
       "id": "designcraft-2844",
@@ -59,8 +72,26 @@ export const dailyUpdates: DailyUpdate[] = [
       "publishedDate": "2026-11-17",
       "relatedPath": "/apps/designcraft/",
       "relatedLabel": "Read the DesignCraft guide"
+    },
+    {
+      "id": "texturecraft-547",
+      "appSlug": "texturecraft",
+      "appName": "TextureCraft",
+      "kind": "Documentation update",
+      "title": "TextureCraft revises its readiness assessment and format roadmap",
+      "summary": "The official roadmap replaces its former implementation-based estimate with an alpha readiness assessment. It says read-only .spp import remains a future goal with no reader implemented; .tcraft and output-package contracts may change, and MaterialCraft integration remains unfinished.",
+      "impact": "These are the project’s assessments of a specific main revision, not independent tests or a new release. Check format compatibility before relying on it for production work.",
+      "sourceTitle": "Official merged roadmap and UI audit",
+      "sourceUrl": "https://github.com/storytold/texturecraft/pull/547",
+      "eventDate": "2026-11-17",
+      "eventPublishedAt": "2026-11-17T01:08:17Z",
+      "checkedDate": "2026-11-18",
+      "publishedDate": "2026-11-18",
+      "relatedPath": "/apps/",
+      "relatedLabel": "Browse the app directory"
     }
-  ]
+  ],
+  "modifiedDate": "2026-11-18"
 },
 {
   "date": "2026-11-16",
