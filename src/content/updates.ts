@@ -31,6 +31,68 @@ export type DailyUpdate = {
 
 export const dailyUpdates: DailyUpdate[] = [
 {
+  "date": "2026-11-20",
+  "checkedDate": "2026-11-20",
+  "publishedDate": "2026-11-20",
+  "relatedBriefDates": [
+    "2026-11-19"
+  ],
+  "title": "November 20 ArtCraft early status check",
+  "seoTitle": "ArtCraft Updates: November 20, 2026",
+  "description": "Official source review for November 20, with release and access limits.",
+  "introduction": "As of 03:04:22 Beijing time, nineteen official release histories show no release newer than the previous successful check. Latest release asset metadata was inspected; installer binaries were not executed. We read the official homepage, Apps, product pages, News and selected merged source changes. November 18 and 19 follow-ups are archived under their event dates. Accessible Reddit originals and indexed search results were read without establishing new community news. X returned 403, YouTube was throttled and direct Google results were unavailable. This is an early check, not a report covering the entire day.",
+  "entries": []
+},
+{
+  "date": "2026-11-19",
+  "modifiedDate": "2026-11-20",
+  "checkedDate": "2026-11-20",
+  "publishedDate": "2026-11-20",
+  "relatedBriefDates": [
+    "2026-11-18"
+  ],
+  "title": "November 19 ArtCraft development follow-ups",
+  "seoTitle": "ArtCraft Updates: November 19, 2026",
+  "description": "Official source review for November 19, with release and access limits.",
+  "introduction": "Backfilled on November 20 from exact official merge timestamps: PdfCraft audit coverage and a Launcher translation catalogue changed on November 19 Beijing time. These are development-source notes, not new installer releases. Actual checks and site publication are November 20.",
+  "entries": [
+    {
+      "id": "pdfcraft-2408",
+      "appSlug": "pdfcraft",
+      "appName": "PdfCraft",
+      "kind": "Documentation update",
+      "title": "Development audit covers more ways text can be concealed",
+      "summary": "The merged audit source documents detection of thick opaque strokes, dark highlights and white covers over text, with explicit geometric and opacity limits. The pull request reports project tests; we did not reproduce them.",
+      "impact": "This describes merged development source, not a verified feature in a published installer. No new release or independent test is claimed.",
+      "sourceTitle": "Official merged pull request and source changes",
+      "sourceUrl": "https://github.com/storytold/pdfcraft/pull/2408",
+      "eventDate": "2026-11-19",
+      "eventPublishedAt": "2026-11-19T14:20:38Z",
+      "checkedDate": "2026-11-20",
+      "publishedDate": "2026-11-20",
+      "relatedPath": "/download/",
+      "relatedLabel": "Check official downloads"
+    },
+    {
+      "id": "craft-launcher-968",
+      "appSlug": "craft-launcher",
+      "appName": "ArtCraft Launcher",
+      "kind": "Documentation update",
+      "title": "Launcher development source adds a Bosnian interface catalogue",
+      "summary": "The merged translation catalogue and README add Bosnian to the interface language list. This is a source change, not confirmation that the latest uploaded installer includes it.",
+      "impact": "This describes merged development source, not a verified feature in a published installer. No new release or independent test is claimed.",
+      "sourceTitle": "Official merged pull request and source changes",
+      "sourceUrl": "https://github.com/storytold/craft-launcher/pull/968",
+      "eventDate": "2026-11-19",
+      "eventPublishedAt": "2026-11-19T09:16:50Z",
+      "checkedDate": "2026-11-20",
+      "publishedDate": "2026-11-20",
+      "relatedPath": "/download/",
+      "relatedLabel": "Check official downloads"
+    }
+  ]
+},
+{
   "date": "2026-11-18",
   "checkedDate": "2026-11-18",
   "publishedDate": "2026-11-18",
@@ -40,8 +102,27 @@ export const dailyUpdates: DailyUpdate[] = [
   "title": "November 18 early ArtCraft check",
   "seoTitle": "ArtCraft Updates: November 18, 2026",
   "description": "Early official release check and a follow-up to the November 17 TextureCraft documentation.",
-  "introduction": "As of 03:02:24 Beijing time, no new public release was found in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, product pages, News and selected main-branch documentation. The TextureCraft roadmap follow-up is archived under November 17 by its exact publication time. Accessible Reddit originals and indexed search results were read; relative and indexed dates did not establish new community news. X returned 403, YouTube was throttled and direct Google results were unavailable. This is an early check, not a report covering the entire day.",
-  "entries": []
+  "introduction": "As of 03:02:24 Beijing time, no new public release was found in nineteen official GitHub release histories since the previous check. We checked the official homepage, Apps, product pages, News and selected main-branch documentation. The TextureCraft roadmap follow-up is archived under November 17 by its exact publication time. Accessible Reddit originals and indexed search results were read; relative and indexed dates did not establish new community news. X returned 403, YouTube was throttled and direct Google results were unavailable. This is an early check, not a report covering the entire day. Follow-up checked November 20: a November 18 main-branch change removed sensitive frontend debug logging; its exact merge time is retained below.",
+  "entries": [
+    {
+      "id": "artcraft-2632",
+      "appSlug": "artcraft",
+      "appName": "ArtCraft",
+      "kind": "Documentation update",
+      "title": "Development source removes upload-session debug logging",
+      "summary": "The merged frontend change removes upload-session token logs and signup response logging. This source review does not establish when the hosted service deployed the change.",
+      "impact": "This describes merged development source, not a verified feature in a published installer. No new release or independent test is claimed.",
+      "sourceTitle": "Official merged pull request and source changes",
+      "sourceUrl": "https://github.com/storytold/artcraft/pull/2632",
+      "eventDate": "2026-11-18",
+      "eventPublishedAt": "2026-11-18T09:41:33Z",
+      "checkedDate": "2026-11-20",
+      "publishedDate": "2026-11-20",
+      "relatedPath": "/download/",
+      "relatedLabel": "Check official downloads"
+    }
+  ],
+  "modifiedDate": "2026-11-20"
 },
 {
   "date": "2026-11-17",
