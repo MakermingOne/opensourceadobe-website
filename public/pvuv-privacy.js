@@ -8,8 +8,8 @@
     } catch { return undefined; }
   };
   const sanitize = (body) => {
-    // Embedded pages load the SDK without adding top-level visits.
-    if (window.self !== window.top) return null;
+    // Embedded pages and visitors who have opted out do not send events.
+    if (window.self !== window.top || window.sitePrivacy?.get() === "rejected") return null;
     try {
       const input = JSON.parse(body);
       const events = (Array.isArray(input) ? input : [input]).map((event) => {

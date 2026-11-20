@@ -194,7 +194,7 @@ async function checkTracking(directory) {
       const html = await readFile(file, "utf8");
       const head = html.match(/<head>([\s\S]*?)<\/head>/i)?.[1] ?? "";
       const tags = [...head.matchAll(/<script\b[^>]*src="\/site-analytics\.js"[^>]*>/g)];
-      if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong consent-gated analytics entry count`);
+      if (tags.length !== (expectAnalytics ? 1 : 0)) failures.push(`${file}: wrong analytics entry count`);
       if (expectAnalytics && !tags[0]?.[0].includes('data-ga-id="G-KRT8VCTFXX"')) failures.push(`${file}: incorrect GA measurement ID`);
       if (/<script[^>]*src="https:\/\/(?:www\.googletagmanager\.com|www\.pvuv\.ai|pagead2\.googlesyndication\.com)/.test(html)) failures.push(`${file}: third-party tracking must not load before consent`);
       for (const path of ['/about/', '/contact/', '/privacy/']) {
@@ -214,4 +214,4 @@ if (failures.length > 0) {
 }
 
 console.log(`Static validation passed for ${routes.length} routes (${expectAnalytics ? "GA enabled" : "GA disabled"}, ${expectIndexing ? "indexable" : "noindex"}).`);
-console.log(`Consent-gated analytics and trust links checked across all ${htmlCount} exported HTML files.`);
+console.log(`Analytics and trust links checked across all ${htmlCount} exported HTML files.`);

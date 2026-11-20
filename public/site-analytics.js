@@ -1,14 +1,14 @@
-/* One consent-gated analytics entry point for every production HTML document. */
+/* One analytics entry point for every production HTML document. */
 (() => {
   if (window.sitePrivacy) return;
   const id = document.currentScript.dataset.gaId;
   const key = 'osa-analytics-consent-v1';
   const lifetime = 180 * 24 * 60 * 60 * 1000;
-  let choice = 'unset';
+  let enabled = true;
   try {
     const saved = JSON.parse(localStorage.getItem(key));
-    if (saved && Date.now() - saved.at < lifetime && ['accepted', 'rejected'].includes(saved.choice)) choice = saved.choice;
-  } catch { /* Storage may be unavailable; remain opted out. */ }
+    if (saved?.choice === 'rejected' && Date.now() - saved.at < lifetime) enabled = false;
+  } catch { /* Use the default when the browser cannot read a preference. */ }
   let started = false;
   let previousPath;
   const clean = (value) => {
@@ -24,7 +24,7 @@
   };
   let lastSentPage;
   const sanitizeGA = (url, body = '') => {
-    if (choice !== 'accepted' || window.self !== window.top) return null;
+    if (!enabled || window.self !== window.top) return null;
     const base = new URL(url);
     const safe = (params) => {
       for (const name of [...params.keys()]) {
@@ -83,7 +83,7 @@
   };
   const pageView = () => {
     const path = location.pathname;
-    if (!started || choice !== 'accepted' || window.self !== window.top || path === previousPath) return;
+    if (!started || !enabled || window.self !== window.top || path === previousPath) return;
     window.gtag('set', {page_location: location.origin + path, page_referrer: previousPath ? location.origin + previousPath : clean(document.referrer)});
     window.gtag('event', 'page_view', {
       page_location: location.origin + path,
@@ -92,8 +92,15 @@
     });
     previousPath = path;
   };
+  let pvuvFilterReady = false;
+  let pvuvStarted = false;
+  const startPVUV = () => {
+    if (!enabled || !pvuvFilterReady || pvuvStarted) return;
+    pvuvStarted = true;
+    script('https://www.pvuv.ai/f.js', { 'data-site': 'XZ339XbH', 'data-api': 'https://in.pvuv.ai', 'data-downloads': 'off' });
+  };
   const start = () => {
-    if (started || choice !== 'accepted') return;
+    if (started || !enabled) return;
     started = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
@@ -105,22 +112,37 @@
     pageView();
     // Install the privacy filter before the PVUV SDK can send anything.
     script('/pvuv-privacy.js').onload = () => {
-      if (choice === 'accepted') script('https://www.pvuv.ai/f.js', { 'data-site': 'XZ339XbH', 'data-api': 'https://in.pvuv.ai', 'data-downloads': 'off' });
+      pvuvFilterReady = true;
+      startPVUV();
     };
   };
   window.sitePrivacy = {
-    get: () => choice,
+    get: () => enabled ? 'accepted' : 'rejected',
     pageView,
     set: (next) => {
       if (!['accepted', 'rejected'].includes(next)) return;
-      choice = next;
-      try { localStorage.setItem(key, JSON.stringify({ choice, at: Date.now() })); } catch { /* Apply for this document. */ }
+      const wasEnabled = enabled;
+      enabled = next === 'accepted';
+      let saved = false;
+      try {
+        localStorage.setItem(key, JSON.stringify({ choice: next, at: Date.now() }));
+        saved = true;
+      } catch { /* Apply the choice for this document. */ }
+
+      if (enabled === wasEnabled) return;
       window.dispatchEvent(new Event('site-privacy-change'));
-      if (next === 'accepted') start();
-      else if (started) {
-        window['ga-disable-' + id] = true;
-        window.gtag('consent', 'update', { analytics_storage: 'denied' });
-        // Stop loaded SDKs and pending timers on revocation; no new requests next load.
+      if (!started) {
+        start();
+        return;
+      }
+
+      window['ga-disable-' + id] = !enabled;
+      window.gtag('consent', 'update', { analytics_storage: enabled ? 'granted' : 'denied' });
+      if (enabled) {
+        pageView();
+        startPVUV();
+      } else if (saved) {
+        // Unload the SDKs only after the preference will survive the reload.
         location.reload();
       }
     },

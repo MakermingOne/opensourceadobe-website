@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-for (const width of [320, 1280]) test(`privacy choices gate analytics and preserve navigation at ${width}px`, async ({ page }) => {
+for (const width of [320, 1280]) test(`analytics runs by default and respects opt-outs at ${width}px`, async ({ page }) => {
   await page.setViewportSize({width, height:900});
   const requests: string[] = [];
   page.on('request', r => { if (/googletagmanager|google-analytics|pvuv\.ai|googlesyndication/.test(r.url())) requests.push(r.url()); });
@@ -8,14 +8,8 @@ for (const width of [320, 1280]) test(`privacy choices gate analytics and preser
   await page.goto('/?email=private@example.com#secret');
   // Local/preview builds intentionally have no analytics UI or loader.
   if (await page.locator('script[src="/site-analytics.js"]').count() === 0) { expect(requests).toEqual([]); return; }
-  await expect(page.getByRole('region', {name:'Privacy choices'})).toBeVisible();
-  expect(requests).toEqual([]);
+  await expect(page.getByRole('region', {name:'Privacy choices'})).toHaveCount(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.getByRole('button',{name:'Reject analytics',exact:true}).click();
-  await expect(page.getByRole('region',{name:'Privacy choices'})).toHaveCount(0);
-  expect(requests).toEqual([]);
-  await page.getByRole('button',{name:'Privacy choices',exact:true}).click();
-  await page.getByRole('button',{name:'Allow analytics',exact:true}).click();
   await expect.poll(()=>requests.filter(r=>r.includes('gtag/js')).length).toBe(1);
   await expect.poll(()=>requests.filter(r=>r.includes('www.pvuv.ai/f.js')).length).toBe(1);
   await page.getByRole('contentinfo').getByRole('link',{name:'About',exact:true}).click();
@@ -25,10 +19,18 @@ for (const width of [320, 1280]) test(`privacy choices gate analytics and preser
   expect(JSON.stringify(events)).not.toMatch(/private@example|secret/);
   expect(requests.some(r=>r.includes('googlesyndication'))).toBe(false);
   await page.getByRole('button',{name:'Privacy choices',exact:true}).click();
-  await page.getByRole('button',{name:'Reject analytics',exact:true}).click();
-  await page.waitForLoadState('domcontentloaded');
+  await Promise.all([
+    page.waitForEvent('domcontentloaded'),
+    page.getByRole('button',{name:'Turn off analytics',exact:true}).click(),
+  ]);
   await expect.poll(()=>page.evaluate(()=>window.sitePrivacy?.get())).toBe('rejected');
+  expect(await page.evaluate(() => 'gtag' in window)).toBe(false);
   expect(requests.filter(r=>r.includes('gtag/js'))).toHaveLength(1);
+  expect(requests.filter(r=>r.includes('www.pvuv.ai/f.js'))).toHaveLength(1);
+  await page.getByRole('button',{name:'Privacy choices',exact:true}).click();
+  await page.getByRole('button',{name:'Turn on analytics',exact:true}).click();
+  await expect.poll(()=>requests.filter(r=>r.includes('gtag/js')).length).toBe(2);
+  await expect.poll(()=>requests.filter(r=>r.includes('www.pvuv.ai/f.js')).length).toBe(2);
 });
 
 test('translated footers link to real publisher and privacy pages', async ({ page }) => {
@@ -44,8 +46,6 @@ test('YouTube does not load a player until requested', async ({ page }) => {
   await expect(page.locator('iframe')).toHaveCount(0);
   await page.locator('.learning-player summary').first().click();
   await expect(page.locator('iframe')).toHaveCount(0);
-  const reject = page.getByRole('button',{name:'Reject analytics',exact:true});
-  if (await reject.isVisible()) await reject.click();
   await page.getByRole('button',{name:'Load YouTube video',exact:true}).first().click();
   await expect(page.locator('iframe')).toHaveCount(1);
 });
